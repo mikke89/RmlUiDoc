@@ -14,19 +14,24 @@ A quick glance at some of the features added in {{page.lib_name}} since libRocke
  * [Border property shorthand](rcss/box_model.html#border-shorthands)
  * [:checked pseudo class](rcss/selectors.html)
 
-### Various changes
+Other, smaller features include:
 
- * Unlike the original branch, elements with
+ * Elements with
 ```css
 display: inline-block;
+width: auto;
 ```
-will shrink to the width of their content, like in CSS.
+will now shrink to the width of their content, like in CSS.
 
  * The slider on the `input.range` element can be dragged from anywhere in the element.
  
- * The `font-size` property now accepts a \<length\> value instead of \<number\>, like in CSS.
+
+
+#### Breaking Changes
 
  * `{{page.lib_ns}}::Core::SystemInterface::GetElapsedTime()` now returns `double` instead of `float`.
 ```cpp
 virtual double GetElapsedTime();
 ```
+ * The `font-size` property no longer accepts a unit-less \<number\>, instead add the `px` unit for equivalent behavior. The new behavior is consistent with CSS.
+ * The old functionality for setting and drawing mouse cursors has been replaced by a new function call to the [system interface](cpp_manual/interfaces.html#the-system-interface), thereby allowing the user to set the system cursor.

@@ -4,25 +4,17 @@ title: User interface
 parent: rcss
 ---
 
-### Cursors: the 'cursor' property
+### Mouse cursor: the 'cursor' property
 
 *cursor*
 
-Value: | \<string\> \| auto
-Initial: | auto
+Value: | \<string\>
+Initial: | *empty*
 Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-This property defines the cursor to display while the mouse is hovering over the element. Values have the following meanings:
-
-auto
->The default cursor is used. 
-
-string
->The RML document loaded as a cursor and with \<string\> as a title is used as a cursor. If none exists, the default cursor is used. 
-
-Cursors can be loaded into {{page.lib_name}} using the {{page.lib_ns}}::Core::Context::LoadCursor() function.
+This property defines the cursor to display while the mouse is hovering over the element. The value is submitted directly through the [system interface](../cpp_manual/interfaces.html#the-system-interface) if the element's [context](../cpp_manual/contexts.html#mouse-cursor) is set to enable cursors.
 
 ### Pointer events: the 'pointer-events' property
 

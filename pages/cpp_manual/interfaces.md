@@ -52,7 +52,7 @@ The `Read()` function should read size bytes from the file, starting at the curr
 
 ### The system interface
 
-The system interfaces controls how {{page.lib_name}} tells the time, and allows your application to translate strings and output logging messages generated from the library. {{page.lib_name}} always needs a custom system interface, however the only function you need to define is `GetElapsedTime()`, the others are optional.
+The system interface is needed for {{page.lib_name}} to tell the time, and allows the application to perform common tasks such as logging messages from {{page.lib_name}}, translating strings, and setting the mouse cursor. A system interface is necessary, however the only function you need to define is `GetElapsedTime()`.
 
 The system interface is given in `<{{page.lib_dir}}/Core/SystemInterface.h>`{:.incl}. To develop a custom system interface, create a class derived from `{{page.lib_ns}}::Core::SystemInterface` and provide function definitions for the one pure virtual function:
 
@@ -61,7 +61,7 @@ The system interface is given in `<{{page.lib_dir}}/Core/SystemInterface.h>`{:.i
 virtual double GetElapsedTime() = 0;
 ```
 
-Provide function definitions for the other virtual functions if required:
+Provide function definitions for the other virtual functions if required, the most common ones being:
 
 ```cpp
 // Translate the input string into the translated string.
@@ -69,17 +69,20 @@ virtual int TranslateString({{page.lib_ns}}::Core::String& translated, const {{p
 
 // Log the specified message.
 virtual bool LogMessage({{page.lib_ns}}::Core::Log::Type type, const {{page.lib_ns}}::Core::String& message);
+
+// Set the mouse cursor.
+virtual void SetMouseCursor(const String& cursor_name);
 ```
 
 The `GetElapsedTime()` function should simply return the number of seconds that have elapsed since the start of the application.
 
-`TranslateString()` is called whenever a text element is constructed from an RML stream. This allows the application to send all text read from file through its string tables.
-
-`input` is the raw text read from the RML. translated should be set to the final text to be given to the text element to render. The total number of changes made to the raw text should be returned; If the number is greater than 0, {{page.lib_name}} will recursively call your translate function to process any new text that was added to the stream (watchout for infinite recursion). If your translation function does all the recursion itself, you can safely return 0 on every call.
+`TranslateString()` is called when a text element is constructed from an RML stream. This allows the application to send all text read from file through its string tables. The parameter `input` is the raw text read from the RML, while `translated` should be set to the final text to be given to the text element to render. The total number of changes made to the raw text should be returned. If the number is greater than 0, {{page.lib_name}} will recursively call your translate function to process any new text that was added to the stream (watch out for infinite recursion). If your translation function does all the recursion itself, you can safely return 0 on every call.
 
 Note that the translated text can include RML tags and they will be processed as if they were in the original stream; this can be used, for example, to substitute images for certain tokens.
 
-The `LogMessage()` function is called whenever {{page.lib_name}} generates a message. type is one of the logging type, `{{page.lib_ns}}::Core::Log::ERROR` for error messages, `{{page.lib_ns}}::Core::Log::ASSERT` for failed internal assertions (debug library only), `{{page.lib_ns}}::Core::Log::WARNING` for non-fatal warnings, or `{{page.lib_ns}}::Core::Log::INFO` for generic information messages. The message parameter is the actual message itself. The function should return true if program execution should continue, or false to generate an interrupt to break execution. This can be useful if you are running inside a debugger to see exactly what an application is doing to trigger a certain message.
+The `LogMessage()` function is called when {{page.lib_name}} generates a message. Here, `type` is one of `{{page.lib_ns}}::Core::Log::ERROR` for error messages, `{{page.lib_ns}}::Core::Log::ASSERT` for failed internal assertions (debug library only), `{{page.lib_ns}}::Core::Log::WARNING` for non-fatal warnings, or `{{page.lib_ns}}::Core::Log::INFO` for generic information messages. The `message` parameter is the actual message itself. The function should return true if program execution should continue, or false to generate an interrupt to break execution. This can be useful if you are running inside a debugger to see exactly what an application is doing to trigger a certain message.
+
+The `SetMouseCursor()` function is called when {{page.lib_name}} wants to change the mouse cursor. This behavior is controlled by the ['cursor' property](../rcss/user_interface.html#cursors-the-cursor-property), the value of which is directly sent through the interface as the `cursor_name`. The user is responsible for setting the system cursor or otherwise rendering the cursor as desired. The default value for the 'cursor' property is an empty string, thus, this can be used to set a default cursor. It is possible to choose for each context whether it should call this function, see [context cursor](contexts.html#mouse-cursor) for additional details.
 
 ### The render interface
 

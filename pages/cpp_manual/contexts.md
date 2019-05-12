@@ -95,36 +95,19 @@ ElementDocument* CreateDocument(const {{page.lib_ns}}::Core::String& tag = "docu
 
 The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a `{{page.lib_ns}}::Core::ElementDocument` is instanced, it will be added to the context and returned.
 
-### Cursors
+### Mouse cursor
 
-Each context maintains a list of cursors that can be used to represent the mouse cursor. Regardless of the number of cursors loaded into a context, only one cursor is rendered at a time. The default cursor is the first element to be loaded; this will be the visible cursor unless an element overrides it through the ['cursor' property](../rcss/user_interface.html#cursors-the-cursor-property).
+Each context can propagate the mouse cursor name to the user through the [system interface](interfaces.html#the-system-interface). The cursor name is set on an element through the  ['cursor' property](../rcss/user_interface.html#cursors-the-cursor-property). When the cursor name changes, the new name is sent though the interface.
 
-#### Loading cursors
-
-Mouse cursors can be loaded into a context using the `LoadMouseCursor()` function.
-
+In the case of multiple contexts, it might be convenient for only a single context to handle the mouse cursor. The following function can be used to control this behavior:
 ```cpp
-// Loads a document as a mouse cursor within this context.
-// @param[in] cursor_document_path The path to the document to load as a cursor.
-// @return The loaded cursor document, or NULL if no document was loaded.
-{{page.lib_ns}}::Core::ElementDocument* LoadMouseCursor(const {{page.lib_ns}}::Core::String& cursor_document_path);
+/// Enable or disable handling of the mouse cursor from this context.
+/// When enabled, changes to the cursor name is transmitted through the system interface.
+/// @param[in] show True to enable mouse cursor handling, false to disable.
+void EnableMouseCursor(bool enable);
 ```
+By default it is enabled.
 
-Cursors are documents themselves, and are loaded the same way internally. Any valid RML document can be loaded as a document; of course, you're most likely to want a simple document with an image decorator, but you're not limited to this!
-
-Note that the cursor's 'name' is the title of its document. This is the name you'll use to specify it through the `cursor`{:.prop} property.
-
-#### Sharing cursors
-
-Mouse cursors can also be shared across contexts with the `AddMouseCursor()` function.
-
-```cpp
-// Adds a previously-loaded cursor document as a mouse cursor within this context.
-// @param[in] cursor_document The document to add as a cursor into this context.
-void AddMouseCursor({{page.lib_ns}}::Core::ElementDocument* cursor_document);
-```
-
-Call `AddMouseCursor()` with a cursor loaded into another context.
 
 ### Events
 
