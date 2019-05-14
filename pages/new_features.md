@@ -33,5 +33,6 @@ will now shrink to the width of their content, like in CSS.
 ```cpp
 virtual double GetElapsedTime();
 ```
- * The `font-size` property no longer accepts a unit-less \<number\>, instead add the `px` unit for equivalent behavior. The new behavior is consistent with CSS.
- * The old functionality for setting and drawing mouse cursors has been replaced by a new function call to the [system interface](cpp_manual/interfaces.html#the-system-interface), thereby allowing the user to set the system cursor.
+ * The `font-size`{:.prop} property no longer accepts a unit-less `<number>`{:.value}, instead add the `px`{:.value} unit for equivalent behavior. The new behavior is consistent with CSS.
+ 
+ * The [old functionality](https://barotto.github.io/libRocketDoc/pages/cpp_manual/contexts.html#cursors) for setting and drawing mouse cursors has been replaced by a new function call to the [system interface](cpp_manual/interfaces.html#the-system-interface), thereby allowing the user to set the system cursor.
