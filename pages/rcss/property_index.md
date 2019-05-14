@@ -21,7 +21,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `clear`{:.prop} | left \| right \| both \| none | none | block-level elements | no | N/A | 
 `clip`{:.prop} | \<number\> \| auto \| none | auto | all | yes | N/A | Controls interaction with ancestor element's clipping regions.
 `color`{:.prop} | \<colour\> | black | all | yes | N/A | 
-`cursor`{:.prop} | \<string\> \| auto | auto | all | yes | N/A | \<string\> refers to title of cursor document.
+`cursor`{:.prop} | \<string\> | _empty_ | all | yes | N/A | \<string\> refers an application specific cursor name.
 `display`{:.prop} | inline \| block \| inline-block \| none | inline | all | no | N/A | 
 `drag`{:.prop} | none \| drag \| drag-drop \| block | none | all | no | N/A | Introduced for RCSS. Controls generation of drag messages.
 `font`{:.prop} | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} `font-charset`{:.prop} | | | | | 
