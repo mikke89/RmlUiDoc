@@ -4,7 +4,7 @@ title: Embedding Python script
 parent: python_manual
 ---
 
-When using the Python plugin, Python code can be embedded into RML files. Inline responses to events are executed as Python code. Functions, structures and variables can be declared or included with the `<script>` tag, then referenced from the inline code.
+When using the Python plugin, Python code can be embedded into RML files. Inline responses to events are executed as Python code. Functions, structures and variables can be declared or included with the `<script>`{:.tag} tag, then referenced from the inline code.
 
 ### Inline event responses
 
@@ -21,9 +21,9 @@ Separate lines can be separated by semi-colons like Javascript.
 ```
 Three global variables are accessible to inline event handlers. These are:
 
-* *event*: The event currently being processed (ie, the event that triggered the handler).
-* *self*: The element currently responding to the event.
-* *document*: The owner document of the current element. 
+* `event`: The event currently being processed (ie, the event that triggered the handler).
+* `self`: The element currently responding to the event.
+* `document`: The owner document of the current element. 
 
 ```html
 <button onclick="print self.tag_name" />
@@ -34,7 +34,7 @@ See the [element](elements.html), [document](documents.html) and [event](events.
 
 ### Embedding Python into RML
 
-Python code can be embedded into an RML document with the `<script>` tag. Similarly to Javascript, the script can be included from a separate file with the src attribute, or otherwise declared inline as loose content within the `<script>` tag. Any code embedded in this manner will be compiled with the document and will be available to inline event handlers in the RML. For example, the following document declares a Python function in the `<script>` tag and calls it from an element's onclick hander.
+Python code can be embedded into an RML document with the `<script>`{:.tag} tag. Similarly to Javascript, the script can be included from a separate file with the src attribute, or otherwise declared inline as loose content within the `<script>`{:.tag} tag. Any code embedded in this manner will be compiled with the document and will be available to inline event handlers in the RML. For example, the following document declares a Python function in the `<script>`{:.tag} tag and calls it from an element's onclick hander.
 
 ```html
 <rml>
@@ -52,7 +52,7 @@ def Test():
 
 Python code declared inline in an RML file like this must begin at the beginning of the line like a normal Python file.
 
-The following sample imports the test.py file instead of declaring the script inline (it is assumed the Python file declares a Test() function).
+The following sample imports the `test.py`{:.path} file instead of declaring the script inline (it is assumed the Python file declares a `Test()` function).
 
 ```html
 <rml>
@@ -65,4 +65,4 @@ The following sample imports the test.py file instead of declaring the script in
 </rml>
 ```
 
-A document can include multiple `<script>` tags. 
+A document can include multiple `<script>`{:.tag} tags. 

@@ -53,12 +53,24 @@ blockquote p
 
 h1,h2,h3,h4,h5,h6 { margin: 25px 0 15px 0; }
 
-.path, .incl, .tag, .attr, .prop
+dt
+{
+	margin-bottom: 0.5em;
+}
+
+dd
+{
+	margin-bottom: 1em;
+	padding-left: 1em;
+	border-left: 3px solid #F7F7F9;
+}
+
+.path, .incl, .tag, .attr, .prop, .value, .cls, .evt
 {
 	border: none;
 }
 
-.path, .incl
+.path, .incl, .value, .cls
 {
 	color: black;
 }
@@ -66,4 +78,9 @@ h1,h2,h3,h4,h5,h6 { margin: 25px 0 15px 0; }
 .tag, .attr, .prop
 {
 	color: blue;
+}
+
+.evt
+{
+	color: green;
 }

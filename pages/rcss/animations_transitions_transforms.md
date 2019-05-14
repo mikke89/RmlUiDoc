@@ -6,7 +6,7 @@ parent: rcss
 
 ### Transform property
 
-Use `perspective`, `perspective-origin`, `transform` and `transform-origin` in RCSS, roughly equivalent to their respective CSS properties.
+Use `perspective`{:.prop}, `perspective-origin`{:.prop}, `transform`{:.prop} and `transform-origin`{:.prop} in RCSS, roughly equivalent to their respective CSS properties.
 
 ```css
 perspective: 1000px;
@@ -73,22 +73,22 @@ Animations can also be specified entirely in RCSS, with keyframes.
 ```css
 animation: <duration> <delay> <tweening-function> <num_iterations|infinite> <alternate> <paused> <keyframes-name>;
 ```
-All values, except `<duration>` and `<keyframes-name>`, are optional. Delay must be specified after duration, otherwise values can be given in any order. Keyframes are specified as in CSS, see example below. Multiple animations can be specified on the same element by using a comma-separated list.
+All values, except `<duration>`{:.value} and `<keyframes-name>`{:.value}, are optional. `delay`{:.value} must be specified after `<duration>`{:.value}, otherwise values can be given in any order. Keyframes are specified as in CSS, see example below. Multiple animations can be specified on the same element by using a comma-separated list.
 
-Tweening functions (or in CSS lingo, `animation-timing-function`s) specify how the animated value progresses during the animation cycle. A tweening function in RCSS is specified as `<name>-in`, `<name>-out`, or `<name>-in-out`, with one of the following names,
-```
-back
-bounce
-circular
-cubic
-elastic
-exponential
-linear
-quadratic
-quartic
-quintic
-sine
-```
+Tweening functions (or in CSS lingo, `animation-timing-function`{:.prop}s) specify how the animated value progresses during the animation cycle. A tweening function in RCSS is specified as `<name>-in`{:.prop}, `<name>-out`{:.prop}, or `<name>-in-out`{:.prop}, with one of the following names,
+
+* `back`{:.value}
+* `bounce`{:.value}
+* `circular`{:.value}
+* `cubic`{:.value}
+* `elastic`{:.value}
+* `exponential`{:.value}
+* `linear`{:.value}
+* `quadratic`{:.value}
+* `quartic`{:.value}
+* `quintic`{:.value}
+* `sine`{:.value}
+
 
 RCSS example usage:
 
@@ -127,7 +127,7 @@ Transitions apply an animation between two property values on an element when it
 ```css
 transition: <space-separated-list-of-properties|all|none> <duration> <delay> <tweening-function>;
 ```
-The property list specifies the properties to be animated. Delay and tweening-function are optional. Delay must be specified after duration, otherwise values can be given in any order. Multiple transitions can be specified on the same element by using a comma-separated list. The tweening function is specified as in the `animation` RCSS property.
+The property list specifies the properties to be animated. `delay`{:.value} and `tweening-function`{:.value} are optional. `delay`{:.value} must be specified after `duration`{:.value}, otherwise values can be given in any order. Multiple transitions can be specified on the same element by using a comma-separated list. The tweening function is specified as in the `animation`{:.prop} RCSS property.
 
 
 Example usage:

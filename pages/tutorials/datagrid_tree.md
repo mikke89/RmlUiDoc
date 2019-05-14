@@ -3,7 +3,7 @@ layout: page
 title: Datagrid Tree Tutorial
 ---
 
-This tutorial expects that you've got a solid grounding in C++ and know the basics of RML and RCSS, and know the basics of datagrids (ie, completed the first [datagrid tutorial](datagrid.html).)
+This tutorial expects that you've got a solid grounding in C++ and know the basics of [RML](../rml.html) and [RCSS](../rcss.html), and know the basics of datagrids (ie, completed the first [datagrid tutorial](datagrid.html).)
 
 ### Step 1: The Plan
 
@@ -17,7 +17,7 @@ A row's child rows are displayed directly underneath the row itself. By default 
 
 #### The revised HighScores
 
-Take a look at the HighScores class and see its changes from the first datagrid tutorial. The changes to the definition are the addition of the NUM_ALIEN_TYPES variable and the addition of the alien_kills variable to the SubmitScore function and the Score struct:
+Take a look at the HighScores class and see its changes from the first datagrid tutorial. The changes to the definition are the addition of the `NUM_ALIEN_TYPES` variable and the addition of the alien_kills variable to the `SubmitScore()` function and the Score struct:
 
 ```cpp
 const int NUM_ALIEN_TYPES = 3;
@@ -39,13 +39,13 @@ struct Score
 };
 ```
 
-The alien_kills array stores how many of each type of alien the player killed to get his score. This is what we'll be basing the new part of the chart from. The cpp file contains changes to the SubmitScore and LoadScores function to reflect the new data on the alien kills.
+The alien_kills array stores how many of each type of alien the player killed to get his score. This is what we'll be basing the new part of the chart from. The cpp file contains changes to the `SubmitScore()` and `LoadScores()` function to reflect the new data on the alien kills.
 
 ### Step 2: Improving the Data Source
 
 #### Specifying the child data source
 
-So first of all we need to make the data source aware of the child rows. The best way to do this is to add more tables to the HighScores data source: one table for each row. So in the GetRow function, when we're checking what the columns are, we need to add one more check in - the check for the child data source. I added this code in after the "wave" check:
+So first of all we need to make the data source aware of the child rows. The best way to do this is to add more tables to the `HighScores` data source: one table for each row. So in the `GetRow()` function, when we're checking what the columns are, we need to add one more check in - the check for the child data source. I added this code in after the "wave" check:
 
 ```cpp
 else if (columns[i] == {{page.lib_ns}}::Core::DataSource::CHILD_SOURCE)
@@ -54,13 +54,13 @@ else if (columns[i] == {{page.lib_ns}}::Core::DataSource::CHILD_SOURCE)
 }
 ```
 
-This tells the calling datagrid that this row's child data source is "high_scores" (the same source that we're editing) and the table is called player_X. So now at the top of the GetRow and GetNumRows functions we now have to check for that table as well.
+This tells the calling datagrid that this row's child data source is `high_scores`{:.value} (the same source that we're editing) and the table is called `player_X`{:.value}. So now at the top of the `GetRow()` and `GetNumRows()` functions we now have to check for that table as well.
 
-You may be wondering where the {{page.lib_ns}}::Core::DataSource::CHILD_SOURCE variable came from! It's one of three predefined variables that can be used as column names and in the fields attribute in the col definition. The other two are DEPTH and NUM_CHILDREN. DEPTH returns the depth of the row and can be used by data formatters to draw something different for each row. NUM_CHILDREN returns the number of children under each row, and is most often used to know when to draw a '+' button to expand the row. We'll be using NUM_CHILDREN later.
+You may be wondering where the `{{page.lib_ns}}::Core::DataSource::CHILD_SOURCE` variable came from! It's one of three predefined variables that can be used as column names and in the fields attribute in the col definition. The other two are `DEPTH` and `NUM_CHILDREN`. `DEPTH` returns the depth of the row and can be used by data formatters to draw something different for each row. `NUM_CHILDREN` returns the number of children under each row, and is most often used to know when to draw a '+' button to expand the row. We'll be using `NUM_CHILDREN` later.
 
 #### Adding the player tables
 
-So now we need to add the extra tables into the data source. This can be done by adding an else statement in the GetRow and GetNumRows functions to catch all calls to tables that aren't "scores", then reading off the name which row it is exactly that's being queried.
+So now we need to add the extra tables into the data source. This can be done by adding an else statement in the `GetRow()` and `GetNumRows()` functions to catch all calls to tables that aren't `scores`{:.value}, then reading off the name which row it is exactly that's being queried.
 
 ```cpp
 else
@@ -73,7 +73,7 @@ else
 }
 ```
 
-For the GetNumRows function I wanted it only to return the number of alien types with actual kills, so if the player hasn't killed any of a certain type then we don't return that. Then is the code I ended up with:
+For the `GetNumRows()` function I wanted it only to return the number of alien types with actual kills, so if the player hasn't killed any of a certain type then we don't return that. Then is the code I ended up with:
 
 ```cpp
 int player_index;
@@ -91,7 +91,7 @@ if (sscanf(table.CString(), "player_%d", &player_index) == 1)
 }
 ```
 
-The GetRows function is, of course, a bit more complicated. In the "name" column we want it to display the name of the alien vessel. In the "score" column we can put the score of the alien that was destroyed. Under the "colour" column we'll want to display the image of the bad guy - we can upgrade the defender decorator to handle this. And finally the "wave" column will show how many of the little blighters the player managed to frag. Here's my code:
+The `GetRows()` function is, of course, a bit more complicated. In the `name`{:.value} column we want it to display the name of the alien vessel. In the `score`{:.value} column we can put the score of the alien that was destroyed. Under the `colour`{:.value} column we'll want to display the image of the bad guy - we can upgrade the defender decorator to handle this. And finally the "wave" column will show how many of the little blighters the player managed to frag. Here's my code:
 
 ```cpp
 else
@@ -157,15 +157,15 @@ Open the tutorial.rml file in the data folder, and look at where the datagrid is
 </datagrid>
 ```
 
-Of course we've no formatter called "expand_button", we'll have to create that later. The "#num_children" field corresponds to the {{page.lib_ns}}::Core::DataSource::NUM_CHILDREN string - we use this to ask the data source about its number of children. I took 10% width out of the Pilot column to make room. So, fire this up and see what we get:
+Of course we've no formatter called `expand_button`{:.value}, we'll have to create that later. The `#num_children`{:.value} field corresponds to the `{{page.lib_ns}}::Core::DataSource::NUM_CHILDREN` string - we use this to ask the data source about its number of children. I took 10% width out of the Pilot column to make room. So, fire this up and see what we get:
 
 ![datagrid_tree_1.gif](datagrid_tree_1.gif)
 
-As you can see, we haven't got our "expand_button" formatter yet so it falls back to displaying the raw text output, in this case the number of children.
+As you can see, we haven't got our `expand_button`{:.value} formatter yet so it falls back to displaying the raw text output, in this case the number of children.
 
 #### Creating the data formatter
 
-Naturally, the next step is to create the data formatter! This one is pretty simple - all it does it read the first entry of the raw_data array to see how many children there are. If there is at least one child, then we return a <datagridexpand> element, otherwise we return nothing:
+Naturally, the next step is to create the data formatter! This one is pretty simple - all it does it read the first entry of the raw_data array to see how many children there are. If there is at least one child, then we return a `<datagridexpand>`{:.tag} element, otherwise we return nothing:
 
 ```cpp
 void ExpandButtonFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data)
@@ -187,19 +187,19 @@ void ExpandButtonFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_
 }
 ```
 
-The datagridexpand element is an element that listens to the onclick events and toggles the visibility of the child rows of its parent row. In the RML there's been styling added to make it look like a +/- button - you'll have to style one yourself just like a button if you plan on using trees in your own application.
+The `<datagridexpand>`{:.tag} element is an element that listens to the `click`{:.evt} events and toggles the visibility of the child rows of its parent row. In the RML there's been styling added to make it look like a +/- button - you'll have to style one yourself just like a button if you plan on using trees in your own application.
 
-Don't forget to call the formatter the right name, and to instance the formatter in main.cpp. Once that's done, fire it up and you'll see the expand buttons beside each row, and be able to expand the child rows:
+Don't forget to call the formatter the right name, and to instance the formatter in `main.cpp`{:.path}. Once that's done, fire it up and you'll see the expand buttons beside each row, and be able to expand the child rows:
 
 ### Step 4: Styling
 
-All that remains is upgrading the defender decorator to support displaying different images. The project's already been set up in a way so that if we give the defender element the classes of alien_1, alien_2 or alien_3 then it'll display with the image of that alien instead of the defender. We should probably rename that element too, as it's a bit of misnomer now, but we'll leave that till later. :) If we make a new field - type - and pass that into the defender decorator as well, we can get then defender to allocate the right class to get it to display the corresponding image. So, in tutorial.rml:
+All that remains is upgrading the defender decorator to support displaying different images. The project's already been set up in a way so that if we give the defender element the classes of `alien_1`{:.cls}, `alien_2`{:.cls} or `alien_3`{:.cls} then it'll display with the image of that alien instead of the defender. We should probably rename that element too, as it's a bit of misnomer now, but we'll leave that till later. :) If we make a new field - type - and pass that into the defender decorator as well, we can get then defender to allocate the right class to get it to display the corresponding image. So, in `tutorial.rml`{:.path}:
 
 ```html
 <col fields="colour,type" formatter="ship" width="20%">Ship:</col>
 ```
 
-And in the GetRow function in HighScores.cpp, for the "scores" table, right after the "colour" check:
+And in the GetRow function in `HighScores.cpp`{:.path}, for the `scores`{:.value} table, right after the "colour" check:
 
 ```cpp
 else if (columns[i] == "type")
@@ -208,7 +208,7 @@ else if (columns[i] == "type")
 }
 ```
 
-And in the same function, for the "player_X" table:
+And in the same function, for the `player_X`{:.value} table:
 
 ```cpp
 else if (columns[i] == "type")

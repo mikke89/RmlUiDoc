@@ -8,11 +8,11 @@ Styles can be included in an RML document in three ways: included from an extern
 
 ### External Style Sheets
 
-Style sheets are included from an external source with the LINK tag. See [Link Element](documents.html#link-element).
+Style sheets are included from an external source with the `<link>`{:.tag} tag. See [Link Element](documents.html#link).
 
 ### Header Style Information
 
-RCSS can be included directly inside the header, with the STYLE tag.
+RCSS can be included directly inside the header, with the `<style>`{:.tag} tag.
 
 *No attributes*
 
@@ -20,8 +20,7 @@ RCSS can be included directly inside the header, with the STYLE tag.
 
 RCSS can be declared directly inside an element with the style attribute.
 
-*Attributes*
+_Attributes_
 
-**style** = style (CN)
-
->This attribute specifies a list of RCSS properties to be applied to the current element.
+`style`{:.attr} = style (CN)
+: This attribute specifies a list of RCSS properties to be applied to the current element.

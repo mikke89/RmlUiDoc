@@ -10,13 +10,13 @@ The shadow font effect renders a coloured copy of text with an offset, giving th
 
 The effect has the following properties:
 
-*offset-x*
+`<name>-offset-x`{:.prop}
 
 Value: | \<number\>
 Initial: | 0
 Percentages: | N/A
 
-*offset-y*
+`<name>-offset-y`{:.prop}
 
 Value: | \<number\>
 Initial: | 0
@@ -24,7 +24,7 @@ Percentages: | N/A
 
 These properties define the offset, in pixels, between the source text and the shadow.
 
-*offset*
+`<name>-offset`{:.prop}
 
 A shorthand property for setting offset-x and offset-y.
 
@@ -32,8 +32,8 @@ A shorthand property for setting offset-x and offset-y.
 /* Declares a font effect shadow. */
 h1
 {
-    header-font-effect: shadow;
-    header-offset: 2px 2px;
-    header-colour: black;
+	header-font-effect: shadow;
+	header-offset: 2px 2px;
+	header-colour: black;
 }
 ```

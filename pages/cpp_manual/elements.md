@@ -27,7 +27,7 @@ Most elements will have one box, except if they represent inline content split o
 
 ### Position
 
-Elements measure their position as a pixel offset from a containing ancestor element. The containing element, referred to as the offset parent, is generally the element's closest ancestor with a 'position' value other than 'static'. To get an element's offset parent, call the `GetOffsetParent()` function.
+Elements measure their position as a pixel offset from a containing ancestor element. The containing element, referred to as the offset parent, is generally the element's closest ancestor with a `position`{:.prop} value other than `static`{:.value}. To get an element's offset parent, call the `GetOffsetParent()` function.
 
 ```cpp
 // Returns the element from which all offset calculations are currently computed.
@@ -85,11 +85,11 @@ void SetPseudoClass(const {{page.lib_ns}}::Core::String& pseudo_class, bool acti
 
 Applications can make use of any pseudo-classes they wish for their own styling needs. However, {{page.lib_name}} maintains several pseudo-classes internally and it is not recommended you set or clear them yourself. These classes are:
 
-* _hover_: Set when the mouse cursor is positioned over the element.
-* _active_: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
-* _focus_: Set if an element has input focus. Usually this occurs when the element is clicked on.
-* _disabled_: Set on a disabled [form control](controls/form.html). 
-* _checked_: Set on a selected element of a [drop-down list control](controls/form.html#drop-down-select-box).
+* `hover`{:.cls}: Set when the mouse cursor is positioned over the element.
+* `active`{:.cls}: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
+* `focus`{:.cls}: Set if an element has input focus. Usually this occurs when the element is clicked on.
+* `disabled`{:.cls}: Set on a disabled [form control](controls/form.html). 
+* `checked`{:.cls}: Set on a selected element of a [drop-down list control](controls/form.html#drop-down-select-box).
 
 ### DOM interface
 
@@ -97,57 +97,57 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 
 | {{page.lib_name}} functions | Brief description | Equivalent DOM property |
 |------------------|-------------------|-------------------------|
-| GetAbsoluteLeft() | The distance from the context's left edge and the element's left border.
-| GetAbsoluteTop() | The distance from the context's top edge and the element's top border.
-| SetAttribute(), GetAttribute() | All attributes associated with an element. | attributes
-| GetChild(), GetNumChildren() | All child nodes of an element. | childNodes
-| IsClassSet(), SetClass() | Gets/sets the class of the element. | className
-| GetClientHeight() | The inner height of an element. | clientHeight
-| GetClientLeft() | The width of the left border of an element. | clientLeft
-| GetClientTop() | The width of the top border of an element. | clientTop
-| GetClientWidth() | The inner width of an element. | clientWidth
-| GetFirstChild() | The first direct child node of an element. | firstChild
-| GetId(), SetId() | Gets/sets the id of the element. | id
-| GetInnerRML(), SetInnerRML() | Gets/sets the markup and content of the element. | innerHTML
-| GetLastChild() | The last direct child node of an element. | lastChild
-| GetNextSibling() | The node immediately following the given one in the tree. | nextSibling
-| GetOffsetHeight() | The height of an element, relative to the layout. | offsetHeight
-| GetOffsetLeft() | The distance from this element's left border to its offset parent's left border. | offsetLeft
-| GetOffsetParent() | The element from which all offset calculations are currently computed. | offsetParent
-| GetOffsetTop() | The distance from this element's top border to its offset parent's top border. | offsetTop
-| GetOffsetWidth() | The width of an element, relative to the layout. | offsetWidth
-| GetOwnerDocument() | The document that this node is in. | ownerDocument
-| GetParentNode() | The parent element of this node. | parentNode
-| GetPreviousSibling() | The node immediately preceding the given one in the tree. | previousSibling
-| GetScrollHeight() | The scroll view height of an element. | scrollHeight
-| GetScrollLeft() | Gets/sets the left scroll offset of an element. | scrollLeft
-| GetScrollTop() | Gets/sets the top scroll offset of an element. | scrollTop
-| GetScrollWidth() | The scroll view width of an element. | scrollWidth
-| GetProperty(), SetProperty() | An object representing the declarations of an element's style attributes. | style
-| GetTagName() | The name of the tag for the given element. | tagName
+| `GetAbsoluteLeft()` | The distance from the context's left edge and the element's left border.
+| `GetAbsoluteTop()` | The distance from the context's top edge and the element's top border.
+| `SetAttribute()`, GetAttribute() | All attributes associated with an element. | attributes
+| `GetChild()`, GetNumChildren() | All child nodes of an element. | childNodes
+| `IsClassSet()`, SetClass() | Gets/sets the class of the element. | className
+| `GetClientHeight()` | The inner height of an element. | clientHeight
+| `GetClientLeft()` | The width of the left border of an element. | clientLeft
+| `GetClientTop()` | The width of the top border of an element. | clientTop
+| `GetClientWidth()` | The inner width of an element. | clientWidth
+| `GetFirstChild()` | The first direct child node of an element. | firstChild
+| `GetId()`, `SetId()` | Gets/sets the id of the element. | id
+| `GetInnerRML()`, SetInnerRML() | Gets/sets the markup and content of the element. | innerHTML
+| `GetLastChild()` | The last direct child node of an element. | lastChild
+| `GetNextSibling()` | The node immediately following the given one in the tree. | nextSibling
+| `GetOffsetHeight()` | The height of an element, relative to the layout. | offsetHeight
+| `GetOffsetLeft()` | The distance from this element's left border to its offset parent's left border. | offsetLeft
+| `GetOffsetParent()` | The element from which all offset calculations are currently computed. | offsetParent
+| `GetOffsetTop()` | The distance from this element's top border to its offset parent's top border. | offsetTop
+| `GetOffsetWidth()` | The width of an element, relative to the layout. | offsetWidth
+| `GetOwnerDocument()` | The document that this node is in. | ownerDocument
+| `GetParentNode()` | The parent element of this node. | parentNode
+| `GetPreviousSibling()` | The node immediately preceding the given one in the tree. | previousSibling
+| `GetScrollHeight()` | The scroll view height of an element. | scrollHeight
+| `GetScrollLeft()` | Gets/sets the left scroll offset of an element. | scrollLeft
+| `GetScrollTop()` | Gets/sets the top scroll offset of an element. | scrollTop
+| `GetScrollWidth()` | The scroll view width of an element. | scrollWidth
+| `GetProperty()`, `SetProperty()` | An object representing the declarations of an element's style attributes. | style
+| `GetTagName()` | The name of the tag for the given element. | tagName
 
 Supported methods have simply had their initial letter capitalised to match the rest of the {{page.lib_name}} API.
 
 | {{page.lib_name}} function | Brief description | Equivalent DOM method |
 |-----------------|-------------------|-----------------------|
-| AddEventListener() | Register an event handler to a specific event type on the element. | addEventListener()
-| AppendChild() | Insert a node as the last child node of this element. The newly parented node will be detached from its existing parent. | appendChild()
-| Blur() | Removes keyboard focus from the current element. | blur()
-| Click() | Simulates a click on the current element. | click()
-| DispatchEvent() | Dispatch an event to this node in the DOM. | dispatchEvent()
-| Focus() | Gives keyboard focus to the current element. | focus()
-| GetAttribute() | Retrieve the value of the named attribute from the current node. | getAttribute()
-| GetElementById() | Returns an object reference to the identified element. | getElementById()
-| GetElementsByTagName() | Retrieve a set of all descendant elements, of a particular tag name, from the current element. | getElementsByTagName()
-| HasAttribute() | Check if the element has the specified attribute, or not. | hasAttribute()
-| HasChildNodes() | Check if the element has any child nodes, or not. | hasChildNodes()
-| InsertBefore() | Inserts the first node before the second, child, node in the DOM. The newly parented node will be detached from its existing parent. | insertBefore()
-| RemoveAttribute() | Remove the named attribute from the current node. | removeAttribute()
-| RemoveChild() | Removes a child node from the current element. | removeChild()
-| RemoveEventListener() | Removes an event listener from the element. | removeEventListener()
-| ReplaceChild() | Replaces one child node in the current element with another. | replaceChild()
-| ScrollIntoView() | Scrolls the page until the element gets into the view. | scrollIntoView()
-| SetAttribute() | Set the value of the named attribute from the current node. | setAttribute()
+| `AddEventListener()` | Register an event handler to a specific event type on the element. | addEventListener()
+| `AppendChild()` | Insert a node as the last child node of this element. The newly parented node will be detached from its existing parent. | appendChild()
+| `Blur()` | Removes keyboard focus from the current element. | blur()
+| `Click()` | Simulates a click on the current element. | click()
+| `DispatchEvent()` | Dispatch an event to this node in the DOM. | dispatchEvent()
+| `Focus()` | Gives keyboard focus to the current element. | focus()
+| `GetAttribute()` | Retrieve the value of the named attribute from the current node. | getAttribute()
+| `GetElementById()` | Returns an object reference to the identified element. | getElementById()
+| `GetElementsByTagName()` | Retrieve a set of all descendant elements, of a particular tag name, from the current element. | getElementsByTagName()
+| `HasAttribute()` | Check if the element has the specified attribute, or not. | hasAttribute()
+| `HasChildNodes()` | Check if the element has any child nodes, or not. | hasChildNodes()
+| `InsertBefore()` | Inserts the first node before the second, child, node in the DOM. The newly parented node will be detached from its existing parent. | insertBefore()
+| `RemoveAttribute()` | Remove the named attribute from the current node. | removeAttribute()
+| `RemoveChild()` | Removes a child node from the current element. | removeChild()
+| `RemoveEventListener()` | Removes an event listener from the element. | removeEventListener()
+| `ReplaceChild()` | Replaces one child node in the current element with another. | replaceChild()
+| `ScrollIntoView()` | Scrolls the page until the element gets into the view. | scrollIntoView()
+| `SetAttribute()` | Set the value of the named attribute from the current node. | setAttribute()
 
 ### Dynamically creating elements
 
@@ -177,7 +177,7 @@ The function's parameters are:
 * `tag`: The tag the new element should have.
 * `attributes`: Any attributes you want the new element to be constructed with. This is a dictionary type. The attributes will be passed into the instancer and set on the element if instancing was successful. 
 
-For example, the following will instance a `div`{:.tag} element:
+For example, the following will instance a `<div>`{:.tag} element:
 
 ```cpp
 {{page.lib_ns}}::Core::Element* div_element = {{page.lib_ns}}::Core::Factory::InstanceElement(NULL,
@@ -377,7 +377,7 @@ A custom element can override the `OnAttributeChange()` or `OnPropertyChange()` 
 virtual void OnAttributeChange(const {{page.lib_ns}}::Core::AttributeNameList& changed_attributes);
 ```
 
-`OnPropertyChange()` is called whenever the value of a property (or group of properties) is changed. The names of the changed properties are passed into the function in the 'changed_properties' variable, which (like for `OnAttributeChange()`) is an STL set of strings.
+`OnPropertyChange()` is called whenever the value of a property (or group of properties) is changed. The names of the changed properties are passed into the function in the `changed_properties` variable, which (like for `OnAttributeChange()`) is an STL set of strings.
 
 ```cpp
 // Called when properties on the element are changed.

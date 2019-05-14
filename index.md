@@ -26,11 +26,11 @@ description: RmlUi's documentation
 
 ### Tutorials
 
-1. [Templating Rocket Invaders windows](pages/tutorials/window_template.html)
-2. [Setting up Rocket Invaders high scores](pages/tutorials/datagrid.html)
-3. [Adding subtrees to Rocket Invaders high scores](pages/tutorials/datagrid_tree.html)
-4. [Integrating Python with Rocket Invaders](pages/tutorials/python_event_system.html)
-5. [Implementing Drag & Drop](pages/tutorials/dragging.html)
+1. [Window templating](pages/tutorials/window_template.html) in the _Rocket Invaders from Mars_ demo.
+2. [Datagrid](pages/tutorials/datagrid.html): setting up _Rocket Invaders_ high scores.
+3. [Datagrid Tree](pages/tutorials/datagrid_tree.html): adding subtrees to _Rocket Invaders_ high scores.
+4. [Python Events](pages/tutorials/python_event_system.html): Integrating Python with _Rocket Invaders_.
+5. [Drag & Drop](pages/tutorials/dragging.html)
 
 ### Other
 

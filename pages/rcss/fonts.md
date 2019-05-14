@@ -16,7 +16,7 @@ NOTE: You will need to load all ttf files via the C++ or python interfaces befor
 
 #### Font family: the 'font-family' property
 
-*font-family*
+`font-family`{:.prop}
 
 Value: | \<string\>
 Initial: | undefined
@@ -28,7 +28,7 @@ This property specifies the name of a family of fonts to be used to render secti
 
 #### Font styling: the 'font-style' and 'font-weight' properties
 
-*font-style*
+`font-style`{:.prop}
 
 Value: | normal \| italic
 Initial: | normal
@@ -36,9 +36,9 @@ Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-The 'font-style' property can be used to request normal or italicised versions of a font from within a font-family. Note that RCSS does not yet support oblique font styles.
+This property can be used to request normal or italicised versions of a font from within a font-family. Note that RCSS does not yet support oblique font styles.
 
-*font-weight* 
+`font-weight`{:.prop} 
 
 Value: | normal \| bold
 Initial: | normal
@@ -46,11 +46,11 @@ Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-The 'font-weight' property can be used to request normal or bolded versions of a font from within a font-family. Note that RCSS only supports bold and non-bold fonts, and not different strengths of boldness.
+This property can be used to request normal or bolded versions of a font from within a font-family. Note that RCSS only supports bold and non-bold fonts, and not different strengths of boldness.
 
 #### Font size: the 'font-size' property
 
-*font-size*
+`font-size`{:.prop} 
 
 Value: | \<length\> \| \<percentage\>
 Initial: | 12px
@@ -60,15 +60,15 @@ Percentages: | N/A
 
 Values have the following meanings:
 
-length
->The font size is generated at the point size requested. For font-relative units (such as em), the font size is relative to the parent element's font size.
+`<length>`{:.value} 
+: The font size is generated at the point size requested. For font-relative units (such as `em`{:.value} ), the font size is relative to the parent element's font size.
 
-percentage
->The font size is generated at the point size of the element's parent's font, scaled by the percentage. 
+`<percentage>`{:.value} 
+: The font size is generated at the point size of the element's parent's font, scaled by the percentage. 
 
 #### Font charset: the 'font-charset' property
 
-*font-charset*
+`font-charset`{:.prop} 
 
 Value: | \<urange\>
 Initial: | U+0020-007E
@@ -76,9 +76,9 @@ Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-The 'font-charset' allows elements to request a font that is capable of rendering characters within a range (or ranges). Because fonts are rasterised and rendered to texture before they can be used, this can be quite useful in limiting the size of textures used by the font engine. For example, a large font used for titles could be restricted to only capital letters.
+This property allows elements to request a font that is capable of rendering characters within a range (or ranges). Because fonts are rasterised and rendered to texture before they can be used, this can be quite useful in limiting the size of textures used by the font engine. For example, a large font used for titles could be restricted to only capital letters.
 
-The value of 'font-charset' is a comma-separated list of Unicode ranges, each of which is in one of the * s:
+The value of `font-charset`{:.prop}  is a comma-separated list of Unicode ranges, each of which is in one of the forms:
 
 * U+xxxx, to specify a single character (where x is any hexadecimal digit).
 * U+xxxx-yyyy, to specify the range of xxxx through yyyy.

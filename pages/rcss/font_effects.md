@@ -8,11 +8,11 @@ Font effects are an extension to CSS for RCSS for applying effects, such as outl
 
 ### Properties
 
-Font effects are declared and configured within style sheets in exactly the same manner as decorators (except they are declared as 'font-effect' rather that 'decorator'), including the 'z-index' property to resolve an ambiguous render order. The only exceptions are noted below:
+Font effects are declared and configured within style sheets in exactly the same manner as decorators, except they are declared as `<name>-font-effect`{:.prop} rather that `<name>-decorator`{:.prop}, including the `z-index`{:.prop} property to resolve an ambiguous render order. The only exceptions are noted below:
 
 #### Colour
 
-All font effects have a 'color' property which is applied multiplicatively over the entire effect.
+All font effects have a `<name>-color`{:.prop} property which is applied multiplicatively over the entire effect.
 
 #### Inheritance
 
@@ -21,24 +21,24 @@ Unlike decorators, font effects are inherited from parent elements. For example,
 ```css
 h1
 {
-    header-font-effect: outline;
-    header-width: 2px;
-    header-color: black;
+	header-font-effect: outline;
+	header-width: 2px;
+	header-color: black;
 }
 ```
 
-will add an outline effect on the text within all 'h1' elements and their descendants. To prevent inheritance, override the effect with 'none'. For example, to prevent the 'h1' outline effect from affecting 'span' elements, you could specify the following:
+will add an outline effect on the text within all `h1`{:.tag} elements and their descendants. To prevent inheritance, override the effect with `none`{:.value}. For example, to prevent the `h1`{:.tag} outline effect from affecting `span`{:.tag} elements, you could specify the following:
 
 ```css
 h1 span
 {
-    header-font-effect: none;
+	header-font-effect: none;
 }
 ```
 
-### {{page.lib_name}} effects
+### Effects
 
 {{page.lib_name}} comes with two built-in font effects:
 
-1. For rendering shadows, the [shadow](font_effects/shadow.html) effect.
-2. For outlining text, the [outline](font_effects/outline.html) effect. 
+1. [shadow effect](font_effects/shadow.html), for rendering shadows.
+2. [outline effect](font_effects/outline.html), for outlining text. 

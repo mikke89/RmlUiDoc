@@ -4,24 +4,34 @@ title: RML Controls
 parent: rml
 ---
 
-### HANDLE Element
+### \<handle\>
 
-*Attributes*
+The `<handle>`{:.tag} element can be used to move or change the size of elements.
 
-**movetarget** = idref (CI)
->If specified, the handle will move the element specified by the ID when dragged. Can be "#document" to reference the parent document.
+_Attributes_
 
-**sizetarget** = idref (CI)
->If specified, the handle will size the element specified by the ID when dragged. Can be "#document" to reference the parent document.
+`move_target`{:.attr} = idref (CI)
+: If specified, the handle will move the element specified by the ID when dragged. Can be `#document`{:.value} to reference the parent document.
 
-### TABSET Element
+`size_target`{:.attr} = idref (CI)
+: If specified, the handle will size the element specified by the ID when dragged. Can be `#document`{:.value} to reference the parent document.
 
-A TABSET element contains TAB elements and PANEL elements.
+```html
+<handle move_target="#document">
+	<div id="title">My document</div>
+</handle>
+```
 
-#### TAB Element
+### \<tabset\>
 
-Each TAB element acts as a button, that when clicked will hide the currently visible panel and show its corresponding panel.
+A `<tabset>`{:.tag} element contains `<tab>`{:.tag} elements and `<panel>`{:.tag} elements.
 
-#### PANEL Element
+Tabset elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
 
-A PANEL element is the body of the tabset. The visibility of the panel is controlled by the tab elements in the parent tabset. 
+#### \<tab\>
+
+Each `<tab>`{:.tag} element acts as a button, that when clicked will hide the currently visible panel and show its corresponding panel.
+
+#### \<panel\>
+
+A `<panel>`{:.tag} element is the body of the tabset. The visibility of the panel is controlled by the tab elements in the parent tabset. 

@@ -14,10 +14,10 @@ The string type used through the majority of {{page.lib_name}}'s interfaces, `{{
 
 {{page.lib_name}} text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:
 
-* `&lt;` The less-than symbol, '<'.
-* `&gt;` The greater-than symbol, '>'.
-* `&amp;` The ampersand symbol, '&'.
-* `&nbsp;` A non-breaking space. 
+* `&lt;`{:.value} The less-than symbol, '<'.
+* `&gt;`{:.value} The greater-than symbol, '>'.
+* `&amp;`{:.value} The ampersand symbol, '&'.
+* `&nbsp;`{:.value} A non-breaking space. 
 
 You should use these symbols instead of their literal equivalents when putting them into RML. For example, the following RML fragment will most likely generate a parse error:
 

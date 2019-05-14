@@ -10,12 +10,12 @@ parent: python_manual
 
 Python property | Brief description | Equivalent C++ functions
 --------------- | ----------------- | ------------------------
-dimensions | Gets/sets the dimensions of the context. | GetDimensions(), SetDimensions()
-documents | Retrieves a document within the interface. | GetDocument(), GetNumDocuments()
-focus_element | Retrieves the context's focus element. | GetFocusElement()
-hover_element | Retrieves the element under the context's cursor. | GetHoverElement()
-root_element | Retrieves the context's root element. | GetRootElement()
-name | Retrieves the context's name. | GetName()
+`dimensions`{:.prop} | Gets/sets the dimensions of the context. | `GetDimensions()`, `SetDimensions()`
+`documents`{:.prop} | Retrieves a document within the interface. | `GetDocument()`, `GetNumDocuments()`
+`focus_element`{:.prop} | Retrieves the context's focus element. | `GetFocusElement()`
+`hover_element`{:.prop} | Retrieves the element under the context's cursor. | `GetHoverElement()`
+`root_element`{:.prop} | Retrieves the context's root element. | `GetRootElement()`
+`name`{:.prop} | Retrieves the context's name. | `GetName()`
 
 ##### Retrieving documents
 
@@ -53,24 +53,26 @@ except AttributeError:
 The following methods are exported from the C++ interface.
 
 Python method | Brief description
-AddEventListener() | Attaches an inline event listener to the root of the context.
-AddMouseCursor() | Adds a previously-loaded mouse cursor to the document.
-CreateDocument() | Creates a new document.
-LoadDocument() | Loads a document from an external RML file.
-LoadMouseCursor() | Loads a mouse cursor from an external RML file.
-Render() | Renders the context.
-ShowMouseCursor() | Shows or hides the mouse cursor.
-UnloadAllDocuments() | Unloads all loaded documents within the context.
-UnloadAllMouseCursors() | Unloads all of the context's mouse cursors.
-UnloadDocument() | Unloads one of the context's documents.
-UnloadMouseCursor() | Unloads one of the context's cursors.
-Update() | Updates the context.
+`AddEventListener()` | Attaches an inline event listener to the root of the context.
+`AddMouseCursor()` | Adds a previously-loaded mouse cursor to the document.
+`CreateDocument()` | Creates a new document.
+`LoadDocument()` | Loads a document from an external RML file.
+`LoadMouseCursor()` | Loads a mouse cursor from an external RML file.
+`Render()` | Renders the context.
+`ShowMouseCursor()` | Shows or hides the mouse cursor.
+`UnloadAllDocuments()` | Unloads all loaded documents within the context.
+`UnloadAllMouseCursors()` | Unloads all of the context's mouse cursors.
+`UnloadDocument()` | Unloads one of the context's documents.
+`UnloadMouseCursor()` | Unloads one of the context's cursors.
+`Update()` | Updates the context.
 
 ### Creating contexts
 
-Contexts can be created in Python with the CreateContext() function in the {{page.lib_name}} module. This function takes the name of the context as a string and the dimensions as an Vector2i type.
+Contexts can be created in Python with the `CreateContext()` function in the {{page.lib_name}} module. This function takes the name of the context as a string and the dimensions as an `Vector2i` type.
 
+```python
 new_context = rocket.CreateContext("hud", rocket.Vector2i(1024, 768))
+```
 
 ### Accessing contexts
 

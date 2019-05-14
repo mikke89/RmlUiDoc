@@ -4,28 +4,32 @@ title: RML Data Display Elements
 parent: rml
 ---
 
-### DATAGRID Element
+### \<datagrid\>
 
-*Attributes*
+`<datagrid>`{:.tag} represents an element capable of fetching, positioning and rendering dynamic tabulated data. For a detailed description see [Data grid]({{"pages/cpp_manual/controls/data_grid.html"|relative_url}}) in the C++ Manual.
 
-**source** = datasource (CS)
->The name of the data source and table that the rows of the data grid will be fetched from.
+Supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
 
-#### COL Element
+_Attributes_
 
-The COL represents a column in the datagrid. Each column displays information about each row in the data source in the form of one or more fields.
+`source`{:.attr} = datasource (CS)
+: The name of the data source and table that the rows of the data grid will be fetched from.
 
-*Attributes*
+#### \<col\>
 
-**fields** = cdata (CS)
->A comma-separated list of fields that this column will fetch from the data source about each row and display.
+The `<col>`{:.tag} element represents a column in the datagrid. Each column displays information about each row in the data source in the form of one or more fields.
 
-**formatter** = cdata (CS)
->The name of the data formatter to use to turn the raw field information into RML. If not set (or the formatter can't be found) then the raw text will be displayed.
+_Attributes_
 
-**width** = number (CN)
->The width (in px or %) of the column.
+`fields`{:.attr}  = cdata (CS)
+: A comma-separated list of fields that this column will fetch from the data source about each row and display.
 
-### DATASELECT Element
+`formatter`{:.attr} = cdata (CS)
+: The name of the data formatter to use to turn the raw field information into RML. If not set (or the formatter can't be found) then the raw text will be displayed.
 
-The DATASELECT Element is described in the [Forms](forms.html#dataselect-element) section.
+`width`{:.attr} = number (CN)
+: The width (in px or %) of the column.
+
+### \<dataselect\>
+
+The `<dataselect>`{:.tag} element is described in the [Forms](forms.html#dataselect) section.

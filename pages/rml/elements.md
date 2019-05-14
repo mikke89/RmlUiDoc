@@ -12,23 +12,17 @@ The user is encouraged to follow standard HTML guidelines where possible to impr
 
 ### Global Attributes
 
-Elements have a base set of attributes that are common to across all types.
+Elements have a base set of attributes that are common to across all types, which are:
 
-*Attributes*
+`id`{:.attr} = id (CS)
+: The unique identifier for the element in this document.
 
-**id** = id (CS)
+`class`{:.attr} = cdata (CI)
+: Assigns a class name or set of class names to an element. Any number of elements may be assigned the same class name or names. Multiple class names must be separated by white space characters. See [RCSS](../rcss.html).
 
->The unique identifier for the element in this document.
+`style`{:.attr} = cdata (CS)
+: Specifies inline style information for the element. See [RCSS](../rcss.html).
 
-**class** = cdata (CI)
-
->Assigns a class name or set of class names to an element. Any number of elements may be assigned the same class name or names. Multiple class names must be separated by white space characters. See [RCSS](../rcss.html)
-
-**style** = cdata (CS)
-
->Specifies inline style information for the element. See [RCSS](../rcss.html)
-
-**on* events** = cdata (CS)
-
->Event bindings. See [Events](events.html)
+`on*`{:.attr} events = cdata (CS)
+: Event bindings. See [Events](events.html).
 

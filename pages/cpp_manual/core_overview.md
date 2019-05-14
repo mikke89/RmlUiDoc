@@ -24,7 +24,7 @@ An element is either rectangular in shape or consists of a series of rectangles.
 
 Elements have [RCSS](../rcss.html) properties assigned to them through the [style system](rcss.html). These properties determine the size, layout and graphical representation of the element, as well as any [decorators](decorators.html) on the element.
 
-Elements send [events](events.html) when certain actions are performed on them. The application can subscribe to elements to be notified when an event occurs on that element. All elements send events for mouse actions (hover, click, double-click, etc) and when the input focus changes (focus, blur). Further events can be sent by derived elements.
+Elements send [events](events.html) when certain actions are performed on them. The application can subscribe to elements to be notified when an event occurs on that element. All elements send events for mouse actions (`hover`{:.evt}, `click`{:.evt}, `double-click`{:.evt}, etc) and when the input focus changes (`focus`{:.evt}, `blur`{:.evt}). Further events can be sent by derived elements.
 
 The functionality of an element can be extended by deriving from the `{{page.lib_ns}}::Core::Element` class, (such as with the form elements in the [Controls plugin](controls.html)). Applications can derive their own custom elements.
 

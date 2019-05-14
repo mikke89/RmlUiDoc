@@ -8,7 +8,7 @@ Events are sent to elements to indicate actions that have occurred to that eleme
 
 When an event is dispatched to an element, it first goes through a bubble phase where the each of the element's ancestors has an opportunity to process the event and stop the propagation. The event is then sent to the target element, then goes through a capture phase where it falls back to its root ancestor.
 
-Events are identified by a descriptive string name (such as "keydown", "blur", etc) and a dictionary of parameters that further describe the event. For example, the "keydown" event has parameters for identifying the actual key that was pressed and the state of the key modifiers.
+Events are identified by a descriptive string name (such as `keydown`{:.evt}, `blur`{:.evt}, etc) and a dictionary of parameters that further describe the event. For example, the `keydown`{:.evt} event has parameters for identifying the actual key that was pressed and the state of the key modifiers.
 
 Events can be handled internally by the elements they are sent to or by an event listener object. An event listener is able to subscribe to specific events on an element and will be notified whenever those events occur.
 
@@ -53,7 +53,7 @@ The phase of the event, returned by `GetPhase()`, will be `PHASE_CAPTURE` if the
 
 The target element, returned by `GetTargetElement()`, is the element the event was originally sent to. The current element, returned by `GetCurrentElement()`, is the element the event is currently being sent to. This may be the target element or one of the target element's ancestors.
 
-The name of the event ("keydown", "focus", etc) is returned from `GetType()`. You can also use the equality operator to compare an event directly with a string.
+The name of the event (`keydown`{:.evt}, `focus`{:.evt}, etc) is returned from `GetType()`. You can also use the equality operator to compare an event directly with a string.
 
 You can fetch the parameters of the event with the templated `GetParameter()` function. The exact parameters of each event are detailed in the [event documentation](../rml/events.html).
 
@@ -184,7 +184,7 @@ Like other instancers, the event instancer is reference counted. Remember to rem
 
 ### Inline events
 
-Event responses can be specified as element attributes inside RML, similarly to HTML. For example, in the following RML fragment a response is given to the "click" event.
+Event responses can be specified as element attributes inside RML, similarly to HTML. For example, in the following RML fragment a response is given to the `click`{:.evt} event.
 
 ```html
 <rml>
@@ -195,7 +195,7 @@ Event responses can be specified as element attributes inside RML, similarly to 
 ...
 ```
 
-Notice the "on" prefix before the event name of "click". All event bindings from RML are prefixed this way.
+Notice the `on`{:.attr} prefix before the event name of `click`{:.evt}. All event bindings from RML are prefixed this way.
 
 {{page.lib_name}} sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
 

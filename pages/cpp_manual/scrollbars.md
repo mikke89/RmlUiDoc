@@ -27,7 +27,7 @@ See the [style guide](../style_guide.md) for documentation on applying propertie
 
 Custom elements can generate scrollbars using the element's scroll interface. This is done, for example, by the text area form control in the Controls plugin.
 
-Scrollbar generation is usually done in a custom element in response to the "resize" event, sent during layout. To retrieve a pointer to an element's scroll interface, call `GetElementScroll()` on the element. This will return a `{{page.lib_ns}}::Core::ElementScroll` object.
+Scrollbar generation is usually done in a custom element in response to the `resize`{:.evt} event, sent during layout. To retrieve a pointer to an element's scroll interface, call `GetElementScroll()` on the element. This will return a `{{page.lib_ns}}::Core::ElementScroll` object.
 
 ```cpp
 // Returns the element's scrollbar functionality.

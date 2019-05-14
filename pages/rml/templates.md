@@ -4,33 +4,31 @@ title: RML Templates
 parent: rml
 ---
 
-### TEMPLATE Element
+### \<template\>
 
-The TEMPLATE element has two uses, to define a template and inject a template inline into an existing RML documents.
+The `<template>`{:.tag} element has two uses, to define a template and inject a template inline into an existing RML documents.
 
-When defining a template, TEMPLATE element should be used in place of RML.
+When defining a template, `<template>`{:.tag} should be used in place of `<rml>`{:.tag}.
 
-*Attributes*
+_Attributes_
 
-**name** = cdata (CI)
->The name of the template. Must be unique. Is used by other RML documents to reference the template.
+`name`{:.attr} = cdata (CI)
+: The name of the template. Must be unique. Is used by other RML documents to reference the template.
 
-**content** = idref (CI)
->The id of the element that the content will be put into.
+`content`{:.attr} = idref (CI)
+: The id of the element that the content will be put into.
 
-When injecting a template, all elements inside the TEMPLATE tag will be placed inside the templates content element.
+When injecting a template, all elements inside the `<template>`{:.tag} tag will be placed inside the template's content element.
 
-*Attributes*
+`src`{:.attr} = cdata (CS)
+: The name of the template to inject
 
-**src** = cdata (CS)
->The name of the template to inject
+### \<body\>
 
-### BODY Element
+The `<body>`{:.tag} element has a `template`{:.attr} attribute that is a shorthand for injecting a template around the body tag.
 
-The BODY element has a template attribute that is a shorthand for injecting a template around the body tag.
+_Attributes_
 
-*Attributes*
-
-**template** = cdata (CS)
->The name of the template to use. All child elements under the BODY element will be loaded into the template.
+`template`{:.attr} = cdata (CS)
+: The name of the template to use. All child elements under the `<body>`{:.tag} element will be loaded into the template.
 

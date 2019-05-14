@@ -6,7 +6,7 @@ parent: python_manual
 
 ### Statically in RML
 
-The easiest way to attach to events with python is to write your code directly into the RML files, using the on\* attributes. When the event is fired three global variables are set up, document, event and self.
+The easiest way to attach to events with python is to write your code directly into the RML files, using the `on*`{:.attr} attributes. When the event is fired three global variables are set up, document, event and self.
 
 self | The element thats currently being processed
 [document](documents.html) | The document the element thats currently being processed belongs to

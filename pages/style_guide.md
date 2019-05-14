@@ -7,16 +7,16 @@ title: Style Guide
 
 ### Scrollbars
 
-Any element with scrolling overflow (a value of 'scroll' or 'auto' on either of the 'overflow-x' or 'overflow-y' properties) may generate scrollbars along its bottom or right side. By default, these are simple block elements with no background colour or decorator.
+Any element with scrolling overflow (a value of `scroll`{:.value} or `auto`{:.value} on either of the `overflow-x`{:.prop} or `overflow-y`{:.prop} properties) may generate scrollbars along its bottom or right side. By default, these are simple block elements with no background colour or decorator.
 
 #### Generated elements
 
-The scrollbar elements are tagged scrollbarhorizontal or scrollbarvertical, depending on their orientation. They are hidden elements parented directly to the scrolling element. Each scrollbar element contains four child elements:
+The scrollbar elements are tagged `scrollbarhorizontal`{:.tag} or `scrollbarvertical`{:.tag}, depending on their orientation. They are hidden elements parented directly to the scrolling element. Each scrollbar element contains four child elements:
 
-* _sliderarrowdec_: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
-* _sliderarrowinc_: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
-* _slidertrack_: The track that runs between the two arrow buttons.
-* _sliderbar_: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
+* `sliderarrowdec`{:.tag}: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
+* `sliderarrowinc`{:.tag}: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
+* `slidertrack`{:.tag}: The track that runs between the two arrow buttons.
+* `sliderbar`{:.tag}: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
 
 ![style_guide_1.gif](style_guide_1.gif)
 
@@ -26,17 +26,17 @@ When both horizontal and vertical scrollbars are present on an element, they are
 
 All of these elements can be styled through RCSS to be sized, positioned and rendered appropriately. The recommended method for configuring a scrollbar is given below (note that this is for a vertical scrollbar; for a horizontal, swap width and height):
 
-1. Set the 'width' property of the _scrollbarvertical_ element to the appropriate value for your interface design. This should be enough to encompass the arrows, track and bar.
-2. Set the 'width' and 'height' properties of the _sliderarrowdec_ and _sliderarrowinc_ elements as appropriate. Set them to '0' if you don't want buttons.
-3. Set the 'width' property of the _slidertrack_ as appropriate. The 'height' value will be ignored for the track and will always be set internally. Use 'margin-left' to position the track within the scrollbar.
-4. Set the 'width' property of the _sliderbar_ as appropriate. The height of the bar will be generated internally, but you can override this with the 'height' property, or use the 'min-height' and 'max-height' properties to influence it.
+1. Set the `width`{:.prop} property of the `scrollbarvertical`{:.tag} element to the appropriate value for your interface design. This should be enough to encompass the arrows, track and bar.
+2. Set the `width`{:.prop} and `height`{:.prop} properties of the `sliderarrowdec`{:.tag} and `sliderarrowinc`{:.tag} elements as appropriate. Set them to `0`{:.value} if you don't want buttons.
+3. Set the `width`{:.prop} property of the `slidertrack`{:.tag} as appropriate. The `height`{:.prop} value will be ignored for the track and will always be set internally. Use `margin-left`{:.prop} to position the track within the scrollbar.
+4. Set the `width`{:.prop} property of the `sliderbar`{:.tag} as appropriate. The height of the bar will be generated internally, but you can override this with the `height`{:.prop} property, or use the `min-height`{:.prop} and `max-height`{:.prop} properties to influence it.
 5. Apply decorators to the elements as appropriate. 
 
 See the _Rocket Invaders from Mars_ demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
 
 #### The 'scrollbar-margin' property
 
-As described above, the scrollbar elements (_scrollbarvertical_ and _scrollbarhorizontal_) will shorten themselves automatically to avoid a corner intersection. This can lead to scenarios where a scrollbar is popping on and off (during a window resize, for example) and causing the other scrollbar to rapidly change size. To avoid this, and force a scrollbar to always shorten itself for a corner, you can use the numerical 'scrollbar-margin' property on a scrollbar element. An element will shorten itself (on the bottom or right side, as appropriate) by the minimum of the appropriate corner dimension and the scrollbar margin.
+As described above, the scrollbar elements (`scrollbarvertical`{:.tag} and `scrollbarhorizontal`{:.tag}) will shorten themselves automatically to avoid a corner intersection. This can lead to scenarios where a scrollbar is popping on and off (during a window resize, for example) and causing the other scrollbar to rapidly change size. To avoid this, and force a scrollbar to always shorten itself for a corner, you can use the numerical `scrollbar-margin`{:.prop} property on a scrollbar element. An element will shorten itself (on the bottom or right side, as appropriate) by the minimum of the appropriate corner dimension and the scrollbar margin.
 
 #### Example RCSS
 
@@ -129,14 +129,14 @@ scrollbarvertical sliderarrowinc:active
 
 ### Sliders
 
-The controls plugin adds support for range sliders; these are instanced through the RML tag `<input type="range" ... />`. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
+The controls plugin adds support for range sliders; these are instanced through the RML tag `<input type="range" ... />`{:.tag}. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
 
-* _sliderarrowdec_
-* _sliderarrowinc_
-* _slidertrack_
-* _sliderbar_ 
+* `sliderarrowdec`{:.tag}
+* `sliderarrowinc`{:.tag}
+* `slidertrack`{:.tag}
+* `sliderbar`{:.tag}
 
-These are styled in the same way you style scrollbars. Note that for input types, the controls plugin automatically sets the 'type' attribute of an input element as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
+These are styled in the same way you style scrollbars. Note that for input types, the controls plugin automatically sets the `type`{:.attr} attribute of an `<input>`{:.tag} element as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
 
 ```css
 input.range slidertrack
@@ -147,15 +147,15 @@ input.range slidertrack
 
 ### Drop-down selection boxes
 
-The controls plugin adds support for drop-down boxes; these are instanced through the RML tag `<select>`, with individual options specified within the selection element with `<option>` tags.
+The controls plugin adds support for drop-down boxes; these are instanced through the RML tag `<select>`{:.tag}, with individual options specified within the selection element with `<option>`{:.tag} tags.
 
 #### Generated elements
 
 The select element generates three hidden elements:
 
-* _selectvalue_: The container element for the selected option.
-* _selectarrow_: The button rendered to the right of the value element. This element has the pseudo-class 'checked' set on it when the selection box is visible.
-* _selectbox_: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected. 
+* `selectvalue`{:.tag}: The container element for the selected option.
+* `selectarrow`{:.tag}: The button rendered to the right of the value element. This element has the pseudo-class `checked`{:.cls} set on it when the selection box is visible.
+* `selectbox`{:.tag}: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected. 
 
 ![style_guide_2.gif](style_guide_2.gif)
 

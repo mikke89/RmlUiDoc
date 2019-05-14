@@ -8,7 +8,7 @@ parent: cpp_manual
 
 ### Key modifiers
 
-Most of the input functions take the parameter `key_modifier_state`. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass `0` for the `key_modifier_state` into all the input functions you call.
+Most of the input functions take the parameter `key_modifier_state`. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass `0`{:.value} for the `key_modifier_state` into all the input functions you call.
 
 The bitmask should be configured using the enumeration `{{page.lib_ns}}::Core::Input::KeyModifier`, detailed below:
 
@@ -45,13 +45,13 @@ void ProcessMouseMove(int x, int y, int key_modifier_state);
 
 Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time `ProcessMouseMove()` was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
 
-* _onmousemove_
-* _onmouseover_
-* _onmouseout_
-* _ondragstart_
-* _ondrag_
-* _ondragover_
-* _ondragout_
+* `onmousemove`{:.evt}
+* `onmouseover`{:.evt}
+* `onmouseout`{:.evt}
+* `ondragstart`{:.evt}
+* `ondrag`{:.evt}
+* `ondragover`{:.evt}
+* `ondragout`{:.evt}
 
 #### Mouse buttons
 
@@ -71,17 +71,17 @@ void ProcessMouseButtonUp(int button_index, int key_modifier_state);
 
 `ProcessMouseButtonDown()` may generate any of the following events:
 
-* _onfocus_
-* _onblur_
-* _onmousedown_
+* `onfocus`{:.evt}
+* `onblur`{:.evt}
+* `onmousedown`{:.evt}
 
 `ProcessMouseButtonUp()` may generate:
 
-* _onmouseup_
-* _onclick_
-* _ondblclick_
-* _ondragdrop_
-* _ondragend_
+* `onmouseup`{:.evt}
+* `onclick`{:.evt}
+* `ondblclick`{:.evt}
+* `ondragdrop`{:.evt}
+* `ondragend`{:.evt}
 
 #### Mouse wheel
 
@@ -94,7 +94,7 @@ If you want to send mouse-wheel events to your documents, call the `ProcessMouse
 void ProcessMouseWheel(int wheel_delta, int key_modifier_state);
 ```
 
-`ProcessMouseWheel()` will generate an _onmousescroll_ event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
+`ProcessMouseWheel()` will generate an `onmousescroll`{:.evt} event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
 
 ### Key input
 
@@ -116,7 +116,7 @@ void ProcessKeyDown({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, 
 void ProcessKeyUp({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
-`ProcessKeyDown()` will generate an _onkeydown_ event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the _onkeyup_ event.
+`ProcessKeyDown()` will generate an `onkeydown`{:.evt} event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the `onkeyup`{:.evt} event.
 
 ### Text input
 
@@ -132,7 +132,7 @@ void ProcessTextInput({{page.lib_ns}}::Core::word character);
 void ProcessTextInput(const {{page.lib_ns}}::Core::String& string);
 ```
 
-These functions will generate an _ontextinput_ event targeted at the context's current focus element (if there is one).
+These functions will generate an `ontextinput`{:.evt} event targeted at the context's current focus element (if there is one).
 
 ### Sample input processing
 

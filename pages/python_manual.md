@@ -16,7 +16,7 @@ The functionality of {{page.lib_name}} is described fully in the [C++ Manual](cp
 
 ### Interfaces
 
-1. [Elements](pyhton_manual/elements.html)
+1. [Elements](python_manual/elements.html)
 2. [Documents](python_manual/documents.html)
 3. [Contexts](python_manual/contexts.html)
 4. [Events](python_manual/events.html)

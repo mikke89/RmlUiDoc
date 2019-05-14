@@ -4,107 +4,112 @@ title: Tiled Vertical decorator
 parent: rcss/decorators
 ---
 
-The 'tiled-vertical' decorator can render three images, or subsections of images, vertically across an element. One image is placed on the top edge, another on the bottom edge, and the last is stretched or repeated across the middle.
+The _tiled-vertical_ decorator can render three images, or subsections of images, vertically across an element. One image is placed on the top edge, another on the bottom edge, and the last is stretched or repeated across the middle.
 
-*top-image-src*
+The decorator renders across the padded area of its element.
+
+### Properties
+
+#### Top image
+
+These properties specify the top image. They behave similarly to the properties in the [image decorator](image.html).
+
+`<name>-top-image-src`{:.prop}
 
 Value: | \<string\>
 Initial: | not defined
 Percentages: | N/A
 
-*top-image-s-begin, top-image-t-begin*
+`<name>-top-image-s-begin`{:.prop}, `<name>-top-image-t-begin`{:.prop}
 
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 0
 Percentages: | N/A
 
-*top-image-s-end, top-image-t-end*
+`<name>-top-image-s-end`{:.prop}, `<name>-top-image-t-end`{:.prop}
 
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 1
 Percentages: | N/A
 
-These properties specify the top image. They behave similarly to the properties in the 'image' decorator.
+#### Bottom image
 
-*bottom-image-src*
+These properties specify the bottom image. They behave similarly to the properties in the [image decorator](image.html). If only one side is defined, the other will be the vertical mirror of it. At least one side must be defined.
+
+`<name>-bottom-image-src`{:.prop}
 
 Value: | \<string\>
 Initial: | not defined
 Percentages: | N/A
 
-*bottom-image-s-begin, bottom-image-t-begin*
+`<name>-bottom-image-s-begin`{:.prop}, `<name>-bottom-image-t-begin`{:.prop}
 
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 0
 Percentages: | N/A
 
-*bottom-image-s-end, bottom-image-t-end*
+`<name>-bottom-image-s-end`{:.prop}, `<name>-bottom-image-t-end`{:.prop}
 
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 1
 Percentages: | N/A
 
-These properties specify the bottom image. They behave similarly to the properties in the 'image' decorator. If only one side is defined, the other will be the vertical mirror of it. At least one side must be defined.
+#### Center image
 
-*center-image-src*
+These properties specify the centre image. They behave similarly to the centre properties in the [tiled-horizontal decorator](tiled_horizontal.html).
+
+`<name>-center-image-src`{:.prop}
 
 Value: | \<string\>
 Initial: | not defined
 Percentages: | N/A
 
-*center-image-repeat*
+`<name>-center-image-repeat`{:.prop}
 
 Value: | stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
 Initial: | stretch
 Percentages: | N/A
 
-*center-image-s-begin, center-image-t-begin*
+`<name>-center-image-s-begin`{:.prop}, `<name>-center-image-t-begin`{:.prop}
 
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 0
 Percentages: | N/A
 
-*center-image-s-end, center-image-t-end*
+`<name>-center-image-s-end`{:.prop}, `<name>-center-image-t-end`{:.prop}
+
 Value: | \<number\> \| \<length\> \| \<percentage\>
 Initial: | 1
 Percentages: | N/A
 
-These properties specify the centre image. They behave similarly to the centre properties in the 'horizontal-tiled' decorator.
 
-*top-image-s*
+### Shorthands
 
-Shorthand for setting top-image-s-begin and top-image-s-end.
+`<name>-top-image-s`{:.prop}
+: Shorthand for setting `<name>-top-image-s-begin`{:.prop} and `<name>-top-image-s-end`{:.prop}.
 
-*top-image-t*
+`<name>-top-image-t`{:.prop}
+: Shorthand for setting `<name>-top-image-t-begin`{:.prop} and `<name>-top-image-t-end`{:.prop}.
 
-Shorthand for setting top-image-t-begin and top-image-t-end.
+`<name>-top-image`{:.prop}
+: A shorthand property for setting `<name>-top-image-src`{:.prop}, `<name>-top-image-s-begin`{:.prop}, `<name>-top-image-t-begin`{:.prop}, `<name>-top-image-s-end`{:.prop} and `<name>-top-image-t-end`{:.prop}.
 
-*top-image*
+`<name>-bottom-image-s`{:.prop}
+: Shorthand for setting `<name>-bottom-image-s-begin`{:.prop} and `<name>-bottom-image-s-end`{:.prop}.
 
-A shorthand property for setting top-image-src, top-image-s-begin, top-image-t-begin, top-image-s-end and top-image-t-end.
+`<name>-bottom-image-t`{:.prop}
+: Shorthand for setting `<name>-bottom-image-t-begin`{:.prop} and `<name>-bottom-image-t-end`{:.prop}.
 
-*bottom-image-s*
+`<name>-bottom-image`{:.prop}
+: A shorthand property for setting `<name>-bottom-image-src`{:.prop}, `<name>-bottom-image-s-begin`{:.prop}, `<name>-bottom-image-t-begin`{:.prop}, `<name>-bottom-image-s-end`{:.prop} and `<name>-bottom-image-t-end`{:.prop}.
 
-Shorthand for setting bottom-image-s-begin and bottom-image-s-end.
+`<name>-center-image-s`{:.prop}
+: Shorthand for setting `<name>-center-image-s-begin`{:.prop} and `<name>-center-image-s-end`{:.prop}.
 
-*bottom-image-t*
+`<name>-center-image-t`{:.prop}
+: Shorthand for setting `<name>-center-image-t-begin`{:.prop} and `<name>-center-image-t-end`{:.prop}.
 
-Shorthand for setting bottom-image-t-begin and bottom-image-t-end.
+`<name>-center-image`{:.prop}
+: A shorthand property for setting `<name>-center-image-src`{:.prop}, `<name>-center-image-repeat`{:.prop}, `<name>-center-image-s-begin`{:.prop}, `<name>-center-image-t-begin`{:.prop}, `<name>-center-image-s-end`{:.prop} and `<name>-center-image-t-end`{:.prop}.
 
-*bottom-image*
 
-A shorthand property for setting bottom-image-src, bottom-image-s-begin, bottom-image-t-begin, bottom-image-s-end and bottom-image-t-end.
-
-*center-image-s*
-
-Shorthand for setting center-image-s-begin and center-image-s-end.
-
-*center-image-t*
-
-Shorthand for setting center-image-t-begin and center-image-t-end.
-
-*center-image*
-
-A shorthand property for setting center-image-src, center-image-repeat, center-image-s-begin, center-image-t-begin, center-image-s-end and center-image-t-end.
-
-The decorator renders across the padded area of its element.

@@ -1,327 +1,324 @@
 ---
 layout: page
-title: Tiled Vertical decorator
+title: Tiled Box decorator
 parent: rcss/decorators
 ---
 
-The 'tiled-box' decorator can render nine images, or subsections of images, across an element. One image is placed in each of the element's corners, one each stretched or tiled along the edges, and another stretched across the middle.
-
-*top-left-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*top-left-image-s-begin, top-left-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*top-left-image-s-end, top-left-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the top-left corner image. They behave similarly to the properties in the 'image' decorator.
-
-*top-right-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*top-right-image-s-begin, top-right-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*top-right-image-s-end, top-right-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the top-right corner image. They behave similarly to the properties in the 'image' decorator.
-
-*bottom-left-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*bottom-left-image-s-begin, bottom-left-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*bottom-left-image-s-end, bottom-left-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the bottom-left corner image. They behave similarly to the properties in the 'image' decorator.
-
-*bottom-right-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*bottom-right-image-s-begin, bottom-right-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*bottom-right-image-s-end, bottom-right-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the bottom-right corner image. They and behave similarly to the properties in the 'image' decorator.
-
-*top-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*top-image-repeat*
-
-Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
-Initial: |  stretch
-Percentages: |  N/A
-
-*top-image-s-begin, top-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*top-image-s-end, top-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the top edge image. They behave similarly to the centre properties in the 'horizontal-tiled' decorator.
-
-*right-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*right-image-repeat*
-
-Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
-Initial: |  stretch
-Percentages: |  N/A
-
-*right-image-s-begin, right-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*right-image-s-end, right-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the right edge image. They behave similarly to the centre properties in the 'vertical-tiled' decorator.
-
-*bottom-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*bottom-image-repeat*
-
-Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
-Initial: |  stretch
-Percentages: |  N/A
-
-*bottom-image-s-begin, bottom-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*bottom-image-s-end, bottom-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the bottom edge image. They behave similarly to the centre properties in the 'horizontal-tiled' decorator.
-
-*left-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*left-image-repeat*
-
-Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
-Initial: |  stretch
-Percentages: |  N/A
-
-*left-image-s-begin, left-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*left-image-s-end, left-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the left edge image. They behave similarly to the centre properties in the 'vertical-tiled' decorator.
-
-*center-image-src*
-
-Value: |  \<string\>
-Initial: |  not defined
-Percentages: |  N/A
-
-*center-image-repeat*
-
-Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
-Initial: |  stretch
-Percentages: |  N/A
-
-*center-image-s-begin, center-image-t-begin*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  0
-Percentages: |  N/A
-
-*center-image-s-end, center-image-t-end*
-
-Value: |  \<number\> \| \<length\> \| \<percentage\>
-Initial: |  1
-Percentages: |  N/A
-
-These properties specify the center image. They behave similarly to the centre properties in the 'tiled-horizontal' decorator.
-
-*top-left-image-s*
-
-Shorthand for setting top-left-image-s-begin and top-left-image-s-end.
-
-*top-left-image-t*
-
-Shorthand for setting top-left-image-t-begin and top-left-image-t-end.
-
-*top-left-image*
-
-A shorthand property for setting top-left-image-src, top-left-image-s-begin, top-left-image-t-begin, top-left-image-s-end and top-left-image-t-end.
-
-*top-right-image-s*
-
-Shorthand for setting top-right-image-s-begin and top-right-image-s-end.
-
-*top-right-image-t*
-
-Shorthand for setting top-right-image-t-begin and top-right-image-t-end.
-
-*top-right-image*
-
-A shorthand property for setting top-right-image-src, top-right-image-s-begin, top-right-image-t-begin, top-right-image-s-end and top-right-image-t-end.
-
-*bottom-left-image-s*
-
-Shorthand for setting bottom-left-image-s-begin and bottom-left-image-s-end.
-
-*bottom-left-image-t*
-
-Shorthand for setting bottom-left-image-t-begin and bottom-left-image-t-end.
-
-*bottom-left-image*
-
-A shorthand property for setting bottom-left-image-src, bottom-left-image-s-begin, bottom-left-image-t-begin, bottom-left-image-s-end and bottom-left-image-t-end.
-
-*bottom-right-image-s*
-
-Shorthand for setting bottom-right-image-s-begin and bottom-right-image-s-end.
-
-*bottom-right-image-t*
-
-Shorthand for setting bottom-right-image-t-begin and bottom-right-image-t-end.
-
-*bottom-right-image*
-
-A shorthand property for setting bottom-right-image-src, bottom-right-image-s-begin, bottom-right-image-t-begin, bottom-right-image-s-end and bottom-right-image-t-end.
-
-*top-image-s*
-
-Shorthand for setting top-image-s-begin and top-image-s-end.
-
-*top-image-t*
-
-Shorthand for setting top-image-t-begin and top-image-t-end.
-
-*top-image*
-
-A shorthand property for setting top-image-src, top-image-repeat, top-image-s-begin, top-image-t-begin, top-image-s-end and top-image-t-end.
-
-*right-image-s*
-
-Shorthand for setting right-image-s-begin and right-image-s-end.
-
-*right-image-t*
-
-Shorthand for setting right-image-t-begin and right-image-t-end.
-
-*right-image*
-
-A shorthand property for setting right-image-src, right-image-repeat, right-image-s-begin, right-image-t-begin, right-image-s-end and right-image-t-end.
-
-*bottom-image-s*
-
-Shorthand for setting bottom-image-s-begin and bottom-image-s-end.
-
-*bottom-image-t*
-
-Shorthand for setting bottom-image-t-begin and bottom-image-t-end.
-
-*bottom-image*
-
-A shorthand property for setting bottom-image-src, bottom-image-repeat, bottom-image-s-begin, bottom-image-t-begin, bottom-image-s-end and bottom-image-t-end.
-
-*left-image-s*
-
-Shorthand for setting left-image-s-begin and left-image-s-end.
-
-*left-image-t*
-
-Shorthand for setting left-image-t-begin and left-image-t-end.
-
-*left-image*
-
-A shorthand property for setting left-image-src, left-image-repeat, left-image-s-begin, left-image-t-begin, left-image-s-end and left-image-t-end.
-
-*center-image-s*
-
-Shorthand for setting center-image-s-begin and center-image-s-end.
-
-*center-image-t*
-
-Shorthand for setting center-image-t-begin and center-image-t-end.
-
-*center-image*
-
-A shorthand property for setting center-image-src, center-image-repeat, center-image-s-begin, center-image-t-begin, center-image-s-end and center-image-t-end.
+The _tiled-box_ decorator can render nine images, or subsections of images, across an element. One image is placed in each of the element's corners, one each stretched or tiled along the edges, and another stretched across the middle.
 
 The decorator renders across the padded area of its element.
+
+### Properties
+
+#### Top-left corner
+
+These properties specify the top-left corner image. They behave similarly to the properties in the [image decorator](image.html).
+
+`<name>-top-left-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-top-left-image-s-begin`{:.prop}, `<name>-top-left-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-top-left-image-s-end`{:.prop}, `<name>-top-left-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Top-right corner
+
+These properties specify the top-right corner image. They behave similarly to the properties in the [image decorator](image.html).
+
+`<name>-top-right-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-top-right-image-s-begin`{:.prop}, `<name>-top-right-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-top-right-image-s-end`{:.prop}, `<name>-top-right-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Bottom-left corner
+
+These properties specify the bottom-left corner image. They behave similarly to the properties in the [image decorator](image.html).
+
+`<name>-bottom-left-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-bottom-left-image-s-begin`{:.prop}, `<name>-bottom-left-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-bottom-left-image-s-end`{:.prop}, `<name>-bottom-left-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Bottom-right corner
+
+These properties specify the bottom-right corner image. They and behave similarly to the properties in the [image decorator](image.html).
+
+`<name>-bottom-right-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-bottom-right-image-s-begin`{:.prop}, `<name>-bottom-right-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-bottom-right-image-s-end`{:.prop}, `<name>-bottom-right-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Top edge
+
+These properties specify the top edge image. They behave similarly to the centre properties in the [tiled-horizontal decorator](tiled_horizontal.html).
+
+`<name>-top-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-top-image-repeat`{:.prop}
+
+Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
+Initial: |  stretch
+Percentages: |  N/A
+
+`<name>-top-image-s-begin`{:.prop}, `<name>-top-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-top-image-s-end`{:.prop}, `<name>-top-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Right edge
+
+These properties specify the right edge image. They behave similarly to the centre properties in the [tiled-vertical decorator](tiled_vertical.html).
+
+`<name>-right-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-right-image-repeat`{:.prop}
+
+Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
+Initial: |  stretch
+Percentages: |  N/A
+
+`<name>-right-image-s-begin`{:.prop}, `<name>-right-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-right-image-s-end`{:.prop}, `<name>-right-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Bottom edge
+
+These properties specify the bottom edge image. They behave similarly to the centre properties in the [tiled-horizontal decorator](tiled_horizontal.html).
+
+`<name>-bottom-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-bottom-image-repeat`{:.prop}
+
+Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
+Initial: |  stretch
+Percentages: |  N/A
+
+`<name>-bottom-image-s-begin`{:.prop}, `<name>-bottom-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-bottom-image-s-end`{:.prop}, `<name>-bottom-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Left edge
+
+These properties specify the left edge image. They behave similarly to the centre properties in the [tiled-vertical decorator](tiled_vertical.html).
+
+`<name>-left-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-left-image-repeat`{:.prop}
+
+Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
+Initial: |  stretch
+Percentages: |  N/A
+
+`<name>-left-image-s-begin`{:.prop}, `<name>-left-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-left-image-s-end`{:.prop}, `<name>-left-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+#### Center
+
+These properties specify the center image. They behave similarly to the centre properties in the [tiled-horizontal decorator](tiled_horizontal.html).
+
+`<name>-center-image-src`{:.prop}
+
+Value: |  \<string\>
+Initial: |  not defined
+Percentages: |  N/A
+
+`<name>-center-image-repeat`{:.prop}
+
+Value: |  stretch \| clamp-stretch \| clamp-truncate \| repeat-stretch \| repeat-truncate
+Initial: |  stretch
+Percentages: |  N/A
+
+`<name>-center-image-s-begin`{:.prop}, `<name>-center-image-t-begin`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  0
+Percentages: |  N/A
+
+`<name>-center-image-s-end`{:.prop}, `<name>-center-image-t-end`{:.prop}
+
+Value: |  \<number\> \| \<length\> \| \<percentage\>
+Initial: |  1
+Percentages: |  N/A
+
+### Shorthands
+
+`<name>-top-left-image-s`{:.prop}
+: Shorthand for setting `<name>-top-left-image-s-begin`{:.prop} and `<name>-top-left-image-s-end`{:.prop}.
+
+`<name>-top-left-image-t`{:.prop}
+: Shorthand for setting `<name>-top-left-image-t-begin`{:.prop} and `<name>-top-left-image-t-end`{:.prop}.
+
+`<name>-top-left-image`{:.prop}
+: A shorthand property for setting `<name>-top-left-image-src`{:.prop}, `<name>-top-left-image-s-begin`{:.prop}, `<name>-top-left-image-t-begin`{:.prop}, `<name>-top-left-image-s-end`{:.prop} and `<name>-top-left-image-t-end`{:.prop}.
+
+`<name>-top-right-image-s`{:.prop}
+: Shorthand for setting `<name>-top-right-image-s-begin`{:.prop} and `<name>-top-right-image-s-end`{:.prop}.
+
+`<name>-top-right-image-t`{:.prop}
+: Shorthand for setting `<name>-top-right-image-t-begin`{:.prop} and `<name>-top-right-image-t-end`{:.prop}.
+
+`<name>-top-right-image`{:.prop}
+: A shorthand property for setting `<name>-top-right-image-src`{:.prop}, `<name>-top-right-image-s-begin`{:.prop}, `<name>-top-right-image-t-begin`{:.prop}, `<name>-top-right-image-s-end`{:.prop} and `<name>-top-right-image-t-end`{:.prop}.
+
+`<name>-bottom-left-image-s`{:.prop}
+: Shorthand for setting `<name>-bottom-left-image-s-begin`{:.prop} and `<name>-bottom-left-image-s-end`{:.prop}.
+
+`<name>-bottom-left-image-t`{:.prop}
+: Shorthand for setting `<name>-bottom-left-image-t-begin`{:.prop} and `<name>-bottom-left-image-t-end`{:.prop}.
+
+`<name>-bottom-left-image`{:.prop}
+: A shorthand property for setting `<name>-bottom-left-image-src`{:.prop}, `<name>-bottom-left-image-s-begin`{:.prop}, `<name>-bottom-left-image-t-begin`{:.prop}, `<name>-bottom-left-image-s-end`{:.prop} and `<name>-bottom-left-image-t-end`{:.prop}.
+
+`<name>-bottom-right-image-s`{:.prop}
+: Shorthand for setting `<name>-bottom-right-image-s-begin`{:.prop} and `<name>-bottom-right-image-s-end`{:.prop}.
+
+`<name>-bottom-right-image-t`{:.prop}
+: Shorthand for setting `<name>-bottom-right-image-t-begin`{:.prop} and `<name>-bottom-right-image-t-end`{:.prop}.
+
+`<name>-bottom-right-image`{:.prop}
+: A shorthand property for setting `<name>-bottom-right-image-src`{:.prop}, `<name>-bottom-right-image-s-begin`{:.prop}, `<name>-bottom-right-image-t-begin`{:.prop}, `<name>-bottom-right-image-s-end`{:.prop} and `<name>-bottom-right-image-t-end`{:.prop}.
+
+`<name>-top-image-s`{:.prop}
+: Shorthand for setting `<name>-top-image-s-begin`{:.prop} and `<name>-top-image-s-end`{:.prop}.
+
+`<name>-top-image-t`{:.prop}
+: Shorthand for setting `<name>-top-image-t-begin`{:.prop} and `<name>-top-image-t-end`{:.prop}.
+
+`<name>-top-image`{:.prop}
+: A shorthand property for setting `<name>-top-image-src`{:.prop}, `<name>-top-image-repeat`{:.prop}, `<name>-top-image-s-begin`{:.prop}, `<name>-top-image-t-begin`{:.prop}, `<name>-top-image-s-end`{:.prop} and `<name>-top-image-t-end`{:.prop}.
+
+`<name>-right-image-s`{:.prop}
+: Shorthand for setting `<name>-right-image-s-begin`{:.prop} and `<name>-right-image-s-end`{:.prop}.
+
+`<name>-right-image-t`{:.prop}
+: Shorthand for setting `<name>-right-image-t-begin`{:.prop} and `<name>-right-image-t-end`{:.prop}.
+
+`<name>-right-image`{:.prop}
+: A shorthand property for setting `<name>-right-image-src`{:.prop}, `<name>-right-image-repeat`{:.prop}, `<name>-right-image-s-begin`{:.prop}, `<name>-right-image-t-begin`{:.prop}, `<name>-right-image-s-end`{:.prop} and `<name>-right-image-t-end`{:.prop}.
+
+`<name>-bottom-image-s`{:.prop}
+: Shorthand for setting `<name>-bottom-image-s-begin`{:.prop} and `<name>-bottom-image-s-end`{:.prop}.
+
+`<name>-bottom-image-t`{:.prop}
+: Shorthand for setting `<name>-bottom-image-t-begin`{:.prop} and `<name>-bottom-image-t-end`{:.prop}.
+
+`<name>-bottom-image`{:.prop}
+: A shorthand property for setting `<name>-bottom-image-src`{:.prop}, `<name>-bottom-image-repeat`{:.prop}, `<name>-bottom-image-s-begin`{:.prop}, `<name>-bottom-image-t-begin`{:.prop}, `<name>-bottom-image-s-end`{:.prop} and `<name>-bottom-image-t-end`{:.prop}.
+
+`<name>-left-image-s`{:.prop}
+: Shorthand for setting `<name>-left-image-s-begin`{:.prop} and `<name>-left-image-s-end`{:.prop}.
+
+`<name>-left-image-t`{:.prop}
+: Shorthand for setting `<name>-left-image-t-begin`{:.prop} and `<name>-left-image-t-end`{:.prop}.
+
+`<name>-left-image`{:.prop}
+: A shorthand property for setting `<name>-left-image-src`{:.prop}, `<name>-left-image-repeat`{:.prop}, `<name>-left-image-s-begin`{:.prop}, `<name>-left-image-t-begin`{:.prop}, `<name>-left-image-s-end`{:.prop} and `<name>-left-image-t-end`{:.prop}.
+
+`<name>-center-image-s`{:.prop}
+: Shorthand for setting `<name>-center-image-s-begin`{:.prop} and `<name>-center-image-s-end`{:.prop}.
+
+`<name>-center-image-t`{:.prop}
+: Shorthand for setting `<name>-center-image-t-begin`{:.prop} and `<name>-center-image-t-end`{:.prop}.
+
+`<name>-center-image`{:.prop}
+: A shorthand property for setting `<name>-center-image-src`{:.prop}, `<name>-center-image-repeat`{:.prop}, `<name>-center-image-s-begin`{:.prop}, `<name>-center-image-t-begin`{:.prop}, `<name>-center-image-s-end`{:.prop} and `<name>-center-image-t-end`{:.prop}.
+
+

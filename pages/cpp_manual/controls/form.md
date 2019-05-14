@@ -234,7 +234,7 @@ See the [style guide](../../style_guide.html) for documentation on applying prop
 
 ### Form container
 
-The form element is designed as a container element for form controls. Forms can be submitted, which bundles the name and value pairs of all descendant form controls into a single event. The form element is specified in RML with the `<form>`{:.tag} tag. It will generate a "submit" event when it is submitted; therefore it is usual to provide an inline event handler for "onsubmit".
+The form element is designed as a container element for form controls. Forms can be submitted, which bundles the name and value pairs of all descendant form controls into a single event. The form element is specified in RML with the `<form>`{:.tag} tag. It will generate a `submit`{:.evt} event when it is submitted; therefore it is usual to provide an inline event handler for `onsubmit`{:.attr}.
 
 The form element's interface is the `{{page.lib_ns}}::Controls::ElementForm` class. The form can be submitted by calling the `Submit()` function.
 

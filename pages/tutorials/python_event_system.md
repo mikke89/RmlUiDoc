@@ -52,15 +52,15 @@ void PythonInterface::Shutdown()
 
 PythonInterface::Initialise should be called before {{page.lib_name}} is initialised. This ensures the Python bindings are available when {{page.lib_name}} starts up.
 
-PythonInterface::Shutdown should be called after you've released all contexts but before you call {{page.lib_ns}}::Shutdown(). This ensures all Python objects are released before {{page.lib_name}} does its final cleanup.
+PythonInterface::Shutdown should be called after you've released all contexts but before you call `{{page.lib_ns}}::Shutdown()`. This ensures all Python objects are released before {{page.lib_name}} does its final cleanup.
 
 At this point you'll need to add the relevant Python and Boost::Python build paths to your project and then compile and link your project.
 
 ### Step 2: Replacing the Event System
 
-We can now completely remove the existing event system from RocketInvaders as the Python bindings will do all the event management for us. Remove all source and header files that begin with Event. You'll also need to comment out some code in GameElement.cpp and Game.cpp that call the EventManager directly. We'll get back to those later.
+We can now completely remove the existing event system from RocketInvaders as the Python bindings will do all the event management for us. Remove all source and header files that begin with Event. You'll also need to comment out some code in `GameElement.cpp`{:.path} and `Game.cpp`{:.path} that call the `EventManager` directly. We'll get back to those later.
 
-Also remove all the EventManager initialisation from main.cpp as we'll replace it with a new Python script. I suggest you name it autoexec.py and place it in a python subfolder. It should look something like this:
+Also remove all the EventManager initialisation from `main.cpp`{:.path} as we'll replace it with a new Python script. I suggest you name it autoexec.py and place it in a python subfolder. It should look something like this:
 
 ```python
 import rocket
@@ -70,7 +70,7 @@ context.LoadDocument('data/background.rml').Show()
 context.LoadDocument('data/main_menu.rml').Show()
 ```
 
-To run this script, we simply need to import it at application start up. Add an import helper to the PythonInterface and call it just before the main shell loop.
+To run this script, we simply need to import it at application start up. Add an import helper to the `PythonInterface` and call it just before the main shell loop.
 
 ```cpp
 bool PythonInterface::Import(const {{page.lib_ns}}::Core::String& name)
@@ -97,7 +97,7 @@ At this point the RocketInvaders will now run, however you'll get a script impor
 
 *NOTE: On Windows this error will go to stdout, which will not be visible. I suggest you grab a copy of DoAllocConsole() from the pyinvaders sample and drop it into your project. Call DoAllocConsole() at the start of your main function and you'll get a console for reading Python error messages.*
 
-My PythonInterface::Initialise now looks like this:
+My `PythonInterface::Initialise()` now looks like this:
 
 ```cpp
 bool PythonInterface::Initialise()
@@ -122,7 +122,7 @@ bool PythonInterface::Initialise()
 
 This will get us further, you should see the main menu load, however you'll notice a Python error on your console when Python attempts to execute the old onload event in mainmenu.rml. Update the onload and onunload events to use Python script which will correctly display and hide the logo.
 
-```
+```html
 <body template="window" onload="document.context.LoadDocument('data/logo.rml').Show()" onunload="document.context.logo.Close()">
 ```
 
@@ -130,11 +130,11 @@ You will now have to go through each event defined in RML updating it with equiv
 
 RocketPython parses any semi-colons in an event as a delimiter. So you can place multiple Python statements on a single line, semi-colon separated. This comes in useful when you want to execute two statements at once, for example you probably want to do the following for the Start Game button.
 
-```cpp
+```
 document.context.LoadDocument('data/start_game.rml').Show(); document.Close()
 ```
 
-I've simplified this further by by placing a LoadMenu function in the shared template window.rml, that loads a new document, closing the existing one.
+I've simplified this further by by placing a `LoadMenu()` function in the shared template `window.rml`{:.path}, that loads a new document, closing the existing one.
 
 ### Step 3: Exposing Game Functions
 
@@ -175,15 +175,15 @@ bool PythonInterface::Initialise()
 }
 ```
 
-We can now call the Shutdown function from main_menu.rml as follows
+We can now call the `Shutdown()` function from `main_menu.rml`{:.path} as follows
 
-```
+```html
 <button onclick="import game;game.Shutdown()">Exit</button>
 ```
 
 If you have a lot of functions that call game, you can place the import game in the document header, or in one of your template files.
 
-Using the above code we can extrapolate this throughout the game and have a complete functioning menu system. You will however need to expose more of the GameDetails class to Python so that the start_game screen can save the difficulty and colour selection.
+Using the above code we can extrapolate this throughout the game and have a complete functioning menu system. You will however need to expose more of the `GameDetails` class to Python so that the start_game screen can save the difficulty and colour selection.
 
 Your game module should look something like this:
 
@@ -204,9 +204,9 @@ BOOST_PYTHON_MODULE(game)
 
 ### Step 4: Custom Elements
 
-The next problem we'll hit when converting RocketInvaders is the ElementGame does not have a Python interface. Thus we can't give it focus when we start the game which means the defender cannot be moved until the user clicks the game with the mouse. To fix this, we need to define ElementGame to Python and register the Python instancer with {{page.lib_ns}}::Factory instead of the C++ instancer.
+The next problem we'll hit when converting `RocketInvaders` is the `ElementGame` does not have a Python interface. Thus we can't give it focus when we start the game which means the defender cannot be moved until the user clicks the game with the mouse. To fix this, we need to define ElementGame to Python and register the Python instancer with {{page.lib_ns}}::Factory instead of the C++ instancer.
 
-Let's define a static method on ElementGame to do this and call it from our game module's initialisation.
+Let's define a static method on `ElementGame` to do this and call it from our game module's initialisation.
 
 ```cpp
 void ElementGame::InitialisePythonInterface()
@@ -224,9 +224,9 @@ void ElementGame::InitialisePythonInterface()
 
 ### Step 5: Key and end game bindings
 
-We can now get into the game, however the game will never finish as there's no key bindings for processing the ESCAPE key and nothing will make the game exit when the game is over. Fixing the key binding is easy, simply drop in a 'onkeydown' handler and make it launch the pause menu.
+We can now get into the game, however the game will never finish as there's no key bindings for processing the ESCAPE key and nothing will make the game exit when the game is over. Fixing the key binding is easy, simply drop in a `onkeydown`{:.evt} handler and make it launch the pause menu.
 
-The game over event is a bit more tricky, as the old Invaders would call EventManager::LoadWindow directly from C++. We're going to have to add a game_over flag to game and make the GameElement check this state every update and fire a custom 'gameover' event.
+The game over event is a bit more tricky, as the old Invaders would call `EventManager::LoadWindow()` directly from C++. We're going to have to add a game_over flag to game and make the GameElement check this state every update and fire a custom `gameover`{:.evt} event.
 
 ```cpp
 // Updates the game.
