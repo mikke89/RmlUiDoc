@@ -22,16 +22,6 @@ Event listeners can be bound to an element declared in RML by specifying an attr
 
 Note that this is the only time you prefix the event name with `on`{:.attr}; all other times an event is referenced, it is done so simply with its name.
 
-### Events in Python
-
-When using the Python plugin, event listeners bound through RML execute Python code. The value of the event attribute will be executed when the event is triggered. Multiple lines of Python code can be put on one line, separated by a semicolon.
-
-```html
-<div onclick="print 'hello'; print 'goodbye'">
-```
-
-For full details on Python events see the [Python Manual](../python_manual.html).
-
 ### Events
 
 Below is a list of events and their associated event attributes.

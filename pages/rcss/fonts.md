@@ -10,7 +10,7 @@ RCSS implements a simpler version of the [CSS2 font model](http://www.w3.org/TR/
 * Improved performance. 
 
 Fonts are specified in a similar fashion.
-NOTE: You will need to load all ttf files via the C++ or python interfaces before they can be used in RCSS.
+NOTE: You will need to load all ttf files via the C++ interfaces before they can be used in RCSS.
 
 ### Font specification properties
 

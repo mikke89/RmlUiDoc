@@ -20,7 +20,6 @@ NOTE: You need the . to denote the current directory is where the CMakeLists.txt
 This will open a a text mode application that lest you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press C so that CMake can scan your system configuration. Once its complete you will see a list of options. The most interesting options are most likely
 
 * *BUILD_LUA_BINDINGS* - Build the required bingings for Lua support. You'll need Lua installed.
-* *BUILD_PYTHON_BINDINGS* - Build the required bindings for python support. You'll need Boost::Python and Python installed.
 * *BUILD_SAMPLES* - Should the samples be built
 * *BUILD_SHARED_LIBS* - Build as .so/.dylib as apposed to a .a file 
 * *CMAKE_BUILD_TYPE* - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).

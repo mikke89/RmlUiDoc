@@ -20,14 +20,8 @@ This package is a great place to look at for examples of creating new elements a
 
 To use RocketControls, include `<{{page.lib_dir}}/Controls.h>`{:.incl} in your application and link with RocketControls or RocketControls_d.
 
-This package also contains all the required code to expose the controls to Python if you are using {{page.lib_name}} with RocketPython.
-
 ### RocketDebugger
 
 RocketDebugger is a visual debugger for {{page.lib_name}} elements, inspired by similar debuggers for Firefox. We strongly recommend you use this in your application during development!
 
 To use RocketDebugger, include `<{{page.lib_dir}}/Debugger.h>`{:.incl} in your application and link with RocketDebugger or RocketDebugger_d.
-
-### RocketPython
-
-RocketPython provides Python language bindings to RocketCore via a Python extension module. RocketPython greatly improves programmer productivity, via the power of scripting. It's what JavaScript is to the Web. 

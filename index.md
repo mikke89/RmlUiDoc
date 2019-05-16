@@ -15,7 +15,7 @@ description: RmlUi's documentation
 ### Programming Documentation
 
 1. [C++ Manual](pages/cpp_manual.html)
-2. [Python Manual](pages/python_manual.html)
+2. Lua Manual
 
 ### Authoring Documentation 
 
@@ -29,8 +29,7 @@ description: RmlUi's documentation
 1. [Window templating](pages/tutorials/window_template.html) in the _Rocket Invaders from Mars_ demo.
 2. [Datagrid](pages/tutorials/datagrid.html): setting up _Rocket Invaders_ high scores.
 3. [Datagrid Tree](pages/tutorials/datagrid_tree.html): adding subtrees to _Rocket Invaders_ high scores.
-4. [Python Events](pages/tutorials/python_event_system.html): Integrating Python with _Rocket Invaders_.
-5. [Drag & Drop](pages/tutorials/dragging.html)
+4. [Drag & Drop](pages/tutorials/dragging.html)
 
 ### Other
 
@@ -42,4 +41,3 @@ description: RmlUi's documentation
 
 1. [Building {{page.lib_name}} with CMake](pages/building_with_cmake.html)
 2. [Building FreeType for iOS](pages/building_freetype_for_ios.html)
-3. [Building Boost::Python](pages/building_boost_python.html)

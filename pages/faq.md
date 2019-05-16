@@ -26,13 +26,6 @@ public:
    element->AddEventListener("click", my_listener, false);
 ```
 
-From Python:
-
-```
-	element = document.GetElementById('element5')
-	element.AddEventListener('click', 'MyFunction(self, document)', False)
-```
-
 ### Can I change decorators from script?
 
 Not directly, however you can change the element's class which will affect which decorators are applied to it.

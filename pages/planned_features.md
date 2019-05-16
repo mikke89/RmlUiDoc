@@ -8,9 +8,7 @@ Based on current [discussions]({{page.lib_site}}/issues/), the following are pla
 ### Sooner
 
 * Increase performance ([#8]({{page.lib_site}}/issues/8))
-* Revamp the font provider interface to make it more flexbile and not tied to TrueType fonts ([#10]({{page.lib_site}}/issues/10))
-* Remove older technology support, like DirectX 9 and SFML 1 ([#16]({{page.lib_site}}/issues/16))
-* Remove Python and Ogre3d support for lack of dev resources (help needed) ([#16]({{page.lib_site}}/issues/16))
+* Revamp the font provider interface to make it more flexbile ([#10]({{page.lib_site}}/issues/10))
 
 ### Later
 
