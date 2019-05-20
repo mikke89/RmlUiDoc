@@ -99,16 +99,16 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 |------------------|-------------------|-------------------------|
 | `GetAbsoluteLeft()` | The distance from the context's left edge and the element's left border.
 | `GetAbsoluteTop()` | The distance from the context's top edge and the element's top border.
-| `SetAttribute()`, GetAttribute() | All attributes associated with an element. | attributes
-| `GetChild()`, GetNumChildren() | All child nodes of an element. | childNodes
-| `IsClassSet()`, SetClass() | Gets/sets the class of the element. | className
+| `SetAttribute()`, `GetAttribute()` | All attributes associated with an element. | attributes
+| `GetChild()`, `GetNumChildren()` | All child nodes of an element. | childNodes
+| `IsClassSet()`, `SetClass()` | Gets/sets the class of the element. | className
 | `GetClientHeight()` | The inner height of an element. | clientHeight
 | `GetClientLeft()` | The width of the left border of an element. | clientLeft
 | `GetClientTop()` | The width of the top border of an element. | clientTop
 | `GetClientWidth()` | The inner width of an element. | clientWidth
 | `GetFirstChild()` | The first direct child node of an element. | firstChild
 | `GetId()`, `SetId()` | Gets/sets the id of the element. | id
-| `GetInnerRML()`, SetInnerRML() | Gets/sets the markup and content of the element. | innerHTML
+| `GetInnerRML()`, `SetInnerRML()` | Gets/sets the markup and content of the element. | innerHTML
 | `GetLastChild()` | The last direct child node of an element. | lastChild
 | `GetNextSibling()` | The node immediately following the given one in the tree. | nextSibling
 | `GetOffsetHeight()` | The height of an element, relative to the layout. | offsetHeight
@@ -199,7 +199,7 @@ attributes.Set("value", "OK");
                                                                               attributes);
 ```
 
-If the element is instanced successfully, it will be returned. If not, NULL (0) will be returned. All elements are reference counted, and the newly instanced element will be returned with one initial reference owned by the instancing code; be sure to remove it once you have parented the element to another.
+If the element is instanced successfully, it will be returned. If not, `NULL` (0) will be returned. All elements are reference counted, and the newly instanced element will be returned with one initial reference owned by the instancing code; be sure to remove it once you have parented the element to another.
 
 #### Using a document
 
@@ -215,7 +215,7 @@ To create an element through a document use one of the following functions:
 {{page.lib_ns}}::Core::ElementText* CreateTextNode(const {{page.lib_ns}}::Core::String& text);
 ```
 
-`CreateElement()` takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or NULL if not.
+`CreateElement()` takes a single parameter, name, the tag name of the new element. This will be used to both look up the instancer and tag the element. Like instancing the element through the factory, the new element will be returned if it was created successfully, or `NULL` if not.
 
 `CreateTextNode()` creates a single text element containing the text given in the parameter text.
 
