@@ -84,3 +84,18 @@ dd
 {
 	color: green;
 }
+.status
+{
+	margin-top: -10px;
+	float: right;
+	position: relative;
+	padding: 1em 1.5em;
+	color: #fff;
+}
+.status hr { margin: 0; padding: 0; border: 1px solid rgba(255,255,255,0.5); }
+.status .title { font-size: 0.85em; }
+.status .has_description { position: absolute; bottom: 0.5em; left: 0; right: 0; height: 1em; text-align: center; }
+.status.minor, .status.improve { background-color: #829c50; }
+.status.review { background-color: #16556c; }
+.status.major { background-color: #ec3a09; }
+.status.deprecated { background-color: #ff8000; }

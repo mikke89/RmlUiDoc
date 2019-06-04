@@ -31,3 +31,11 @@ defaults:
       lib_site : "https://github.com/mikke89/RmlUi"
       lib_ns   : "Rocket"
       lib_dir  : "Rocket"
+      status   : "none"
+      status_label:
+        none       : ""
+        minor      : "Need minor changes"
+        improve    : "Need improvements"
+        review     : "Up for review"
+        major      : "Mostly out-dated"
+        deprecated : "Deprecated features"

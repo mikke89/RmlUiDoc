@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Building With CMake
+status: improve
+status-desc: CMake with Windows, review options
 ---
 
 The easiest way to build {{page.lib_name}} on Mac and Linux is by using [CMake](http://cmake.org). You'll first need to download CMake or install it via the package manager of your choice on Linux.

@@ -1,4 +1,11 @@
 <div class="page-header">
+  {% if page.status != none %}
+	<div class="status {{page.status}}"  {% if page.status-desc != nil %} title="{{page.status-desc}}"{% endif %}>
+	  <div class="title">Document status</div><hr/>
+	  <div class="description">{{ page.status_label[page.status] }}</div>
+	  {% if page.status-desc != nil %}<div class="has_description">...</div>{% endif %}
+	</div>
+  {% endif %}
   <h2>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h2>
 </div>
 
