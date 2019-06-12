@@ -99,3 +99,17 @@ dd
 .status.review { background-color: #16556c; }
 .status.major { background-color: #ec3a09; }
 .status.deprecated { background-color: #ff8000; }
+
+
+/* Mark external links with icon */
+a[href^="http"]:after {
+  content: " \f35d";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-style: normal;
+  font-size: 0.7em;
+  display: inline-block;
+  text-decoration: none;
+  padding-left: 0.4em;
+  padding-right: 0.2em;
+}
