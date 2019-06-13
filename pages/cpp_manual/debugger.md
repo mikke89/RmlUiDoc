@@ -4,7 +4,7 @@ title: Debugger plugin
 parent: cpp_manual
 ---
 
-{{page.lib_name}} ships with a visual debugger plugin that you can use and modify to aid you in development. You can try it out in the _Rocket Invaders from Mars_ sample application by pressing SHIFT-~.
+{{page.lib_name}} ships with a visual debugger plugin that you can use and modify to aid you in development. You can try it out in the _Rocket Invaders from Mars_ sample application by pressing F8.
 
 ### Tools
 
