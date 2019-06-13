@@ -2,6 +2,7 @@
 layout: page
 title: Selectors
 parent: rcss
+next: cascade
 ---
 
 Selectors are used to select elements to apply specific rules to. The selector syntax supported in RCSS is as follows:

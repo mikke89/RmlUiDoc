@@ -2,6 +2,7 @@
 layout: page
 title: RML Document Structure
 parent: rml
+next: images
 ---
 
 ### \<rml\>

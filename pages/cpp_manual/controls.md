@@ -2,6 +2,7 @@
 layout: page
 title: Controls plugin
 parent: cpp_manual
+next: debugger
 ---
 
 ### Initialisation

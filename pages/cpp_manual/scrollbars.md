@@ -2,6 +2,7 @@
 layout: page
 title: Element scrollbars
 parent: cpp_manual
+next: documents
 ---
 
 When appropriate, {{page.lib_name}} automatically generates hidden scrollbar elements for elements with content overflow. The size and positioning of the scrollbar elements can be influenced through RCSS properties. Custom elements can make use of the scrollbar functionality to generate scrollbars of their own.

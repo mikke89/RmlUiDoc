@@ -2,6 +2,7 @@
 layout: page
 title: Loading Fonts
 parent: cpp_manual
+next: input
 ---
 
 TrueType and OpenType fonts can be loaded into {{page.lib_name}} by the application. {{page.lib_name}} has no default font, so at least one font must be loaded before text can be rendered.

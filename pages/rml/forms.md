@@ -2,6 +2,7 @@
 layout: page
 title: RML Forms
 parent: rml
+next: controls
 ---
 
 A form is a collection of input elements inside a `<form>`{:.tag} element - when the form is "submitted", the information stored in the each child input element is sent through to the listening process.

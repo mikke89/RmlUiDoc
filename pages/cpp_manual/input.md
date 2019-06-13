@@ -2,6 +2,7 @@
 layout: page
 title: User input
 parent: cpp_manual
+next: interfaces
 ---
 
 {{page.lib_name}} does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.

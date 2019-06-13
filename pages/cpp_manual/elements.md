@@ -2,6 +2,7 @@
 layout: page
 title: Elements
 parent: cpp_manual
+next: text_elements
 ---
 
 An element is the smallest subdivision of functionality within a [document](documents.html).

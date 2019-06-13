@@ -2,6 +2,7 @@
 layout: page
 title: Style sheets and Properties
 parent: cpp_manual
+next: decorators
 ---
 
 A {{page.lib_name}} document may have a number of style sheets attached to it. Each of those style sheets has a list of RCSS properties and rules for selecting which elements those properties are applied to. Any element may also have properties set on them directly.

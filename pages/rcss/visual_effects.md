@@ -2,6 +2,7 @@
 layout: page
 title: Visual effects
 parent: rcss
+next: colours_backgrounds
 ---
 
 ### Overflow and clipping

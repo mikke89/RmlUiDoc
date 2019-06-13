@@ -2,6 +2,7 @@
 layout: page
 title: Getting started
 parent: cpp_manual
+next: packages
 ---
 
 This is the first place to look if you've just downloaded {{page.lib_name}} and want to kick the tyres.

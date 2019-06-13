@@ -2,6 +2,7 @@
 layout: page
 title: Fonts
 parent: rcss
+next: text
 ---
 
 RCSS implements a simpler version of the [CSS2 font model](http://www.w3.org/TR/REC-CSS2/fonts.html) when dealing with text rendering. This is for two reasons:

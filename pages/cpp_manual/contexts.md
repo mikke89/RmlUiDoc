@@ -2,6 +2,7 @@
 layout: page
 title: Contexts
 parent: cpp_manual
+next: events
 ---
 
 {{page.lib_name}} contexts are independent collections of documents. All documents exist within a single context. Contexts are rendered, updated and given input independently of each other at the application's discretion.

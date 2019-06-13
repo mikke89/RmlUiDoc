@@ -2,6 +2,7 @@
 layout: page
 title: Text Elements
 parent: cpp_manual
+next: scrollbars
 ---
 
 {{page.lib_name}} uses text elements (elements derived from `{{page.lib_ns}}::Core::ElementText`) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the {{page.lib_name}} factory, or through the `CreateTextNode()` function on a document.

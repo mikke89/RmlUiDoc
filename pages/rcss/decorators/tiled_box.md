@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Tiled Box decorator
+grandparent: rcss
 parent: rcss/decorators
 ---
 

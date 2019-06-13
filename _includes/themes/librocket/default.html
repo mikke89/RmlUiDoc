@@ -17,13 +17,13 @@
     <link href="{{ THEME_ASSETS_PATH }}/fontawesome/css/fontawesome.css" rel="stylesheet" type="text/css" media="all">
 
     <!-- fav and touch icons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ ASSETS_PATH }}/icons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_PATH }}/icons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_PATH }}/icons/favicon-16x16.png">
-	<link rel="manifest" href="{{ ASSETS_PATH }}/icons/site.webmanifest">
-	<link rel="mask-icon" href="{{ ASSETS_PATH }}/icons/safari-pinned-tab.svg" color="#5bbad5">
-	<link rel="shortcut icon" href="{{ ASSETS_PATH }}/icons/favicon.ico">
-	
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ ASSETS_PATH }}/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ ASSETS_PATH }}/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ ASSETS_PATH }}/icons/favicon-16x16.png">
+    <link rel="manifest" href="{{ ASSETS_PATH }}/icons/site.webmanifest">
+    <link rel="mask-icon" href="{{ ASSETS_PATH }}/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="{{ ASSETS_PATH }}/icons/favicon.ico">
+  
     <!-- atom & rss feed -->
 
   </head>
@@ -33,24 +33,86 @@
       <div class="navbar-inner">
         <div class="mycontainer">
           <a class="brand" href="{{ HOME_URL }}">{{ site.title }}</a>
-          {% if page.parent != nil %}
+          {% if page.parent %}
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
-            {% for parent_page in site.pages %}
-              {% if parent_page.url == parent_url %}
-                {% capture parent_link %}<a class="nav" href="{{ parent_url | relative_url }}.html">{{ parent_page.title }}</a>{% endcapture %}
+            {% capture grandparent_url %}/pages/{{ page.grandparent }}{% endcapture %}
+            {% assign base_url = page.url | split: "/" | pop | join: "/" | append: "/" %}
+            {% assign next_url = base_url | append: page.next %}
+            
+            {% for it_page in site.pages %}
+              {% assign it_next_url = it_page.url | split: "/" | pop | join: "/" | append: "/" | append: it_page.next %}
+              {% if it_page.url == parent_url %}
+                {% assign parent_page = it_page %}
+              {% elsif it_page.url == grandparent_url %}
+                {% assign grandparent_page = it_page %}
+              {% elsif it_page.url == next_url %}
+                {% assign next_page = it_page %}
+              {% elsif it_next_url == page.url %}
+                {% assign previous_page = it_page %}
               {% endif %}
             {% endfor %}
           {% endif %}
-          {% if parent_link %}{{parent_link}}{% endif %}
+          {% if parent_page %}
+            <div class="nav">
+            {% if grandparent_page %}
+              <a href="{{ grandparent_page.url | relative_url }}.html">{{ grandparent_page.title }}</a> <span class="divider">/</span>
+            {% endif %}
+            {% if parent_page %}
+              <a href="{{ parent_page.url | relative_url }}.html">{{ parent_page.title }}</a>
+            {% endif %}
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>
 
     <div class="mycontainer">
-
       <div class="content">
         {{ content }}
       </div>
+    
+      {% if parent_page %}
+      <hr>
+      <div class="row-fluid">
+      <div class="span12">
+        <ul class="pager bottom-nav">
+        {% if previous_page %}
+          <li class="previous">
+            <a href="{{ previous_page.url | relative_url }}.html">{{ previous_page.title }}</a>
+          </li>
+        {% else %}
+          <li class="previous disabled">
+            <a></a>
+          </li>
+        {% endif %}
+          <li class="parent">
+            <a href="{{ parent_page.url | relative_url }}.html">{{ parent_page.title }}</a>
+          </li>
+        {% if next_page %}
+          <li class="next">
+            <a href="{{ next_page.url | relative_url }}.html">{{ next_page.title }}</a>
+          </li>
+        {% else %}
+          <li class="next disabled">
+            <a></a>
+          </li>
+        {% endif %}
+        </ul>
+      </div>
+      </div>
+      {% elsif page.url != "/" %}
+      <hr>
+      <div class="row-fluid">
+      <div class="span12">
+        <ul class="pager bottom-nav">
+          <li class="parent">
+            <a href="{{ HOME_URL }}">{{ site.title }}</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+      {% endif %}
+    
       <hr>
       <footer>
         <p><small>

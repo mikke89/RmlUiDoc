@@ -2,6 +2,7 @@
 layout: page
 title: Packages
 parent: cpp_manual
+next: core_overview
 ---
 
 {{page.lib_name}} ships with four libraries, all with full source code.

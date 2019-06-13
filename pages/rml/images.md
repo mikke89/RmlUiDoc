@@ -2,6 +2,7 @@
 layout: page
 title: RML Images
 parent: rml
+next: style_sheets
 ---
 
 ### \<img\>

@@ -2,6 +2,7 @@
 layout: page
 title: RML Data Display Elements
 parent: rml
+next: templates
 ---
 
 ### \<datagrid\>

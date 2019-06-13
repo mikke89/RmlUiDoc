@@ -2,6 +2,7 @@
 layout: page
 title: RML Events
 parent: rml
+next: element_index
 ---
 
 The event system is based on the extremely flexible DOM event system.

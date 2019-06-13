@@ -2,6 +2,7 @@
 layout: page
 title: Text
 parent: rcss
+next: user_interface
 ---
 
 ### Alignment: the 'text-align' property

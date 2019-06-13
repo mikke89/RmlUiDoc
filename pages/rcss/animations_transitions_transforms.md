@@ -2,6 +2,7 @@
 layout: page
 title: Animations, Transitions, and Transforms
 parent: rcss
+next: visual_effects
 ---
 
 ### Transform property

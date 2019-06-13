@@ -2,6 +2,7 @@
 layout: page
 title: Syntax
 parent: rcss
+next: selectors
 ---
 
 A style sheet is made up of a number of rules. Each rule has a number of selectors, which define which elements the rule applies to, and properties, which are applied to those elements.

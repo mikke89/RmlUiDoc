@@ -2,6 +2,7 @@
 layout: page
 title: User interface
 parent: rcss
+next: decorators
 ---
 
 ### Mouse cursor: the 'cursor' property

@@ -2,6 +2,7 @@
 layout: page
 title: Box model
 parent: rcss
+next: visual_formatting_model
 ---
 
  The RCSS box model describes the boxes that each element in an RML element tree generates during layout. It is identical to the [CSS box model](http://www.w3.org/TR/REC-CSS2/box.html). Please note that RCSS implements the CSS2 box model to specification (with one minor exception), and not the old IE box model. Important things to note about the box model are:

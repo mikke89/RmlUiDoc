@@ -2,6 +2,7 @@
 layout: page
 title: Events
 parent: cpp_manual
+next: rcss
 ---
 
 Events are sent to elements to indicate actions that have occurred to that element. {{page.lib_name}} generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.

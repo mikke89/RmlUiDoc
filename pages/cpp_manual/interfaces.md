@@ -2,6 +2,7 @@
 layout: page
 title: Custom interfaces
 parent: cpp_manual
+next: plugins
 ---
 
 There are three interfaces that {{page.lib_name}} provides to control how it interacts with your application. These are the render interface, the system interface and the file interface.

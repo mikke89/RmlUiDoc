@@ -2,6 +2,8 @@
 layout: page
 title: Shadow Effect
 parent: rcss/font_effects
+grandparent: rcss
+next: outline
 ---
 
 The shadow font effect renders a coloured copy of text with an offset, giving the effect of a shadow.

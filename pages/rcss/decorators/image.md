@@ -2,6 +2,8 @@
 layout: page
 title: Image decorator
 parent: rcss/decorators
+grandparent: rcss
+next: tiled_horizontal
 ---
 
 The *image* decorator can render a single image or a rectangular subsection of a single image. 

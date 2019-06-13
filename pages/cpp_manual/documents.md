@@ -2,6 +2,7 @@
 layout: page
 title: Documents
 parent: cpp_manual
+next: contexts
 ---
 
 Documents are container [elements](elements.html). They are designed to represent a single `window' within your application's interface. Documents are elements themselves, and the elements they contain directly are parented to them.

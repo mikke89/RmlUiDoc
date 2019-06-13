@@ -2,6 +2,7 @@
 layout: page
 title: RML Style Sheets
 parent: rml
+next: forms
 ---
 
 Styles can be included in an RML document in three ways: included from an external style sheet, declared in the header, or declared inline inside a specific tag.

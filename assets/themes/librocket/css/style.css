@@ -41,6 +41,17 @@
 	font-size: 20px;
 }
 
+.navbar .nav a
+{
+	text-decoration: none;
+}
+
+.navbar .nav .divider
+{
+	padding-left: 0.4em;
+	padding-right: 0.4em;
+}
+
 pre code
 {
 	font-size: 95%;
@@ -103,13 +114,38 @@ dd
 
 /* Mark external links with icon */
 a[href^="http"]:after {
-  content: " \f35d";
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  font-style: normal;
-  font-size: 0.7em;
-  display: inline-block;
-  text-decoration: none;
-  padding-left: 0.4em;
-  padding-right: 0.2em;
+	content: " \f35d";
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-style: normal;
+	font-size: 0.7em;
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 0.4em;
+	padding-right: 0.2em;
+}
+
+.bottom-nav a {
+	vertical-align: text-bottom;
+}
+
+.bottom-nav a:before, .bottom-nav a:after {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-style: normal;
+	font-size: 1.1em;
+	display: inline-block;
+	text-decoration: none;
+}
+.bottom-nav .previous a:before {
+	content: "\f104";
+	padding-right: 0.5em;
+}
+.bottom-nav .parent a:before {
+	content: "\f106";
+	padding-right: 0.5em;
+}
+.bottom-nav .next a:after {
+	content: "\f105";
+	padding-left: 0.5em;
 }

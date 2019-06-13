@@ -2,6 +2,8 @@
 layout: page
 title: Tiled Vertical decorator
 parent: rcss/decorators
+grandparent: rcss
+next: tiled_box
 ---
 
 The _tiled-vertical_ decorator can render three images, or subsections of images, vertically across an element. One image is placed on the top edge, another on the bottom edge, and the last is stretched or repeated across the middle.

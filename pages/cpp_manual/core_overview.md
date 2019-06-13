@@ -2,6 +2,7 @@
 layout: page
 title: Core Overview
 parent: cpp_manual
+next: elements
 ---
 
 So you've got {{page.lib_name}} integrated into your application, but how are you meant to use it? This is an overview of the significant concepts and objects at the core of {{page.lib_name}}.
