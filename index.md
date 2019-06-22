@@ -19,8 +19,8 @@ description: RmlUi's documentation
 
 ### Authoring Documentation 
 
-1. [Rocket Markup Language (RML)](pages/rml.html)
-2. [Rocket Cascading Style Sheets (RCSS)](pages/rcss.html)
+1. [RML, Rml Markup Language](pages/rml.html)
+2. [RCSS, Rcss Cascading Style Sheets](pages/rcss.html)
 3. [Style guide](pages/style_guide.html) 
 4. [Glossary](pages/glossary.html) 
 

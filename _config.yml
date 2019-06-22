@@ -29,8 +29,8 @@ defaults:
     values:
       lib_name : "RmlUi"
       lib_site : "https://github.com/mikke89/RmlUi"
-      lib_ns   : "Rocket"
-      lib_dir  : "Rocket"
+      lib_ns   : "Rml"
+      lib_dir  : "RmlUi"
       status   : "none"
       status_label:
         none       : ""

@@ -21,17 +21,17 @@ If you haven't already done so, take a look at the sample applications in `/Samp
 
 #### Visual Studio
 
-* Add the 32/64bit include path (`/include/`{:.path} under the {{page.lib_name}} directory) to your include paths (either through Tools -> Options -> Projects and Solutions -> VC++ Directories -> Show directories for: Include files for all projects that you build, or Project -> Properties -> Configuration Properties -> C++ -> Additional Include Directories for this project only).
+* Add the include path (`/Include/`{:.path} under the {{page.lib_name}} directory) to your include paths (either through Tools -> Options -> Projects and Solutions -> VC++ Directories -> Show directories for: Include files for all projects that you build, or Project -> Properties -> Configuration Properties -> C++ -> Additional Include Directories for this project only).
 * `#include <{{page.lib_dir}}/Core.h>` in your project.
-* Add the {{page.lib_name}} library path (`/bin/`{:.path} under the {{page.lib_name}} directory) to your library paths.
-* Link with RocketCore_d.lib (for debug builds) or RocketCore.lib (for non-debug builds).
-* Copy the appropriate DLLs (ie, RocketCore_d.dll for debug builds, RocketCore.dll for non-debug builds) from the `/bin/`{:.path} folder into the directory your executable will run from. 
+* Add the {{page.lib_name}} library path (`/Build/`{:.path} under the {{page.lib_name}} directory) to your library paths.
+* Link with RmlCore_d.lib (for debug builds) or RmlCore.lib (for non-debug builds).
+* Copy the appropriate DLLs (ie, RmlCore_d.dll for debug builds, RmlCore.dll for non-debug builds) from the `/Build/`{:.path} folder into the directory your executable will run from. 
 
 #### macOS / Linux
 
-* Add the {{page.lib_name}} include path (`/include/`{:.path} under the {{page.lib_name}} directory) and library path (`/lib/`{:.path}) to the paths in your build system.
+* Add the {{page.lib_name}} include path (`/Include/`{:.path} under the {{page.lib_name}} directory) and library path (`/lib/`{:.path}) to the paths in your build system.
 * `#include <{{page.lib_dir}}/Core.h>` in your project.
-* Link with RocketCore.
+* Link with RmlCore.
 * Either copy the {{page.lib_name}} libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for macOS) environment variable. 
 
 ### Initialising {{page.lib_name}}

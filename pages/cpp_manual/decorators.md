@@ -183,7 +183,7 @@ The custom decorator now has two properties. The property dictionary passed into
 
 #### Registering an instancer
 
-To register a custom decorator instancer with {{page.lib_name}}, call the `RegisterDecoratorInstancer()` function on the Rocket factory (`{{page.lib_ns}}::Core::Factory`) after {{page.lib_name}} has been initialised.
+To register a custom decorator instancer with {{page.lib_name}}, call the `RegisterDecoratorInstancer()` function on the {{page.lib_name}} factory (`{{page.lib_ns}}::Core::Factory`) after {{page.lib_name}} has been initialised.
 
 ```cpp
 // Registers an instancer that will be used to instance decorators.
