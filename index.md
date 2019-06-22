@@ -36,8 +36,3 @@ description: RmlUi's documentation
 1. [Localisation](pages/localisation.html)
 2. [Frequently Asked Questions](pages/faq.html)
 3. [Planned features](pages/planned_features.html)
-
-### Building
-
-1. [Building {{page.lib_name}} with CMake](pages/building_with_cmake.html)
-2. [Building FreeType for iOS](pages/building_freetype_for_ios.html)

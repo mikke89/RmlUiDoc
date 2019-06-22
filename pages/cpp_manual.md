@@ -3,9 +3,10 @@ layout: page
 title: C++ Manual
 ---
 
-### Introduction
+### Getting started
 
-1. [Getting started with {{page.lib_name}}](cpp_manual/getting_started.html)
+1. [Building {{page.lib_name}} with CMake](cpp_manual/building_with_cmake.html)
+1. [Integrating {{page.lib_name}} into your application](cpp_manual/integrating.html)
 2. [Packages](cpp_manual/packages.html)
 3. [Core overview](cpp_manual/core_overview.html) 
 
@@ -32,3 +33,7 @@ title: C++ Manual
 
 1. [Controls](cpp_manual/controls.html)
 2. [Debugger](cpp_manual/debugger.html)
+
+### Appendix
+
+* [Building FreeType for iOS](cpp_manual/building_freetype_for_ios.html)

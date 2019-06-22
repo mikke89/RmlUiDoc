@@ -1,19 +1,17 @@
 ---
 layout: page
-title: Getting started
+title: Integrating RmlUi into your application
 parent: cpp_manual
 next: packages
 ---
 
-This is the first place to look if you've just downloaded {{page.lib_name}} and want to kick the tyres.
-
-### Samples
+This guide will help you get started when you are ready to integrate RmlUi into your own application.
 
 If you haven't already done so, take a look at the sample applications in `/Samples/`{:.path}. There you can find a whole heap of useful examples of how to use and abuse {{page.lib_name}}. Also in there you can find the shell library we used to develop all the samples (in `/Samples/shell/`{:.path}), which can be great if you want to write a quick and dirty application of your own.
 
 ### Setting up the build environment
 
-{{page.lib_name}} is developed following the C++11 standard and to be used on the following platforms:
+{{page.lib_name}} is developed following the C++11 standard and can be used on the following platforms:
 
 * Windows 32/64bit, compiling with Microsoft Visual Studio 2015+.
 * macOS Intel 32/64bit, compiling with GCC 4.8+.
@@ -21,13 +19,13 @@ If you haven't already done so, take a look at the sample applications in `/Samp
 
 #### Visual Studio
 
-* Add the include path (`/Include/`{:.path} under the {{page.lib_name}} directory) to your include paths (either through Tools -> Options -> Projects and Solutions -> VC++ Directories -> Show directories for: Include files for all projects that you build, or Project -> Properties -> Configuration Properties -> C++ -> Additional Include Directories for this project only).
-* `#include <{{page.lib_dir}}/Core.h>` in your project.
-* Add the {{page.lib_name}} library path (`/Build/`{:.path} under the {{page.lib_name}} directory) to your library paths.
-* Link with RmlCore_d.lib (for debug builds) or RmlCore.lib (for non-debug builds).
-* Copy the appropriate DLLs (ie, RmlCore_d.dll for debug builds, RmlCore.dll for non-debug builds) from the `/Build/`{:.path} folder into the directory your executable will run from. 
+* Add the include path (`/Include/`{:.path} under the {{page.lib_name}} directory) to your include paths, found under `Project -> Properties -> C/C++ -> General -> Additional Include Directories`.
+* Add `#include <{{page.lib_dir}}/Core.h>` in a source or header file.
+* Add the {{page.lib_name}} library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build/`{:.path} directory as appropriate) to your library paths.
+* Link with `RmlCore.lib`{:.path}.
+* If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs, ie. `Debug/RmlCore.dll`{:.path} for debug builds, `Release/RmlCore.dll`{:.path} for release builds from the `/Build/`{:.path} folder into the directory your executable will run from. 
 
-#### macOS / Linux
+#### macOS and Linux
 
 * Add the {{page.lib_name}} include path (`/Include/`{:.path} under the {{page.lib_name}} directory) and library path (`/lib/`{:.path}) to the paths in your build system.
 * `#include <{{page.lib_dir}}/Core.h>` in your project.

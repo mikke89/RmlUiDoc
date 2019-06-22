@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Building FreeType for iOS
+parent: cpp_manual
 status: review
 status-desc: Not tested, help wanted for testing and bringing it up-to-date.
 ---

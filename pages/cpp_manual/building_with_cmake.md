@@ -1,7 +1,11 @@
 ---
 layout: page
-title: Building With CMake
+title: Building RmlUi with CMake
+parent: cpp_manual
+next: integrating
 ---
+
+The following will guide you through the process of building RmlUi. This is necessary before you can integrate it into your own application. If you are just getting started, we also encourage you to build the included samples and have a look at them.
 
 Requirements:
 - [RmlUi](https://github.com/mikke89/RmlUi)
@@ -21,13 +25,13 @@ git clone https://github.com/mikke89/RmlUi.git
 
 This section serves as an introduction for users of Visual Studio.
 
-In addition to CMake, you need a copy of the FreeType library, version 2.10.0 is officially supported. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype` if it does not exist, and copy the FreeType files here.
+In addition to CMake, you need a copy of the FreeType library, version 2.10.0 is officially supported. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here.
 
-Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`. Click configure and select your Visual Studio version. Now there will be a few options appearing. See below for a description of some of them. If you'd like to take a look at the included samples, enable the  `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`.
+Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See below for a description of some of them. If you'd like to take a look at the included samples, enable the  `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
 
-![cmake-gui](../assets/images/cmake-gui.png)
+![cmake-gui](../../assets/images/cmake-gui.png)
 
-If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/win64/freetype.dll` file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`. By default, this will be the working directory when starting applications from Visual Studio.
+If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/win64/freetype.dll`{:.path} file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`{:.path}. By default, this will be the working directory when starting applications from Visual Studio.
 
 Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore, RmlControls, and RmlDebugger projects. Right click on `invaders`, click `Set as StartUp Project`. Then press `F5`, it will start building and open the invaders demo when done. Enjoy!
 
@@ -39,7 +43,7 @@ Before generating your build files you need to configure CMake. Open a terminal 
 buildbox:Build$ ccmake .
 ```
 
-NOTE: You need the . to denote the current directory is where the `CMakeLists.txt` is located.
+NOTE: You need the . to denote the current directory is where the `CMakeLists.txt`{:.path} is located.
 
 This will open a a text mode application that lets you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press C so that CMake can scan your system configuration. Once its complete you will see a list of options. The most interesting options are most likely
 
