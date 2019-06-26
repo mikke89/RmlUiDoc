@@ -29,6 +29,7 @@ will now shrink to the width of their content, like in CSS.
 
 ### Breaking Changes
 
+ * The namespace has changed from `Rocket` to `Rml`, include path from `<Rocket/...>` to `<RmlUi/...>`, and macro prefix from `ROCKET_` to `RMLUI_`.
  * `{{page.lib_ns}}::Core::SystemInterface::GetElapsedTime()` now returns `double` instead of `float`.
 ```cpp
 virtual double GetElapsedTime();
