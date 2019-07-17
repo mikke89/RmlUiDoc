@@ -37,29 +37,36 @@ Open up the generated Visual Studio solution file. Now there should be several s
 
 ### Building on macOS and Linux
 
-Before generating your build files you need to configure CMake. Open a terminal window and navigate to the {{page.lib_name}} folder. Then execute the following command.
+Before generating your build files you need to configure CMake. Open a terminal window, navigate to the {{page.lib_name}} folder and create a `build` folder:
 
 ```
-buildbox:Build$ ccmake .
+buildbox:RmlUi$ mkdir build
+buildbox:RmlUi$ cd build
 ```
 
-NOTE: You need the . to denote the current directory is where the `CMakeLists.txt`{:.path} is located.
+Then execute the following command:
 
-This will open a a text mode application that lets you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press C so that CMake can scan your system configuration. Once its complete you will see a list of options. The most interesting options are most likely
+```
+buildbox:RmlUi/build$ ccmake ..
+```
+
+_NOTE_: You need the `..` to denote the directory where the `CMakeLists.txt`{:.path} is located.
+
+This will open a text mode application that lets you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press `C` so that CMake can scan your system configuration. Once it's complete you will see a list of options. The most interesting options are most likely:
 
 * `BUILD_LUA_BINDINGS` - Build the required bingings for Lua support. You'll need Lua installed.
 * `BUILD_SAMPLES` - Should the samples be built
 * `BUILD_SHARED_LIBS` - Build as .so/.dylib as apposed to a .a file 
 * `CMAKE_BUILD_TYPE` - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
 
-Make your selection and press C again so that CMake can recalculate build settings based on your selection. Once CMake is happy you'll be able to press G to generate the build configuration and exit.
+Make your selection and press `C` again so that CMake can recalculate build settings based on your selection. Once CMake is happy you'll be able to press `G` to generate the build configuration and then exit.
 
-At this point you should be back at the terminal and your Makefile will have been created. You can now build {{page.lib_name}} by executing make.
+At this point you should be back at the terminal and your `Makefile`{:.path} will have been created. You can now build {{page.lib_name}} by executing make.
 
 ```
-buildbox:Build$ make -j 8
+buildbox:RmlUi/build$ make -j 8
 ```
 
-NOTE: The -j parameter specifies how many jobs to execute in parallel: you should normally set this to the number of threads supported by your CPU.
+_NOTE_: The -j parameter specifies how many jobs to execute in parallel: you should normally set this to the number of threads supported by your CPU.
 
 Once the build is complete, check out the samples.
