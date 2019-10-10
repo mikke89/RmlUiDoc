@@ -27,7 +27,7 @@ To create a new context, use the `CreateContext()` function in `{{page.lib_ns}}:
 // Creates a new element context.
 // @param[in] name The new name of the context. This must be unique.
 // @param[in] dimensions The initial dimensions of the new context.
-// @return The new context, or NULL if the context could not be created.
+// @return The new context, or nullptr if the context could not be created.
 {{page.lib_ns}}::Core::Context* CreateContext(const {{page.lib_ns}}::Core::String& name,
                                      const {{page.lib_ns}}::Core::Vector2i& dimensions);
 ```
@@ -39,13 +39,21 @@ To fetch a previously-constructed context, use the `GetContext()` function.
 ```cpp
 // Fetches a previously constructed context by name.
 // @param[in] name The name of the desired context.
-// @return The desired context, or NULL if no context exists with the given name.
+// @return The desired context, or nullptr if no context exists with the given name.
 {{page.lib_ns}}::Core::Context* GetContext(const {{page.lib_ns}}::Core::String& name);
 ```
 
 ### Releasing a context
 
-Contexts are reference counted, and begin with a reference count of one. Once you have finished with a context, call `RemoveReference()` to release it. It will be destroyed, and all of its documents released.
+A context can be manually removed by calling the following function.
+
+```cpp
+// Removes and destroys a context.
+// @param[in] name The name of the context to remove.
+// @return True if name is a valid context, false otherwise.
+bool RemoveContext(const {{page.lib_ns}}::Core::String& name);
+```
+All remaining contexts are destroyed during the call to `{{page.lib_ns}}::Core::Shutdown()`.
 
 ### Update and rendering
 
@@ -70,7 +78,7 @@ Documents are loaded through contexts. To load a document from an RML file into 
 ```cpp
 // Load a document into the context.
 // @param[in] document_path The path to the document to load.
-// @return The loaded document, or NULL if no document was loaded.
+// @return The loaded document, or nullptr if no document was loaded.
 ElementDocument* LoadDocument(const {{page.lib_ns}}::Core::String& document_path);
 ```
 
@@ -81,7 +89,7 @@ You can also load documents directly from a memory stream, this can be useful if
 ```cpp
 // Load a document into the context.
 // @param[in] string The string containing the document RML.
-// @return The loaded document, or NULL if no document was loaded.
+// @return The loaded document, or nullptr if no document was loaded.
 ElementDocument* LoadDocumentFromMemory(const {{page.lib_ns}}::Core::String& string);
 ```
 
@@ -90,7 +98,7 @@ To create a new, empty document you can populate dynamically, use the `CreateDoc
 ```cpp
 // Creates a new, empty document and places it into this context.
 // @param[in] tag The document type to create.
-// @return The new document, or NULL if no document could be created.
+// @return The new document, or nullptr if no document could be created.
 ElementDocument* CreateDocument(const {{page.lib_ns}}::Core::String& tag = "document");
 ```
 
@@ -132,6 +140,8 @@ void RemoveEventListener(const {{page.lib_ns}}::Core::String& event,
                          bool in_capture_phase = false);
 ```
 
+Note as for all raw pointers, they are non-owning. Thus, it is the user's responsibility to keep the event listener alive until it is removed, and then to clean it up.
+
 ### Input
 
 See the section on [input](input.html) for detail on sending user input from your application into {{page.lib_name}} contexts.
@@ -152,7 +162,7 @@ A custom context instancer needs to be registered with the {{page.lib_name}} fac
 // Instances a context.
 // @param[in] name Name of this context.
 // @return The instanced context.
-virtual {{page.lib_ns}}::Core::Context* InstanceContext(const {{page.lib_ns}}::Core::String& name) = 0;
+virtual {{page.lib_ns}}::Core::ContextPtr InstanceContext(const {{page.lib_ns}}::Core::String& name) = 0;
 
 // Releases a context previously created by this context.
 // @param[in] context The context to release.
@@ -162,7 +172,7 @@ virtual void ReleaseContext({{page.lib_ns}}::Core::Context* context) = 0;
 virtual void Release() = 0;
 ```
 
-`InstanceContext()` will be called whenever a new context is requested. It takes a single parameter, name, the name of the new context. If a context can be created, it should be initialised and returned. Otherwise, return NULL (0).
+`InstanceContext()` will be called whenever a new context is requested. It takes a single parameter, name, the name of the new context. If a context can be created, it should be initialised and returned wrapped in a `ContextPtr` which is a unique pointer with a custom deleter. Otherwise, return nullptr.
 
 `ReleaseContext()` will be called whenever a context is released. The context instancer should destroy the context and free and resources allocated for it.
 
@@ -173,12 +183,12 @@ virtual void Release() = 0;
 To register a custom instancer with {{page.lib_name}}, call `RegisterContextInstancer()` on the {{page.lib_name}} factory after {{page.lib_name}} has been initialised.
 
 ```cpp
-{{page.lib_ns}}::Core::ContextInstancer* custom_instancer = new CustomContextInstancer();
-{{page.lib_ns}}::Core::Factory::RegisterContextInstancer(custom_instancer);
-custom_instancer->RemoveReference();
+// The custom_instancer must be kept alive until after the call to Rml::Core::Shutdown()
+auto custom_instancer = std::make_unique<CustomContextInstancer>();
+{{page.lib_ns}}::Core::Factory::RegisterContextInstancer(custom_instancer.get());
 ```
 
-Like other instancers, context instancers are reference counted and begin with a single reference. The factory will add its own reference to the instancer once it is registered, so you must remove the initial reference afterwards.
+Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Core::Shutdown()`, and then cleaned up by the user.
 
 #### Enumerating Contexts
 

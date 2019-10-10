@@ -7,7 +7,7 @@ next: element_index
 
 The event system is based on the extremely flexible DOM event system.
 
-When an event is fired at a target element, it **bubbles** up from the root to the target and then **captures** back down to root. Event listeners can be attached in either capture or bubble phase.
+When an event is fired at a target element, it **captures** from the root to the target and then **bubbles** back up to the root. Event listeners can be attached in either capture or bubble phase.
 
 Binding done in RML will always attach to the bubble phase.
 

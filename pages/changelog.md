@@ -1,11 +1,25 @@
 ---
 layout: page
-title: New Features and Changes
+title: RmlUi Changelog
 ---
 
-### New Features
 
-A quick glance at some of the features added in {{page.lib_name}} since libRocket.
+## RmlUi 3.0
+
+
+RmlUi 3.0 features a substantial amount of new features and bug fixes. One of the main efforts in RmlUi 3.0 has been on improving the performance of the library. Users should see a substantial performance increase when upgrading.
+
+Changelog todo.
+
+
+
+
+
+## RmlUi 2.0
+
+A quick glance at some of the features and changes in {{page.lib_name}} 2.0 since libRocket.
+
+### New Features
 
  * [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
  * [Density-independent pixel (dp)](rcss/syntax.html#density-independent-pixel-dp)
@@ -25,7 +39,6 @@ will now shrink to the width of their content, like in CSS.
 
  * The slider on the `input.range`{:.tag} element can be dragged from anywhere in the element.
  
-
 
 ### Breaking Changes
 

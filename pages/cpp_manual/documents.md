@@ -43,7 +43,7 @@ The function `GetContext()` will return the document's context.
 
 #### Layering
 
-The `z-index`{:.prop} property of a document controls the rendering order similarly to elements. A document with a higher `z-index`{:.prop} will always be rendered on top of a document with a lower `z-index`{:.prop}. As well as integer values, you can use the `z-index`{:.prop} values of `top`{:.value} and `bottom`{:.value} to force a document to always be at the top or bottom of the document stack. Documents start with a default `z-index`{:.prop} of `0`{:.value}.
+The `z-index`{:.prop} property of a document controls the rendering order similarly to elements. A document with a higher `z-index`{:.prop} will always be rendered on top of a document with a lower `z-index`{:.prop}. Documents start with a default `z-index`{:.prop} of `0`{:.value}.
 
 The functions `PullToFront()` and `PushToBack()` will move the document to the front and back of the document stack among documents with a similar `z-index`{:.prop}. For example, calling `PullToFront()` on a document with a `z-index`{:.prop} of `1`{:.value} will force all documents with a `z-index`{:.prop} lower than `1`{:.value}, and all other documents with a `z-index`{:.prop} of `1`{:.value}, to be rendered before it. However, documents with a higher `z-index`{:.prop} will still be rendered after it.
 
@@ -67,15 +67,27 @@ When a document is loaded into a context, it begins hidden (it has a `visibility
 
 ```cpp
 // Show the document.
-// @param[in] focus_flags Flags controlling the changing of focus. Leave as FOCUS to switch focus to the document.
-void Show(int focus_flags = {{page.lib_ns}}::Core::Document::FOCUS);
+// @param[in] modal_flag Flags controlling the modal state of the document, see the 'ModalFlag' description for details.
+// @param[in] focus_flag Flags controlling the focus, see the 'FocusFlag' description for details.
+void Show(ModalFlag modal_flag = ModalFlag::None, FocusFlag focus_flag = FocusFlag::Auto);
 ```
+By default, the `Show()` function will make the document visible and switch keyboard focus to the document and if possible the first control element with an `autofocus`{:.attr} attribute set. The focus behavior as well as the modal state can be controlled with two separate flags. The flags are specified as follows:
+```cpp
+/**
+	 ModalFlag used for controlling the modal state of the document.
+		None:  Remove modal state.
+		Modal: Set modal state, other documents cannot receive focus.
+		Keep:  Modal state unchanged.
 
-By default, the `Show()` function will make the document visible and switch keyboard focus to the document. Possible values of the `focus_flags` parameter are:
-
-* `{{page.lib_ns}}::Core::ElementDocument::NONE`: The document will not steal focus, but will still be made visible.
-* `{{page.lib_ns}}::Core::ElementDocument::FOCUS`: The default; the document will steal focus if possible.
-* `{{page.lib_ns}}::Core::ElementDocument::MODAL`: The document will steal focus and prevent other documents from taking focus away until another Show() is called on the document without `{{page.lib_ns}}::Core::Document::MODAL`. 
+	FocusFlag used for displaying the document.
+		None:     No focus.
+		Document: Focus the document.
+		Keep:     Focus the element in the document which last had focus.
+		Auto:     Focus the first tab element with the 'autofocus' attribute or else the document.
+*/
+enum class ModalFlag { None, Modal, Keep };
+enum class FocusFlag { None, Document, Keep, Auto };
+```
 
 To hide a document, call `Hide()`.
 
@@ -100,7 +112,7 @@ Similarly to HTML documents, {{page.lib_name}} documents are capable of creating
 ```cpp
 // Creates the named element.
 // @param[in] name The tag name of the element.
-{{page.lib_ns}}::Core::Element* CreateElement(const {{page.lib_ns}}::Core::String& name);
+{{page.lib_ns}}::Core::ElementPtr CreateElement(const {{page.lib_ns}}::Core::String& name);
 ```
 
 The name parameter is the desired tag name of the new element. Note that as you cannot specify an independent instancer name or RML attributes to pass to the instancer, this method is not as flexible as creating an element through the factory, but is useful for easily creating simple elements.
@@ -110,12 +122,12 @@ Call `CreateTextNode()` to create a new text element with a given text string:
 ```cpp
 // Create a text element with the given text content.
 // @param[in] text The text content of the text element.
-{{page.lib_ns}}::Core::ElementText* CreateTextNode(const {{page.lib_ns}}::Core::String& text);
+{{page.lib_ns}}::Core::ElementPtr CreateTextNode(const {{page.lib_ns}}::Core::String& text);
 ```
 
-The text parameter will be interpreted as a UTF-8 encoded string and converted to a UCS-2 string inside the text node. The element returned will be derived from `{{page.lib_ns}}::Core::ElementText`.
+The text parameter will be interpreted as a UTF-8 encoded string. The element returned will be derived from `{{page.lib_ns}}::Core::ElementText`.
 
-Note that neither of these functions actually attaches the new element to the document in any way.
+Note that neither of these functions actually attaches the new element to the document in any way. See the description of [elements](elements.html#using-a-document) for details on how to do this.
 
 ### Custom documents
 

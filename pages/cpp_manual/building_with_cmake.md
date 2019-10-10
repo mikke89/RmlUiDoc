@@ -27,46 +27,54 @@ This section serves as an introduction for users of Visual Studio.
 
 In addition to CMake, you need a copy of the FreeType library, version 2.10.0 is officially supported. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here.
 
-Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See below for a description of some of them. If you'd like to take a look at the included samples, enable the  `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
+Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See the CMake options in the section below for a description of some of them. If you'd like to take a look at the included samples, enable the `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
 
 ![cmake-gui](../../assets/images/cmake-gui.png)
 
 If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/win64/freetype.dll`{:.path} file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`{:.path}. By default, this will be the working directory when starting applications from Visual Studio.
 
-Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore, RmlControls, and RmlDebugger projects. Right click on `invaders`, click `Set as StartUp Project`. Then press `F5`, it will start building and open the invaders demo when done. Enjoy!
+Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore, RmlControls, and RmlDebugger projects. If you set the CMake option to build the samples, you can now right click on `invaders`, and click `Set as StartUp Project`. Finally, press `F5` to start building and open the invaders demo when done. Enjoy!
 
 ### Building on macOS and Linux
 
-Before generating your build files you need to configure CMake. Open a terminal window, navigate to the {{page.lib_name}} folder and create a `build` folder:
+Before generating your build files you need to configure CMake. Open a terminal window, navigate to the {{page.lib_name}} folder and create a `Build` folder:
 
 ```
-buildbox:RmlUi$ mkdir build
-buildbox:RmlUi$ cd build
+buildbox:RmlUi$ mkdir Build
+buildbox:RmlUi$ cd Build
 ```
 
 Then execute the following command:
 
 ```
-buildbox:RmlUi/build$ ccmake ..
+buildbox:RmlUi/Build$ ccmake ..
 ```
 
 _NOTE_: You need the `..` to denote the directory where the `CMakeLists.txt`{:.path} is located.
 
-This will open a text mode application that lets you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press `C` so that CMake can scan your system configuration. Once it's complete you will see a list of options. The most interesting options are most likely:
-
-* `BUILD_LUA_BINDINGS` - Build the required bingings for Lua support. You'll need Lua installed.
-* `BUILD_SAMPLES` - Should the samples be built
-* `BUILD_SHARED_LIBS` - Build as .so/.dylib as apposed to a .a file 
-* `CMAKE_BUILD_TYPE` - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
+This will open a text mode application that lets you choose which parts of {{page.lib_name}} you want to build and how you want to build it. Before you can alter any options you'll need to press `C` so that CMake can scan your system configuration. Once it's complete you will see a list of options. See the CMake options below for what the most relevant options do. If you'd like to take a look at the included samples, enable the `BUILD_SAMPLES` option.
 
 Make your selection and press `C` again so that CMake can recalculate build settings based on your selection. Once CMake is happy you'll be able to press `G` to generate the build configuration and then exit.
 
 At this point you should be back at the terminal and your `Makefile`{:.path} will have been created. You can now build {{page.lib_name}} by executing make.
 
 ```
-buildbox:RmlUi/build$ make -j 8
+buildbox:RmlUi/Build$ make -j 8
 ```
 
 _NOTE_: The -j parameter specifies how many jobs to execute in parallel: you should normally set this to the number of threads supported by your CPU.
 
-Once the build is complete, check out the samples.
+Once the build is complete, you may want to have a look at the samples.
+
+
+### CMake options
+
+
+* `BUILD_SAMPLES` - Enable to build the included samples.
+* `BUILD_SHARED_LIBS` - Build as a shared (dynamic library, .so/.dylib/.dll) as opposed to a static library (.a/.lib).
+* `BUILD_LUA_BINDINGS` - Build the required bindings for Lua support. You'll need Lua installed.
+* `CMAKE_BUILD_TYPE` - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
+* `NO_FONT_INTERFACE_DEFAULT` removes the default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::Core::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
+* `NO_THIRDPARTY_CONTAINERS`: RmlUi now comes bundled with some third-party container libraries for improved performance. For users that would rather use the `std` counter-parts, this option is available. The option replaces the containers via a preprocessor definition. If the library is compiled with this option, then users of the library *must* specify `#define RMLUI_NO_THIRDPARTY_CONTAINERS` before including the library.
+* `ENABLE_TRACY_PROFILING`: RmlUi has parts of the library tagged with markers for profiling with [Tracy Profiler](https://bitbucket.org/wolfpld/tracy/src/master/). This enables a visual inspection of bottlenecks and slowdowns on individual frames. To compile the library with profiling support, add the Tracy Profiler library to `/Dependencies/tracy/`, enable this option, and compile.  Follow the Tracy Profiler instructions to build and connect the separate viewer. As users may want to only use profiling for specific compilation targets, then instead one can `#define RMLUI_ENABLE_PROFILING` for the given target.
+
