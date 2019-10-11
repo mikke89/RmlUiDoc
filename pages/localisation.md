@@ -9,8 +9,6 @@ While {{page.lib_name}} fully supports localisation, there are a number of issue
 
 {{page.lib_name}} assumes all data it is given, whether read in from RML or provided procedurally, is in UTF-8 encoding. This means if you're using 8-bit ASCII you don't need to change anything, but allows you to specify multi-byte Unicode characters if required.
 
-Once {{page.lib_name}} has parsed text (and run it through the translator, see below), the strings will be converted into UCS-2, strictly for performance reasons.
-
 ### Translation
 
 All raw text that {{page.lib_name}} reads while parsing RML (i.e., everything other than XML tags) is sent through the `TranslateString()` function on the [system interface](cpp_manual/interfaces.html#the-system-interface). The function is given the raw string as read, and the application can make any modifications necessary before returning the translated string (and the number of substitutions made) back to {{page.lib_name}}.
@@ -79,13 +77,3 @@ Assuming the appliation has a `StringTable` class that has loaded the appropriat
 Now the strings will be valid for whatever language we specify a string table for. In practice, you might need a more sophisticated translator that could replace multiple tokens within a string.
 
 Note that you can place RML into the translated string, and it will be parsed appropriately. For example, you could replace a token with an `<img>`{:.tag} tag to render an icon for a controller button.
-
-### Font charsets
-
-{{page.lib_name}} fonts have configurable character sets. By default, a font will support only the Basic Latin characters (codepoints 32 - 126) in order to save texture space. In order to support the character sets required by non-English languages, use the `font-charset`{:.prop} property. For example, to specify a character set including the Latin-1 supplement (codepoints 0x80 - 0xFF), you would set the following RCSS property:
-
-```
-font-charset: U+0020-00FF;
-```
-
-If {{page.lib_name}} renders text using a font that does not include all the necessary characters, the missing characters will be ignored. For more information on the font-charset property, see the [documentation](rcss/fonts.html#font-charset-the-font-charset-property). For information on Unicode character sets, try [unicode.org](http://unicode.org/charts) or [J.R. Graphics](http://jrgraphix.net/research/unicode_blocks.php). 

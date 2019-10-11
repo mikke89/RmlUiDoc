@@ -9,13 +9,15 @@ Selectors are used to select elements to apply specific rules to. The selector s
 
 Pattern | Meaning
 --- | ---
+`*`{:.cls} | Matches any element.
 `E`{:.cls} | Matches any element of type E (ie, an element declared in an RML document as `<E>`{:.tag}).
 `E F`{:.cls} | Matches any element of type F that is a descendant of an E element.
+`E > F`{:.cls} | Matches any element of type F that is a direct descendant of type E.
 `E.foo`{:.cls} | Matches any element of type E that has been declared with class `foo`{:.cls}.
 `E#foo`{:.cls} | Matches any element of type E that has been declared with an ID of `foo`{:.value}.
 `E:foo`{:.cls} | Matches any element of type E that has the pseudo-class `foo`{:.cls} currently active.
 
-Note that attribute selectors, the `+`{:.cls} selector, and the `>`{:.cls} selector are currently not supported.
+Note that attribute selectors and the `+`{:.cls} selector are currently not supported.
 
 The following pseudo-classes are supported natively (this includes the full range of proposed structural selectors from CSS3):
 
@@ -24,7 +26,7 @@ Pseudo-class | Meaning
 `:hover`{:.cls} | Matches an element that is currently under the mouse cursor.
 `:active`{:.cls} | Matches an element that has been clicked on, only until the button is released.
 `:focus`{:.cls} | Matches an element that has input focus.
-`:checked`{:.cls} | Matches an element that is selected in a [drop-down lists]({{"pages/cpp_manual/controls/form.html#drop-down-select-box"|relative_url}}).
+`:checked`{:.cls} | Matches a checked checkbox, radio button, and the element that is selected in a [drop-down lists]({{"pages/cpp_manual/controls/form.html#drop-down-select-box"|relative_url}}).
 `:nth-child(an + b)`{:.cls} | Matches an element that has an + b - 1 siblings before it.
 `:nth-last-child(an + b)`{:.cls} | Similar to nth-child, but counts backwards.
 `:nth-of-type(an + b)`{:.cls} | Similar to nth-child, but only counts sibling elements of the same type.
@@ -64,5 +66,15 @@ div#weapon_list,
 ```
 
 will match a `div`{:.tag} element with ID `level_list`{:.value}, or ID `weapon_list`{:.value}, or any element that has a class of `colour_list`{:.value}.
+
+The child combinator `>` can be used as in CSS to select a child of another element.
+```css
+p.green_theme > button { image-color: #0f0; }
+```
+Here, any `button`{:.tag} elements which have a parent `p.green_theme`{:.value} will have their image color set to green. Combined with the universal selector `*`{:.value} , we can achieve the following.
+```css
+div.red_theme > * > p { color: #f00; }
+```
+Here, `p`{:.tag} grandchildren of `div.red_theme`{:.value} will have their color set to red. The universal selector can also be used in combination with other selectors, such as `*.great#content:hover`{:.value}.
 
 See the CSS specifications for more thorough documentation and examples on the use of selectors. Please note that pseudo-classes (such as `:first-letter`{:.cls}, `:before`{:.cls}, etc) are not yet supported in RCSS. 

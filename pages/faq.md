@@ -28,7 +28,7 @@ public:
 
 ### Can I change decorators from script?
 
-Not directly, however you can change the element's class which will affect which decorators are applied to it.
+It is possible to set decorators by inline style. However, for performance reasons, it is recommended to instead change the element's class to affect which decorators are applied to it.
 
 ### How do I set up custom cursors?
 

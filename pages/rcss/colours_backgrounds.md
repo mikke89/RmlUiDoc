@@ -35,6 +35,19 @@ This property sets the color of the element's generated boxes. The background co
 
 An alias for `background-color`{:.prop}.
 
+
+### Opacity
+
+Opacity can be set on any element. Then, the generated geometry for the element will multiply the alpha channel of the vertex colors by the opacity.
+
+`opacity`{:.prop}
+
+Value: | \<number\>
+Initial: | 1
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
 ### Image colour: the 'image-color' property
 
 `image-color`{:.prop}

@@ -25,8 +25,17 @@ If you are not, read through this documentation while consulting the CSS2 specif
 10. [Fonts](rcss/fonts.html)
 11. [Text](rcss/text.html)
 12. [Cursors, Dragging and Tabbing](rcss/user_interface.html)
-13. [Decorators](rcss/decorators.html)
-14. [Font effects](rcss/font_effects.html)
+13. [Sprite sheets](rcss/sprite_sheets.html)
+14. [Decorators](rcss/decorators.html)
+    * [image](rcss/decorators/image.html)
+    * [tiled-horizontal](rcss/decorators/tiled_horizontal.html)
+    * [tiled-vertical](rcss/decorators/tiled_vertical.html)
+    * [tiled-box](rcss/decorators/tiled_box.html)
+    * [ninepatch](rcss/decorators/ninepatch.html)
+    * [gradient](rcss/decorators/gradient.html)
+15. [Font effects](rcss/font_effects.html)
+    * [shadow](rcss/font_effects/shadow.html)
+    * [outline](rcss/font_effects/outline.html)
 
 ### Appendix
 

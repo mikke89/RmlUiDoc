@@ -9,22 +9,36 @@ The outline font effect renders a coloured outline around text.
 
 ![outline_1.jpg](outline_1.jpg)
 
-The effect has the following properties:
+The effect is declared as:
 
-`<name>-width`{:.prop}
+```css
+font-effect: outline( <width> <color> );
+```
 
-Value: | \<number\>
-Initial: | 0
+Its properties are specified by the following.
+
+`width`{:.prop}
+
+Value: | \<length\>
+Initial: | 0px
 Percentages: | N/A
 
 The width defines the maximum pixel width of the font's outline.
+
+`color`{:.prop}
+
+Value: | \<color\>
+Initial: | white
+Percentages: | N/A
+
+The color is applied multiplicatively over the entire effect.
+
+#### Example
 
 ```css
 /* Declares a font effect outline. */
 h1
 {
-	header-font-effect: outline;
-	header-width: 2px;
-	header-colour: black;
+	font-effect: outline(2px black);
 }
 ```

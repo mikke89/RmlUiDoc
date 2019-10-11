@@ -7,158 +7,99 @@ next: font_effects
 
 Decorators are an extension to CSS for RCSS. A decorator can be declared and named in a style sheet like a property, and then configured with decorator-specific properties. Custom decorator types can be developed to suit the needs of the user, and in this manner any kind of decoration can be applied to an element.
 
-**Important**: Note that decorators can only be declared and defined in style sheets, not in style defined inline to an element.
-
 ### Declaring decorators
 
-The declaration of a decorator is a property of the form:
+The decorator property is specified as follows.
 
+`decorator`{:.prop}
+
+Value: | none \| \<name\> \| \<type\>( \<properties\> )
+Initial: | none
+Inherited: | no
+Percentages: | N/A
+
+where `<name>`{:.prop} is a decorator name declared by an [@decorator rule](#decorator-at-rule), `<type>`{:.prop} is a decorator type, and `<properties>`{:.prop} specify the properties of the given decorator type.
+
+Multiple decorators can also be specified, eg.
 ```css
-<name>-decorator: <type>;
+decorator: <type>( <properties> ), <type>( <properties> ), ... ;
 ```
+**Note**: For performance reasons, it is recommended to declare decorators in style sheets, not in the style defined inline to an element.
 
-where `<name>`{:.prop} is the user-specified name of the decorator to declare, and `<type>`{:.prop} is the application-specific type of decorator. {{page.lib_name}} ships with the following decorator types: 
+{{page.lib_name}} ships with the following decorator types:
 
 * [`image`{:.value}](decorators/image.html)
-* [`tiled-box`{:.value}](decorators/tiled_box.html)
 * [`tiled-horizontal`{:.value}](decorators/tiled_horizontal.html)
 * [`tiled-vertical`{:.value}](decorators/tiled_vertical.html)
+* [`tiled-box`{:.value}](decorators/tiled_box.html)
+* [`ninepatch`{:.value}](decorators/ninepatch.html)
+* [`gradient`{:.value}](decorators/gradient.html)
 
-The decorator type `none`{:.value} is a reserved name that represents no decorator. For example, in the following:
+A decorator is typically declared by the decorator type and its properties in parenthesis. Some examples follow.
 
 ```css
-button
-{
-	icon-decorator: tiled-horizontal;
-}
+/* declares an image decorater by a sprite name */
+decorator: image( icon-invader );
+
+/* declares a tiled-box decorater by several sprites */
+decorator: tiled-box(
+	window-tl, window-t, window-tr, 
+	window-l, window-c, window-r,
+	window-bl, window-b, window-br
+);
+
+ /* declares an image decorator by the url of an image */
+decorator: image( invader.tga );
 ```
 
-the RCSS is attaching a decorator of type `tiled-horizontal`{:.value} called 'icon' to all `button`{:.tag} elements. Note that the name 'icon' could be anything; it is only used to uniquely identify the decorator for applying properties to it.
+For the built-in decorators with support for images and sprites, the specified 'src' looks for a [sprite](sprite_sheets.html) with the same name first. If none exists, then it treats it as a file name for an image.
 
-Decorator types can be overridden like any other property. So, in the example:
+Decorators can be overridden like any other property. So, in the example:
 
 ```css
-h1
-{
-	icon-decorator: image;
+h1 {
+	decorator: image( cat.png );
 }
 
-h1:hover
-{
+h1:hover {
 	icon-decorator: none;
 }
 ```
+all `h1`{:.tag} tags will have an image decorator attached, except when they are being hovered, then it will not be rendered.
 
-all `h1`{:.tag} tags will have an image decorator attached, except when they are being hovered, when the decorator will not be rendered.
+When creating a [custom decorator](../cpp_manual/decorators.html#custom-decorators), you can provide a shorthand property named `decorator` which will be used to parse the text inside the parenthesis of the property declaration. This allows specifying the decorator with inline properties as in the above examples.
 
-### Decorator properties
+### Decorator at-rule
 
-Decorators have their own property specifications with properties and shorthands, and these can be defined for declared decorators just like any other property. Decorator properties are set in the form:
-
-```css
-<name>-<property>: <value>;
-```
-
-where `<name>`{:.prop} is the name the decorator was declared under, `<property>`{:.prop} is the name of the decorator's property to set, and `<value>`{:.value} is the value of the property. For example:
+The `@decorator` at-rule in RCSS can be used to declare a decorator when the shorthand syntax given above is not sufficient. It is best served with an example, we use the custom `starfield` decorator type from the invaders sample. In the style sheet, we can populate it with properties as follows.
 
 ```css
-h1
-{
-	icon-decorator: image;
-	icon-image-src: ../images/header_arrow.png;
-	icon-image-s-begin: 5px;
+@decorator stars : starfield {
+	num-layers: 5;
+	top-colour: #fffc;
+	bottom-colour: #fff3;
+	top-speed: 80.0;
+	bottom-speed: 20.0;
+	top-density: 8;
+	bottom-density: 20;
 }
 ```
-
-an `image`{:.value} decorator is declared, called 'icon'. On this decorator, the properties `<name>-image-src`{:.prop} is set to '../images/header_arrow.png' and `<name>-image-s-begin`{:.prop} is set to '5px'. The other properties in the `image`{:.prop} specification are left to their defaults.
-
-The decorator properties behave like other properties, so are subject to precedence and the cascade. For example, if the following RCSS was loaded after the previous example:
-
+And then use it in a decorator.
 ```css
-h1
-{
-	icon-image-s-begin: 3px;
-}
-
-h1:first-child
-{
-	icon-decorator: none;
-}
+decorator: stars;
 ```
+Note the lack of parenthesis which means it is a decorator name and not a type with shorthand properties declared.
 
-all `h1`{:.tag} tags will have their 'icon' decorators defined with an `<name>-s-begin`{:.prop} property of '3px' instead of '5px', and an `h1`{:.tag} that is a first child will have no decorator.
-
-Be careful of name conflicts! For example, in the following sample:
-
-```css
-h1
-{
-	icon-decorator: image;
-}
-
-.secondary
-{
-	icon-decorator: tiled-horizontal;
-}
-```
-
-an element of type `h1`{:.tag} with a class of 'secondary' will have a single decorator, 'icon', of type `tiled-horizontal`{:.value}. If the decorators had different names then they both would be present.
 
 ### Specifying render order
 
-If an element has more than one decorator on it, you can use the 'z-index' decorator property to control the render order in a similar fashion to elements. For example, in this sample:
-
+Multiple decorators can be specified on any element by a comma-separated list of decorators as in the following example.
 ```css
-button
-{
-	background-decorator: tiled-horizontal;
-	background-z-index: 0;
-
-	icon-decorator: image;
-	icon-z-index: 1;
-}
+/* declares two decorators on the same element, the first will be rendered on top of the latter */
+decorator: image( icon-invader ), tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
 ```
+Multiple decorators will be rendered such that the first declared decorator appears on top, and the subsequent decorators appear below the previous one.
 
-the 'icon' decorator will appear on top of the 'background' decorator. If no z-index is specified on a decorator, it will have the default z-index of 0.
-
-### Decorators and pseudo-classes
-
-Because of the way {{page.lib_name}} compiles pseudo-class rules within style sheets, overriding decorator properties within dynamic pseudo-classes (:active, :hover and :focus, not any of the structural classes) might not always work the way you think it should.
-
-In a nutshell, each decorator will only process properties from their element's base rules (ie, those not specifying dynamic pseudo-classes in their final simple selector) and one rule specifying a dynamic pseudo-class (or classes), that with the highest specificity. For example, in the following sample:
-
-```css
-button
-{
-	background-decorator: tiled-horizontal;
-	background-image-src: ../button.png;
-	background-image-s-end: 128px;
-}
-
-button:hover
-{
-	background-image-t-begin: 32px;
-	background-image-t-end: 64px;
-}
-
-button:active
-{
-	background-image-s-begin: 128px;
-	background-image-s-end: 256px;
-}
-```
-
-if both the `:hover`{:.cls} and `:active`{:.cls} pseudo-classes are active on a `button`{:.tag} element, the `<name>-image-s-begin`{:.prop} and `<name>-image-s-end`{:.prop} properties from the `:active`{:.cls} rule will be set, but the `<name>-image-t-begin`{:.prop} and `<name>-image-t-end`{:.prop} properties from the `:hover`{:.cls} rule will be ignored. The `:active`{:.cls} rule is used as it has higher precedence that the `:hover`{:.cls} rule, appearing further down the file. If you wanted both the s and t properties set, you could create another rule:
-
-```css
-button:active:hover
-{
-	background-image-t-begin: 32px;
-	background-image-t-end: 64px;
-	background-image-s-begin: 128px;
-	background-image-s-end: 256px;
-}
-```
 
 ### {{page.lib_name}} decorators
 
@@ -168,3 +109,5 @@ button:active:hover
 2. [tiled-horizontal decorator](decorators/tiled_horizontal.html), for tiling images horizontally. 
 3. [tiled-vertical decorator](decorators/tiled_vertical.html), for tiling images vertically.
 4. [tiled-box decorator](decorators/tiled_box.html), for tiling images across a box.
+5. [ninepatch decorator](decorators/ninepatch.html), for efficiently tiling images across a box.
+6. [gradient decorator](decorators/gradient.html), for adding a color gradient.

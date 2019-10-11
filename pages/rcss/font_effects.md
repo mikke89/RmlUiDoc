@@ -9,11 +9,24 @@ Font effects are an extension to CSS for RCSS for applying effects, such as outl
 
 ### Properties
 
-Font effects are declared and configured within style sheets in exactly the same manner as decorators, except they are declared as `<name>-font-effect`{:.prop} rather that `<name>-decorator`{:.prop}, including the `z-index`{:.prop} property to resolve an ambiguous render order. The only exceptions are noted below:
+Font effects are declared and configured within style sheets similar to how decorators are declared.
 
-#### Colour
+`font-effect`{:.prop}
 
-All font effects have a `<name>-color`{:.prop} property which is applied multiplicatively over the entire effect.
+Value: | none \| \<type\>( \<properties\> )
+Initial: | none
+Inherited: | yes
+Percentages: | N/A
+
+`<type>`{:.prop} is a font effect type, and `<properties>`{:.prop} specify the properties of the given decorator type.
+
+Multiple font effects can also be specified, eg.
+```css
+font-effect: <type>( <properties> ), <type>( <properties> ), ... ;
+```
+Multiple font effects are applied in reverse order.
+
+Note that there is no RCSS at-rule for font effects as there is for decorators. Thus, the `font-effect`{:.prop} property cannot take a name.
 
 #### Inheritance
 
@@ -22,9 +35,7 @@ Unlike decorators, font effects are inherited from parent elements. For example,
 ```css
 h1
 {
-	header-font-effect: outline;
-	header-width: 2px;
-	header-color: black;
+	font-effect: outline(2px black);
 }
 ```
 
@@ -33,7 +44,7 @@ will add an outline effect on the text within all `h1`{:.tag} elements and their
 ```css
 h1 span
 {
-	header-font-effect: none;
+	font-effect: none;
 }
 ```
 

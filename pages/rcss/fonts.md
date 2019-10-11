@@ -66,23 +66,3 @@ Values have the following meanings:
 
 `<percentage>`{:.value} 
 : The font size is generated at the point size of the element's parent's font, scaled by the percentage. 
-
-#### Font charset: the 'font-charset' property
-
-`font-charset`{:.prop} 
-
-Value: | \<urange\>
-Initial: | U+0020-007E
-Applies to: | all elements
-Inherited: | yes
-Percentages: | N/A
-
-This property allows elements to request a font that is capable of rendering characters within a range (or ranges). Because fonts are rasterised and rendered to texture before they can be used, this can be quite useful in limiting the size of textures used by the font engine. For example, a large font used for titles could be restricted to only capital letters.
-
-The value of `font-charset`{:.prop}  is a comma-separated list of Unicode ranges, each of which is in one of the forms:
-
-* U+xxxx, to specify a single character (where x is any hexadecimal digit).
-* U+xxxx-yyyy, to specify the range of xxxx through yyyy.
-* U+xx??, to specify the range of xx00 through xxFF. The wildcard '?' can be used to substitute any digits, but must appear in an uninterrupted range at the end of the specifier. 
-
-For more information, see the CSS specification of [unicode-range](http://www.w3.org/TR/REC-CSS2/fonts.html#descdef-unicode-range). 

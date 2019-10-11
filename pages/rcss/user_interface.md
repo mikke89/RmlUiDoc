@@ -2,7 +2,7 @@
 layout: page
 title: User interface
 parent: rcss
-next: decorators
+next: sprite_sheets
 ---
 
 ### Mouse cursor: the 'cursor' property
@@ -44,7 +44,7 @@ The `drag`{:.prop} property is a new property, not shared by CSS. It controls th
 
 `drag`{:.prop}
 
-Value: | none \| drag \| drag-drop \| block
+Value: | none \| drag \| drag-drop \| block \| clone
 Initial: | none
 Applies to: | all elements
 Inherited: | no
@@ -63,6 +63,9 @@ Values have the following meanings:
 
 `block`{:.value}
 : If the mouse begins a drag over this element, the element is not dragged and neither is any ancestor element. 
+
+`clone`{:.value}
+:  Like `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `:drag`{:.cls} set on it to allow it to be differentiated from the original element.
 
 ### Tab index: the 'tab-index' property
 

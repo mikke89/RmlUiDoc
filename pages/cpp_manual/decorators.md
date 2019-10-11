@@ -166,11 +166,17 @@ CustomDecoratorInstancer::CustomDecoratorInstancer() : {{page.lib_ns}}::Core::De
 	properties.RegisterProperty("custom-property-1", "1").AddParser("number");
 	properties.RegisterProperty("custom-property-2", "auto").AddParser("number")
 	                                                        .AddParser("keyword", "auto, none");
-	properties.RegisterShorthand("custom-shorthand", "custom-property-1, custom-property-2");
+	properties.RegisterShorthand("decorator", "custom-property-1, custom-property-2");
 }
 ```
 
 The custom decorator now has two properties. The property dictionary passed into the instancer's `InstanceDecorator()` function will contain values for the two properties, defaulting to their specified default values if they weren't set in the RCSS.
+
+Note that the shorthand `decorator` is special. This shorthand will be used to parse the text inside the parenthesis of the property declaration. This allows specifying the decorator with inline properties as in the following example.
+```css
+decorator: custom-decorator( 15 auto );
+```
+Now this will be parsed by the above rules such that 'custom-property-1' contains 15, and 'custom-property-2' contains the keyword 'auto'.
 
 #### Registering an instancer
 
