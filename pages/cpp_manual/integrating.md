@@ -60,6 +60,7 @@ If you'd like to take an in-depth look at setting up your own render interface, 
 
 Call the global function `{{page.lib_ns}}::Core::Initialise()` once you have installed the system and render interfaces and {{page.lib_name}} will start up.
 
+
 ### Creating a context
 
 All elements within {{page.lib_name}} are part of a context. You must have at least one context in order to load, manipulate and render and interface elements. To create a context, use the `{{page.lib_ns}}::Core::CreateContext()` function, passing in the name of the new context and its initial dimensions like so:
@@ -72,7 +73,15 @@ You can release the context when you're done with it by calling `{{page.lib_ns}}
 
 #### Updating and rendering
 
-Your application will need to update and render each context it maintains, as appropriate. Call the `Update()` function on each context as often as necessary to update the context (usually after the frame's input has been injected), and `Render()` at the appropriate place in your application's render loop.
+Your application will need to update and render each context it maintains, as appropriate. Call the `Context::Update()` function on each context as often as necessary to update the context (usually after the frame's input has been injected), and `Context::Render()` at the appropriate place in your application's render loop.
+
+### Loading fonts
+
+RmlUi does not come integrated with any fonts (with the exception of the debugger plugin), they must be provided by the user. Font faces can be loaded through the `Rml::Core::LoadFontFace()` function.
+
+```cpp
+bool success = Rml::Core::LoadFontFace("assets/my_font_face.ttf");
+```
 
 ### Loading a document
 

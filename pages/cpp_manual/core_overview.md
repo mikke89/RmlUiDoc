@@ -59,6 +59,10 @@ Properties are named attributes with a given range of values that are attached t
 
 A RCSS property is analogous to a CSS property on an HTML element.
 
+### Computed values
+
+Most built-in properties have a corresponding computed value associated with them. This concept is analogous to CSS computed values, that is, computed values convert any properties to the most basic units possible before layouting can be performed. E.g. length-percentage values are often converted to pixels or percentages. The computed values for a given element is calculated during the `Context::Update` call.
+
 ### Decorators
 
 [Decorators](decorators.html) are objects designed to be attached to elements to render arbitrary effects. Several built-in decorators are included with {{page.lib_name}}, and applications can create their own by deriving from the decorator interface `{{page.lib_ns}}::Core::Decorator`. Decorator attachment and customisation is built into the property system.

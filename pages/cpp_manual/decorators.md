@@ -15,20 +15,19 @@ In order to optimise memory usage, decorators are shared between elements where 
 
 ```html
 <rml>
-	<head>
-		<style>
-			button
-			{
-				icon-decorator: image;
-				icon-image-src: button.png;
-			}
-		</style>
-	</head>
-	<body>
-		<button id="restart">Restart</button>
-		<button id="restore">Restore</button>
-		<button id="quit">Quit</button>
-	</body>
+<head>
+	<style>
+		button
+		{
+			decorator: image( button.png );
+		}
+	</style>
+</head>
+<body>
+	<button id="restart">Restart</button>
+	<button id="restore">Restore</button>
+	<button id="quit">Quit</button>
+</body>
 </rml>
 ```
 
@@ -82,8 +81,8 @@ To create a geometry object, simply call the constructor.
 To populate the object's vertices and indices, use the `GetVertices()` and `GetIndices()` functions to retrieve references to the internal arrays.
 
 ```cpp
-{{page.lib_ns}}::Core::STL::vector< {{page.lib_ns}}::Core::Vertex >& vertices = geometry->GetVertices();
-{{page.lib_ns}}::Core::STL::vector< int >& indices = geometry->GetIndices();
+std::vector< {{page.lib_ns}}::Core::Vertex >& vertices = geometry->GetVertices();
+std::vector< int >& indices = geometry->GetIndices();
 ```
 
 Remember to store the arrays as references! Then simply add elements to the arrays as appropriate for your geometry.
@@ -127,7 +126,7 @@ int LoadTexture(const {{page.lib_ns}}::Core::String& texture_name, const {{page.
 
 // Returns one of the decorator's previously loaded textures.
 // @param[in] index The index of the desired texture.
-// @return The texture at the appropriate index, or NULL if the index was invalid.
+// @return The texture at the appropriate index, or nullptr if the index was invalid.
 const {{page.lib_ns}}::Core::Texture* GetTexture(int index = 0) const;
 ```
 
@@ -139,29 +138,21 @@ If you ever change the geometry or its texture, be sure to call the `Release()` 
 
 The instancer for a decorator is a bit more sophisticated than the element; it is responsible for defining and processing the properties that can be used to configure the decorator. While you can create a custom decorator with no properties, we recommend you expose all variables to RCSS; it's quick, easy and you'll have much more flexible decorators.
 
-A decorator instancer needs to derive from `{{page.lib_ns}}::Core::DecoratorInstancer`. The following three pure virtual functions need to be overridden:
+A decorator instancer needs to derive from `{{page.lib_ns}}::Core::DecoratorInstancer`. The following pure virtual function need to be overridden:
 
 ```cpp
 // Instances a decorator given the property tag and attributes from the RCSS file.
 // @param[in] name The type of decorator desired.
 // @param[in] properties All RCSS properties associated with the decorator.
 // @return The decorator if it was instanced successful, NULL if an error occured.
-virtual {{page.lib_ns}}::Core::Decorator* InstanceDecorator(const {{page.lib_ns}}::Core::String& name,
-                                                   const PropertyDictionary& properties) = 0;
-
-// Releases the given decorator.
-// @param[in] decorator Decorator to release.
-virtual void ReleaseDecorator(Decorator* decorator) = 0;
-
-// Releases the instancer.
-virtual void Release() = 0;
+virtual {{page.lib_ns}}::Core::SharedPtr<{{page.lib_ns}}::Core::Decorator> InstanceDecorator(const {{page.lib_ns}}::Core::String& name,
+                                                   const {{page.lib_ns}}::Core::PropertyDictionary& properties,
+                                                   const {{page.lib_ns}}::Core::DecoratorInstancerInterface& interface) = 0;
 ```
 
-`InstanceDecorator()` will be called whenever a decorator needs to created using this instancer. It is passed in name, the name the decorator was created with, and properties, the dictionary of the properties the RCSS rules defined for the decorator (see below). The property dictionary will contain an entry for every property in the decorator's property specification; if a value was not specified in the RCSS, then the default value will be put into the dictionary for you. If the decorator was created successfully, return it from the function. If not, return NULL (0) and any elements that would have used the decorator will ignore it.
+`InstanceDecorator()` will be called whenever a decorator needs to created using this instancer. It is passed with `name`, the name the decorator was created with, `properties`, the dictionary of the properties the RCSS rules defined for the decorator (see below), and `interface`, an interface for querying the current document state, such as for retrieving sprites.
 
-`ReleaseDecorator()` will be called when a decorator created from this instancer is released from {{page.lib_name}}. The instancer should delete the decorator as well as any resources allocated for it.
-
-`Release()` will be called when the instancer itself is no longer required, usually when {{page.lib_name}} is shut down. It should delete itself if it was dynamically allocated, as well as any other resources allocated for it.
+The property dictionary will contain an entry for every property in the decorator's property specification; if a value was not specified in the RCSS, then the default value will be put into the dictionary for you. If the decorator was created successfully, return it from the function. If not, return nullptr and any elements that would have used the decorator will ignore it.
 
 #### Defining the decorator's properties
 
@@ -189,7 +180,8 @@ To register a custom decorator instancer with {{page.lib_name}}, call the `Regis
 // Registers an instancer that will be used to instance decorators.
 // @param[in] name The name of the decorator the instancer will be called for.
 // @param[in] instancer The instancer to call when the decorator name is encountered.
-// @return The added instancer if the registration was successful, NULL otherwise.
+// @lifetime The instancer must be kept alive until after the call to Core::Shutdown.
+// @return The added instancer if the registration was successful, nullptr otherwise.
 static {{page.lib_ns}}::Core::DecoratorInstancer* RegisterDecoratorInstancer(const {{page.lib_ns}}::Core::String& name,
                                                                     {{page.lib_ns}}::Core::DecoratorInstancer* instancer);
 ```
@@ -197,29 +189,29 @@ static {{page.lib_ns}}::Core::DecoratorInstancer* RegisterDecoratorInstancer(con
 The name parameter is the string value that you will use to bind to the decorator through RML. For example, calling:
 
 ```cpp
-{{page.lib_ns}}::Core::DecoratorInstancer* instancer = new CustomDecoratorInstancer();
-{{page.lib_ns}}::Core::Factory::RegisterDecoratorInstancer("custom-decorator", instancer);
-instancer->RemoveReference();
+// Keep instancer alive until after the call to Rml::Core::Shutdown().
+auto instancer = std::make_unique<CustomDecoratorInstancer>();
+{{page.lib_ns}}::Core::Factory::RegisterDecoratorInstancer("custom-decorator", instancer.get());
 ```
 
 will cause the following RML fragment to create decorators using the CustomDecoratorInstancer type:
 
 ```html
 <rml>
-	<head>
-		<style>
-			button
-			{
-				icon-decorator: custom-decorator;
-				icon-parameter-1: 15;
-			}
-		</style>
-	</head>
-	<body>
+<head>
+	<style>
+		button
+		{
+			icon-decorator: custom-decorator;
+			icon-parameter-1: 15;
+		}
+	</style>
+</head>
+<body>
 ...
 ```
 
-Decorator instancers are reference counted. They start with a single reference, belonging to the constructing code; the factory will maintain a reference count for each time the instancer is registered with it (a decorator instancer can be registered multiple times with the factory under different names). Therefore, remember to remove the initial reference once you've registered the instancer with the factory.
+Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Core::Shutdown()`, and then cleaned up by the user.
 
 ### Updating decorators
 

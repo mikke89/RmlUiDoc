@@ -32,6 +32,9 @@ title: C++ Manual
 ### Plugins
 
 1. [Controls](cpp_manual/controls.html)
+    * [Form controls](cpp_manual/controls/form.html)
+    * [Data grid](cpp_manual/controls/data_grid.html)
+    * [Tab set](cpp_manual/controls/tab_set.html)
 2. [Debugger](cpp_manual/debugger.html)
 
 ### Appendix
