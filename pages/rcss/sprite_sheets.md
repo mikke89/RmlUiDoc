@@ -5,7 +5,7 @@ parent: rcss
 next: decorators
 ---
 
-The RCSS at-rule `@spritesheet` can be used to declare a sprite sheet. A sprite sheet consists of a single image and multiple sprites each specifying a region of the image. Sprites can in turn be used in decorators.
+The RCSS at-rule `@spritesheet` can be used to declare a sprite sheet. A sprite sheet consists of a single image and multiple sprites each specifying a region of the image. Sprites can in turn be used in decorators and `<img>`{:.tag} elements.
 
 A sprite sheet can be declared in RCSS as in the following example.
 ```css
@@ -31,4 +31,4 @@ The sprite name can be used in decorators, such as:
 ```css
 decorator: tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
 ```
-This creates a tiled decorator where the `title-bar-l`{:.value} and `title-bar-r`{:.value} sprites occupies the left and right parts of the element at their native size, while `title-bar-c`{:.value} occupies the center and is stretched horizontally as the element is stretched.
+This creates a tiled decorator where the `title-bar-l`{:.value} and `title-bar-r`{:.value} sprites occupy the left and right parts of the element at their native size, while `title-bar-c`{:.value} occupies the center and is stretched horizontally as the element is stretched.
