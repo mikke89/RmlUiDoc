@@ -62,10 +62,10 @@ h1 {
 }
 
 h1:hover {
-	icon-decorator: none;
+	decorator: none;
 }
 ```
-all `h1`{:.tag} tags will have an image decorator attached, except when they are being hovered, then it will not be rendered.
+all `h1`{:.tag} tags will have an image decorator attached, except when they are being hovered, then they will not be rendered.
 
 When creating a [custom decorator](../cpp_manual/decorators.html#custom-decorators), you can provide a shorthand property named `decorator` which will be used to parse the text inside the parenthesis of the property declaration. This allows specifying the decorator with inline properties as in the above examples.
 

@@ -63,6 +63,5 @@ An extension to CSS for RCSS which multiplies a colour with images in `<img>`{:.
 Example:
 ```css
 image-color: rgba(255, 160, 160, 200);
-icon-decorator: image;
-icon-image: background.png 34px 0px 66px 28px;
-``` 
+decorator: image( background.png );
+```

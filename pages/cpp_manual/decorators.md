@@ -208,8 +208,7 @@ will cause the following RML fragment to create decorators using the CustomDecor
 	<style>
 		button
 		{
-			icon-decorator: custom-decorator;
-			icon-parameter-1: 15;
+			decorator: custom-decorator( 15 );
 		}
 	</style>
 </head>
