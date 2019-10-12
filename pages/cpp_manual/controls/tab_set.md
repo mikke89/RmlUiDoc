@@ -6,7 +6,7 @@ parent: cpp_manual/controls
 
 The Controls plugin comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.
 
-You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tab-set-element"|relative_url}}).
+You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tabset"|relative_url}}).
 
 Here is an RML sample demonstrating the declaration of a tab set:
 

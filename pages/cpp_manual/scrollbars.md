@@ -22,7 +22,7 @@ When both horizontal and vertical scrollbars are present on an element, they are
 
 #### Applying RCSS properties
 
-See the [style guide](../style_guide.md) for documentation on applying properties to a scroll bar.
+See the [style guide](../style_guide.html) for documentation on applying properties to a scroll bar.
 
 ### Generating scrollbars
 

@@ -106,7 +106,7 @@ The context will attempt to instance an element using the 'body' instancer, with
 
 ### Mouse cursor
 
-Each context can propagate the mouse cursor name to the user through the [system interface](interfaces.html#the-system-interface). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#cursors-the-cursor-property). When the cursor name changes, the new name is sent though the interface.
+Each context can propagate the mouse cursor name to the user through the [system interface](interfaces.html#the-system-interface). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#mouse-cursor-the-cursor-property). When the cursor name changes, the new name is sent though the interface.
 
 In the case of multiple contexts, it might be convenient for only a single context to handle the mouse cursor. The following function can be used to control this behavior:
 ```cpp
