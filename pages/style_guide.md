@@ -43,6 +43,35 @@ As described above, the scrollbar elements (`scrollbarvertical`{:.tag} and `scro
 The following is the section of the style sheet for _Rocket Invaders from Mars_ relevant for scrollbars.
 
 ```css
+@spritesheet theme 
+{
+	src: invader.tga;
+	
+	/* ... */
+	
+	slidertrack-t: 70px 199px 27px 2px;
+	slidertrack-c: 70px 201px 27px 1px;
+	slidertrack-b: 70px 202px 27px 2px;
+	
+	sliderbar-t:         56px 152px 23px 23px;
+	sliderbar-c:         56px 175px 23px 1px;
+	sliderbar-b:         56px 176px 23px 22px;
+	sliderbar-hover-t:   80px 152px 23px 23px;
+	sliderbar-hover-c:   80px 175px 23px 1px;
+	sliderbar-hover-b:   80px 176px 23px 22px;
+	sliderbar-active-t: 104px 152px 23px 23px;
+	sliderbar-active-c: 104px 175px 23px 1px;
+	sliderbar-active-b: 104px 176px 23px 22px;
+	 
+	sliderarrowdec: 0px 152px 27px 24px;
+	sliderarrowdec-hover: 0px 177px 27px 24px;
+	sliderarrowdec-active: 0px 202px 27px 24px;
+	
+	sliderarrowinc: 28px 152px 27px 24px;
+	sliderarrowinc-hover: 28px 177px 27px 24px;
+	sliderarrowinc-active: 28px 202px 27px 24px;
+}
+
 /* Fix the width and push the scrollbar back to the extents of the window. */
 scrollbarvertical
 {
@@ -55,10 +84,12 @@ scrollbarvertical
 /* Decorate the slider track. */
 scrollbarvertical slidertrack
 {
-	background-decorator: tiled-vertical;
-	background-top-image: invader.png 70px 199px 97px 201px;
-	background-center-image: invader.png stretch 70px 201px 97px 202px;
-	background-bottom-image: invader.png 70px 203px 97px 204px;
+	decorator: tiled-vertical( slidertrack-t, slidertrack-c, slidertrack-b );
+}
+/* Darken the decorator on active. */
+scrollbarvertical slidertrack:active
+{
+	image-color: #aaa;
 }
 
 /* Push the slider bar in 4 pixels from the left edge. Fix the width of the bar and make sure
@@ -70,26 +101,19 @@ scrollbarvertical sliderbar
 	width: 23px;
 	min-height: 46px;
 
-	background-decorator: tiled-vertical;
-	background-top-image: invader.png 56px 152px 79px 175px;
-	background-center-image: invader.png stretch 56px 175px 79px 175px;
-	background-bottom-image: invader.png 56px 176px 79px 198px;
+	decorator: tiled-vertical( sliderbar-t, sliderbar-c, sliderbar-b );
 }
 
 /* Animate the bar's decorator on hover. */
 scrollbarvertical sliderbar:hover
 {
-	background-top-image-s: 80px 103px;
-	background-center-image-s: 80px 103px;
-	background-bottom-image-s: 80px 103px;
+	decorator: tiled-vertical( sliderbar-hover-t, sliderbar-hover-c, sliderbar-hover-b );
 }
 
 /* Animate the bar's decorator on active. */
 scrollbarvertical sliderbar:active
 {
-	background-top-image-s: 104px 127px;
-	background-center-image-s: 104px 127px;
-	background-bottom-image-s: 104px 127px;
+	decorator: tiled-vertical( sliderbar-active-t, sliderbar-active-c, sliderbar-active-b );
 }
 
 /* Fix the size of the 'page up' slider arrow and decorate it appropriately. */
@@ -98,9 +122,19 @@ scrollbarvertical sliderarrowdec
 	width: 27px;
 	height: 24px;
 	
-	icon-decorator: image;
-	icon-image: invader.png 0px 152px 27px 176px;
+	decorator: image( sliderarrowdec );
 }
+/* Animate the arrows on hover. */
+scrollbarvertical sliderarrowdec:hover
+{
+	decorator: image( sliderarrowdec-hover );
+}
+/* Animate the arrows on active. */
+scrollbarvertical sliderarrowdec:active
+{
+	decorator: image( sliderarrowdec-active );
+}
+
 
 /* Fix the size of the 'page down' slider arrow and decorate it appropriately. */
 scrollbarvertical sliderarrowinc
@@ -108,22 +142,17 @@ scrollbarvertical sliderarrowinc
 	width: 27px;
 	height: 24px;
 	
-	icon-decorator: image;
-	icon-image: invader.png 28px 152px 55px 176px;
+	decorator: image( sliderarrowinc )
 }
-
 /* Animate the arrows on hover. */
-scrollbarvertical sliderarrowdec:hover,
 scrollbarvertical sliderarrowinc:hover
 {
-	icon-image-t: 177px 201px;
+	decorator: image( sliderarrowinc-hover );
 }
-
 /* Animate the arrows on active. */
-scrollbarvertical sliderarrowdec:active,
 scrollbarvertical sliderarrowinc:active
 {
-	icon-image-t: 202px 226px;
+	decorator: image( sliderarrowinc-active );
 }
 ```
 
@@ -164,6 +193,30 @@ The select element generates three hidden elements:
 The following are the select element's RCSS rules and properties from the _Rocket Invaders from Mars_ style sheet:
 
 ```css
+@spritesheet theme 
+{
+	src: invader.tga;
+	
+	/* ... */
+	
+	selectbox-tl: 281px 275px 11px 9px;
+	selectbox-t:  292px 275px 1px 9px;
+	selectbox-tr: 294px 275px 11px 9px;
+	selectbox-l:  281px 283px 11px 1px;
+	selectbox-c:  292px 283px 1px 1px;
+	selectbox-bl: 281px 285px 11px 11px;
+	selectbox-b:  292px 285px 1px 11px;
+	selectbox-br: 294px 285px 11px 11px;
+	
+	selectvalue: 162px 192px 145px 37px;
+	selectvalue-hover: 162px 230px 145px 37px;
+	selectarrow: 307px 192px 30px 37px;
+	selectarrow-hover: 307px 230px 30px 37px;
+	selectarrow-active: 307px 268px 30px 37px;
+	
+	/* ... */
+}
+
 /* Specify the dimensions of the select element. */
 select
 {
@@ -175,18 +228,19 @@ select
    value correctly internally. */
 select selectvalue
 {
-	width: 125px;
+	width: auto;
+	margin-right: 30px;
+	
 	height: 28px;
 	padding: 9px 10px 0px 10px;
 
-	background-decorator: image;
-	background-image: invader.png 162px 192px 307px 229px;
+	decorator: image( selectvalue  );
 }
 
 /* Animate the value field when it is hovered. */
 select selectvalue:hover
 {
-	background-image-t: 230px 267px;
+	decorator: image( selectvalue-hover );
 }
 
 /* Fix the size of the select arrow decorate the element. */
@@ -195,21 +249,20 @@ select selectarrow
 	width: 30px;
 	height: 37px;
 	
-	icon-decorator: image;
-	icon-image: invader.png 307px 192px 337px 229px;
+	decorator: image( selectarrow );
 }
 
 /* Animate the arrow when hovered. */
 select selectarrow:hover
 {
-	icon-image-t: 230px 267px;
+	decorator: image( selectarrow-hover );
 }
 
 /* Animate the arrow when the button is pressed or the box is visible. */
 select selectarrow:active,
 select selectarrow:checked,
 {
-	icon-image-t: 268px 305px;
+	decorator: image( selectarrow-active );
 }
 
 /* Fix the width of the select box and fiddle with the margins to get it in exactly the right place. */
@@ -220,15 +273,11 @@ select selectbox
 	width: 162px;
 	padding: 1px 4px 4px 4px;
 
-	background-decorator: tiled-box;
-	background-top-left-image: invader.png 281px 275px 292px 284px;
-	background-top-right-image: invader.png 294px 275px 305px 284px;
-	background-top-image: invader.png stretch 292px 275px 293px 284px;
-	background-bottom-left-image: invader.png 281px 285px 292px 296px;
-	background-bottom-right-image: invader.png 294px 285px 305px 296px;
-	background-bottom-image: invader.png stretch 292px 285px 293px 296px;
-	background-left-image: invader.png stretch 281px 283px 292px 284px;
-	background-center-image: invader.png stretch 292px 283px 293px 284px;
+	decorator: tiled-box(
+		selectbox-tl, selectbox-t, selectbox-tr, 
+		selectbox-l, selectbox-c, auto,  /* auto mirrors left */
+		selectbox-bl, selectbox-b, selectbox-br
+	);
 }
 
 /* Sizes the option element to take up the available width in the select box. */
