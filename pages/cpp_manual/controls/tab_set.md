@@ -6,25 +6,25 @@ parent: cpp_manual/controls
 
 The Controls plugin comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.
 
-You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tab-set-element"|relative_url}}).
+You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tabset"|relative_url}}).
 
 Here is an RML sample demonstrating the declaration of a tab set:
 
 ```html
 <rml>
-	<head>
-	</head>
-	<body>
-		<tabset>
-			<tab><img src="tab1.jpg" />Tab 1</tab>
-			<panel>
-				Welcome to the first tab!
-			</panel>
-			<tab><img src="tab2.jpg" />Tab 2</tab>
-			<panel>
-				Welcome to the second tab!
-			</panel>
-		</tabset>
+<head>
+</head>
+<body>
+	<tabset>
+		<tab><img src="tab1.jpg" />Tab 1</tab>
+		<panel>
+			Welcome to the first tab!
+		</panel>
+		<tab><img src="tab2.jpg" />Tab 2</tab>
+		<panel>
+			Welcome to the second tab!
+		</panel>
+	</tabset>
 ...
 </rml>
 ```
@@ -52,10 +52,10 @@ void SetTab(int tab_index, const {{page.lib_ns}}::Core::String& rml);
 // Set the specifed tab index's title element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the tab title.
-void SetTab(int tab_index, {{page.lib_ns}}::Core::Element* element);
+void SetTab(int tab_index, {{page.lib_ns}}::Core::ElementPtr element);
 ```
 
-When the contents of a tab is set, it will replace whatever it had before. If you specify a tab index that doesn't exist, it will be created.
+When the contents of a tab is set, it will replace whatever it had before. If you specify a tab index that doesn't exist, it will be created. The second function takes an `ElementPtr`, thus, the function takes ownership of the given element. Raw pointers cannot be used, they must first be removed from their parent if located in a hierarchy.
 
 Note that these functions only set the content of the tab buttons, not the panels themselves.
 
@@ -72,7 +72,7 @@ void SetPanel(int tab_index, const {{page.lib_ns}}::Core::String& rml);
 // Set the specified tab index's body element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the window.
-void SetPanel(int tab_index, {{page.lib_ns}}::Core::Element* element);
+void SetPanel(int tab_index, {{page.lib_ns}}::Core::ElementPtr element);
 ```
 
 ### Removing panels

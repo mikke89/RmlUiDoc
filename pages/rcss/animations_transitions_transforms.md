@@ -12,7 +12,7 @@ Use `perspective`{:.prop}, `perspective-origin`{:.prop}, `transform`{:.prop} and
 ```css
 perspective: 1000px;
 perspective-origin: 20px 50%;
-transform: rotateX(10deg) skew(-10, 15) translateZ(100px);
+transform: rotateX(10deg) skew(-10deg, 15deg) translateZ(100px);
 transform-origin: left top 0;
 ```
 
@@ -36,13 +36,13 @@ rotateX,      angle1
 rotateY,      angle1
 rotateZ,      angle1
 rotate,       angle1
-rotate3d,     length3angle1
+rotate3d,     number3angle1
 skewX,        angle1
 skewY,        angle1
 skew,         angle2
 ```
 
-Angles are in degrees by default.
+Angles take units of 'deg' or 'rad'.
 
 
 ### Animations

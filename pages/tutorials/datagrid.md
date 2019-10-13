@@ -272,7 +272,32 @@ The datagrid can be styled just like any other {{page.lib_name}} element. RCSS h
 
 ![datagrid_4.gif](datagrid_4.gif)
 
-So, using these hooks, we can make the datagrid look pretty much any way we want it to. First, let's add a background to the body. The RCSS rule shown below will add an image background (using a tiled-box decorator) around the body, change the text to black and center it, and finally add some margins and padding to move the text within the new border:
+So, using these hooks, we can make the datagrid look pretty much any way we want it to. First, let's add a background to the body. We begin by declaring all the sprites used by the datagrid, adding them to the existing sprite sheet `theme`{:.value}.
+
+```css
+@spritesheet theme 
+{
+	src: ../../../assets/invader.tga;
+	
+	/* ... */
+	
+	selectbox-tl: 281px 275px 11px 9px;
+	selectbox-t:  292px 275px 1px 9px;
+	selectbox-tr: 294px 275px 11px 9px;
+	selectbox-l:  281px 283px 11px 1px;
+	selectbox-c:  292px 283px 1px 1px;
+	selectbox-bl: 281px 285px 11px 11px;
+	selectbox-b:  292px 285px 1px 11px;
+	selectbox-br: 294px 285px 11px 11px;
+	
+	datagridheader-l: 127px 192px 16px 31px;
+	datagridheader-c: 143px 192px 2px 31px;
+	datagridheader-r: 145px 192px 15px 31px;
+}
+```
+Each sprite is defined by a name and rectangle. The rectangle is specified in the order `x y width height`{:.prop} and must be in pixel units. You can open up your favorite image editor or viewer to find the proper coordinates to use.
+
+The RCSS rule shown below will add an image background (using a tiled-box decorator) around the body. Change the text to black and center it, and finally add some margins and padding to move the text within the new border:
 
 ```css
 datagridbody
@@ -283,16 +308,12 @@ datagridbody
 	margin-left: 4px;
 	margin-right: 3px;
 	padding: 0px 4px 4px 4px;
-			
-	background-decorator: tiled-box;
-	background-top-left-image: ../../../assets/invader.png 281px 275px 292px 284px;
-	background-top-right-image: ../../../assets/invader.png 294px 275px 305px 284px;
-	background-top-image: ../../../assets/invader.png stretch 292px 275px 293px 284px;
-	background-bottom-left-image: ../../../assets/invader.png 281px 285px 292px 296px;
-	background-bottom-right-image: ../../../assets/invader.png 294px 285px 305px 296px;
-	background-bottom-image: ../../../assets/invader.png stretch 292px 285px 293px 296px;
-	background-left-image: ../../../assets/invader.png stretch 281px 283px 292px 284px;
-	background-center-image: ../../../assets/invader.png stretch 292px 283px 293px 284px;
+	
+	decorator: tiled-box(
+		selectbox-tl, selectbox-t, selectbox-tr, 
+		selectbox-l, selectbox-c, auto,  /* auto mirrors left */
+		selectbox-bl, selectbox-b, selectbox-br
+	);
 }
 ```
 
@@ -308,11 +329,8 @@ datagridheader
 	width: auto;
 	height: 25px;
 	padding: 5px 10px 0px 10px;
-		
-	background-decorator: tiled-horizontal;
-	background-left-image: ../../../assets/invader.png 127px 192px 143px 223px;
-	background-center-image: ../../../assets/invader.png stretch 143px 192px 145px 223px;
-	background-right-image: ../../../assets/invader.png 145px 192px 160px 223px;
+	
+	decorator: tiled-horizontal( datagridheader-l, datagridheader-c, datagridheader-r );
 }
 ```
 

@@ -7,11 +7,19 @@ next: elements
 
 So you've got {{page.lib_name}} integrated into your application, but how are you meant to use it? This is an overview of the significant concepts and objects at the core of {{page.lib_name}}.
 
-### Reference counting
+### Ownership and lifetimes
 
-Most {{page.lib_name}} objects are reference counted and derive from `{{page.lib_ns}}::Core::ReferenceCountable`. The functions `AddReference()` and `RemoveReference()` will add and remove a single reference respectively. Reference counted objects have an initial reference count of one. {{page.lib_name}} systems will add a reference to an object when the object enters their domain, and remove the reference when it leaves. When the reference count on an object drops to zero, it will be destroyed internally. It is important that you don't release objects yourself with the delete operator, except where required to in a custom [instancer](#the-factory-and-instancers).
+RmlUi uses smart pointers to declare ownership. For consistency with the library's naming scheme, the following aliases are declared
+```cpp
+template<typename T> using UniquePtr = std::unique_ptr<T>;
+template<typename T> using SharedPtr = std::shared_ptr<T>;
+```
 
-When you create a reference counted object and give control of it to a {{page.lib_name}} system, it is important that you remove the initial reference so the object will be destroyed as appropriate.
+All raw pointers are non-owning, never call `delete` on objects returned by the library! The possible exception is when using a custom [instancer](#the-factory-and-instancers) and you have used the `new` operator on the same object previously.
+
+Usually, objects are owned by the library and (non-owning) raw pointers are passed around. In the few cases where a unique or shared pointer is returned, they can be moved or copied into the library again. Otherwise their destructors will clean up the object when they go out of scope.
+
+Since raw pointers are non-owning, their underlying resource may in principle be released at any time. Thus, care must be taken to avoid interacting with a released resource, as this results in undefined behavior. For example, when removing an element from its parent, all its descendents will be released as well. In turn, all raw pointers to the removed elements are invalidated. It is the responsibility of the user of the library to handle such cases properly. Read more about [ownership of elements here](elements.html#ownership-of-elements).
 
 ### The element hierarchy
 
@@ -50,6 +58,10 @@ Properties are named attributes with a given range of values that are attached t
 [Style sheets](rcss.html) contain groups of property declarations and rules to selectively apply these groups to elements within a document. Style sheets are typically contained in a separate file or declared inline in an RML file.
 
 A RCSS property is analogous to a CSS property on an HTML element.
+
+### Computed values
+
+Most built-in properties have a corresponding computed value associated with them. This concept is analogous to CSS computed values, that is, computed values convert any properties to the most basic units possible before layouting can be performed. E.g. length-percentage values are often converted to pixels or percentages. The computed values for a given element is calculated during the `Context::Update` call.
 
 ### Decorators
 

@@ -8,14 +8,14 @@ description: RmlUi's documentation
 
 ### {{page.lib_name}}
 
-[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is mostly up-to-date with its master branch, otherwise pages are marked as needing improvements. Documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
+[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is mostly up-to-date with its master branch. However there is always room for improvements, documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
-[**{{page.lib_name}} features and changes**](pages/new_features.html)
+[**{{page.lib_name}} changelog**](pages/changelog.html)
 
 ### Programming Documentation
 
 1. [C++ Manual](pages/cpp_manual.html)
-2. Lua Manual
+2. [Lua Manual](pages/lua_manual.html)
 
 ### Authoring Documentation 
 
@@ -27,8 +27,8 @@ description: RmlUi's documentation
 ### Tutorials
 
 1. [Window templating](pages/tutorials/window_template.html) in the _Rocket Invaders from Mars_ demo.
-2. [Datagrid](pages/tutorials/datagrid.html): setting up _Rocket Invaders_ high scores.
-3. [Datagrid Tree](pages/tutorials/datagrid_tree.html): adding subtrees to _Rocket Invaders_ high scores.
+2. [Datagrid](pages/tutorials/datagrid.html), setting up _Rocket Invaders_ high scores.
+3. [Datagrid Tree](pages/tutorials/datagrid_tree.html), adding subtrees to _Rocket Invaders_ high scores.
 4. [Drag & Drop](pages/tutorials/dragging.html)
 
 ### Other

@@ -6,66 +6,67 @@ grandparent: rcss
 next: tiled_horizontal
 ---
 
-The *image* decorator can render a single image or a rectangular subsection of a single image. 
+The `image`{:.prop} decorator can render a single sprite or image.
+
+```css
+decorator: image( <image-src> <image-orientation> <image-fit> <image-align-x> <image-align-y> );
+```
+Values must be specified in the given order, any unspecified properties will be left at their default values. See the 'demo' sample for usage examples.
+
+The decorator renders across the padded area of its element.
 
 ### Properties
 
-`<name>-image-src`{:.prop}
+`image-src`{:.prop}
 
 Value: | \<string\>
-Initial: | not defined
+Initial: | *empty*
 Percentages: | N/A
 
-This property defines the name (and, for file sources, the relative path) of the source image.
+This property defines either a [sprite name](../sprite_sheets.html) or a relative path to an image file.
 
-`<name>-image-s-begin`{:.prop}, `<name>-image-t-begin`{:.prop}
+`image-orientation`{:.prop}
 
-Value: | \<number\> \| \<length\> \| \<percentage\>
-Initial: | 0
+Value: | none \| flip-horizontal \| flip-vertical \| rotate-180
+Initial: | none
 Percentages: | N/A
 
-`<name>-image-s-end`{:.prop}, `<name>-image-t-end`{:.prop}
+Flips or rotates the image.
 
-Value: | \<number\> \| \<length\> \| \<percentage\>
-Initial: | 1
+`image-fit`{:.prop}
+
+Value: | fill \| contain \| cover \| scale-none \| scale-down
+Initial: | fill
 Percentages: | N/A
 
-These properties specify the texture coordinates to use when rendering the image.
+`fill`{:.value}
+: The image is stretched to boundaries.
 
-### Values
+`contain`{:.value}
+: The image is stretched to boundaries, keeping aspect ratio fixed, 'letter-boxed'.
 
-`<number>`{:.value}
-: Expected to be a floating-point number from 0 to 1, this is the raw texture coordinate.
+`cover`{:.value}
+: The image is stretched to cover the boundaries, keeping aspect ratio fixed.
 
-`<length>`{:.value}
-: Expected to be expressed in 'px' units and from 0 to the length of the appropriate texture axis. The texture will be rendered from (for -begin) or to (for -end) this pixel.
+`scale-none`{:.value}
+: The image is never scaled.
 
-`<percentage>`{:.value}
-: The texture will be rendered from (for -begin) ot to (for -end) this far across the appropriate texture axis. 
+`scale-down`{:.value}
+: The image acts like 'scale-none' if smaller than boundaries, or like 'contain' otherwise.
 
-### Shorthands
 
-`<name>-image-s`{:.prop}
-: A shorthand property for setting `<name>-image-s-begin`{:.prop} and `<name>-image-s-end`{:.prop}.
+`image-align-x`{:.prop}
 
-`<name>-image-t`{:.prop}
-: A shorthand property for setting `<name>-image-t-begin`{:.prop} and `<name>-image-t-end`{:.prop}.
+Value: | left \| center \| right \| \<length-percentage\>
+Initial: | center
+Percentages: | relative to the element's padding width
 
-`<name>-image`{:.prop}
-: A shorthand property for setting
-`<name>-image-src`{:.prop},
-`<name>-image-s-begin`{:.prop},
-`<name>-image-t-begin`{:.prop},
-`<name>-image-s-end`{:.prop} and
-`<name>-image-t-end`{:.prop}.
+Horizontally align or offset the image.
 
-```css
-/* Declares an image decorator. */
-div#avatar
-{
-	avatar-decorator: image;
-	avatar-image: player.png 0px 32px 32px 64px;
-}
-```
+`image-align-y`{:.prop}
 
-The image will be stretched or shrunk to render across the entire padded area of an element it is attached to.
+Value: | top \| center \| bottom \| \<length-percentage\>
+Initial: | center
+Percentages: | relative to the element's padding height
+
+Vertically align or offset the image.

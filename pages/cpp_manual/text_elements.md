@@ -9,7 +9,7 @@ next: scrollbars
 
 ### Text encoding
 
-The string type used through the majority of {{page.lib_name}}'s interfaces, `{{page.lib_ns}}::Core::String`, stores 8-bit wide characters. In order to store wider characters efficiently, text elements store their contents as a `{{page.lib_ns}}::Core::String` type. The {{page.lib_name}} string stores 16-bit wide characters in UCS-2 format; while not sufficient to store every possible UTF-8 character, it can store every useful one, so is a good compromise between size and usefulness.
+The string type used throughout {{page.lib_name}} `{{page.lib_ns}}::Core::String` is an alias for `std::string`. This is always assumed to be encoded in UTF-8. This allows storing any Unicode character efficiently, and is compatible with the standard ASCII characters. There are some helper functions for iterating over UTF-8 encoded strings in `{{page.lib_dir}}/Core/StringUtilities.h`{:.path}. There are also helper functions for converting to and from UTF-16 strings, mainly useful for interacting with the Windows API.
 
 ### HTML characters
 
@@ -42,8 +42,6 @@ The `SetText()` function on a `{{page.lib_ns}}::Core::ElementText` will change t
 void SetText(const {{page.lib_ns}}::Core::String& text);
 ```
 
-If you pass in a constant string or an `{{page.lib_ns}}::Core::String`, it will be converted to a {{page.lib_name}} string as described above (interpreted as UTF-8 encoding). This means it will interpret standard ASCII characters OK.
-
 Note that this sets the raw text on the element; the actual rendered text may differ due to whitespace processing.
 
 ### Retrieving an element's text
@@ -54,13 +52,6 @@ The `GetText()` function will return the element's raw text.
 // Returns the raw string this text element contains.
 // @return This element's raw text.
 const {{page.lib_ns}}::Core::String& GetText() const;
-```
-
-This will return the raw text as a UCS-2 encoded {{page.lib_name}} string. To convert the string to a UTF-8 encoded string, call `ToUTF8()` on the string.
-
-```cpp
-{{page.lib_ns}}::Core::String utf8_string;
-element_text->GetText().ToUTF8(utf8_string);
 ```
 
 ### String generation

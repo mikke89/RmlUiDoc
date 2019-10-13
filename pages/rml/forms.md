@@ -29,7 +29,10 @@ _Attributes_
 : For types of `text`{:.value}, `password`{:.value} and `range`{:.value}, this is used as the initial value of the element. For the `radio`{:.value} and `checkbox`{:.value} types this is used as the value that is submitted if the input is checked. For `<option>`{:.tag} elements, this is the value that is submitted by the parent `<select>`{:.tag}, if it is the selected option.
 
 `disabled`{:.attr} (CI)
-: If this attribute is set, then the input element is unable to be changed by user input.
+: If this attribute is set, then the input element is unable to receive focus or be changed by user input.
+
+`autofocus`{:.attr} (CI)
+: The first visible control element with this attribute set will receive focus when a document is shown with default arguments. See [document visiblity](../cpp_manual/documents.html#visibility) for details.
 
 #### \<input\>
 

@@ -13,7 +13,7 @@ Compile the template tutorial (at `/Samples/tutorials/template/`{:.path}) and ru
 
 ![window_template_1.gif](window_template_1.gif)
 
-All the the program does is load and show the document defined in `data/tutorial.rml`{:.path}. The RML itself file references `data/tutorial.rcss`{:.path} and `data/tutorial.png`{:.path}. All we're interested in is the RML file and the RCSS file; open them both and take a look.
+All the the program does is load and show the document defined in `data/tutorial.rml`{:.path}. The RML itself file references `data/tutorial.rcss`{:.path} and `/Samples/assets/invader.tga`{:.path}. All we're interested in is the RML file and the RCSS file; open them both and take a look.
 
 All we've got to start with in the RML is a simple document with no child elements. It has a class of 'window' which, as you'll see in the RCSS, is what is giving it the glassy background decorator. The style declared in the document's header tag specifies a fixed width and height for the document (so it has some dimensions), and gives it auto margins to centre it within the context. As for the RCSS, we've got nothing more than the a font specification and a tiled-box decorator for drawing the background. And that's it! Simple, but not very useful as a window template yet.
 
@@ -48,39 +48,46 @@ div#title-bar span
 	font-size: 22px;
 	font-weight: bold;
 
-	text-shadow: 2px 2px black;
+	font-effect: shadow(2px 2px black);
 }
 ```
 
 That looks a bit better, but still no decorator.
 
+#### Setting up the sprite sheet
+
+If you open up the file `/Samples/assets/invader.tga`{:.path}., you'll see it contains sprites for the title bar among other things. We'll now define the sprite sheet used in the decorators in this tutorial. First, find the sprite sheet `theme`{:.value} at the top of the file. The sprites for the window has already been declared, but add the sprites for the title bar.
+
+```css
+@spritesheet theme 
+{
+	src: ../../../assets/invader.tga;
+
+	/* ... */
+	
+	title-bar-l: 147px 0px 82px 85px;
+	title-bar-c: 229px 0px  1px 85px;
+	title-bar-r: 231px 0px 15px 85px;
+}
+
+```
+Each sprite is defined by a name and rectangle. The rectangle is specified in the order `x y width height`{:.prop} and must be in pixel units. You can open up your favorite image editor or viewer to find the proper coordinates to use.
+
+
 #### Setting up the decorator
 
-If you open up the file `tutorial.png`{:.path}., you'll see it contains image information for the title bar (among other things). We'll need to now define the title element's decorator using the texture coordinates from this image. So, in the same rule that you added before, we declare the decorator:
+With decorators we can give a nice look to any element. We'll begin by defining the title element's decorator using the recently declared sprites. So, in the same rule that you added before, declare the decorator:
 
 ```css
-	background-decorator: tiled-horizontal;
+div#title-bar span
+{
+	/* ... */
+	
+	decorator: tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
+}
 ```
 
-Then, define the left side of the decorator:
-
-```css
-	background-left-image: tutorial.png 147px 0px 229px 85px;
-```
-
-Note that all the coordinates are in pixels from the top-left of the image, rather than 0.0 to 1.0; this means that if you have to resize the image later (to fit new elements, icons, etc) you don't have to recalculate all of your decorator coordinates. You can specify texture coordinates directly if you'd like however, just leave off the `px`{:.value} or use the `%`{:.value} sign.
-
-For the centre, we want to stretch the middle pixels on the texture between the left and right sides all the way across.
-
-```css
-	background-center-image: tutorial.png stretch 229px 0px 230px 85px;
-```
-
-And lastly, the right side:
-
-```css
-	background-right-image: tutorial.png 231px 0px 246px 85px;
-```
+This decorator makes the center sprite stretch, while each side stays fixed. Thus, the title bar can easily scale horizontally when its text content changes.
 
 Run the application again and see what we've got.
 
@@ -96,7 +103,7 @@ Add some padding along the top of the span to begin with:
 
 Take a look at the result. The element is now 50 pixels bigger, so the title bar is looking a bit healthier, and the text has been pushed to the bottom of the element. So how big do we need to make the title bar? If you look at the decorator declaration, you can see the title bar image is 85 pixels high. Therefore ideally the element should also be 85 pixels high. So we've got to add padding to get it that high - but how high is it now?
 
-To find out, you can use the debugger; press SHIFT-~ to open the debugging menu. Click on the 'Element Info' button, and then click on the title bar element. The info pane should change to show you a heap of information on the element, including the properties defined on it and their source, dimensions, children and ancestor elements. You can see the height of the element under the 'Position' heading; it work out to be 80px. So, we have to add another 5px of vertical padding.
+To find out, you can use the debugger; press F8 to open the debugging menu. Click on the 'Element Info' button, and then click on the title bar element. The info pane should change to show you a heap of information on the element, including the properties defined on it and their source, dimensions, children and ancestor elements. You can see the height of the element under the 'Position' heading; it work out to be 80px. So, we have to add another 5px of vertical padding.
 
 Set the padding to 55px and take a look; the element should now be 85px high. Now shift some of the padding to the bottom and have a play around to get the text centered. I found the following combination got the text to look in the right place:
 
@@ -125,12 +132,9 @@ div#title-bar span
 	font-size: 22px;
 	font-weight: bold;
 
-	text-shadow: 2px 2px black;
+	font-effect: shadow(2px 2px black);
 
-	background-decorator: tiled-horizontal;
-	background-left-image: tutorial.png 147px 0px 229px 85px;
-	background-center-image: tutorial.png stretch 229px 0px 230px 85px;
-	background-right-image: tutorial.png 231px 0px 246px 85px;
+	decorator: tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
 }
 ```
 
@@ -233,16 +237,12 @@ Add some padding to the `<body>`{:.tag} rule and take a look at the result. We f
 ```css
 body.window
 {
-	background-decorator: tiled-box;
-	background-top-left-image: tutorial.png 0px 0px 133px 140px;
-	background-top-right-image: tutorial.png 136px 0px 146px 140px;
-	background-top-image: tutorial.png stretch 134px 0px 135px 140px;
-	background-bottom-left-image: tutorial.png 0px 140px 11px 151px;
-	background-bottom-right-image: tutorial.png 136px 140px 146px 151px;
-	background-bottom-image: tutorial.png stretch 11px 140px 12px 151px;
-	background-left-image: tutorial.png stretch 0px 139px 10px 140px;
-	background-center-image: tutorial.png stretch 11px 139px 12px 140px;
-
+	decorator: tiled-box(
+		window-tl, window-t, window-tr, 
+		window-l, window-c, window-r,
+		window-bl, window-b, window-br
+	);
+	
 	padding: 10px 15px;
 }
 ```
@@ -296,6 +296,42 @@ scrollbarvertical
 
 That's looking a bit better; of course, we can actually see the scrollbar yet, but it is there. You can drag the window up and down if you manage to click in the right place.
 
+#### Adding the remaining sprites
+
+Next up, we will add the rest of the sprites used in this tutorial to the sprite sheet. As previously, locate the `theme`{:.value} sprite sheet, and add the following sprites to it.
+
+```css
+@spritesheet theme 
+{
+	src: ../../../assets/invader.tga;
+
+	/* ... */
+	
+	slidertrack-t: 70px 199px 27px 2px;
+	slidertrack-c: 70px 201px 27px 1px;
+	slidertrack-b: 70px 202px 27px 2px;
+	
+	sliderbar-t:         56px 152px 23px 23px;
+	sliderbar-c:         56px 175px 23px 1px;
+	sliderbar-b:         56px 176px 23px 22px;
+	sliderbar-hover-t:   80px 152px 23px 23px;
+	sliderbar-hover-c:   80px 175px 23px 1px;
+	sliderbar-hover-b:   80px 176px 23px 22px;
+	sliderbar-active-t: 104px 152px 23px 23px;
+	sliderbar-active-c: 104px 175px 23px 1px;
+	sliderbar-active-b: 104px 176px 23px 22px;
+	 
+	sliderarrowdec: 0px 152px 27px 24px;
+	sliderarrowdec-hover: 0px 177px 27px 24px;
+	sliderarrowdec-active: 0px 202px 27px 24px;
+	
+	sliderarrowinc: 28px 152px 27px 24px;
+	sliderarrowinc-hover: 28px 177px 27px 24px;
+	sliderarrowinc-active: 28px 202px 27px 24px;
+}
+```
+
+
 #### Decorating the scrollbar
 
 The scrollbar itself has four child elements that can be individually sized and decorated. These are tagged:
@@ -304,15 +340,12 @@ The scrollbar itself has four child elements that can be individually sized and 
 * `sliderbar`{:.tag}, the bar (or knob, thumb, etc) that lies on top of the track and can be dragged up and down.
 * `sliderarrowinc`{:.tag}, `sliderarrowdec`{:.tag}, the buttons you can click to move the bar up or down the track. 
 
-We'll start by decorating the track. If you open up `tutorial.png` again, you'll see under the window background there's all the scrollbar images. We'll save you all the hard work, so here's the pixel offsets for the track's decorator:
+We'll start by decorating the track. We use a `tiled-vertical`{:.value} decorator to let it stretch properly in the vertical direction. We already defined the sprites, so we can simply declare the decorator.
 
 ```css
 scrollbarvertical slidertrack
 {
-	background-decorator: tiled-vertical;
-	background-top-image: tutorial.png 56px 199px 83px 201px;
-	background-center-image: tutorial.png stretch 56px 201px 83px 202px;
-	background-bottom-image: tutorial.png 56px 203px 83px 204px;
+	decorator: tiled-vertical( slidertrack-t, slidertrack-c, slidertrack-b );
 }
 ```
 
@@ -324,15 +357,11 @@ We've got more vertical decorators to define for the bar element:
 scrollbarvertical sliderbar
 {
 	width: 23px;
-
-	background-decorator: tiled-vertical;
-	background-top-image: tutorial.png 56px 152px 79px 175px;
-	background-center-image: tutorial.png stretch 56px 175px 79px 175px;
-	background-bottom-image: tutorial.png 56px 176px 79px 198px;
+	decorator: tiled-vertical( sliderbar-t, sliderbar-c, sliderbar-b );
 }
 ```
 
-Note that we set the width to 23 pixels, as the image for the bar is only 23 pixels wide. If you take a look at the result, you'll notice the bar is now decorated, but is displaying on top of the border of the track. To be in the right place, we need to move it 4 pixel to the right. How can we do this? With a margin on the left side! Add a four pixel left margin to the 'sliderbar' and it'll be in the right place.
+Note that we set the width to 23 pixels, as the sprite for the bar is only 23 pixels wide. If you take a look at the result, you'll notice the bar is now decorated, but is displaying on top of the border of the track. To be in the right place, we need to move it 4 pixel to the right. How can we do this? With a margin on the left side! Add a four pixel left margin to the 'sliderbar' and it'll be in the right place.
 
 One last thing on the bar; as no height has been explicitly set on the element, the scrollbar will resize it to fit the requirements of the element it is attached to. As the content gets taller or the element gets shorter, the bar will shrink to match. However, we don't want it shrinking below a certain size, as then the image will need to be shrunk and it won't look the best. The smallest size it can display at without shrinking is 46 pixels; you can set the 'min-height' property then to `46px`{:.value} to prevent it from going below that.
 
@@ -358,14 +387,12 @@ And add decorators to each of them:
 ```css
 scrollbarvertical sliderarrowdec
 {
-	icon-decorator: image;
-	icon-image: tutorial.png 0px 152px 27px 176px;
+	decorator: image( sliderarrowdec );
 }
 
 scrollbarvertical sliderarrowinc
 {
-	icon-decorator: image;
-	icon-image: tutorial.png 28px 152px 55px 176px;
+	decorator: image( sliderarrowinc )
 }
 ```
 
@@ -391,14 +418,12 @@ And from that we've got:
 
 #### Adding hover and click decoration
 
-Now the scrollbar is functional, but there's no extra decoration for clicks and mouse-overs. You can add these in easily by changing the texture coordinates on the decorations for the :hover and :active pseudo-classes. For example, add the following rule to put in hover decoration on the bar:
+Now the scrollbar is functional, but there's no extra decoration for clicks and mouse-overs. You can add these in easily by declaring a decorator with the hover and active variants of the sprites. For example, add the following rule to put in hover decoration on the bar:
 
 ```css
 scrollbarvertical sliderbar:hover
 {
-	background-top-image-s: 80px 103px;
-	background-center-image-s: 80px 103px;
-	background-bottom-image-s: 80px 103px;
+	decorator: tiled-vertical( sliderbar-hover-t, sliderbar-hover-c, sliderbar-hover-b );
 }
 ```
 
@@ -475,7 +500,7 @@ The document is loaded on line 68 of main.cpp. Before the document is rendered, 
 ```cpp
 	// Load and show the tutorial document.
 	{{page.lib_ns}}::Core::ElementDocument* document = context->LoadDocument("data/tutorial.rml");
-	if (document != NULL)
+	if (document)
 	{
 		document->GetElementById("title")->SetInnerRML(document->GetTitle());
 		document->Show();
