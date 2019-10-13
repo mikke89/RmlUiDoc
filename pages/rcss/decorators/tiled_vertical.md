@@ -34,8 +34,8 @@ This property defines either a [sprite name](../sprite_sheets.html) or a relativ
 
 `*x*-image-orientation`{:.prop}
 
-Value: | none \| rotate-90 \| rotate-180 \| rotate-270 \| flip-horizontal \| flip-vertical
+Value: | none \| flip-horizontal \| flip-vertical \| rotate-180
 Initial: | none
 Percentages: | N/A
 
-Rotates or flips the image. Rotation angle is specified in clockwise direction.
+Flips or rotates the image.

@@ -138,7 +138,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 | `DispatchEvent()` | Dispatch an event to this node in the DOM. | dispatchEvent()
 | `Focus()` | Gives keyboard focus to the current element. | focus()
 | `GetAttribute()` | Retrieve the value of the named attribute from the current node. | getAttribute()
-| `GetElementById()` | Returns an object reference to the identified element. | getElementById()
+| `GetElementById()` | Returns an element by its id. | getElementById()
 | `GetElementsByTagName()` | Retrieve a set of all descendant elements, of a particular tag name, from the current element. | getElementsByTagName()
 | `HasAttribute()` | Check if the element has the specified attribute, or not. | hasAttribute()
 | `HasChildNodes()` | Check if the element has any child nodes, or not. | hasChildNodes()
@@ -260,7 +260,7 @@ attributes.Set("value", "OK");
                                                                               attributes);
 ```
 
-If the element is instanced successfully, it will be returned. If not, `nullptr` will be returned. All elements are reference counted, and the newly instanced element will be returned with one initial reference owned by the instancing code; be sure to remove it once you have parented the element to another.
+If the element is instanced successfully, it will be returned. If not, `nullptr` will be returned. As `ElementPtr` is a unique pointer, it must be moved into the element hierarchy, such as by using `std::move`. If the unique pointer goes out of scope, it will automatically be released.
 
 ### Destroying and moving elements
 
@@ -492,7 +492,7 @@ auto custom_instancer = std::make_unique<ElementInstancerCustom>();
 
 The first parameter to `RegisterElementInstancer()` is the tag name the instancer is bound to. In the above example, the custom instancer will be called to instance an element whenever an element with the tag 'custom' is encountered while parsing an RML stream, or as otherwise required by the factory. You can register an instancer as many times as you like with the factory against different tag names.
 
-Instancers are reference counted, and begin with a reference count of one which belongs to the constructing process. The factory itself will add a reference for every tag name it is bound to. Therefore, remember to remove a reference from the object after it has been registered with the factory. If you don't, it will never be released.
+The library takes a non-owning pointer to the instancer. Thus, the instancer must be kept alive until after the call to `Rml::Core::Shutdown`, and then cleaned up by the user.
 
 #### Using a generic instancer
 
@@ -577,7 +577,7 @@ void PushDefaultHandler();
 If it doesn't call either of these methods, it will remain the node handler for any child elements it creates.
 Registering a custom node handler
 
-Register a custom node handler with {{page.lib_name}}'s XML parser with the static `RegisterNodeHandler()` function on `{{page.lib_ns}}::Core::XMLParser`. You can register the same handler multiple times with the parser against different tag names. `RegisterNodeHandler()` adds a reference to the node handler, so be sure to remove the initial reference from the handler once it has been registered.
+Register a custom node handler with {{page.lib_name}}'s XML parser with the static `RegisterNodeHandler()` function on `{{page.lib_ns}}::Core::XMLParser`. You can register the same handler multiple times with the parser against different tag names. `RegisterNodeHandler()` takes shared ownership of the handler, thus, users do not need to store their own copy when they are done.
 
 ```cpp
 // Registers a custom node handler to be used to a given tag.
@@ -585,7 +585,7 @@ Register a custom node handler with {{page.lib_name}}'s XML parser with the stat
 // @param[in] handler The custom handler.
 // @return The registered XML node handler.
 static {{page.lib_ns}}::Core::XMLNodeHandler* RegisterNodeHandler(const {{page.lib_ns}}::Core::String& tag,
-                                                         {{page.lib_ns}}::Core::XMLNodeHandler* handler);
+                                                         SharedPtr<{{page.lib_ns}}::Core::XMLNodeHandler> handler);
 ```
 
 ### Samples

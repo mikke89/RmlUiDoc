@@ -178,7 +178,7 @@ virtual void ReleaseTexture({{page.lib_ns}}::Core::TextureHandle texture_handle)
 `LoadTexture()` is called when {{page.lib_name}} wants to load a texture from an external source (usually a file, but this is up to the application).
 * `source`: the source name specified in the RML (for an image tag) or RCSS (for a decorator image reference).
 * `source_path`: the path of the referencing document.
-* `texture_handle`: a reference to a `{{page.lib_ns}}::Core::TextureHandle` type. This is a void*, and can be set to whatever you need to uniquely identify the loaded texture (except 0, which is reserved for an invalid texture).
+* `texture_handle`: a reference to a `{{page.lib_ns}}::Core::TextureHandle` type. This is a `uintptr_t`, and can be set to whatever you need to uniquely identify the loaded texture, except 0 which is reserved for an invalid texture.
 * `texture_dimensions`: should be set to the x- and y-dimensions of the loaded texture.
 
 If the `LoadTexture()` function succeeds in loading the texture, it should return `true`. Otherwise it should return `false`.

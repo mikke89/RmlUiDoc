@@ -121,7 +121,7 @@ void ProcessMouseButtonDown(int button_index, int key_modifier_state);
 // Sends a mouse-button up event into this context.
 void ProcessMouseButtonUp(int button_index, int key_modifier_state);
 // Sends a mouse-wheel movement event into this context.
-void ProcessMouseWheel(int wheel_delta, int key_modifier_state);
+void ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 ```
 
 Call the appropriate input functions to inject all relevant user input into your {{page.lib_name}} context each frame, before you call `Update()`. Note that {{page.lib_name}} does not translate key presses into text; this is up to the application. For more information, see the chapter on user input.

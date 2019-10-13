@@ -6,7 +6,7 @@ parent: rcss/decorators
 next: ninepatch
 ---
 
-The `tiled-box`{:.prop} decorator can render nine sprites or images across an element. One image is placed in each of the element's corners, one stretched along each edge, and another stretched across the middle.
+The `tiled-box`{:.prop} decorator can render nine sprites or images across an element. One image is placed at a fixed size in each of the element's corners, one image is stretched along each edge, and a final image is stretched in both directions to cover the center region of the image.
 
 The decorator renders across the padded area of its element.
 
@@ -15,7 +15,6 @@ decorator: tiled-horizontal(
 	<top-left-image-src> <top-left-image-orientation>,
 	<top-image-src> <top-image-orientation>,
 	<top-right-image-src> <top-right-image-orientation>,
-	
 	
 	<left-image-src> <left-image-orientation>,
 	<center-image-src> <center-image-orientation>,
@@ -43,8 +42,8 @@ This property defines either a [sprite name](../sprite_sheets.html) or a relativ
 
 `*x*-image-orientation`{:.prop}
 
-Value: | none \| rotate-90 \| rotate-180 \| rotate-270 \| flip-horizontal \| flip-vertical
+Value: | none \| flip-horizontal \| flip-vertical \| rotate-180
 Initial: | none
 Percentages: | N/A
 
-Rotates or flips the image. Rotation angle is specified in clockwise direction.
+Flips or rotates the image.

@@ -49,14 +49,14 @@ The italic and bold versions of a font are selected with the `font-weight`{:.pro
 In the following example, the font file at `data/trilobyte.ttf`{:.path} is loaded and registered with {{page.lib_name}} with the family name, style and weight settings specified in the file itself.
 
 ```cpp
-{{page.lib_ns}}::Core::FontDatabase::LoadFontFace("data/trilobyte.ttf");
+{{page.lib_ns}}::Core::LoadFontFace("data/trilobyte.ttf");
 ```
 
 In this example, the font file is loaded from memory with overrides for the name, style and weight.
 
 ```cpp
 std::vector<unsigned char> trilobyte_b = MyAssetLoader("data/trilobyte_b.ttf");
-{{page.lib_ns}}::Core::FontDatabase::LoadFontFace(trilobyte_b.data(), trilobyte_b.size(),
+{{page.lib_ns}}::Core::LoadFontFace(trilobyte_b.data(), trilobyte_b.size(),
                                          "Trilobyte",
                                          {{page.lib_ns}}::Core::Style::FontStyle::Normal,
                                          {{page.lib_ns}}::Core::Style::FontWeight::Bold);
