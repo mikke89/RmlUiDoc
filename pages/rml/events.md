@@ -11,7 +11,7 @@ When an event is fired at a target element, it **captures** from the root to the
 
 Binding done in RML will always attach to the bubble phase.
 
-For a detailed description of the DOM event system see the W3C Specification.
+For additional details, see the [C++ events documentation](../cpp_manual/events.html).
 
 ### RML binding
 

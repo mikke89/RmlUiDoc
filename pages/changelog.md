@@ -11,7 +11,7 @@ title: RmlUi Changelog
 ## RmlUi 3.0 {#v3_0}
 
 
-RmlUi 3.0 is the biggest change yet, featuring substantial amount of new features and bug fixes. One of the main efforts in RmlUi 3.0 has been on improving the performance of the library. Users should see a noticable performance increase when upgrading.
+RmlUi 3.0 is the biggest change yet, featuring a substantial amount of new features and bug fixes. One of the main efforts in RmlUi 3.0 has been on improving the performance of the library. Users should see a noticable performance increase when upgrading.
 
 
 ### Performance
