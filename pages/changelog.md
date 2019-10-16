@@ -352,49 +352,21 @@ Three new CMake options added.
 - `ENABLE_TRACY_PROFILING`: RmlUi has parts of the library tagged with markers for profiling with [Tracy Profiler](https://bitbucket.org/wolfpld/tracy/src/master/). This enables a visual inspection of bottlenecks and slowdowns on individual frames. To compile the library with profiling support, add the Tracy Profiler library to `/Dependencies/tracy/`, enable this option, and compile.  Follow the Tracy Profiler instructions to build and connect the separate viewer. As users may want to only use profiling for specific compilation targets, then instead one can `#define RMLUI_ENABLE_PROFILING` for the given target.
 
 
-### Other features
-
-- `Context::ProcessMouseWheel` now takes a float value for the `wheel_delta` property, thereby enabling continuous/smooth scrolling for input devices with such support. The default scroll length for unity value of `wheel_delta` is now three times the default line-height multiplied by the current dp-ratio.
-- The system interface now has two new functions for setting and getting text to and from the clipboard: `virtual void SystemInterface::SetClipboardText(const Core::String& text)` and `virtual void SystemInterface::GetClipboardText(Core::String& text)`.
-- The `text-decoration` property can now also be used with `overline` and `line-through`.
-- The text input and text area elements can be navigated word for word by holding the 'ctrl' key.
-- The `<img>` element can now take sprite names in its `src` attribute.
-
-
-### Breaking changes
-
-Breaking changes since RmlUi v2.0.
-
-- RmlUi now requires a C++14-compatible compiler (previously C++11).
-- Rml::Core::String has been replaced by std::string, thus, interfacing with the library now requires you to change your string types. This change was motivated by a small performance gain, additionally, it should make it easier to interface with the library especially for users already using std::string in their codebase. Furthermore, strings should be considered as encoded in UTF-8.
-- To load fonts, use `Rml::Core::LoadFontFace` instead of `Rml::Core::FontDatabase::LoadFontFace`.
-- Querying the property of an element for size, position and similar may not work as expected right after changes to the document or style. This change is made for performance reasons, see the description under *performance* for reasoning and a workaround.
-- The Controls::DataGrid "min-rows" property has been removed.
-- Removed RenderInterface::GetPixelsPerInch, instead the pixels per inch value has been fixed to 96 PPI, as per CSS specs. To achieve a scalable user interface, instead use the 'dp' unit.
-- Removed 'top' and 'bottom' from z-index property.
-- Angles need to be declared in either 'deg' or 'rad'. Unit-less numbers do not work.
-- See changes to the declaration of decorators and font-effects above.
-- See changes to the render interface regarding transforms above.
-- The focus flag in `ElementDocument::Show` has been changed, with a new enum name and new options, see above.
-- The tiled decorators (`image`, `tiled-horizontal`, `tiled-vertical`, and `tiled-box`) no longer support the old repeat modes.
-- Also, see removal of manual reference counting above.
-
-
-#### Events
+### Events
 
 There are some changes to events in RmlUi, however, for most users, existing code should still work as before.
 
 There is now a distinction between actions executed in event listeners, and default actions for events:
 
-- Event listeners are attached to an element as before. Events follow the normal phases: capture (root -> target), target, and bubble (target -> root). Each event listener can be either attached to the bubble phase (default) or capture phase. The target phase always executes if reached. Listeners are executed in the order they are added to the element. Each event type specifies whether it executes the bubble phase or not, see below for details.
-- Default actions are primarily for actions performed internally in the library. They are executed in the function `virtual void Element::ProcessDefaultAction(Event& event)`. However, any object that derives from `Element` can override the default behavior and add new behavior. The default actions follow the normal event phases, but are only executed in the phase according to their `default_action_phase` which is defined for each event type. If an event is cancelled with `Event::StopPropagation()`, then the default action is not performed unless already executed.
+- Event listeners are attached to an element as before. Events follow the normal phases: capture (root -> target), target, and bubble (target -> root). Each event listener is always attached to the target phase, and is additionally attached to either the bubble phase (default) or capture phase. Listeners are executed in the order they are added to the element. Each event type specifies whether it executes the bubble phase or not, see below for details.
+- Default actions are primarily for actions performed internally in the library. They are executed in the function `virtual void Element::ProcessDefaultAction(Event& event)`. However, any object that derives from `Element` can override the default behavior and add new behavior. The default actions are always executed after all event listeners, and only propagated according to the phases set in their `default_action_phase` value which is defined for each event type. If an event is canceled with `Event::PreventDefault()`, then the default actions are not performed.
 
 
 Each event type now has an associated EventId as well as a specification defined as follows:
 
 - `interruptible`: Whether the event can be cancelled by calling `Event::StopPropagation()`.
 - `bubbles`: Whether the event executes the bubble phase. If true, all three phases: capture, target, and bubble, are executed. If false, only capture and target phases are executed.
-- `default_action_phase`: One of: None, Target, Bubble, TargetAndBubble. Specifies during which phases the default action is executed, if any. That is, the phase for which `Element::ProcessDefaultAction` is called. See above for details.
+- `default_action_phase`: One of: None, Target, TargetAndBubble. Specifies during which phases the default action is executed, if any. That is, the phase for which `Element::ProcessDefaultAction()` is called. See above for details.
 
 See `EventSpecification.cpp` for details of each event type. For example, the event type `click` has the following specification:
 ```
@@ -417,6 +389,38 @@ Various changes:
 - `Element::DispatchEvent` can now optionally take an `EventId` instead of a `String`.
 - The `resize` event now only applies to the document size, not individual elements.
 - The `scrollchange` event has been replaced by a function call. To capture scroll changes, instead use the `scroll` event.
+- The `textinput` event now sends a `String` in UTF-8 instead of a UCS-2 character, possibly with multiple characters. The parameter key name is changed from "data" to "text".
+
+
+### Other features
+
+- `Context::ProcessMouseWheel` now takes a float value for the `wheel_delta` property, thereby enabling continuous/smooth scrolling for input devices with such support. The default scroll length for unity value of `wheel_delta` is now three times the default line-height multiplied by the current dp-ratio.
+- The system interface now has two new functions for setting and getting text to and from the clipboard: `virtual void SystemInterface::SetClipboardText(const Core::String& text)` and `virtual void SystemInterface::GetClipboardText(Core::String& text)`.
+- The `text-decoration` property can now also be used with `overline` and `line-through`.
+- The text input and text area elements can be navigated word for word by holding the 'ctrl' key.
+- The `<img>` element can now take sprite names in its `src` attribute.
+
+
+
+### Breaking changes
+
+Breaking changes since RmlUi v2.0.
+
+- RmlUi now requires a C++14-compatible compiler (previously C++11).
+- Rml::Core::String has been replaced by std::string, thus, interfacing with the library now requires you to change your string types. This change was motivated by a small performance gain, additionally, it should make it easier to interface with the library especially for users already using std::string in their codebase. Furthermore, strings should be considered as encoded in UTF-8.
+- To load fonts, use `Rml::Core::LoadFontFace` instead of `Rml::Core::FontDatabase::LoadFontFace`.
+- Querying the property of an element for size, position and similar may not work as expected right after changes to the document or style. This change is made for performance reasons, see the description under *performance* for reasoning and a workaround.
+- The Controls::DataGrid "min-rows" property has been removed.
+- Removed RenderInterface::GetPixelsPerInch, instead the pixels per inch value has been fixed to 96 PPI, as per CSS specs. To achieve a scalable user interface, instead use the 'dp' unit.
+- Removed 'top' and 'bottom' from z-index property.
+- Angles need to be declared in either 'deg' or 'rad'. Unit-less numbers do not work.
+- See changes to the declaration of decorators and font-effects above.
+- See changes to the render interface regarding transforms above.
+- See changes to the event system above.
+- The focus flag in `ElementDocument::Show` has been changed, with a new enum name and new options, see above.
+- The tiled decorators (`image`, `tiled-horizontal`, `tiled-vertical`, and `tiled-box`) no longer support the old repeat modes.
+- Also, see removal of manual reference counting above.
+
 
 
 

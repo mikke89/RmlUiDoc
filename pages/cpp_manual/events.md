@@ -5,7 +5,7 @@ parent: cpp_manual
 next: rcss
 ---
 
-Events are sent to elements to indicate actions that have occurred to that element. {{page.lib_name}} generates many events internally (these are fully specified in the [RML event documentation](../rml/events.html)). The application can also send arbitrary events to elements.
+Events are sent to elements to indicate actions that have occurred to that element. {{page.lib_name}} generates many events internally. The application can also send arbitrary events to elements.
 
 When an event is dispatched to an element, it goes through three distinct phases in the following order.
 * Capture phase. Propagating from the root element to the target element's parent.
@@ -14,7 +14,7 @@ When an event is dispatched to an element, it goes through three distinct phases
 
 An event listener is able to subscribe to specific events on an element and will be notified whenever those events occur. Each event listener is either attached to the bubble phase (default) or the capture phase. If the event listener is reached during the target phase, it is executed regardless of the listener's attached phase. Listeners are executed in the order they were attached to the element. Event listeners can stop further propagation of the event at any stage, however, the event type must be interruptible to stop the propagation.
 
-Events can also be handled by the elements it propagates through. When an `Element` or a derived type handles events themselves, they are called default actions.
+After all event listeners are executed, the event's default actions can be processed. Default actions are primarily for actions performed internally in the library, and can be prevented by the user of the event. Any object that derives from `Element` can override the default behavior and add new behavior. The default actions are only processed in specific phases which is defined for each event type.
 
 Events are specified by
 * An identifier, `Rml::Core::EventId` such as `EventId::Keydown`.
@@ -24,12 +24,12 @@ Events are specified by
 * During which phases it executes `Element::ProcessDefaultAction()`.
 * A dictionary of parameters that further describe the event. For example, the `keydown`{:.evt} event has parameters for identifying the actual key that was pressed and the state of the key modifiers.
 
-See the [event specifications](#event-specifications) for details of each type.
+See the [event specifications](#event-specifications) below for details of each type, and the [RML event documentation](../rml/events.html) for a description of and a list of parameters for each event.
 
 
 ### Event interface
 
-An event is represented by the `{{page.lib_ns}}::Core::Event` structure, defined in `{{page.lib_dir}}/Core/Event.h`{:.incl}. The public interface to an event object is:
+An event is represented by the `{{page.lib_ns}}::Core::Event` structure, defined in `{{page.lib_dir}}/Core/Event.h`{:.incl}. A subset of the public interface to the event object is given in the following.
 
 ```cpp
 enum class EventPhase { None, Capture = 1, Target = 2, Bubble = 4 };
@@ -39,10 +39,8 @@ class Event
 public:
 	// Get the current propagation phase.
 	{{page.lib_ns}}::Core::EventPhase GetPhase() const;
-
 	// Get the current element in the propagation.
 	{{page.lib_ns}}::Core::Element* GetCurrentElement() const;
-
 	// Get the target element.
 	{{page.lib_ns}}::Core::Element* GetTargetElement() const;
 
@@ -50,17 +48,19 @@ public:
 	const {{page.lib_ns}}::Core::String& GetType() const;
 	// Get the event id.
 	EventId GetId() const;
+	
+	// Stops propagation of the event if it is interruptible, but finish all listeners on the current element.
+	void StopPropagation();
+	// Stops propagation of the event if it is interruptible, including to any other listeners on the current element.
+	void StopImmediatePropagation();
+	// Prevents the default actions from being performed.
+	void PreventDefault();
 
 	// Returns the value of one of the event's parameters.
 	// @param key[in] The name of the desired parameter.
 	// @return The value of the requested parameter.
 	template < typename T >
 	T GetParameter(const {{page.lib_ns}}::Core::String& key, const T& default_value);
-
-	// Stops propagation of the event, but finish all listeners on the current element.
-	void StopPropagation();
-	// Stops propagation of the event, including to any other listeners on the current element.
-	void StopImmediatePropagation();
 };
 ```
 
@@ -72,7 +72,7 @@ The id of the event, such as `EventId::Keydown` and `EventId::Focus`, is returne
 
 You can fetch the parameters of the event with the templated `GetParameter()` function. The exact parameters of each event are detailed in the [event documentation](../rml/events.html).
 
-For event types that can be interrupted, a listener can call the `StopPropagation()` and `StopImmediatePropagation()` functions to stop the event from propagating. The immediate variant will also stop the rest of the listeners on the current element to be executed.
+For event types that can be interrupted, a listener can call the `StopPropagation()` and `StopImmediatePropagation()` functions to stop the event from propagating. The immediate variant will also stop the rest of the listeners on the current element to be executed. Furthermore, to prevent the default actions from being performed, call the `PreventDefault()` method.
 
 ### Event listeners
 
@@ -242,7 +242,6 @@ The following lists the specifications of all built-in events. Also see the para
 
 |  `EventId` id  |  `String` type  | `bool` interruptible  | `bool` bubbles |   `DefaultActionPhase` default_action  |
 |------------------------|-----------------|-------|-------|---------------------------------------|
-| Invalid      | invalid       | false | false | None            |
 | Mousedown    | mousedown     | true  | true  | TargetAndBubble |
 | Mousescroll  | mousescroll   | true  | true  | TargetAndBubble |
 | Mouseover    | mouseover     | true  | true  | Target          |

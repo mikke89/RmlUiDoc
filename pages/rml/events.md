@@ -11,7 +11,7 @@ When an event is fired at a target element, it **captures** from the root to the
 
 Binding done in RML will always attach to the bubble phase.
 
-For additional details, see the [C++ events documentation](../cpp_manual/events.html).
+Some events do not execute the bubble phase. For additional details, see the [C++ events documentation](../cpp_manual/events.html).
 
 ### RML binding
 
@@ -46,7 +46,7 @@ A number of input events send through key modifiers. In this case the following 
 : Sent to a document when it is made invisible.
 
 `resize`{:.evt}
-: Sent to an element when it resizes.
+: Sent to a document when its context has been resized.
 
 `scroll`{:.evt}
 : Sent to an element when it is scrolled.
@@ -71,8 +71,8 @@ A number of input events send through key modifiers. In this case the following 
 * Key modifiers. 
 
 `textinput`{:.evt}
-: Send to the focus element when a text character is entered.
-* `data`: An `{{page.lib_ns}}::Core::word` corresponding to the character value. 
+: Sent to the focus element when one or more text characters are entered.
+* `text`: An `{{page.lib_ns}}::Core::String` of characters encoded in UTF-8.
 
 #### Mouse Events
 
@@ -168,6 +168,17 @@ The following events are only sent if the dragged element has a drag property of
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
 * `drag_element`: The element that is being dragged. 
+
+
+#### Animation events
+
+`animationend`{:.evt}
+: Sent when an animation has finished executing.
+* `property`: The name of the property which has finished animating.
+
+`transitionend`{:.evt}
+: Sent when a transition has finished executing.
+* `property`: The name of the property which has finished transitioning.
 
 #### Form Events
 
