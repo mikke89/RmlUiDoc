@@ -119,7 +119,7 @@ All mouse events send through key modifiers.
 
 `mousescroll`{:.evt}
 : Sent to the focus element when the mouse's scroll wheel is scrolled.
-* `wheel_delta`: An integer value representing how far the wheel has been scrolled. 
+* `wheel_delta`: A float value representing how far the wheel has been scrolled. 
 
 #### Dragging Events
 

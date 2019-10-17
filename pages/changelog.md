@@ -397,7 +397,8 @@ Various changes:
 - `Context::ProcessMouseWheel` now takes a float value for the `wheel_delta` property, thereby enabling continuous/smooth scrolling for input devices with such support. The default scroll length for unity value of `wheel_delta` is now three times the default line-height multiplied by the current dp-ratio.
 - The system interface now has two new functions for setting and getting text to and from the clipboard: `virtual void SystemInterface::SetClipboardText(const Core::String& text)` and `virtual void SystemInterface::GetClipboardText(Core::String& text)`.
 - The `text-decoration` property can now also be used with `overline` and `line-through`.
-- The text input and text area elements can be navigated word for word by holding the 'ctrl' key.
+- The text input and text area elements can be navigated and edited word for word by holding the Ctrl key. Can now also navigate by using Ctrl+Home/End and Page up/down. Furthermore, select all by Ctrl+A and select word by double click.
+- Double clicks are now submitted only when they're inside a small radius of the first click.
 - The `<img>` element can now take sprite names in its `src` attribute.
 
 

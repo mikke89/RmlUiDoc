@@ -182,6 +182,8 @@ using ElementPtr = std::unique_ptr<Element, Releaser<Element>>;
 ```
 Note that, the custom deleter `Releaser` is there to ensure the element is released from the `ElementInstancer` in which it was created.
 
+When storing around non-owning raw pointer to an element, it may be useful to know when an element has been destroyed. An `ObserverPtr` can be used for this purpose, see [core ownership and lifetimes](core_overview.html#ownership-and-lifetimes) for details.
+
 #### Using a document
 
 To create an element through a document use one of the following functions:
