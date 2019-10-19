@@ -38,9 +38,9 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `line-height`{:.prop} | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 `margin`{:.prop} | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
 `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
-`max-height`{:.prop} | \<length\> \| \<percentage\> | -1 | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
+`max-height`{:.prop} | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
 `min-height`{:.prop} | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block | 
-`max-width`{:.prop} | \<length\> \| \<percentage\> | -1 | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
+`max-width`{:.prop} | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
 `min-width`{:.prop} | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block | 
 `opacity`{:.prop} | \<number\> | 1 | all | yes | N/A | 
 `overflow`{:.prop} | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 

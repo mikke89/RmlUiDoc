@@ -231,6 +231,7 @@ The debugger has been improved in several aspects:
 
 - Live updating of values. Can now see the effect of animations and other property changes.
 - Can now toggle drawing of element dimension box, and live update of values.
+- Can toggle whether elements are selected in user context.
 - Can toggle pseudo classes on the selected element.
 - Added the ability to clear the log.
 - Support for transforms. The element's dimension box is drawn with the transform applied.
@@ -399,7 +400,7 @@ Various changes:
 - The `text-decoration` property can now also be used with `overline` and `line-through`.
 - The text input and text area elements can be navigated and edited word for word by holding the Ctrl key. Can now also navigate by using Ctrl+Home/End and Page up/down. Furthermore, select all by Ctrl+A and select word by double click.
 - Double clicks are now submitted only when they're inside a small radius of the first click.
-- The `<img>` element can now take sprite names in its `src` attribute.
+- The `<img>` element can now take sprite names in the `sprite` attribute. For images the `src` attribute can be used as before.
 
 
 
@@ -413,6 +414,7 @@ Breaking changes since RmlUi v2.0.
 - Querying the property of an element for size, position and similar may not work as expected right after changes to the document or style. This change is made for performance reasons, see the description under *performance* for reasoning and a workaround.
 - The Controls::DataGrid "min-rows" property has been removed.
 - Removed RenderInterface::GetPixelsPerInch, instead the pixels per inch value has been fixed to 96 PPI, as per CSS specs. To achieve a scalable user interface, instead use the 'dp' unit.
+- The `<img>` element's `coords` attribute is now replaced by a `rect` attribute specified like for sprites.
 - Removed 'top' and 'bottom' from z-index property.
 - Angles need to be declared in either 'deg' or 'rad'. Unit-less numbers do not work.
 - See changes to the declaration of decorators and font-effects above.
