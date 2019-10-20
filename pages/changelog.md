@@ -360,7 +360,7 @@ There are some changes to events in RmlUi, however, for most users, existing cod
 There is now a distinction between actions executed in event listeners, and default actions for events:
 
 - Event listeners are attached to an element as before. Events follow the normal phases: capture (root -> target), target, and bubble (target -> root). Each event listener is always attached to the target phase, and is additionally attached to either the bubble phase (default) or capture phase. Listeners are executed in the order they are added to the element. Each event type specifies whether it executes the bubble phase or not, see below for details.
-- Default actions are primarily for actions performed internally in the library. They are executed in the function `virtual void Element::ProcessDefaultAction(Event& event)`. However, any object that derives from `Element` can override the default behavior and add new behavior. The default actions are always executed after all event listeners, and only propagated according to the phases set in their `default_action_phase` value which is defined for each event type. If an event is canceled with `Event::PreventDefault()`, then the default actions are not performed.
+- Default actions are primarily for actions performed internally in the library. They are executed in the function `virtual void Element::ProcessDefaultAction(Event& event)`. However, any object that derives from `Element` can override the default behavior and add new behavior. The default actions are always executed after all event listeners, and only propagated according to the phases set in their `default_action_phase` value which is defined for each event type. If an event is interrupted with `Event::StopPropagation()`, then the default actions are not performed.
 
 
 Each event type now has an associated EventId as well as a specification defined as follows:
@@ -386,7 +386,7 @@ EventId Rml::Core::RegisterEventType(const String& type, bool interruptible, boo
 After this call, any usage of this type will use the provided specification by default. The returned EventId can be used to dispatch events instead of the type string.
 
 Various changes:
-- All event listeners on the current element will always be called after calling `StopPropagation()`. However, the default action on the current element will be prevented. When propagating to the next element, the event is stopped. This behavior is consistent with the standard DOM events model. The event can be stopped immediately with `StopImmediatePropagation()`.
+- All event listeners on the current element will always be called after calling `StopPropagation()`. When propagating to the next element, the event is stopped. This behavior is consistent with the standard DOM events model. The event can be stopped immediately with `StopImmediatePropagation()`.
 - `Element::DispatchEvent` can now optionally take an `EventId` instead of a `String`.
 - The `resize` event now only applies to the document size, not individual elements.
 - The `scrollchange` event has been replaced by a function call. To capture scroll changes, instead use the `scroll` event.
@@ -401,7 +401,7 @@ Various changes:
 - The text input and text area elements can be navigated and edited word for word by holding the Ctrl key. Can now also navigate by using Ctrl+Home/End and Page up/down. Furthermore, select all by Ctrl+A and select word by double click.
 - Double clicks are now submitted only when they're inside a small radius of the first click.
 - The `<img>` element can now take sprite names in the `sprite` attribute. For images the `src` attribute can be used as before.
-
+- On the `range` input element one can now use margins to offset it from the track.
 
 
 ### Breaking changes

@@ -14,7 +14,7 @@ When an event is dispatched to an element, it goes through three distinct phases
 
 An event listener is able to subscribe to specific events on an element and will be notified whenever those events occur. Each event listener is either attached to the bubble phase (default) or the capture phase. If the event listener is reached during the target phase, it is executed regardless of the listener's attached phase. Listeners are executed in the order they were attached to the element. Event listeners can stop further propagation of the event at any stage, however, the event type must be interruptible to stop the propagation.
 
-After all event listeners are executed, the event's default actions can be processed. Default actions are primarily for actions performed internally in the library, and can be prevented by the user of the event. Any object that derives from `Element` can override the default behavior and add new behavior. The default actions are only processed in specific phases which is defined for each event type.
+After all event listeners are executed, the event's default actions can be processed. Default actions are primarily for actions performed internally in the library, and can be prevented by stopping propagation. Any object that derives from `Element` can override the default behavior and add new behavior. The default actions are only processed in specific phases which is defined for each event type.
 
 Events are specified by
 * An identifier, `Rml::Core::EventId` such as `EventId::Keydown`.
@@ -53,8 +53,6 @@ public:
 	void StopPropagation();
 	// Stops propagation of the event if it is interruptible, including to any other listeners on the current element.
 	void StopImmediatePropagation();
-	// Prevents the default actions from being performed.
-	void PreventDefault();
 
 	// Returns the value of one of the event's parameters.
 	// @param key[in] The name of the desired parameter.
@@ -72,7 +70,7 @@ The id of the event, such as `EventId::Keydown` and `EventId::Focus`, is returne
 
 You can fetch the parameters of the event with the templated `GetParameter()` function. The exact parameters of each event are detailed in the [event documentation](../rml/events.html).
 
-For event types that can be interrupted, a listener can call the `StopPropagation()` and `StopImmediatePropagation()` functions to stop the event from propagating. The immediate variant will also stop the rest of the listeners on the current element to be executed. Furthermore, to prevent the default actions from being performed, call the `PreventDefault()` method.
+For event types that can be interrupted, a listener can call the `StopPropagation()` and `StopImmediatePropagation()` functions to stop the event from propagating. The immediate variant will also stop the rest of the listeners on the current element to be executed. If propagation is interrupted, then default actions are not processed.
 
 ### Event listeners
 
