@@ -301,6 +301,7 @@ Some relevant changes for users:
 - The `perspective` property now applies to the element's children, as in CSS.
 - The transform function `perspective()` behaves like in CSS. It applies a perspective projection to the current element.
 - Chaining transforms and perspectives now provides more expected results. However, as opposed to CSS we don't flatten transforms.
+- Transform rotations can now be interpolated without decomposing when their rotation axes align. When the axes do not align, interpolation will be performed via decomposition (quaternion interpolation) as before. With this addition, transform interpolation should be fully compatible with the CSS specifications.
 - Have a look at the updated transforms sample for some fun with 3d boxes.
 
 

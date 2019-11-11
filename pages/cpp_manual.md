@@ -19,7 +19,7 @@ title: C++ Manual
 5. [Documents](cpp_manual/documents.html)
 6. [Contexts](cpp_manual/contexts.html)
 7. [Events](cpp_manual/events.html)
-8. [Styles sheets and properties](cpp_manual/rcss.html)
+8. [Style sheets and properties](cpp_manual/rcss.html)
 9. [Decorators](cpp_manual/decorators.html) 
 
 ### Application integration

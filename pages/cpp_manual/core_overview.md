@@ -26,7 +26,7 @@ Since raw pointers are non-owning, their underlying resource may in principle be
 Elements and some other objects can generate an `Rml::Core::ObserverPtr<T>`. An observer pointer can help manage lifetime issues by telling its user that the observed object has been destroyed.
 ```cpp
 Rml::Core::Element* element = document->GetElementById("content");
-Rml::Core::ObserverPtr<Rml::Core::Element*> observer = element->GetObserverPtr();
+Rml::Core::ObserverPtr<Rml::Core::Element> observer = element->GetObserverPtr();
 // ...
 if (observer) {
 	// Will only enter if object is still alive.
