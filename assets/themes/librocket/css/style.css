@@ -150,3 +150,13 @@ a[href^="http"]:after {
 	content: "\f105";
 	padding-left: 0.5em;
 }
+
+.gallery-item {
+	text-align: center;
+	padding: 1em 3em 3em 3em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.gallery-item img {
+	padding-bottom: 1em;
+}
