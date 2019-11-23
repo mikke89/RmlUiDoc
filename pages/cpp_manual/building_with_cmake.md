@@ -71,7 +71,7 @@ Once the build is complete, you may want to have a look at the samples.
 
 
 * `BUILD_SAMPLES` - Enable to build the included samples.
-* `BUILD_SHARED_LIBS` - Build as a shared (dynamic library, .so/.dylib/.dll) as opposed to a static library (.a/.lib).
+* `BUILD_SHARED_LIBS` - Build shared libraries (dynamic libraries, .so/.dylib/.dll) as opposed to static libraries (.a/.lib). If the library is compiled *without* this option, then users of the library must specify `#define RMLUI_STATIC_LIB` before including the library.
 * `BUILD_LUA_BINDINGS` - Build the required bindings for Lua support. You'll need Lua installed.
 * `CMAKE_BUILD_TYPE` - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
 * `NO_FONT_INTERFACE_DEFAULT` removes the default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::Core::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
