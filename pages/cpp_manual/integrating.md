@@ -13,7 +13,7 @@ If you haven't already done so, take a look at the sample applications in `/Samp
 
 {{page.lib_name}} is developed following the C++14 standard and can be used on the following platforms:
 
-* Windows 32/64bit, compiling with Microsoft Visual Studio 2015+.
+* Windows 32/64bit, compiling with Microsoft Visual Studio 2017+.
 * MacOS 32/64bit, compiling with GCC 5+.
 * Linux, compiling with GCC 5+. 
 

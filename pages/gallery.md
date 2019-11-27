@@ -5,7 +5,7 @@ title: RmlUi Gallery
 
 {: .gallery-item }
 ![Game interface](../assets/gallery/invader.png)
-Game interface from 'invader' sample
+Game interface from the 'invader' sample
 
 {: .gallery-item }
 ![Game menu](../assets/gallery/menu_screen.png)
@@ -13,11 +13,11 @@ Game menu
 
 {: .gallery-item }
 ![Form controls](../assets/gallery/forms.png)
-Form controls from 'demo' sample
+Form controls from the 'demo' sample
 
 {: .gallery-item }
 ![Sandbox](../assets/gallery/sandbox.png)
-Sandbox from 'demo' sample, try it yourself!
+Sandbox from the 'demo' sample, try it yourself!
 
 {: .gallery-item }
 ![Transition](../assets/gallery/transition.gif)  
