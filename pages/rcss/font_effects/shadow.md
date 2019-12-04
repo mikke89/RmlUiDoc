@@ -3,7 +3,7 @@ layout: page
 title: Shadow Effect
 parent: rcss/font_effects
 grandparent: rcss
-next: outline
+next: blur
 ---
 
 The shadow font effect renders a coloured copy of text with an offset, giving the effect of a shadow.
@@ -43,7 +43,7 @@ The color is applied multiplicatively over the entire effect.
 
 
 ```css
-/* Declares a font effect shadow. */
+/* Declares a shadow font effect. */
 h1
 {
 	font-effect: shadow( 2px 2px black );

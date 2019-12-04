@@ -39,7 +39,7 @@ h1
 }
 ```
 
-will add an outline effect on the text within all `h1`{:.tag} elements and their descendants. To prevent inheritance, override the effect with `none`{:.value}. For example, to prevent the `h1`{:.tag} outline effect from affecting `span`{:.tag} elements, you could specify the following:
+will add an outline to the text within all `h1`{:.tag} elements and their descendants. To prevent inheritance, override the effect with `none`{:.value}. For example, to prevent the `h1`{:.tag} outline effect from affecting `span`{:.tag} elements, you could specify the following:
 
 ```css
 h1 span
@@ -50,7 +50,9 @@ h1 span
 
 ### Effects
 
-{{page.lib_name}} comes with two built-in font effects:
+{{page.lib_name}} comes with the following built-in font effects:
 
-1. [shadow effect](font_effects/shadow.html), for rendering shadows.
-2. [outline effect](font_effects/outline.html), for outlining text. 
+1. [glow effect](font_effects/glow.html), for glowing text.
+2. [outline effect](font_effects/outline.html), for outlining text.
+3. [shadow effect](font_effects/shadow.html), for rendering shadows.
+4. [blur effect](font_effects/blur.html), for blurring text.

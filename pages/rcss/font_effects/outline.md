@@ -3,6 +3,7 @@ layout: page
 title: Outline Effect
 parent: rcss/font_effects
 grandparent: rcss
+next: shadow
 ---
 
 The outline font effect renders a coloured outline around text.
@@ -36,7 +37,7 @@ The color is applied multiplicatively over the entire effect.
 #### Example
 
 ```css
-/* Declares a font effect outline. */
+/* Declares an outline font effect. */
 h1
 {
 	font-effect: outline(2px black);

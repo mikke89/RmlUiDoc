@@ -34,8 +34,10 @@ If you are not, read through this documentation while consulting the CSS2 specif
     * [ninepatch](rcss/decorators/ninepatch.html)
     * [gradient](rcss/decorators/gradient.html)
 15. [Font effects](rcss/font_effects.html)
-    * [shadow](rcss/font_effects/shadow.html)
+    * [glow](rcss/font_effects/glow.html)
     * [outline](rcss/font_effects/outline.html)
+    * [shadow](rcss/font_effects/shadow.html)
+    * [blur](rcss/font_effects/blur.html)
 
 ### Appendix
 
