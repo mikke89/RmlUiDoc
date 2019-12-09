@@ -2,6 +2,7 @@
 layout: page
 title: Tab set
 parent: cpp_manual/controls
+next: progress_bar
 ---
 
 The Controls plugin comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.

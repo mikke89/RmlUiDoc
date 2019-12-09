@@ -35,4 +35,4 @@ Each `<tab>`{:.tag} element acts as a button, that when clicked will hide the cu
 
 #### \<panel\>
 
-A `<panel>`{:.tag} element is the body of the tabset. The visibility of the panel is controlled by the tab elements in the parent tabset. 
+A `<panel>`{:.tag} element is the body of the tabset. The visibility of the panel is controlled by the tab elements in the parent tabset.

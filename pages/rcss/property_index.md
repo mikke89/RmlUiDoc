@@ -25,6 +25,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `decorator`{:.prop} | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
 `display`{:.prop} | inline \| block \| inline-block \| none | inline | all | no | | 
 `drag`{:.prop} | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
+`fill-image`{:.prop} | \<string\> | _empty_ | progressbar fill element | no | | \<string\> refers to a sprite name or an image url.
 `focus`{:.prop} | none \| auto | auto | all | yes | | 
 `font`{:.prop} | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
 `font-effect`{:.prop} | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.

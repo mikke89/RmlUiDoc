@@ -15,7 +15,7 @@ Contents
 4. [Style Sheets](rml/style_sheets.html) - Adding style to RML documents.
 5. [Forms](rml/forms.html) - User-input forms.
 6. [Controls](rml/controls.html) - Tabsets and window handles.
-7. [Data Display](rml/data_display.html) - Data grids and data selects.
+7. [Data Display](rml/data_display.html) - Data grids, data selects and progress bars.
 8. [Templates](rml/templates.html) - Making all your windows look consistent.
 9. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry. 
 

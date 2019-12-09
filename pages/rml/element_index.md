@@ -29,3 +29,4 @@ The following is a list of elements supported when the [Controls plugin]({{"page
 * [`<tabset>`{:.tag}](controls.html#tabset)
 * [`<tab>`{:.tag}](controls.html#tab)
 * [`<panel>`{:.tag}](controls.html#panel)
+* [`<progressbar>`{:.tag}](data_display.html#progressbar)

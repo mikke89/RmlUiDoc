@@ -35,6 +35,7 @@ title: C++ Manual
     * [Form controls](cpp_manual/controls/form.html)
     * [Data grid](cpp_manual/controls/data_grid.html)
     * [Tab set](cpp_manual/controls/tab_set.html)
+    * [Progress bar](cpp_manual/controls/progress_bar.html)
 2. [Debugger](cpp_manual/debugger.html)
 
 ### Appendix

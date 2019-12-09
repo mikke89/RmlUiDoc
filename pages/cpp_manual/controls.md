@@ -11,8 +11,9 @@ To use the Controls plugin, include the main header `<{{page.lib_dir}}/Controls.
 
 ### Element packages
 
-The Controls plugin includes three element packages:
+The Controls plugin includes the following element packages:
 
 * [Form controls](controls/form.html): a comprehensive set of form controls.
 * [Data grids](controls/data_grid.html): elements for positioning and rendering dynamic, tabulated data.
-* [Tab sets](controls/tab_set.html): elements for partitioning content into panels. 
+* [Tab sets](controls/tab_set.html): elements for partitioning content into panels.
+* [Progress bar](controls/progress_bar.html): element for displaying progress.
