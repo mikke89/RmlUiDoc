@@ -9,7 +9,7 @@ The `<progressbar>`{:.tag} element can visually display progress or relative val
 You can find the RML documentation for the progressbar element [here]({{"pages/rml/data_display.html#progressbar"|relative_url}}). The element is only available with the `RmlControls` library.
 
 
-### C++ Interface
+### Interface
 
 The `{{page.lib_ns}}::Controls::ElementProgressBar` class (found in `<{{page.lib_dir}}/Controls/ElementProgressBar.h>`{:.incl}) defines the interface to the progress bar element.
 
@@ -33,17 +33,19 @@ The `progressbar`{:.tag} element generates a non-dom `fill`{:.tag} child element
 The `fill-image`{:.prop} property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions). The `fill`{:.tag} element is still available but it will always be fixed in size independent of the `value` attribute.
 
 
-**RCSS property**
+#### RCSS property
 
 `fill-image`{:.prop}
 
-The `fill-image`{:.prop} property sets an image to fill the progress bar, and must be applied to the `fill`{:.tag} child element. It will be clipped according to the progress bar's `value`. This property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions). The `fill`{:.tag} element is still available but it will always be fixed in size independent of the `value` attribute.
-
 Value: | \<string\>
-Initial: | undefined
-Applies to: | `fill`{:.tag} element
+Initial: | *empty*
+Applies to: | `fill`{:.tag} element (child of `progressbar`{:.tag})
 Inherited: | no
 Percentages: | N/A
+
+The `fill-image`{:.prop} property sets an image to fill the progress bar, and must be applied to the `fill`{:.tag} child element. It will be sized according to the progress bar's `value`. This property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions).
+
+The value \<string\> refers to a sprite name or an image url.
 
 
 ### Examples
@@ -53,12 +55,20 @@ The following RCSS styles three different progress bars.
 @spritesheet progress_bars
 {
 	src: my_progress_bars.tga;
-	progress:        103px 267px 80px 34px;
-	progress-fill-l: 110px 302px  6px 34px;
-	progress-fill-c: 140px 302px  6px 34px;
-	progress-fill-r: 170px 302px  6px 34px;
-	gauge:      0px 271px 100px 86px;
-	gauge-fill: 0px 356px 100px 86px;
+	gauge:             0px 271px 100px 86px;
+	gauge-fill:        0px 356px 100px 86px;
+	progress:        103px 267px  80px 34px;
+	progress-fill-l: 110px 302px   6px 34px;
+	progress-fill-c: 140px 302px   6px 34px;
+	progress-fill-r: 170px 302px   6px 34px;
+}
+.gauge { 
+	decorator: image( gauge );
+	width: 100px;
+	height: 86px;
+}
+.gauge fill { 
+	fill-image: gauge-fill;
 }
 .progress_horizontal { 
 	decorator: image( progress );
@@ -81,18 +91,14 @@ The following RCSS styles three different progress bars.
 	border: 3px #4D9137;
 	background-color: #7AE857;
 }
-.gauge { 
-	decorator: image( gauge );
-	width: 100px;
-	height: 86px;
-}
-.gauge fill { 
-	fill-image: gauge-fill;
-}
 ```
-Now, they can be used in RML as follows.
+Now they can be used in RML as follows.
 ```html
+<progressbar class="gauge" direction="clockwise" start-edge="bottom" value="0.3"/>
 <progressbar class="progress_horizontal" value="0.75"/>
 <progressbar class="progress_vertical" direction="top" value="0.6"/>
-<progressbar class="gauge" direction="clockwise" start-edge="bottom" value="0.3"/>
 ```
+
+The result can be seen in the following animation where text labels have been added as well.
+
+![progress bar](progress_bar.gif)
