@@ -157,6 +157,6 @@ a[href^="http"]:after {
 	font-weight: bold;
 	font-size: 1.2em;
 }
-.gallery-item img {
+.gallery-item img, .gallery-item video {
 	padding-bottom: 1em;
 }

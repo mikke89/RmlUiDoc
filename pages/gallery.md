@@ -27,4 +27,18 @@ Transitions on mouse hover (entirely in RCSS)
 ![Transform](../assets/gallery/transform.gif)  
 Animated transforms (entirely in RCSS)
 
-To see more examples of animations and transitions in action, have a look at the videos in the [animations documentation](rcss/animations_transitions_transforms.html).
+{: .gallery-item }
+![Progress bar](cpp_manual/controls/progress_bar.gif)  
+Progress bars
+
+<p class="gallery-item">
+<video src="animations/animation_sample.webm" width="640" height="360" poster="animations/animation_sample_poster.png" preload="metadata" controls></video><br/>
+Animations and transitions from the 'animation' sample</p>
+
+<p class="gallery-item">
+<video src="animations/game_main_menu.webm" width="640" height="360" poster="animations/game_main_menu_poster.png" preload="metadata" controls></video><br/>
+Transitions with transforms on a game menu</p>
+
+<p class="gallery-item">
+<video src="animations/game_menu_transform.webm" width="640" height="360" poster="animations/game_menu_transform_poster.png" preload="metadata" controls></video><br/>
+Camera movement in a game menu</p>

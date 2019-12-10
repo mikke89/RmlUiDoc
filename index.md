@@ -10,9 +10,7 @@ description: RmlUi's documentation
 
 [{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is mostly up-to-date with its master branch. However there is always room for improvements, documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
-* [Gallery](pages/gallery.html)
-
-An up-to-date [changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) can be found in the main repository.
+**[Gallery](pages/gallery.html)**
 
 ### Programming Documentation
 
@@ -35,6 +33,7 @@ An up-to-date [changelog](https://github.com/mikke89/RmlUi/blob/master/changelog
 
 ### Other
 
-1. [Localisation](pages/localisation.html)
-2. [Frequently Asked Questions](pages/faq.html)
-3. [Planned features](pages/planned_features.html)
+1. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)
+2. [Localisation](pages/localisation.html)
+3. [Frequently Asked Questions](pages/faq.html)
+4. [Planned features](pages/planned_features.html)
