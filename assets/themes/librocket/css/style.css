@@ -158,5 +158,6 @@ a[href^="http"]:after {
 	font-size: 1.2em;
 }
 .gallery-item img, .gallery-item video {
+	max-height: 80vh;
 	padding-bottom: 1em;
 }
