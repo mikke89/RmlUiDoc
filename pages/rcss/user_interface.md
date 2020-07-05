@@ -15,7 +15,7 @@ Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-This property defines the cursor to display while the mouse is hovering over the element. The value is submitted directly through the [system interface](../cpp_manual/interfaces.html#the-system-interface) if the element's [context](../cpp_manual/contexts.html#mouse-cursor) is set to enable cursors.
+This property defines the cursor to display while the mouse is hovering over the element. The value is submitted directly through the [system interface](../cpp_manual/interfaces/system.html) if the element's [context](../cpp_manual/contexts.html#mouse-cursor) is set to enable cursors.
 
 
 ### Pointer events: the 'pointer-events' property

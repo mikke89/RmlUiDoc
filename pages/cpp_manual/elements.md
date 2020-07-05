@@ -89,8 +89,8 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 * `hover`{:.cls}: Set when the mouse cursor is positioned over the element.
 * `active`{:.cls}: Set when the primary mouse button is depressed, and was positioned over the element when it was pressed.
 * `focus`{:.cls}: Set if an element has input focus. Usually this occurs when the element is clicked on.
-* `checked`{:.cls}: Set on a selected [radio button or checkbox](controls/form.html#radio-button-and-checkbox), or [drop-down list control item](controls/form.html#drop-down-select-box).
-* `disabled`{:.cls}: Set on a disabled [form control](controls/form.html).
+* `checked`{:.cls}: Set on a selected [radio button or checkbox](element_packages/form.html#radio-button-and-checkbox), or [drop-down list control item](element_packages/form.html#drop-down-select-box).
+* `disabled`{:.cls}: Set on a disabled [form control](element_packages/form.html).
 
 ### DOM interface
 

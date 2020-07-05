@@ -8,7 +8,7 @@ description: RmlUi's documentation
 
 ### RmlUi
 
-[RmlUi]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to RmlUi is mostly up-to-date with its master branch. However there is always room for improvements, documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
+[RmlUi]({{page.lib_site}}) is the C++ user interface library based on the HTML and CSS standards. The documentation is mostly kept up-to-date with the master branch. Documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
 **[Gallery](pages/gallery.html)**
 
@@ -21,8 +21,14 @@ description: RmlUi's documentation
 
 1. [RML, Rml Markup Language](pages/rml.html)
 2. [RCSS, Rcss Cascading Style Sheets](pages/rcss.html)
-3. [Style guide](pages/style_guide.html) 
+3. [Style guide for core elements](pages/style_guide.html) 
 4. [Glossary](pages/glossary.html) 
+
+### Features Documentation
+
+1. [Data binding (model-view-controller)]()
+2. [High DPI support]()
+3. [Localisation](pages/localisation.html)
 
 ### Tutorials
 
@@ -33,7 +39,6 @@ description: RmlUi's documentation
 
 ### Other
 
-1. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)
-2. [Localisation](pages/localisation.html)
-3. [Frequently Asked Questions](pages/faq.html)
-4. [Planned features](pages/planned_features.html)
+1. [Frequently Asked Questions](pages/faq.html)
+2. [Planned features](pages/planned_features.html)
+3. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)

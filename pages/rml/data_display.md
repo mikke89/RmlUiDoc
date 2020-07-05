@@ -7,9 +7,7 @@ next: templates
 
 ### \<datagrid\>
 
-`<datagrid>`{:.tag} represents an element capable of fetching, positioning and rendering dynamic tabulated data. For a detailed description see [Data grid]({{"pages/cpp_manual/controls/data_grid.html"|relative_url}}) in the C++ Manual.
-
-Supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
+`<datagrid>`{:.tag} represents an element capable of fetching, positioning and rendering dynamic tabulated data. For a detailed description see [Data grid]({{"pages/cpp_manual/element_packages/data_grid.html"|relative_url}}) in the C++ Manual.
 
 _Attributes_
 
@@ -37,9 +35,7 @@ The `<dataselect>`{:.tag} element is described in the [Forms](forms.html#datasel
 
 ### \<progressbar\>
 
-The `<progressbar>`{:.tag} element can visually display progress or relative values. For a detailed description see [progress bar]({{"pages/cpp_manual/controls/progress_bar.html"|relative_url}}) in the C++ Manual.
-
-Supported when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
+The `<progressbar>`{:.tag} element can visually display progress or relative values. For a detailed description see [progress bar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) in the C++ Manual.
 
 _Attributes_
 

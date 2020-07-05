@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Data grid
-parent: cpp_manual/controls
+parent: cpp_manual/element_packages
 grandparent: cpp_manual
 next: tab_set
 ---
 
-The Controls plugin includes the data grid element, an element capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class `Rml::ElementDataGrid` is the interface for data grid elements.
+The data grid element is capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class `Rml::ElementDataGrid` is the interface for data grid elements.
 
 The following diagram summarises the interaction between the objects described below in the data grid system.
 

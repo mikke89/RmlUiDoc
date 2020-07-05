@@ -7,7 +7,7 @@ This tutorial will take you through the process of upgrading an existing body of
 
 This tutorial expects that you've got a solid grounding in C++ and know the basics of [RML](../rml.html) and [RCSS](../rcss.html).
 
-For a detailed description on how DataGrids work with DataSources please see the [C++ Manual](../cpp_manual/controls/data_grid.html).
+For a detailed description on how DataGrids work with DataSources please see the [C++ Manual](../cpp_manual/element_packages/data_grid.html).
 
 ### Step 1: Getting started
 

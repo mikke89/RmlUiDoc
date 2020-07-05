@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Style Guide
+title: Style guide for the core elements
 ---
 
-RmlUi and the controls plugin feature several functional elements that need to be sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.
+RmlUi features several functional elements that need to be sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.
 
 ### Scrollbars
 
@@ -170,7 +170,7 @@ These are styled in the same way you style scrollbars. Note that for input types
 ```css
 input.range slidertrack
 {
-	...
+	/* ... */
 }
 ```
 

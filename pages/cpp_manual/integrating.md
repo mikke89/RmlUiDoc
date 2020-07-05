@@ -2,7 +2,7 @@
 layout: page
 title: Integrating RmlUi into your application
 parent: cpp_manual
-next: packages
+next: core_overview
 ---
 
 This guide will help you get started when you are ready to integrate RmlUi into your own application.
@@ -29,7 +29,7 @@ RmlUi is developed following the C++14 standard and can be used on the following
 
 * Add the RmlUi include path (`/Include/`{:.path} under the RmlUi directory) and library path (`/lib/`{:.path}) to the paths in your build system.
 * `#include <RmlUi/Core.h>` in your project.
-* Link with RmlCore.
+* Link with `RmlCore`.
 * Either copy the RmlUi libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for MacOS) environment variable. 
 
 ### Initialising RmlUi
@@ -46,7 +46,7 @@ virtual double GetElapsedTime();
 
 The function should return the time (in seconds) since the start of the application. Install your system interface by calling `Rml::SetSystemInterface()` with a pointer to the interface. Note that you must keep the system interface alive until after the call to `Rml::Shutdown()` and destroy it afterwards. RmlUi won't release your interfaces.
 
-For more uses of the system interface, see the [documentation](interfaces.html#the-system-interface).
+For more uses of the system interface, see the [documentation](interfaces/system.html).
 
 #### The render interface
 
@@ -54,7 +54,7 @@ The render interface is defined in `<RmlUi/Core/RenderInterface.h>`{:.incl}. It 
 
 Once you have a render interface for your application, install it into RmlUi by calling `Rml::SetRenderInterface()`.
 
-If you'd like to take an in-depth look at setting up your own render interface, please see the [documentation](interfaces.html#the-render-interface).
+If you'd like to take an in-depth look at setting up your own render interface, please see the [render interface documentation](interfaces/render.html).
 
 #### Initialising the library
 
@@ -126,6 +126,14 @@ void ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 
 Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. For more information, see the chapter on user input.
 
+
+### Debugger
+
+The `RmlDebugger`{:.incl} plugin is a visual debugger for RmlUi elements, inspired by similar debuggers for web browsers. We strongly recommend you use this in your application during development!
+
+To use RmlDebugger, include `<RmlUi/Debugger.h>`{:.incl} in your application and link with `RmlDebugger`{:.incl}. For usage details, see the documentation for the [debugger plugin](debugger.html).
+
+
 ### Where next?
 
-Now that you've had a (very!) brief introduction to RmlUi, it is recommended you read the [packages guide](packages.html) and the [core overview](core_overview.html) to get an understanding of the composition of RmlUi. From there, either work your way through the documentation, or dive on into the code and consult it as necessary. 
+Now that you've had a (very!) brief introduction to RmlUi, it is recommended you read the [core overview](core_overview.html) to get an understanding of the composition of RmlUi. From there, either work your way through the documentation, or dive on into the code and consult it as necessary. 

@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Progress bar
-parent: cpp_manual/controls
+parent: cpp_manual/element_packages
 ---
 
 The `<progressbar>`{:.tag} element can visually display progress or relative values.
 
-You can find the RML documentation for the progressbar element [here]({{"pages/rml/data_display.html#progressbar"|relative_url}}). The element is only available with the `RmlControls` library.
+You can find the RML documentation for the progressbar element [here]({{"pages/rml/data_display.html#progressbar"|relative_url}}).
 
 
 ### Interface

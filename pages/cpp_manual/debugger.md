@@ -4,23 +4,23 @@ title: Debugger plugin
 parent: cpp_manual
 ---
 
-RmlUi ships with a visual debugger plugin that you can use and modify to aid you in development. You can try it out in the _Rocket Invaders from Mars_ sample application by pressing F8.
+RmlUi ships with a visual debugger plugin that you can use and modify to aid you in development. You can try it out on all the included samples, such as the _Rocket Invaders from Mars_ application, by pressing `F8`.
 
 ### Tools
 
 The tools included with the debugger are the following.
 
-#### On-screen log
+#### Event log
 
-The debugger puts in its own system interface layer to intercept the logging messages going out of RmlUi. The log beacon (a little exclamation mark) will become visible in the top-right corner of its context when a new log message has been sent. You can open the log by clicking on the beacon or opening the debugger and clicking on the 'Message Log' button.
+The debugger puts in its own system interface layer to intercept the logging messages going out of RmlUi. The log beacon (a little exclamation mark) will become visible in the top-right corner of its context when a new log message has been sent. You can open the log by clicking on the beacon or opening the debugger and clicking on the `Event Log` button.
 
 #### Outline renderer
 
-If you click on the 'Outlines' button on the menu, the debugger will render red outlines around the bordered area of every element in the target context.
+If you click on the `Outlines` button on the menu, the debugger will render red outlines around the bordered area of every element in the target context.
 
-#### Visual debugger
+#### Element info
 
-If you click on the 'Element Info' button the menu, the visual debugger will open. When this is open, mouse clicks on the target context will be intercepted; any element clicked on will become the debugger's active element. The debugger will show the following about the active element:
+If you click on the `Element Info` button the menu, the visual debugger will open. When this is open, mouse clicks on the target context will be intercepted; any element clicked on will become the debugger's active element. The debugger will show the following about the active element:
 
 * The content area (in blue), padding (in purple), border (in grey) and margin (in yellow) of the element on the debugged context.
 * The element's attributes.
@@ -31,11 +31,21 @@ If you click on the 'Element Info' button the menu, the visual debugger will ope
 
 If the debugger picks up another click on the active element, the click will fall through to the element itself.
 
+The element info dialog has some settings that can be toggled:
+
+* `*` `Select elements`. When this setting is disabled, the debugger will no longer intercept mouse clicks in the document, keeping the info on the currently selected element.
+* `D` `Draw element dimensions`. Toggle to enable or disable drawing the debug area of the selected element.
+* `U` `Update info continuously`. When enabled, the listed properties of the element will be refreshed automatically.
+
+All settings are enabled by default.
+
 As these tools are all open source, we encourage you to add more features if you find the debugger doesn't give you the information you need. You can find the source for the debugger plugin in the `Source/Debugger/`{:.path} directory within your RmlUi installation.
 
 ### Initialisation
 
-To start the debugger, call `Rml::Debugger::Initialise()` with the context you want the debugger menu rendered into. You'll need to include `<RmlUi/Debugger.h>`{:.incl}.
+To use RmlDebugger, include `<RmlUi/Debugger.h>`{:.incl} in your application and link with `RmlDebugger`{:.incl}.
+
+To start the debugger, call `Rml::Debugger::Initialise()` with the context you want the debugger menu rendered into.
 
 ```cpp
 // Initialises the debug plugin. The debugger will be loaded into the given context.

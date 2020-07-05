@@ -1,12 +1,12 @@
 ---
 layout: page
 title: Form controls
-parent: cpp_manual/controls
+parent: cpp_manual/element_packages
 grandparent: cpp_manual
 next: data_grid
 ---
 
-The Controls plugin includes a fully-featured set of form controls. The full RML specification for these controls can be found [here]({{"pages/rml/forms.html"|relative_url}}). The available form controls are:
+RmlUi includes a fully-featured set of form controls. The full RML specification for these controls can be found [here]({{"pages/rml/forms.html"|relative_url}}). The available form controls are:
 
 * [text and password fields](#text-field)
 * [text area](#text-area)

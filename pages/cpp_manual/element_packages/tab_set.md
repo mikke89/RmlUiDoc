@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Tab set
-parent: cpp_manual/controls
+parent: cpp_manual/element_packages
 next: progress_bar
 ---
 
-The Controls plugin comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.
+RmlUi comes with a tab set control for breaking up content over multiple tabbed panels. The control has a list of tabs which are always visible and can be clicked on to display their associated panel. Only one panel is visible at any one time.
 
 You can find the RML documentation for the tab set element [here]({{"pages/rml/controls.html#tabset"|relative_url}}).
 

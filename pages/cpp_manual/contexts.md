@@ -82,7 +82,7 @@ Documents are loaded through contexts. To load a document from an RML file into 
 ElementDocument* LoadDocument(const Rml::String& document_path);
 ```
 
-The `document_path` parameter will be given to RmlUi's [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call `Show()` on the document to make it visible.
+The `document_path` parameter will be given to RmlUi's [file interface](interfaces/file.html) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call `Show()` on the document to make it visible.
 
 You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
 
@@ -106,7 +106,7 @@ The context will attempt to instance an element using the 'body' instancer, with
 
 ### Mouse cursor
 
-Each context can propagate the mouse cursor name to the user through the [system interface](interfaces.html#the-system-interface). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#mouse-cursor-the-cursor-property). When the cursor name changes, the new name is sent though the interface.
+Each context can propagate the mouse cursor name to the user through the [system interface](interfaces/system.html). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#mouse-cursor-the-cursor-property). When the cursor name changes, the new name is sent though the interface.
 
 In the case of multiple contexts, it might be convenient for only a single context to handle the mouse cursor. The following function can be used to control this behavior:
 ```cpp

@@ -7,7 +7,7 @@ RML is based loosely around [XHTML 1.0](http://www.w3.org/TR/xhtml1/) and [HTML 
 
 RML maintains the core components of HTML4, including CSS. It provides a number of basic elements including input fields, radio buttons and check boxes as well as more complex enhancements such as templates and datagrids.
 
-Contents
+### Contents
 
 1. [Elements](rml/elements.html) - The basic RML element.
 2. [Documents](rml/documents.html) - The HEAD and BODY of a document.
@@ -19,7 +19,7 @@ Contents
 8. [Templates](rml/templates.html) - Making all your windows look consistent.
 9. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry. 
 
-Appendix
+### Appendix
 
 1. [Element index](rml/element_index.html)
 2. [HTML4 style sheet](rml/html4_style_sheet.html) 

@@ -26,7 +26,7 @@ Pseudo-class | Meaning
 `:hover`{:.cls} | Matches an element that is currently under the mouse cursor.
 `:active`{:.cls} | Matches an element that has been clicked on, only until the button is released.
 `:focus`{:.cls} | Matches an element that has input focus.
-`:checked`{:.cls} | Matches a checked checkbox, radio button, and the element that is selected in a [drop-down lists]({{"pages/cpp_manual/controls/form.html#drop-down-select-box"|relative_url}}).
+`:checked`{:.cls} | Matches a checked checkbox, radio button, and the element that is selected in a [drop-down lists]({{"pages/cpp_manual/element_packages/form.html#drop-down-select-box"|relative_url}}).
 `:nth-child(an + b)`{:.cls} | Matches an element that has an + b - 1 siblings before it.
 `:nth-last-child(an + b)`{:.cls} | Similar to nth-child, but counts backwards.
 `:nth-of-type(an + b)`{:.cls} | Similar to nth-child, but only counts sibling elements of the same type.

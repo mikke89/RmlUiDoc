@@ -11,7 +11,7 @@ RmlUi assumes all data it is given, whether read in from RML or provided procedu
 
 ### Translation
 
-All raw text that RmlUi reads while parsing RML (i.e., everything other than XML tags) is sent through the `TranslateString()` function on the [system interface](cpp_manual/interfaces.html#the-system-interface). The function is given the raw string as read, and the application can make any modifications necessary before returning the translated string (and the number of substitutions made) back to RmlUi.
+All raw text that RmlUi reads while parsing RML (i.e., everything other than XML tags) is sent through the `TranslateString()` function on the [system interface](cpp_manual/interfaces/system.html). The function is given the raw string as read, and the application can make any modifications necessary before returning the translated string (and the number of substitutions made) back to RmlUi.
 
 A pass-through translator would do the following:
 

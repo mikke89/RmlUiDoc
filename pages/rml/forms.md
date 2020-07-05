@@ -7,7 +7,7 @@ next: controls
 
 A form is a collection of input elements inside a `<form>`{:.tag} element - when the form is "submitted", the information stored in the each child input element is sent through to the listening process.
 
-Form elements are supported only when the [Controls plugin]({{"pages/cpp_manual/controls.html"|relative_url}}) is used.
+See also the [form controls C++ documentation]({{"pages/cpp_manual/element_packages/form.html"|relative_url}}).
 
 ### \<form\>
 

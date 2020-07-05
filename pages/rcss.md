@@ -41,5 +41,5 @@ If you are not, read through this documentation while consulting the CSS2 specif
 
 ### Appendix
 
-1. [Property index](rcss/property_index.html) 
+* [Property index](rcss/property_index.html) 
 

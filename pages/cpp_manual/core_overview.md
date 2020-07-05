@@ -48,7 +48,7 @@ Elements have [RCSS](../rcss.html) properties assigned to them through the [styl
 
 Elements send [events](events.html) when certain actions are performed on them. The application can subscribe to elements to be notified when an event occurs on that element. All elements send events for mouse actions (`hover`{:.evt}, `click`{:.evt}, `double-click`{:.evt}, etc) and when the input focus changes (`focus`{:.evt}, `blur`{:.evt}). Further events can be sent by derived elements.
 
-The functionality of an element can be extended by deriving from the `Rml::Element` class, (such as with the form elements in the [Controls plugin](controls.html)). Applications can derive their own custom elements.
+The functionality of an element can be extended by deriving from the `Rml::Element` class, (such as with the elements in the [element packaages](element_packages.html)). Applications can derive their own custom elements.
 
 If comparing RmlUi to HTML, a RmlUi element is analogous to a node within an HTML page.
 
