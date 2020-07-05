@@ -3,7 +3,7 @@ layout: page
 title: RCSS, Rcss Cascading Style Sheets
 ---
 
-This document defines the _Rcss Cascading Style Sheets_ language. RCSS is based on the [CSS2 specification](http://www.w3.org/TR/REC-CSS2/), with certain elements removed or altered to suit the needs of {{page.lib_name}}. In some cases, elements have been taken from the [CSS3 working draft](http://www.w3.org/Style/CSS/current-work). This document provides an overview of RCSS and the differences between RCSS and CSS, and should be read in conjunction with the CSS2 specification.
+This document defines the _Rcss Cascading Style Sheets_ language. RCSS is based on the [CSS2 specification](http://www.w3.org/TR/REC-CSS2/), with certain elements removed or altered to suit the needs of RmlUi. In some cases, elements have been taken from the [CSS3 working draft](http://www.w3.org/Style/CSS/current-work). This document provides an overview of RCSS and the differences between RCSS and CSS, and should be read in conjunction with the CSS2 specification.
 
 RCSS interacts with RML in an identical fashion to CSS and HTML. Style properties declared in a RCSS are attached selectively to elements defined in RML to affect layout, positioning and other style attributes (such as font, color, text decoration, etc).
 

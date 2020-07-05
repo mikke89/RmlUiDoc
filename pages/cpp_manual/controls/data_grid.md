@@ -6,7 +6,7 @@ grandparent: cpp_manual
 next: tab_set
 ---
 
-The Controls plugin includes the data grid element, an element capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class `{{page.lib_ns}}::Controls::ElementDataGrid` is the interface for data grid elements.
+The Controls plugin includes the data grid element, an element capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class `Rml::ElementDataGrid` is the interface for data grid elements.
 
 The following diagram summarises the interaction between the objects described below in the data grid system.
 
@@ -16,7 +16,7 @@ Note: an excellent way to learn how to use data grids and data sources is the [d
 
 ### Data sources
 
-Data sources are named database-like objects that store tables of data, each of which can be queried row by row. Each table contains several named columns of data per row. Listeners can attach to data sources to be notified when changes to the data occur. All data sources derive from the `{{page.lib_ns}}::Core::DataSource` class. The constructor for the base class takes a unique string which is used to identify the data source. Concrete data sources must provide implementations for the pure virtual functions:
+Data sources are named database-like objects that store tables of data, each of which can be queried row by row. Each table contains several named columns of data per row. Listeners can attach to data sources to be notified when changes to the data occur. All data sources derive from the `Rml::DataSource` class. The constructor for the base class takes a unique string which is used to identify the data source. Concrete data sources must provide implementations for the pure virtual functions:
 
 ```cpp
 // Fetches the contents of one row of a table within the data source.
@@ -24,15 +24,15 @@ Data sources are named database-like objects that store tables of data, each of 
 // @param[in] table The name of the table to query.
 // @param[in] row_index The index of the desired row.
 // @param[in] columns The list of desired columns within the row.
-virtual void GetRow({{page.lib_ns}}::Core::StringList& row,
-                    const {{page.lib_ns}}::Core::String& table,
+virtual void GetRow(Rml::StringList& row,
+                    const Rml::String& table,
                     int row_index,
-                    const {{page.lib_ns}}::Core::StringList& columns) = 0;
+                    const Rml::StringList& columns) = 0;
 
 // Fetches the number of rows within one of this data source's tables.
 // @param[in] table The name of the table to query.
 // @return The number of rows within the specified table.
-virtual int GetNumRows(const {{page.lib_ns}}::Core::String& table) = 0;
+virtual int GetNumRows(const Rml::String& table) = 0;
 ```
 
 `GetRow()` is called by the data grid when it needs to fetch the source's values. The parameters to the function are:
@@ -53,7 +53,7 @@ In order for an attached data grid to remain up-to-date, data sources need to in
 // @param[in] table The name of the table to have rows added to it.
 // @param[in] first_row_added The index of the first row added.
 // @param[in] num_rows_added The number of rows added (including the first row).
-void NotifyRowAdd(const {{page.lib_ns}}::Core::String& table,
+void NotifyRowAdd(const Rml::String& table,
                int first_row_added,
                int num_rows_added);
 ```
@@ -65,7 +65,7 @@ The `NotifyRowAdd()` function informs an attached data grid that a number of row
 // @param[in] table The name of the table to have rows removed from it.
 // @param[in] first_row_removed The index of the first row removed.
 // @param[in] num_rows_removed The number of rows removed (including the first row).
-void NotifyRowRemove(const {{page.lib_ns}}::Core::String& table,
+void NotifyRowRemove(const Rml::String& table,
                  int first_row_removed,
                  int num_rows_removed);
 ```
@@ -77,7 +77,7 @@ The `NotifyRowRemove()` function informs an attached data grid that a number of 
 // @param[in] table The name of the table to have rows changed in it.
 // @param[in] first_row_changed The index of the first row changed.
 // @param[in] num_rows_changed The number of rows changed (including the first row).
-void NotifyRowChange(const {{page.lib_ns}}::Core::String& table,
+void NotifyRowChange(const Rml::String& table,
                  int first_row_changed,
                  int num_rows_changed);
 ```
@@ -87,7 +87,7 @@ The `NotifyRowChange()` function informs an attached data grid that a number of 
 ```cpp
 // Tells all attached listeners that the row structure has completely changed in the data source.
 // @param[in] table The name of the table to have rows changed in it.
-void NotifyRowChange(const {{page.lib_ns}}::Core::String& table);
+void NotifyRowChange(const Rml::String& table);
 ```
 
 The simpler `NotifyRowChange()` function informs an attached data grid that one of the tables has completely changed or changed significantly. Use this function when the data set for a table changes entirely, or when many simultaneous individual changes occur that would otherwise cause many of the simpler `RowsChanged()` calls.
@@ -105,7 +105,7 @@ The data source can be changed in C++ with the `SetDataSource()` function.
 ```cpp
 // Sets a new data source for the contents of the data grid.
 // @param[in] data_source_name The name of the new data source.
-void SetDataSource(const {{page.lib_ns}}::Core::String& data_source_name);
+void SetDataSource(const Rml::String& data_source_name);
 ```
 
 #### Adding columns
@@ -125,15 +125,15 @@ The RML content between the opening and closing column tags will form the header
 // @param[in] initial_width The initial width, in pixels, of the column.
 // @param[in] header_rml The RML to use as the column header.
 // @return True if the column was added successfully, false if not.
-bool AddColumn(const {{page.lib_ns}}::Core::String& fields,
-               const {{page.lib_ns}}::Core::String& formatter,
+bool AddColumn(const Rml::String& fields,
+               const Rml::String& formatter,
                float initial_width,
-               const {{page.lib_ns}}::Core::String& header_rml);
+               const Rml::String& header_rml);
 ```
 
 ### Data formatters
 
-Data formatters are used to format the raw result of a data source query (an ordered list of strings) into RML content suitable for display inside a data grid cell. A data formatter is a simple object that derives from `{{page.lib_ns}}::Controls::DataFormatter`. The constructor takes a string that acts as the data formatters unique name. It does not need to be registered with anything; as long as it exists it can be queried by data grid columns by its name.
+Data formatters are used to format the raw result of a data source query (an ordered list of strings) into RML content suitable for display inside a data grid cell. A data formatter is a simple object that derives from `Rml::DataFormatter`. The constructor takes a string that acts as the data formatters unique name. It does not need to be registered with anything; as long as it exists it can be queried by data grid columns by its name.
 
 A concrete data formatter must implement the `FormatData()` function:
 
@@ -141,8 +141,8 @@ A concrete data formatter must implement the `FormatData()` function:
 // Formats the raw results of a data source request into RML.
 // @param[out] formatted_data The formatted RML.
 // @param[in] raw_data A list of the raw data fields.
-virtual void FormatData({{page.lib_ns}}::Core::String& formatted_data,
-                        const {{page.lib_ns}}::Core::StringList& raw_data) = 0;
+virtual void FormatData(Rml::String& formatted_data,
+                        const Rml::StringList& raw_data) = 0;
 ```
 
 See the high scores tutorial for examples of creating data formatters.

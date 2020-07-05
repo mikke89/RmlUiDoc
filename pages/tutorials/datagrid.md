@@ -19,23 +19,23 @@ If you take a look at the C++ code, you see that there's a `HighScores` class th
 
 ### Step 2: The data source
 
-`{{page.lib_ns}}::Core::DataSource` is an abstract base class which simulates the interface to a database. Each data source contains one or more tables, and each table contains rows and columns. The columns specify the fields each row has. To inherit from `{{page.lib_ns}}::Core::DataSource`, you need to override two functions:
+`Rml::DataSource` is an abstract base class which simulates the interface to a database. Each data source contains one or more tables, and each table contains rows and columns. The columns specify the fields each row has. To inherit from `Rml::DataSource`, you need to override two functions:
 
 ```cpp
-virtual void GetRow({{page.lib_ns}}::Core::StringList& row, const {{page.lib_ns}}::Core::String& table, int row_index, const {{page.lib_ns}}::Core::StringList& columns) = 0;
-virtual int GetNumRows(const {{page.lib_ns}}::Core::String& table) = 0;
+virtual void GetRow(Rml::StringList& row, const Rml::String& table, int row_index, const Rml::StringList& columns) = 0;
+virtual int GetNumRows(const Rml::String& table) = 0;
 ```
 
 `GetNumRows()` is the easy one - the function is passed in the name of a table, and it returns how many rows are currently in that table.
 
-`GetRow()` is the meat of the data source implementation. It takes a table, an index to a row within that table and a list of columns that are being queried. The function must look that row up and, for each column in the list, push the data into the `{{page.lib_ns}}::Core::StringList` row.
+`GetRow()` is the meat of the data source implementation. It takes a table, an index to a row within that table and a list of columns that are being queried. The function must look that row up and, for each column in the list, push the data into the `Rml::StringList` row.
 
 #### Implementation
 
-So, let's convert the lackluster `HighScores` class to a fully-fledged `{{page.lib_ns}}::Core::DataSource`. First of all include `{{page.lib_dir}}/Core/DataSource.h`{:.path} and have `HighScores` inherit from `{{page.lib_ns}}::Core::DataSource`. Take a quick look at the `{{page.lib_ns}}::Core::DataSource`'s constructor:
+So, let's convert the lackluster `HighScores` class to a fully-fledged `Rml::DataSource`. First of all include `RmlUi/Core/DataSource.h`{:.path} and have `HighScores` inherit from `Rml::DataSource`. Take a quick look at the `Rml::DataSource`'s constructor:
 
 ```cpp
-{{page.lib_ns}}::Core::DataSource(const {{page.lib_ns}}::Core::String& name = "");
+Rml::DataSource(const Rml::String& name = "");
 ```
 
 The name parameter that it takes is used to uniquely identify it. If this is set then we can use that name have a datagrid automatically look up our data source without any C++ code. If we don't pass in a name, then it'll default to the address of the data source object - much less useful! So it's best to call the constructor from `HighScores`' own constructor and pass in a name, like "high_scores". When we instance the DataSource it'll automatically add itself to the source database and be accessable from anywhere.
@@ -43,7 +43,7 @@ The name parameter that it takes is used to uniquely identify it. If this is set
 That's the basics covered, now we need to implement the two required functions. Add the `GetRow()` and `GetNumRows()` functions into `HighScores`. The implementation of these is fairly simple: `GetNumRows()` returns the number of high scores we've got in the chart, and GetRow loops through the columns array and constructs a string for each requested column and pushes it into the passed-in string list. So you should end up with something like this:
 
 ```cpp
-void HighScores::GetRow({{page.lib_ns}}::Core::StringList& row, const {{page.lib_ns}}::Core::String& table, int row_index, const {{page.lib_ns}}::Core::StringList& columns)
+void HighScores::GetRow(Rml::StringList& row, const Rml::String& table, int row_index, const Rml::StringList& columns)
 {
 	if (table == "scores")
 	{
@@ -55,23 +55,23 @@ void HighScores::GetRow({{page.lib_ns}}::Core::StringList& row, const {{page.lib
 			}
 			else if (columns[i] == "score")
 			{
-				row.push_back({{page.lib_ns}}::Core::String(32, "%d", scores[row_index].score));
+				row.push_back(Rml::String(32, "%d", scores[row_index].score));
 			}
 			else if (columns[i] == "colour")
 			{
-				{{page.lib_ns}}::Core::String colour_string;
-				{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::Colourb, {{page.lib_ns}}::Core::String >::Convert(scores[row_index].colour, colour_string);
+				Rml::String colour_string;
+				Rml::TypeConverter< Rml::Colourb, Rml::String >::Convert(scores[row_index].colour, colour_string);
 				row.push_back(colour_string);
 			}
 			else if (columns[i] == "wave")
 			{
-				row.push_back({{page.lib_ns}}::Core::String(8, "%d", scores[row_index].wave));
+				row.push_back(Rml::String(8, "%d", scores[row_index].wave));
 			}
 		}
 	}
 }
 
-int HighScores::GetNumRows(const {{page.lib_ns}}::Core::String& table)
+int HighScores::GetNumRows(const Rml::String& table)
 {
 	if (table == "scores")
 	{
@@ -94,7 +94,7 @@ This should leave you with a compiling HighScores now that all the pure virtual 
 
 #### Updating the data source
 
-Half of the point of having data sources is allowing them to update dynamically - it's not much fun if the data can't change after it's been displayed by the datagrid. So `{{page.lib_ns}}::Core::DataSource` has a few protected functions that you can call to let it know that something's changed inside the source:
+Half of the point of having data sources is allowing them to update dynamically - it's not much fun if the data can't change after it's been displayed by the datagrid. So `Rml::DataSource` has a few protected functions that you can call to let it know that something's changed inside the source:
 
 ```cpp
 // Tells all attached listeners that one or more rows have been added to the data source.
@@ -115,7 +115,7 @@ The first two are self-explanatory - call them after you've added or removed row
 So, out of a sense of completeness, we should add in a call to `NotifyRowAdd()` whenever we add a row. We'd do the same if we removed or changed rows, but in this sample we just add rows. Check out the HighScores chart in _Rocket Invaders from Mars_ to see how `NotifyRowChange()` is used when the player enters their name. Anyway, here's the final `SubmitScore()` function:
 
 ```cpp
-void HighScores::SubmitScore(const {{page.lib_ns}}::Core::String& name, const {{page.lib_ns}}::Core::Colourb& colour, int wave, int score)
+void HighScores::SubmitScore(const Rml::String& name, const Rml::Colourb& colour, int wave, int score)
 {
 	for (size_t i = 0; i < NUM_SCORES; i++)
 	{
@@ -155,7 +155,7 @@ void HighScores::SubmitScore(const {{page.lib_ns}}::Core::String& name, const {{
 
 ### Step 3: The datagrid
 
-Now on to the datagrid. To create one of these we make a {{page.lib_name}} element with the tag `<datagrid>`{:.tag}. Inside the datagrid we can define multiple `<col>`{:.tag}s - each `<col>`{:.tag} being a column in the grid. This is what it might look like:
+Now on to the datagrid. To create one of these we make a RmlUi element with the tag `<datagrid>`{:.tag}. Inside the datagrid we can define multiple `<col>`{:.tag}s - each `<col>`{:.tag} being a column in the grid. This is what it might look like:
 
 ```html
 <datagrid source="high_scores.scores">
@@ -190,49 +190,49 @@ The third part of the datagrid system is the data formatter. A data formatter si
 
 This will tell the ship column to not just display the raw RGBA values that get sent back from the HighScore data source, but instead to send them to the `ship`{:.value} formatter and display what that returns. Easy as that! Now all we have to do is write the ship formatter.
 
-A data formatter inherits from the class {{page.lib_ns}}::Controls::DataFormatter. It has one function that needs overriding:
+A data formatter inherits from the class Rml::DataFormatter. It has one function that needs overriding:
 
 ```cpp
-virtual void FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data) = 0;
+virtual void FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data) = 0;
 ```
 
-This function takes a list of strings, which contains the fields from the data query. The string reference is used to return the final RML once the data has been formatted. It also has a constructor that takes a `const char*` (defaulting to `""`{:.value}) in the same way as `{{page.lib_ns}}::Core::DataSource`. This is the name of the formatter, and is used to uniquely identify it to any datagrid columns that wish to use it.
+This function takes a list of strings, which contains the fields from the data query. The string reference is used to return the final RML once the data has been formatted. It also has a constructor that takes a `const char*` (defaulting to `""`{:.value}) in the same way as `Rml::DataSource`. This is the name of the formatter, and is used to uniquely identify it to any datagrid columns that wish to use it.
 
-So to make a new formatter, first make a new class - I called mine `HighScoresShipFormatter`. Have it inherit from `{{page.lib_ns}}::Controls::DataFormatter` and define the `FormatData()` function. In the .cpp file, call the `{{page.lib_ns}}::Controls::DataFormatter` constructor called from the `HighScoresShipFormatter` constructor with the parameter `ship`{:.value}. This will give it the name that the datagrid column references it by. The next step is to write the FormatData function. Very handily there's a decorator which does exactly what we want, and it's mapped to the `<defender>`{:.tag} tag. The decorator reads the "colour" style applied to the `<defender>`{:.tag} tag and colours itself based on that. So all we have to do is read the raw colour information then construct a `<defender>`{:.tag} tag with a style with that colour. Here's my implementation:
+So to make a new formatter, first make a new class - I called mine `HighScoresShipFormatter`. Have it inherit from `Rml::DataFormatter` and define the `FormatData()` function. In the .cpp file, call the `Rml::DataFormatter` constructor called from the `HighScoresShipFormatter` constructor with the parameter `ship`{:.value}. This will give it the name that the datagrid column references it by. The next step is to write the FormatData function. Very handily there's a decorator which does exactly what we want, and it's mapped to the `<defender>`{:.tag} tag. The decorator reads the "colour" style applied to the `<defender>`{:.tag} tag and colours itself based on that. So all we have to do is read the raw colour information then construct a `<defender>`{:.tag} tag with a style with that colour. Here's my implementation:
 
 ```cpp
-void HighScoresShipFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data)
+void HighScoresShipFormatter::FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data)
 {
-	{{page.lib_ns}}::Core::Colourb ship_colour;
-	{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::String, {{page.lib_ns}}::Core::Colourb >::Convert(raw_data[0], ship_colour);
+	Rml::Colourb ship_colour;
+	Rml::TypeConverter< Rml::String, Rml::Colourb >::Convert(raw_data[0], ship_colour);
 
-	{{page.lib_ns}}::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
+	Rml::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
 	formatted_data = "<defender style=\"color: rgb(" + colour_string + ");\" />";
 }
 ```
 
-Be sure to include `<{{page.lib_dir}}/Core/TypeConverter.h>`{:.incl} at the top of your .cpp file.
+Be sure to include `<RmlUi/Core/TypeConverter.h>`{:.incl} at the top of your .cpp file.
 
-Then to tie it all together we need to instance the formatter. It'll automatically add itself to the formatter database, so in `main.cpp`{:.path} we only have to include the .h file and construct an instance after {{page.lib_name}} is initialised.
+Then to tie it all together we need to instance the formatter. It'll automatically add itself to the formatter database, so in `main.cpp`{:.path} we only have to include the .h file and construct an instance after RmlUi is initialised.
 
 So your class should look something like this:
 
 ```cpp
-#include <{{page.lib_dir}}/Controls/DataFormatter.h>
+#include <RmlUi/Controls/DataFormatter.h>
 
-class HighScoresShipFormatter : public {{page.lib_ns}}::Controls::DataFormatter
+class HighScoresShipFormatter : public Rml::DataFormatter
 {
 	public:
 		HighScoresShipFormatter();
 		~HighScoresShipFormatter();
 
-		void FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data);
+		void FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data);
 };
 
 #include "HighScoresShipFormatter.h"
-#include <{{page.lib_dir}}/Core/TypeConverter.h>
+#include <RmlUi/Core/TypeConverter.h>
 
-HighScoresShipFormatter::HighScoresShipFormatter() : {{page.lib_ns}}::Controls::DataFormatter("ship")
+HighScoresShipFormatter::HighScoresShipFormatter() : Rml::DataFormatter("ship")
 {
 }
 
@@ -240,15 +240,15 @@ HighScoresShipFormatter::~HighScoresShipFormatter()
 {
 }
 
-void HighScoresShipFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data)
+void HighScoresShipFormatter::FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data)
 {
 	// Data format:
 	// raw_data[0] is the colour, in "%d, %d, %d, %d" format.
 
-	{{page.lib_ns}}::Core::Colourb ship_colour;
-	{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::String, {{page.lib_ns}}::Core::Colourb >::Convert(raw_data[0], ship_colour);
+	Rml::Colourb ship_colour;
+	Rml::TypeConverter< Rml::String, Rml::Colourb >::Convert(raw_data[0], ship_colour);
 
-	{{page.lib_ns}}::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
+	Rml::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
 
 	formatted_data = "<defender style=\"color: rgb(" + colour_string + ");\" />";
 }
@@ -262,7 +262,7 @@ Excellent! Now to style the rest of the table.
 
 ### Step 4: Styling the datagrid
 
-The datagrid can be styled just like any other {{page.lib_name}} element. RCSS hooks are provided for:
+The datagrid can be styled just like any other RmlUi element. RCSS hooks are provided for:
 
 * `datagrid`{:.tag}: The whole grid, including the header and all the visible rows.
 * `datagridheader`{:.tag}: The top row that contains the headers for each of the columns.

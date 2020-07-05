@@ -5,7 +5,7 @@ parent: cpp_manual
 next: events
 ---
 
-{{page.lib_name}} contexts are independent collections of documents. All documents exist within a single context. Contexts are rendered, updated and given input independently of each other at the application's discretion.
+RmlUi contexts are independent collections of documents. All documents exist within a single context. Contexts are rendered, updated and given input independently of each other at the application's discretion.
 
 ### Uses of multiple contexts
 
@@ -17,19 +17,19 @@ A second or subsequent context could be used to store alternative 'desktops' tha
 
 #### In-world interfaces
 
-Computer terminals or consoles in a 3D game world could themselves be {{page.lib_name}} contexts. As they wouldn't necessarily be viewed parallel to the screen, mouse input would need to be projected onto the surface. When the context was rendered, it would need to be transformed correctly to fit onto the surface or rendered onto a texture.
+Computer terminals or consoles in a 3D game world could themselves be RmlUi contexts. As they wouldn't necessarily be viewed parallel to the screen, mouse input would need to be projected onto the surface. When the context was rendered, it would need to be transformed correctly to fit onto the surface or rendered onto a texture.
 
 ### Creating a context
 
-To create a new context, use the `CreateContext()` function in `{{page.lib_ns}}::Core`.
+To create a new context, use the `CreateContext()` function in `Rml::Core`.
 
 ```cpp
 // Creates a new element context.
 // @param[in] name The new name of the context. This must be unique.
 // @param[in] dimensions The initial dimensions of the new context.
 // @return The new context, or nullptr if the context could not be created.
-{{page.lib_ns}}::Core::Context* CreateContext(const {{page.lib_ns}}::Core::String& name,
-                                     const {{page.lib_ns}}::Core::Vector2i& dimensions);
+Rml::Context* CreateContext(const Rml::String& name,
+                                     const Rml::Vector2i& dimensions);
 ```
 
 The context needs a unique string name and initial dimensions. The dimensions are used to generate relative lengths (for example, if a document has a percentage dimension), and sets the extents for the mouse cursor within the context.
@@ -40,7 +40,7 @@ To fetch a previously-constructed context, use the `GetContext()` function.
 // Fetches a previously constructed context by name.
 // @param[in] name The name of the desired context.
 // @return The desired context, or nullptr if no context exists with the given name.
-{{page.lib_ns}}::Core::Context* GetContext(const {{page.lib_ns}}::Core::String& name);
+Rml::Context* GetContext(const Rml::String& name);
 ```
 
 ### Releasing a context
@@ -51,9 +51,9 @@ A context can be manually removed by calling the following function.
 // Removes and destroys a context.
 // @param[in] name The name of the context to remove.
 // @return True if name is a valid context, false otherwise.
-bool RemoveContext(const {{page.lib_ns}}::Core::String& name);
+bool RemoveContext(const Rml::String& name);
 ```
-All remaining contexts are destroyed during the call to `{{page.lib_ns}}::Core::Shutdown()`.
+All remaining contexts are destroyed during the call to `Rml::Shutdown()`.
 
 ### Update and rendering
 
@@ -79,10 +79,10 @@ Documents are loaded through contexts. To load a document from an RML file into 
 // Load a document into the context.
 // @param[in] document_path The path to the document to load.
 // @return The loaded document, or nullptr if no document was loaded.
-ElementDocument* LoadDocument(const {{page.lib_ns}}::Core::String& document_path);
+ElementDocument* LoadDocument(const Rml::String& document_path);
 ```
 
-The `document_path` parameter will be given to {{page.lib_name}}'s [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call `Show()` on the document to make it visible.
+The `document_path` parameter will be given to RmlUi's [file interface](interfaces.html#the-file-interface) to be open and read. If the document is loaded successfully, it will be added to the context and returned. Call `Show()` on the document to make it visible.
 
 You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
 
@@ -90,7 +90,7 @@ You can also load documents directly from a memory stream, this can be useful if
 // Load a document into the context.
 // @param[in] string The string containing the document RML.
 // @return The loaded document, or nullptr if no document was loaded.
-ElementDocument* LoadDocumentFromMemory(const {{page.lib_ns}}::Core::String& string);
+ElementDocument* LoadDocumentFromMemory(const Rml::String& string);
 ```
 
 To create a new, empty document you can populate dynamically, use the `CreateDocument()` function.
@@ -99,10 +99,10 @@ To create a new, empty document you can populate dynamically, use the `CreateDoc
 // Creates a new, empty document and places it into this context.
 // @param[in] tag The document type to create.
 // @return The new document, or nullptr if no document could be created.
-ElementDocument* CreateDocument(const {{page.lib_ns}}::Core::String& tag = "document");
+ElementDocument* CreateDocument(const Rml::String& tag = "document");
 ```
 
-The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a `{{page.lib_ns}}::Core::ElementDocument` is instanced, it will be added to the context and returned.
+The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a `Rml::ElementDocument` is instanced, it will be added to the context and returned.
 
 ### Mouse cursor
 
@@ -127,16 +127,16 @@ Event listeners can be attached to a context (rather than an element) to receive
 // @param[in] event The name of the event to attach to.
 // @param[in] listener Listener object to be attached.
 // @param[in] in_capture_phase True if the listener is to be attached to the capture phase, false for the bubble phase.
-void AddEventListener(const {{page.lib_ns}}::Core::String& event,
-                      {{page.lib_ns}}::Core::EventListener* listener,
+void AddEventListener(const Rml::String& event,
+                      Rml::EventListener* listener,
                       bool in_capture_phase = false);
 
 // Removes an event listener from the context's root element.
 // @param[in] event The name of the event to detach from.
 // @param[in] listener Listener object to be detached.
 // @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
-void RemoveEventListener(const {{page.lib_ns}}::Core::String& event,
-                         {{page.lib_ns}}::Core::EventListener* listener,
+void RemoveEventListener(const Rml::String& event,
+                         Rml::EventListener* listener,
                          bool in_capture_phase = false);
 ```
 
@@ -144,7 +144,7 @@ Note as for all raw pointers, they are non-owning. Thus, it is the user's respon
 
 ### Input
 
-See the section on [input](input.html) for detail on sending user input from your application into {{page.lib_name}} contexts.
+See the section on [input](input.html) for detail on sending user input from your application into RmlUi contexts.
 
 ### Custom contexts
 
@@ -152,21 +152,21 @@ Contexts are created, like elements and decorators, through instancers. You can 
 
 #### Creating a custom context
 
-A custom context is a class derived from `{{page.lib_ns}}::Core::Context`. There are no virtual methods on `{{page.lib_ns}}::Core::Context`, so it cannot be specialised.
+A custom context is a class derived from `Rml::Context`. There are no virtual methods on `Rml::Context`, so it cannot be specialised.
 
 #### Creating a custom context instancer
 
-A custom context instancer needs to be registered with the {{page.lib_name}} factory in order to override the default instancer. A custom context instancer needs to be derived from `{{page.lib_ns}}::Core::ContextInstancer`, and implement the required virtual methods:
+A custom context instancer needs to be registered with the RmlUi factory in order to override the default instancer. A custom context instancer needs to be derived from `Rml::ContextInstancer`, and implement the required virtual methods:
 
 ```cpp
 // Instances a context.
 // @param[in] name Name of this context.
 // @return The instanced context.
-virtual {{page.lib_ns}}::Core::ContextPtr InstanceContext(const {{page.lib_ns}}::Core::String& name) = 0;
+virtual Rml::ContextPtr InstanceContext(const Rml::String& name) = 0;
 
 // Releases a context previously created by this context.
 // @param[in] context The context to release.
-virtual void ReleaseContext({{page.lib_ns}}::Core::Context* context) = 0;
+virtual void ReleaseContext(Rml::Context* context) = 0;
 
 // Releases this context instancer
 virtual void Release() = 0;
@@ -176,20 +176,20 @@ virtual void Release() = 0;
 
 `ReleaseContext()` will be called whenever a context is released. The context instancer should destroy the context and free and resources allocated for it.
 
-`Release()` will be called when {{page.lib_name}} is shut down. The instancer should delete itself if it was dynamically allocated.
+`Release()` will be called when RmlUi is shut down. The instancer should delete itself if it was dynamically allocated.
 
 #### Registering an instancer
 
-To register a custom instancer with {{page.lib_name}}, call `RegisterContextInstancer()` on the {{page.lib_name}} factory after {{page.lib_name}} has been initialised.
+To register a custom instancer with RmlUi, call `RegisterContextInstancer()` on the RmlUi factory after RmlUi has been initialised.
 
 ```cpp
-// The custom_instancer must be kept alive until after the call to Rml::Core::Shutdown()
+// The custom_instancer must be kept alive until after the call to Rml::Shutdown()
 auto custom_instancer = std::make_unique<CustomContextInstancer>();
-{{page.lib_ns}}::Core::Factory::RegisterContextInstancer(custom_instancer.get());
+Rml::Factory::RegisterContextInstancer(custom_instancer.get());
 ```
 
-Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Core::Shutdown()`, and then cleaned up by the user.
+Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Shutdown()`, and then cleaned up by the user.
 
 #### Enumerating Contexts
 
-All active contexts can be enumerated via the `{{page.lib_ns}}::Core::GetNumContexts()` and `{{page.lib_ns}}::Core::GetContext(int index)` function calls. 
+All active contexts can be enumerated via the `Rml::GetNumContexts()` and `Rml::GetContext(int index)` function calls. 

@@ -3,24 +3,24 @@ layout: page
 title: Localisation
 ---
 
-While {{page.lib_name}} fully supports localisation, there are a number of issues you will need to be aware of.
+While RmlUi fully supports localisation, there are a number of issues you will need to be aware of.
 
 ### String encoding
 
-{{page.lib_name}} assumes all data it is given, whether read in from RML or provided procedurally, is in UTF-8 encoding. This means if you're using 8-bit ASCII you don't need to change anything, but allows you to specify multi-byte Unicode characters if required.
+RmlUi assumes all data it is given, whether read in from RML or provided procedurally, is in UTF-8 encoding. This means if you're using 8-bit ASCII you don't need to change anything, but allows you to specify multi-byte Unicode characters if required.
 
 ### Translation
 
-All raw text that {{page.lib_name}} reads while parsing RML (i.e., everything other than XML tags) is sent through the `TranslateString()` function on the [system interface](cpp_manual/interfaces.html#the-system-interface). The function is given the raw string as read, and the application can make any modifications necessary before returning the translated string (and the number of substitutions made) back to {{page.lib_name}}.
+All raw text that RmlUi reads while parsing RML (i.e., everything other than XML tags) is sent through the `TranslateString()` function on the [system interface](cpp_manual/interfaces.html#the-system-interface). The function is given the raw string as read, and the application can make any modifications necessary before returning the translated string (and the number of substitutions made) back to RmlUi.
 
 A pass-through translator would do the following:
 
 ```cpp
-#include <{{page.lib_dir}}/Core/SystemInterface.h>
+#include <RmlUi/Core/SystemInterface.h>
 
-class SampleSystemInterface : public {{page.lib_ns}}::Core::SystemInterface
+class SampleSystemInterface : public Rml::SystemInterface
 {
-	int TranslateString({{page.lib_ns}}::Core::String& translated, const {{page.lib_ns}}::Core::String& input)
+	int TranslateString(Rml::String& translated, const Rml::String& input)
 	{
 		translated = input;
 		return 0;
@@ -62,7 +62,7 @@ If we were to localise _Rocket Invaders_, we'd want to move all of the English s
 Assuming the appliation has a `StringTable` class that has loaded the appropriate string table for the language, our sample translator would then become:
 
 ```cpp
-	int TranslateString({{page.lib_ns}}::Core::String& translated, const {{page.lib_ns}}::Core::String& input)
+	int TranslateString(Rml::String& translated, const Rml::String& input)
 	{
 		// Attempt to find the translation in the string table.
 		if (StringTable::GetString(translated, input))

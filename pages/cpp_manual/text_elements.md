@@ -5,15 +5,15 @@ parent: cpp_manual
 next: scrollbars
 ---
 
-{{page.lib_name}} uses text elements (elements derived from `{{page.lib_ns}}::Core::ElementText`) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the {{page.lib_name}} factory, or through the `CreateTextNode()` function on a document.
+RmlUi uses text elements (elements derived from `Rml::ElementText`) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the RmlUi factory, or through the `CreateTextNode()` function on a document.
 
 ### Text encoding
 
-The string type used throughout {{page.lib_name}} `{{page.lib_ns}}::Core::String` is an alias for `std::string`. This is always assumed to be encoded in UTF-8. This allows storing any Unicode character efficiently, and is compatible with the standard ASCII characters. There are some helper functions for iterating over UTF-8 encoded strings in `{{page.lib_dir}}/Core/StringUtilities.h`{:.path}. There are also helper functions for converting to and from UTF-16 strings, mainly useful for interacting with the Windows API.
+The string type used throughout RmlUi `Rml::String` is an alias for `std::string`. This is always assumed to be encoded in UTF-8. This allows storing any Unicode character efficiently, and is compatible with the standard ASCII characters. There are some helper functions for iterating over UTF-8 encoded strings in `RmlUi/Core/StringUtilities.h`{:.path}. There are also helper functions for converting to and from UTF-16 strings, mainly useful for interacting with the Windows API.
 
 ### HTML characters
 
-{{page.lib_name}} text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:
+RmlUi text nodes support a subset of the full HTML-encoding for special characters to allow XML characters to be present in loose text. The characters supported are:
 
 * `&lt;`{:.value} The less-than symbol, '<'.
 * `&gt;`{:.value} The greater-than symbol, '>'.
@@ -34,12 +34,12 @@ The following fragment puts the characters in correctly:
 
 ### Setting an element's text
 
-The `SetText()` function on a `{{page.lib_ns}}::Core::ElementText` will change the text on the text element to a new string.
+The `SetText()` function on a `Rml::ElementText` will change the text on the text element to a new string.
 
 ```cpp
 // Sets the raw string this text element contains.
 // @param[in] text The new string to set on this element.
-void SetText(const {{page.lib_ns}}::Core::String& text);
+void SetText(const Rml::String& text);
 ```
 
 Note that this sets the raw text on the element; the actual rendered text may differ due to whitespace processing.
@@ -51,7 +51,7 @@ The `GetText()` function will return the element's raw text.
 ```cpp
 // Returns the raw string this text element contains.
 // @return This element's raw text.
-const {{page.lib_ns}}::Core::String& GetText() const;
+const Rml::String& GetText() const;
 ```
 
 ### String generation

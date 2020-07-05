@@ -6,9 +6,9 @@ description: RmlUi's documentation
 
 ![rmlui-logo](assets/rmlui.png)
 
-### {{page.lib_name}}
+### RmlUi
 
-[{{page.lib_name}}]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to {{page.lib_name}} is mostly up-to-date with its master branch. However there is always room for improvements, documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
+[RmlUi]({{page.lib_site}}) is a fork of the [libRocket](https://github.com/libRocket/libRocket) project. The documentation specific to RmlUi is mostly up-to-date with its master branch. However there is always room for improvements, documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
 **[Gallery](pages/gallery.html)**
 

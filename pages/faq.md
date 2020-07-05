@@ -10,10 +10,10 @@ Use the AddEventListener function, passing in the name of the event you want to 
 From C++:
 
 ```cpp
-class MyListener : public {{page.lib_ns}}::Core::EventListener
+class MyListener : public Rml::EventListener
 {
 public:
-	void ProcessEvent({{page.lib_ns}}::Core::Event& event)
+	void ProcessEvent(Rml::Event& event)
 	{
 		printf("Processing event %s", event.GetType().CString());
 	}

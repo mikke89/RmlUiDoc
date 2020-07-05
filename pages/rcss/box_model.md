@@ -21,7 +21,7 @@ The padding is used to space the internal contents of the element from the eleme
 
 The size of the content area is determined by a number of factors, such as the type of element generating the box, the contents of the box and the value of the `width`{:.prop} and `height`{:.prop} properties. The size of the padding, border and margins can be specified separately for each of the top, right, bottom and left edges of the box.
 
-A box's background (and the default {{page.lib_name}} [decorators](decorators.html)) will render in the padded area of an element (ie, under the content area and the padded edges). The border will be rendered only along the border edges. The margin is always transparent (although a custom decorator could potentially render here).
+A box's background (and the default RmlUi [decorators](decorators.html)) will render in the padded area of an element (ie, under the content area and the padded edges). The border will be rendered only along the border edges. The margin is always transparent (although a custom decorator could potentially render here).
 
 ### Margin properties
 
@@ -61,7 +61,7 @@ div
 
 #### Collapsing margins
 
-In {{page.lib_name}}, margins between sibling block boxes collapse as specified by CSS, but nested margins currently do not.
+In RmlUi, margins between sibling block boxes collapse as specified by CSS, but nested margins currently do not.
 
 ### Padding properties
 

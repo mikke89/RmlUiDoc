@@ -30,7 +30,7 @@ Here is an RML sample demonstrating the declaration of a tab set:
 </rml>
 ```
 
-The `{{page.lib_ns}}::Controls::ElementTabSet` class (found in `<{{page.lib_dir}}/Controls/ElementTabSet.h>`{:.incl}) defines the interface to tab set elements.
+The `Rml::ElementTabSet` class (found in `<RmlUi/Controls/ElementTabSet.h>`{:.incl}) defines the interface to tab set elements.
 
 The function `GetNumTabs()` will return the number of panels within the tab set.
 
@@ -48,12 +48,12 @@ Through C++, the contents of the panel tabs can be set to either unparsed RML or
 // Sets the specifed tab index's tab title RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab title.
-void SetTab(int tab_index, const {{page.lib_ns}}::Core::String& rml);
+void SetTab(int tab_index, const Rml::String& rml);
 
 // Set the specifed tab index's title element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the tab title.
-void SetTab(int tab_index, {{page.lib_ns}}::Core::ElementPtr element);
+void SetTab(int tab_index, Rml::ElementPtr element);
 ```
 
 When the contents of a tab is set, it will replace whatever it had before. If you specify a tab index that doesn't exist, it will be created. The second function takes an `ElementPtr`, thus, the function takes ownership of the given element. Raw pointers cannot be used, they must first be removed from their parent if located in a hierarchy.
@@ -68,12 +68,12 @@ Similarly to the panel tabs, the content of the panels themselves can be set to 
 // Sets the specifed tab index's tab panel RML.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] rml The RML to set on the tab panel.
-void SetPanel(int tab_index, const {{page.lib_ns}}::Core::String& rml);
+void SetPanel(int tab_index, const Rml::String& rml);
 
 // Set the specified tab index's body element.
 // @param[in] tab_index The tab index to set. If it doesn't already exist, it will be created.
 // @param[in] element The root of the element tree to set as the window.
-void SetPanel(int tab_index, {{page.lib_ns}}::Core::ElementPtr element);
+void SetPanel(int tab_index, Rml::ElementPtr element);
 ```
 
 ### Removing panels

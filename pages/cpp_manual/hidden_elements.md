@@ -4,11 +4,11 @@ title: Hidden elements
 parent: cpp_manual
 ---
 
-{{page.lib_name}} distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the [drop-down select element](controls/form.html#drop-down-select-box) in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.
+RmlUi distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the [drop-down select element](controls/form.html#drop-down-select-box) in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.
 
 ### Differences in hidden elements
 
-The subsystems of {{page.lib_name}} that ignore hidden elements are:
+The subsystems of RmlUi that ignore hidden elements are:
 
 * Automatic layout.
 * RML serialisation; ie, `GetInnerRML()` will not generate RML for hidden elements. 
@@ -23,7 +23,7 @@ Custom elements that make use of hidden elements can therefore control their siz
 
 ### Adding a hidden element
 
-Hidden elements are created just like other elements, either through the [{{page.lib_name}} factory](elements.html#dynamically-creating-elements) or `CreateElement()` on a [document](documents.html#creating-new-elements).
+Hidden elements are created just like other elements, either through the [RmlUi factory](elements.html#dynamically-creating-elements) or `CreateElement()` on a [document](documents.html#creating-new-elements).
 
 To parent an element to another as a hidden element, call `AppendChild()` as normal but set the second parameter to `false`.
 
@@ -60,15 +60,15 @@ Custom elements typically size and position their hidden elements internally whe
 
 #### Sizing
 
-Hidden elements can be sized by calling the `SetBox()` function. `SetBox()` takes a `{{page.lib_ns}}::Core::Box` structure, which contains sizes for a two-dimensional content area and per-edge padding, borders and margin (see the RCSS documentation for more information on the [box model]({{"pages/rcss/box_model.html"|relative_url}})).
+Hidden elements can be sized by calling the `SetBox()` function. `SetBox()` takes a `Rml::Box` structure, which contains sizes for a two-dimensional content area and per-edge padding, borders and margin (see the RCSS documentation for more information on the [box model]({{"pages/rcss/box_model.html"|relative_url}})).
 
 ```cpp
 // Sets the box describing the size of the element, and removes all others.
 // @param[in] box The new dimensions box for the element.
-void SetBox(const {{page.lib_ns}}::Core::Box& box);
+void SetBox(const Rml::Box& box);
 ```
 
-You can either construct the box yourself, or use the static `BuildBox()` function on `{{page.lib_ns}}::Core::ElementUtilities`:
+You can either construct the box yourself, or use the static `BuildBox()` function on `Rml::ElementUtilities`:
 
 ```cpp
 // Generates the box for an element.
@@ -76,10 +76,10 @@ You can either construct the box yourself, or use the static `BuildBox()` functi
 // @param[in] containing_block The dimensions of the content area of the block containing the element.
 // @param[in] element The element to build the box for.
 // @param[in] inline_element True if the element is placed in an inline context, false if not.
-static void BuildBox(Box& box, const {{page.lib_ns}}::Core::Vector2f& containing_block, Element* element, bool inline_element = false);
+static void BuildBox(Box& box, const Rml::Vector2f& containing_block, Element* element, bool inline_element = false);
 ```
 
-`BuildBox()` will generate the values of a `{{page.lib_ns}}::Core::Box` from the `width`{:.prop}, `max-width`{:.prop}, `min-width`{:.prop}, and `height`{:.prop}, `max-height`{:.prop} and `min-height`{:.prop} properties set on an element. The parameters are:
+`BuildBox()` will generate the values of a `Rml::Box` from the `width`{:.prop}, `max-width`{:.prop}, `min-width`{:.prop}, and `height`{:.prop}, `max-height`{:.prop} and `min-height`{:.prop} properties set on an element. The parameters are:
 
 * `box`: The box to be generated.
 * `containing_block`: The element's containing block. This is typically the size of the content area of the containing element, but does not have to be.
@@ -89,17 +89,17 @@ static void BuildBox(Box& box, const {{page.lib_ns}}::Core::Vector2f& containing
 The following code will generate and set the box on a hidden element from within its parent:
 
 ```cpp
-{{page.lib_ns}}::Core::Box box;
-{{page.lib_ns}}::Core::ElementUtilities::BuildBox(box, GetBox().GetContentArea(), hidden_element);
+Rml::Box box;
+Rml::ElementUtilities::BuildBox(box, GetBox().GetContentArea(), hidden_element);
 hidden_element->SetBox(box);
 ```
 
 But if you want to force the hidden element to be a certain size, instead you might do:
 
 ```cpp
-{{page.lib_ns}}::Core::Box box;
-box.SetContent({{page.lib_ns}}::Core::Vector2f(100, 150));
-box.SetEdge({{page.lib_ns}}::Core::Box::BORDER, {{page.lib_ns}}::Core::Box::TOP, 1);
+Rml::Box box;
+box.SetContent(Rml::Vector2f(100, 150));
+box.SetEdge(Rml::Box::BORDER, Rml::Box::TOP, 1);
 hidden_element->SetBox(box);
 ```
 
@@ -112,19 +112,19 @@ To set the position of a hidden element, use the `SetOffset()` function. This se
 // @param[in] offset The offset (in pixels) of our primary box's top-left border corner from our offset parent's top-left border corner.
 // @param[in] offset_parent The element this element is being positioned relative to.
 // @param[in] offset_fixed True if the element is fixed in place (and will not scroll), false if not.
-void SetOffset(const {{page.lib_ns}}::Core::Vector2f& offset,
-               {{page.lib_ns}}::Core::Element* offset_parent,
+void SetOffset(const Rml::Vector2f& offset,
+               Rml::Element* offset_parent,
                bool offset_fixed = false);
 ```
 
-However, `{{page.lib_ns}}::Core::ElementUtilities` has a number of functions to aid in positioning a hidden element.
+However, `Rml::ElementUtilities` has a number of functions to aid in positioning a hidden element.
 
 ```cpp
 // Sizes and positions an element within its parent.
 // @param element[in] The element to size and position.
 // @param offset[in] The offset of the element inside its parent's content area.
-static bool PositionElement({{page.lib_ns}}::Core::Element* element,
-                            const {{page.lib_ns}}::Core::Vector2f& offset);
+static bool PositionElement(Rml::Element* element,
+                            const Rml::Vector2f& offset);
 ```
 
 `PositionElement()` resizes an element (using `BuildBox()`) and positions it within its parent. As positioning border-corner to border-corner can be quite confusing, this function treats the offset as between the content areas of the elements.
@@ -134,9 +134,9 @@ static bool PositionElement({{page.lib_ns}}::Core::Element* element,
 // @param element[in] The element to size and position.
 // @param offset[in] The offset from the parent's borders.
 // @param anchor[in] Defines which corner or edge the border is to be positioned relative to.
-static bool PositionElement({{page.lib_ns}}::Core::Element* element,
-                            const {{page.lib_ns}}::Core::Vector2f& offset,
-                            {{page.lib_ns}}::Core::ElementUtilities::PositionAnchor anchor);
+static bool PositionElement(Rml::Element* element,
+                            const Rml::Vector2f& offset,
+                            Rml::ElementUtilities::PositionAnchor anchor);
 ```
 
 There is also an override for `PositionElement()` for positioning an element offset from a specific corner or edge of its parent, not just the top-left corner. The third parameter, `anchor`, can be one or more of the `PositionAnchor` enumeration OR'ed together:
@@ -158,19 +158,19 @@ enum PositionAnchor
 
 #### Invoking the layout engine
 
-{{page.lib_name}}'s internal layout engine can be run on a hidden element to format the element's visible descendants. To do so, call the static `FormatElement()` function on `{{page.lib_ns}}::Core::ElementUtilities`.
+RmlUi's internal layout engine can be run on a hidden element to format the element's visible descendants. To do so, call the static `FormatElement()` function on `Rml::ElementUtilities`.
 
 ```cpp
 // Formats the contents of an element.
 // @param[in] element The element to lay out.
 // @param[in] containing_block The size of the element's containing block.
-static bool FormatElement({{page.lib_ns}}::Core::Element* element,
-                          const {{page.lib_ns}}::Core::Vector2f& containing_block);
+static bool FormatElement(Rml::Element* element,
+                          const Rml::Vector2f& containing_block);
 ```
 
 ### Formatting hidden text elements
 
-It possible to append text elements as hidden elements. In this case, you will need to use the `{{page.lib_ns}}::Core::ElementText` API to get the element to generate and position strings of characters.
+It possible to append text elements as hidden elements. In this case, you will need to use the `Rml::ElementText` API to get the element to generate and position strings of characters.
 
 #### Generating lines of text
 
@@ -186,7 +186,7 @@ Once a text element has had raw text set on it (through the `SetText()` function
 // @param[in] right_spacing_width The width (in pixels) of the spacing that must be remaining on the right of the line if this is the final line.
 // @param[in] trim_whitespace_prefix If we're collapsing whitespace, whether or not to remove all prefixing whitespace or collapse it down to a single space.
 // @return True if the line reached the end of the element's text, false if not.
-bool GenerateLine({{page.lib_ns}}::Core::String& line,
+bool GenerateLine(Rml::String& line,
                   int& line_length,
                   float& line_width,
                   int line_begin,
@@ -210,14 +210,14 @@ The function will return true if the generated line is the last line required to
 The following code sample will generate all of the lines required for a text node, each line being allowed a maximum width of 200 pixels:
 
 ```cpp
-{{page.lib_ns}}::Core::ElementText* text_element = document->CreateTextNode("sample text");
+Rml::ElementText* text_element = document->CreateTextNode("sample text");
 
 int line_begin = 0;
 bool last_line = false;
 
 while (!last_line)
 {
-	{{page.lib_ns}}::Core::String line;
+	Rml::String line;
 	int line_length = 0;
 	float line_width = 0;
 
@@ -245,14 +245,14 @@ Then call `AddLines()` for each generated line.
 // Adds a new line into the text element.
 // @param[in] line_position The position of this line, as an offset from element.
 // @param[in] line The contents of the line.
-void AddLine(const {{page.lib_ns}}::Core::Vector2f& line_position,
-             const {{page.lib_ns}}::Core::String& line) = 0;
+void AddLine(const Rml::Vector2f& line_position,
+             const Rml::String& line) = 0;
 ```
 
 The following code sample extends the previous sample by placing each line of text as it is generated:
 
 ```cpp
-{{page.lib_ns}}::Core::ElementText* text_element = document->CreateTextNode("sample text");
+Rml::ElementText* text_element = document->CreateTextNode("sample text");
 
 int line_begin = 0;
 bool last_line = false;
@@ -260,15 +260,15 @@ float position = 0;
 
 while (!last_line)
 {
-	{{page.lib_ns}}::Core::String line;
+	Rml::String line;
 	int line_length = 0;
 	float line_width = 0;
 
 	last_line = text_element->GenerateString(line, line_length, line_width, line_begin, 200, 0, line_begin > 0);
 	line_begin += line_length;
 
-	text_element->AddLine(line, {{page.lib_ns}}::Core::Vector2f(position, 0));
-	position += (float) {{page.lib_ns}}::Core::ElementUtilities::GetLineHeight(text_element);
+	text_element->AddLine(line, Rml::Vector2f(position, 0));
+	position += (float) Rml::ElementUtilities::GetLineHeight(text_element);
 }
 ```
 

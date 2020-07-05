@@ -5,11 +5,11 @@ parent: rml
 next: documents
 ---
 
-{{page.lib_name}} has no prior understanding of XML elements other than the built-in [element types](element_index.html).
+RmlUi has no prior understanding of XML elements other than the built-in [element types](element_index.html).
 
-When parsing a tag {{page.lib_name}} will look up custom elements associated with the tag name and fall back to a generic element. Very few custom elements are required as most of the power in {{page.lib_name}} comes from styling elements with [RCSS](../rcss.html) to produce the desired layout.
+When parsing a tag RmlUi will look up custom elements associated with the tag name and fall back to a generic element. Very few custom elements are required as most of the power in RmlUi comes from styling elements with [RCSS](../rcss.html) to produce the desired layout.
 
-The user is encouraged to follow standard HTML guidelines where possible to improve readability across the community. For more information on setting up {{page.lib_name}} to emulate HTML4 see [Appendix: HTML4 Style Sheet](html4_style_sheet.html).
+The user is encouraged to follow standard HTML guidelines where possible to improve readability across the community. For more information on setting up RmlUi to emulate HTML4 see [Appendix: HTML4 Style Sheet](html4_style_sheet.html).
 
 ### Global Attributes
 

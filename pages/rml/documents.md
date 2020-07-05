@@ -7,7 +7,7 @@ next: images
 
 ### \<rml\>
 
-All {{page.lib_name}} documents begin with the `<rml>`{:.tag} element. The element should contain two children, `<head>`{:.tag} and `<body>`{:.tag}.
+All RmlUi documents begin with the `<rml>`{:.tag} element. The element should contain two children, `<head>`{:.tag} and `<body>`{:.tag}.
 
 ```html
 <rml>
@@ -36,13 +36,13 @@ _Attributes_
 
 `type`{:.attr} = cdata (CI)
 : Type of link, which should be one of:
-* text/rcss - [{{page.lib_name}} Style Sheet Specification](../rcss.html)
-* text/template - [{{page.lib_name}} Template](templates.html)
-* text/script - {{page.lib_name}} script
+* text/rcss - [RmlUi Style Sheet Specification](../rcss.html)
+* text/template - [RmlUi Template](templates.html)
+* text/script - RmlUi script
 
 `href`{:.attr} = cdata (CS)
 : Specifies the source URI, relative to the document being parsed.
 
 ### \<body\>
 
-The body of a document contains the document's content. All elements within the `<body>`{:.tag} tag is laid out and rendered by {{page.lib_name}} based on the active style sheets. 
+The body of a document contains the document's content. All elements within the `<body>`{:.tag} tag is laid out and rendered by RmlUi based on the active style sheets. 

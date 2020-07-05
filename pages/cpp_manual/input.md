@@ -5,13 +5,13 @@ parent: cpp_manual
 next: interfaces
 ---
 
-{{page.lib_name}} does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
+RmlUi does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
 
 ### Key modifiers
 
 Most of the input functions take the parameter `key_modifier_state`. This is a bitmask of active key modifiers; keys such as Control, Alt, etc, as well as the lock keys. This is used to generate the key modifier parameters on any events that are spawned, so is entirely optional. If you don't want or need the key modifier parameters on your input events, feel free to pass `0`{:.value} for the `key_modifier_state` into all the input functions you call.
 
-The bitmask should be configured using the enumeration `{{page.lib_ns}}::Core::Input::KeyModifier`, detailed below:
+The bitmask should be configured using the enumeration `Rml::Input::KeyModifier`, detailed below:
 
 ```cpp
 enum KeyModifier
@@ -100,9 +100,9 @@ bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 
 ### Key input
 
-The key input functions use the `KeyIdentifier` enumeration found in `<{{page.lib_dir}}/Core/Input.h>`{:.incl}; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
+The key input functions use the `KeyIdentifier` enumeration found in `<RmlUi/Core/Input.h>`{:.incl}; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
 
-{{page.lib_name}} makes a distinction between key input and text input; key input (specified by the `ProcessKeyDown()` and `ProcessKeyUp()` functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, {{page.lib_name}} offers no translation between key input and text input; that is left to the application.
+RmlUi makes a distinction between key input and text input; key input (specified by the `ProcessKeyDown()` and `ProcessKeyUp()` functions) refers to actual physical key presses, while text input refers to characters being generated from user input. Depending on user locale, it may take more than one physical key stroke to generate a single character of text input. At present, RmlUi offers no translation between key input and text input; that is left to the application.
 
 Call the following functions on a context to inform the context of key presses or releases:
 
@@ -110,19 +110,19 @@ Call the following functions on a context to inform the context of key presses o
 // Sends a key down event into this context.
 // @param[in] key_identifier The key pressed.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyDown({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
+void ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 
 // Sends a key up event into this context.
 // @param[in] key_identifier The key released.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyUp({{page.lib_ns}}::Core::Input::KeyIdentifier key_identifier, int key_modifier_state);
+void ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
 `ProcessKeyDown()` will generate an `onkeydown`{:.evt} event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the `onkeyup`{:.evt} event.
 
 ### Text input
 
-{{page.lib_name}} takes text input as `Rml::Core::Character` (32-bit Unicode code points), `char` (ASCII), or UTF-8 strings. To notify {{page.lib_name}} of a text input occurrence, use the following functions:
+RmlUi takes text input as `Rml::Character` (32-bit Unicode code points), `char` (ASCII), or UTF-8 strings. To notify RmlUi of a text input occurrence, use the following functions:
 
 ```cpp
 // Sends a single unicode character as text input into this context.
@@ -141,4 +141,4 @@ These functions will generate an `ontextinput`{:.evt} event targeted at the cont
 
 ### Sample input processing
 
-The sample shell (found under your {{page.lib_name}} installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of {{page.lib_name}}'s supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}). 
+The sample shell (found under your RmlUi installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of RmlUi's supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}). 

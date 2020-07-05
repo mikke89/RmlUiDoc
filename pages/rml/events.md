@@ -62,17 +62,17 @@ A number of input events send through key modifiers. In this case the following 
 
 `keydown`{:.evt}
 : Sent to the focus element when a key is pressed.
-* `key_identifier`: A value from the `{{page.lib_ns}}::Core::Input::KeyIdentifier` enumeration (found in `<{{page.lib_dir}}/Core/Input.h>`{:.incl}).
+* `key_identifier`: A value from the `Rml::Input::KeyIdentifier` enumeration (found in `<RmlUi/Core/Input.h>`{:.incl}).
 * Key modifiers. 
 
 `keyup`{:.evt}
 : Sent to the focus element when a key is released.
-* `key_identifier`: A value from the `{{page.lib_ns}}::Core::Input::KeyIdentifier` enumeration.
+* `key_identifier`: A value from the `Rml::Input::KeyIdentifier` enumeration.
 * Key modifiers. 
 
 `textinput`{:.evt}
 : Sent to the focus element when one or more text characters are entered.
-* `text`: An `{{page.lib_ns}}::Core::String` of characters encoded in UTF-8.
+* `text`: An `Rml::String` of characters encoded in UTF-8.
 
 #### Mouse Events
 

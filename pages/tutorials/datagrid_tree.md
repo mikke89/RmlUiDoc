@@ -24,14 +24,14 @@ const int NUM_ALIEN_TYPES = 3;
 
 ...
 
-void SubmitScore(const {{page.lib_ns}}::Core::String& name, const {{page.lib_ns}}::Core::Colourb& colour, int wave, int score, int alien_kills[]);
+void SubmitScore(const Rml::String& name, const Rml::Colourb& colour, int wave, int score, int alien_kills[]);
 
 ...
 
 struct Score
 {
-	{{page.lib_ns}}::Core::String name;
-	{{page.lib_ns}}::Core::Colourb colour;
+	Rml::String name;
+	Rml::Colourb colour;
 	int score;
 	int wave;
 
@@ -48,15 +48,15 @@ The alien_kills array stores how many of each type of alien the player killed to
 So first of all we need to make the data source aware of the child rows. The best way to do this is to add more tables to the `HighScores` data source: one table for each row. So in the `GetRow()` function, when we're checking what the columns are, we need to add one more check in - the check for the child data source. I added this code in after the "wave" check:
 
 ```cpp
-else if (columns[i] == {{page.lib_ns}}::Core::DataSource::CHILD_SOURCE)
+else if (columns[i] == Rml::DataSource::CHILD_SOURCE)
 {
-	row.push_back({{page.lib_ns}}::Core::String(24, "high_scores.player_%d", row_index));
+	row.push_back(Rml::String(24, "high_scores.player_%d", row_index));
 }
 ```
 
 This tells the calling datagrid that this row's child data source is `high_scores`{:.value} (the same source that we're editing) and the table is called `player_X`{:.value}. So now at the top of the `GetRow()` and `GetNumRows()` functions we now have to check for that table as well.
 
-You may be wondering where the `{{page.lib_ns}}::Core::DataSource::CHILD_SOURCE` variable came from! It's one of three predefined variables that can be used as column names and in the fields attribute in the col definition. The other two are `DEPTH` and `NUM_CHILDREN`. `DEPTH` returns the depth of the row and can be used by data formatters to draw something different for each row. `NUM_CHILDREN` returns the number of children under each row, and is most often used to know when to draw a '+' button to expand the row. We'll be using `NUM_CHILDREN` later.
+You may be wondering where the `Rml::DataSource::CHILD_SOURCE` variable came from! It's one of three predefined variables that can be used as column names and in the fields attribute in the col definition. The other two are `DEPTH` and `NUM_CHILDREN`. `DEPTH` returns the depth of the row and can be used by data formatters to draw something different for each row. `NUM_CHILDREN` returns the number of children under each row, and is most often used to know when to draw a '+' button to expand the row. We'll be using `NUM_CHILDREN` later.
 
 #### Adding the player tables
 
@@ -116,21 +116,21 @@ else
 			}
 			else if (columns[i] == "score")
 			{
-				row.push_back({{page.lib_ns}}::Core::String(8, "%d", ALIEN_SCORES[row_index]));
+				row.push_back(Rml::String(8, "%d", ALIEN_SCORES[row_index]));
 			}
 			else if (columns[i] == "colour")
 			{
-				{{page.lib_ns}}::Core::String colour_string;
-				{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::Colourb, {{page.lib_ns}}::Core::String >::Convert({{page.lib_ns}}::Core::Colourb(255, 255, 255), colour_string);
+				Rml::String colour_string;
+				Rml::TypeConverter< Rml::Colourb, Rml::String >::Convert(Rml::Colourb(255, 255, 255), colour_string);
 				row.push_back(colour_string);
 			}
 			else if (columns[i] == "wave")
 			{
 				int num_kills = scores[player_index].alien_kills[alien_kills_array_index];
 				if (num_kills == 1)
-					row.push_back({{page.lib_ns}}::Core::String("1 kill"));
+					row.push_back(Rml::String("1 kill"));
 				else
-					row.push_back({{page.lib_ns}}::Core::String(16, "%d kills", num_kills));
+					row.push_back(Rml::String(16, "%d kills", num_kills));
 			}
 		}
 	}
@@ -157,7 +157,7 @@ Open the tutorial.rml file in the data folder, and look at where the datagrid is
 </datagrid>
 ```
 
-Of course we've no formatter called `expand_button`{:.value}, we'll have to create that later. The `#num_children`{:.value} field corresponds to the `{{page.lib_ns}}::Core::DataSource::NUM_CHILDREN` string - we use this to ask the data source about its number of children. I took 10% width out of the Pilot column to make room. So, fire this up and see what we get:
+Of course we've no formatter called `expand_button`{:.value}, we'll have to create that later. The `#num_children`{:.value} field corresponds to the `Rml::DataSource::NUM_CHILDREN` string - we use this to ask the data source about its number of children. I took 10% width out of the Pilot column to make room. So, fire this up and see what we get:
 
 ![datagrid_tree_1.gif](datagrid_tree_1.gif)
 
@@ -168,13 +168,13 @@ As you can see, we haven't got our `expand_button`{:.value} formatter yet so it 
 Naturally, the next step is to create the data formatter! This one is pretty simple - all it does it read the first entry of the raw_data array to see how many children there are. If there is at least one child, then we return a `<datagridexpand>`{:.tag} element, otherwise we return nothing:
 
 ```cpp
-void ExpandButtonFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data)
+void ExpandButtonFormatter::FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data)
 {
 	// Data format:
 	// raw_data[0] is the number of children that this row has. 0 means no button, more than 0 mean a button.
 
 	int num_children = 0;
-	{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::String, int >::Convert(raw_data[0], num_children);
+	Rml::TypeConverter< Rml::String, int >::Convert(raw_data[0], num_children);
 	
 	if (num_children > 0)
 	{
@@ -213,29 +213,29 @@ And in the same function, for the `player_X`{:.value} table:
 ```cpp
 else if (columns[i] == "type")
 {
-	row.push_back({{page.lib_ns}}::Core::String(8, "%d", alien_kills_array_index + 1));
+	row.push_back(Rml::String(8, "%d", alien_kills_array_index + 1));
 }
 ```
 
 And then finally the formatter needs updating to use the new field we're sending through to it:
 
 ```cpp
-void HighScoresShipFormatter::FormatData({{page.lib_ns}}::Core::String& formatted_data, const {{page.lib_ns}}::Core::StringList& raw_data)
+void HighScoresShipFormatter::FormatData(Rml::String& formatted_data, const Rml::StringList& raw_data)
 {
 	// Data format:
 	// raw_data[0] is the colour, in "%d, %d, %d, %d" format.
 	// raw_data[1] is the type. 0 means a defender, else N means alien type N.
 
-	{{page.lib_ns}}::Core::Colourb ship_colour;
-	{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::String, {{page.lib_ns}}::Core::Colourb >::Convert(raw_data[0], ship_colour);
-	{{page.lib_ns}}::Core::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
+	Rml::Colourb ship_colour;
+	Rml::TypeConverter< Rml::String, Rml::Colourb >::Convert(raw_data[0], ship_colour);
+	Rml::String colour_string(32, "%d,%d,%d", ship_colour.red, ship_colour.green, ship_colour.blue);
 
 	int ship_type;
-	{{page.lib_ns}}::Core::TypeConverter< {{page.lib_ns}}::Core::String, int >::Convert(raw_data[1], ship_type);
-	{{page.lib_ns}}::Core::String class_string = "";
+	Rml::TypeConverter< Rml::String, int >::Convert(raw_data[1], ship_type);
+	Rml::String class_string = "";
 	if (ship_type > 0)
 	{
-		class_string = {{page.lib_ns}}::Core::String(32, "class=\"alien_%d\"", ship_type);
+		class_string = Rml::String(32, "class=\"alien_%d\"", ship_type);
 	}
 
 	formatted_data = "<defender " + class_string + " style=\"color: rgb(" + colour_string + ");\" />";

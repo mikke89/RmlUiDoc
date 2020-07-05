@@ -26,7 +26,7 @@ decorator: <type>( <properties> ), <type>( <properties> ), ... ;
 ```
 **Note**: For performance reasons, it is recommended to declare decorators in style sheets, not in the style defined inline to an element.
 
-{{page.lib_name}} ships with the following decorator types:
+RmlUi ships with the following decorator types:
 
 * [`image`{:.value}](decorators/image.html)
 * [`tiled-horizontal`{:.value}](decorators/tiled_horizontal.html)
@@ -101,9 +101,9 @@ decorator: image( icon-invader ), tiled-horizontal( title-bar-l, title-bar-c, ti
 Multiple decorators will be rendered such that the first declared decorator appears on top, and the subsequent decorators appear below the previous one.
 
 
-### {{page.lib_name}} decorators
+### RmlUi decorators
 
-{{page.lib_name}} comes with several built-in decorators for displaying images and tiled images behind elements.
+RmlUi comes with several built-in decorators for displaying images and tiled images behind elements.
 
 1. [image decorator](decorators/image.html), for displaying a single stretched image.
 2. [tiled-horizontal decorator](decorators/tiled_horizontal.html), for tiling images horizontally. 

@@ -7,7 +7,7 @@ next: debugger
 
 ### Initialisation
 
-To use the Controls plugin, include the main header `<{{page.lib_dir}}/Controls.h>`{:.incl} and call the `{{page.lib_ns}}::Controls::Initialise()` function after {{page.lib_name}} itself has been initialised. This will set up the instancers for the custom elements in the Controls package.
+To use the Controls plugin, include the main header `<RmlUi/Controls.h>`{:.incl} and call the `Rml::Controls::Initialise()` function after RmlUi itself has been initialised. This will set up the instancers for the custom elements in the Controls package.
 
 ### Element packages
 

@@ -5,7 +5,7 @@ parent: cpp_manual
 next: documents
 ---
 
-When appropriate, {{page.lib_name}} automatically generates hidden scrollbar elements for elements with content overflow. The size and positioning of the scrollbar elements can be influenced through RCSS properties. Custom elements can make use of the scrollbar functionality to generate scrollbars of their own.
+When appropriate, RmlUi automatically generates hidden scrollbar elements for elements with content overflow. The size and positioning of the scrollbar elements can be influenced through RCSS properties. Custom elements can make use of the scrollbar functionality to generate scrollbars of their own.
 
 ### Hidden elements
 
@@ -28,12 +28,12 @@ See the [style guide](../style_guide.html) for documentation on applying propert
 
 Custom elements can generate scrollbars using the element's scroll interface. This is done, for example, by the text area form control in the Controls plugin.
 
-Scrollbar generation is usually done in a custom element in response to the `resize`{:.evt} event, sent during layout. To retrieve a pointer to an element's scroll interface, call `GetElementScroll()` on the element. This will return a `{{page.lib_ns}}::Core::ElementScroll` object.
+Scrollbar generation is usually done in a custom element in response to the `resize`{:.evt} event, sent during layout. To retrieve a pointer to an element's scroll interface, call `GetElementScroll()` on the element. This will return a `Rml::ElementScroll` object.
 
 ```cpp
 // Returns the element's scrollbar functionality.
 // @return The element's scrolling functionality.
-{{page.lib_ns}}::Core::ElementScroll* GetElementScroll() const;
+Rml::ElementScroll* GetElementScroll() const;
 ```
 
 To enable or disable one of the element's scrollbars, call `EnableScrollbar()` or `DisableScrollbar()`:
@@ -42,11 +42,11 @@ To enable or disable one of the element's scrollbars, call `EnableScrollbar()` o
 // Enables and sizes one of the scrollbars.
 // @param[in] orientation Which scrollbar (vertical or horizontal) to enable.
 // @param[in] element_width The current computed width of the element, used only to resolve percentage properties.
-void EnableScrollbar({{page.lib_ns}}::Core::ElementScroll::Orientation orientation, float element_width);
+void EnableScrollbar(Rml::ElementScroll::Orientation orientation, float element_width);
 
 // Disables and hides one of the scrollbars.
 // @param[in] orientation Which scrollbar (vertical or horizontal) to disable.
-void DisableScrollbar({{page.lib_ns}}::Core::ElementScroll::Orientation orientation);
+void DisableScrollbar(Rml::ElementScroll::Orientation orientation);
 ```
 
 As the object will remember the state of both previous scrollbars, it is recommended you explicitly enable or disable both scrollbars.

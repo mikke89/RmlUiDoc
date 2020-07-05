@@ -5,8 +5,8 @@ title: C++ Manual
 
 ### Getting started
 
-1. [Building {{page.lib_name}} with CMake](cpp_manual/building_with_cmake.html)
-1. [Integrating {{page.lib_name}} into your application](cpp_manual/integrating.html)
+1. [Building RmlUi with CMake](cpp_manual/building_with_cmake.html)
+1. [Integrating RmlUi into your application](cpp_manual/integrating.html)
 2. [Packages](cpp_manual/packages.html)
 3. [Core overview](cpp_manual/core_overview.html) 
 

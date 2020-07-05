@@ -11,7 +11,7 @@ You can find the RML documentation for the progressbar element [here]({{"pages/r
 
 ### Interface
 
-The `{{page.lib_ns}}::Controls::ElementProgressBar` class (found in `<{{page.lib_dir}}/Controls/ElementProgressBar.h>`{:.incl}) defines the interface to the progress bar element.
+The `Rml::ElementProgressBar` class (found in `<RmlUi/Controls/ElementProgressBar.h>`{:.incl}) defines the interface to the progress bar element.
 
 The progress bar's value can be set through the C++ interface.
 

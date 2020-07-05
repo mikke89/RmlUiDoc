@@ -58,7 +58,7 @@ The colour of any decoration is the same as the font colour.
 
 #### Text shadows: the 'shadow' font effect
 
-Instead of using the CSS-standard `text-shadow`{:.prop} property, text-shadowing is implemented in {{page.lib_name}} using the more generic [font effect system](font_effects.html). Below is an example of how to specify a shadow for an element of text.
+Instead of using the CSS-standard `text-shadow`{:.prop} property, text-shadowing is implemented in RmlUi using the more generic [font effect system](font_effects.html). Below is an example of how to specify a shadow for an element of text.
 
 ```css
 /* Specify a grey text shadow on primary headings. */

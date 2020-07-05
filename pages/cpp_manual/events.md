@@ -5,7 +5,7 @@ parent: cpp_manual
 next: rcss
 ---
 
-Events are sent to elements to indicate actions that have occurred to that element. {{page.lib_name}} generates many events internally. The application can also send arbitrary events to elements.
+Events are sent to elements to indicate actions that have occurred to that element. RmlUi generates many events internally. The application can also send arbitrary events to elements.
 
 When an event is dispatched to an element, it goes through three distinct phases in the following order.
 * Capture phase. Propagating from the root element to the target element's parent.
@@ -17,7 +17,7 @@ An event listener is able to subscribe to specific events on an element and will
 After all event listeners are executed, the event's default actions can be processed. Default actions are primarily for actions performed internally in the library, and can be prevented by stopping propagation. Any object that derives from `Element` can override the default behavior and add new behavior. The default actions are only processed in specific phases which is defined for each event type.
 
 Events are specified by
-* An identifier, `Rml::Core::EventId` such as `EventId::Keydown`.
+* An identifier, `Rml::EventId` such as `EventId::Keydown`.
 * A descriptive string name, such as `keydown`{:.evt} or `blur`{:.evt}.
 * Whether or not it is interruptible.
 * Whether or not it executes the bubble phase.
@@ -29,7 +29,7 @@ See the [event specifications](#event-specifications) below for details of each 
 
 ### Event interface
 
-An event is represented by the `{{page.lib_ns}}::Core::Event` structure, defined in `{{page.lib_dir}}/Core/Event.h`{:.incl}. A subset of the public interface to the event object is given in the following.
+An event is represented by the `Rml::Event` structure, defined in `RmlUi/Core/Event.h`{:.incl}. A subset of the public interface to the event object is given in the following.
 
 ```cpp
 enum class EventPhase { None, Capture = 1, Target = 2, Bubble = 4 };
@@ -38,14 +38,14 @@ class Event
 {
 public:
 	// Get the current propagation phase.
-	{{page.lib_ns}}::Core::EventPhase GetPhase() const;
+	Rml::EventPhase GetPhase() const;
 	// Get the current element in the propagation.
-	{{page.lib_ns}}::Core::Element* GetCurrentElement() const;
+	Rml::Element* GetCurrentElement() const;
 	// Get the target element.
-	{{page.lib_ns}}::Core::Element* GetTargetElement() const;
+	Rml::Element* GetTargetElement() const;
 
 	// Get the event type.
-	const {{page.lib_ns}}::Core::String& GetType() const;
+	const Rml::String& GetType() const;
 	// Get the event id.
 	EventId GetId() const;
 	
@@ -58,7 +58,7 @@ public:
 	// @param key[in] The name of the desired parameter.
 	// @return The value of the requested parameter.
 	template < typename T >
-	T GetParameter(const {{page.lib_ns}}::Core::String& key, const T& default_value);
+	T GetParameter(const Rml::String& key, const T& default_value);
 };
 ```
 
@@ -74,11 +74,11 @@ For event types that can be interrupted, a listener can call the `StopPropagatio
 
 ### Event listeners
 
-Any object that wants to listen for events derives from `{{page.lib_ns}}::Core::EventListener`, and implements the one required pure virtual function:
+Any object that wants to listen for events derives from `Rml::EventListener`, and implements the one required pure virtual function:
 
 ```cpp
 // Process the incoming event.
-virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event) = 0;
+virtual void ProcessEvent(Rml::Event& event) = 0;
 ```
 
 The `ProcessEvent()` function will be called every time a relevant event is sent to an element the listener is subscribed to.
@@ -92,8 +92,8 @@ To subscribe an event listener to an element, call the `AddEventListener()` func
 // @param[in] event Event to attach to.
 // @param[in] listener The listener object to be attached.
 // @param[in] in_capture_phase True to attach in the capture phase, false in bubble phase.
-void AddEventListener(const {{page.lib_ns}}::Core::String& event,
-                      {{page.lib_ns}}::Core::EventListener* listener,
+void AddEventListener(const Rml::String& event,
+                      Rml::EventListener* listener,
                       bool in_capture_phase = false);
 ```
 
@@ -114,28 +114,28 @@ To unsubscribe an event listener from an element, call the `RemoveEventListener(
 // @param[in] event Event to detach from.
 // @param[in] listener The listener object to be detached.
 // @param[in] in_capture_phase True to detach from the capture phase, false from the bubble phase.
-void RemoveEventListener(const {{page.lib_ns}}::Core::String& event,
-                         {{page.lib_ns}}::Core::EventListener* listener,
+void RemoveEventListener(const Rml::String& event,
+                         Rml::EventListener* listener,
                          bool in_capture_phase = false);
 ```
 
 ### Sending events
 
-The application can send an arbitrary event to an element through the `DispatchEvent()` function on `{{page.lib_ns}}::Core::Element`.
+The application can send an arbitrary event to an element through the `DispatchEvent()` function on `Rml::Element`.
 
 ```cpp
 // Sends an event to this element.
 // @param[in] event Name of the event in string form.
 // @param[in] parameters The event parameters.
 // @param[in] interruptible True if the propagation of the event be stopped.
-void DispatchEvent(const {{page.lib_ns}}::Core::String& event,
-                   const {{page.lib_ns}}::Core::Dictionary& parameters);
+void DispatchEvent(const Rml::String& event,
+                   const Rml::Dictionary& parameters);
 ```
 
 The event will be created and sent through the standard event loop. The following example sends a "close" event to an element:
 
 ```cpp
-{{page.lib_ns}}::Core::Dictionary parameters;
+Rml::Dictionary parameters;
 parameters["source"] = "user";
 
 element->DispatchEvent("close", parameters);
@@ -143,13 +143,13 @@ element->DispatchEvent("close", parameters);
 
 ### Custom events
 
-Events are instanced through an event instancer similarly to contexts. The instancer can be overridden with a custom instancer if a custom event is required; this is generally only needed to integrate a scripting language into {{page.lib_name}}.
+Events are instanced through an event instancer similarly to contexts. The instancer can be overridden with a custom instancer if a custom event is required; this is generally only needed to integrate a scripting language into RmlUi.
 
-A custom event inherits from `{{page.lib_ns}}::Core::Event`. There are no virtual functions to be overridden.
+A custom event inherits from `Rml::Event`. There are no virtual functions to be overridden.
 
 #### Creating a custom event instancer
 
-A custom event instancer needs to be created and registered with the {{page.lib_name}} factory in order to have custom events instanced. A custom event instancer derives from `{{page.lib_ns}}::Core::EventInstancer` and implements the required pure virtual functions:
+A custom event instancer needs to be created and registered with the RmlUi factory in order to have custom events instanced. A custom event instancer derives from `Rml::EventInstancer` and implements the required pure virtual functions:
 
 ```cpp
 // Instance an event object.
@@ -158,10 +158,10 @@ A custom event instancer needs to be created and registered with the {{page.lib_
 // @param[in] name Name of this event.
 // @param[in] parameters Additional parameters for this event.
 // @param[in] interruptible If the event propagation can be stopped.
-virtual {{page.lib_ns}}::Core::EventPtr InstanceEvent({{page.lib_ns}}::Core::Element* target,
-										   {{page.lib_ns}}::Core::EventId id,
-                                           const {{page.lib_ns}}::Core::String& name,
-                                           const {{page.lib_ns}}::Core::Dictionary& parameters,
+virtual Rml::EventPtr InstanceEvent(Rml::Element* target,
+										   Rml::EventId id,
+                                           const Rml::String& name,
+                                           const Rml::Dictionary& parameters,
                                            bool interruptible) = 0;
 
 // Releases an event instanced by this instancer.
@@ -183,16 +183,16 @@ If `InstanceEvent()` is successful, return the new event wrapped in an `EventPtr
 
 #### Registering an instancer
 
-To register a custom instancer with {{page.lib_name}}, call the `RegisterEventInstancer()` function on the {{page.lib_name}} factory (`{{page.lib_ns}}::Core::Factory`) after {{page.lib_name}} has been initialised.
+To register a custom instancer with RmlUi, call the `RegisterEventInstancer()` function on the RmlUi factory (`Rml::Factory`) after RmlUi has been initialised.
 
 ```cpp
 // Registers an instancer for all events.
 // @param[in] instancer The instancer to be called.
 // @return The registered instanced on success, NULL on failure.
-static {{page.lib_ns}}::Core::EventInstancer* RegisterEventInstancer({{page.lib_ns}}::Core::EventInstancer* instancer);
+static Rml::EventInstancer* RegisterEventInstancer(Rml::EventInstancer* instancer);
 ```
 
-Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Core::Shutdown()`, and then cleaned up by the user.
+Like for other instancers, it is the user's responsibility to manage the lifetime of the instancer. Thus, it must be kept alive until after the call to `Rml::Shutdown()`, and then cleaned up by the user.
 
 ### Inline events
 
@@ -209,16 +209,16 @@ Event responses can be specified as element attributes inside RML, similarly to 
 
 Notice the `on`{:.attr} prefix before the event name of `click`{:.evt}. All event bindings from RML are prefixed this way.
 
-{{page.lib_name}} sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
+RmlUi sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
 
 #### Creating a custom event listener instancer
 
-A custom event listener instancer derives from `{{page.lib_ns}}::Core::EventListenerInstancer`. The following pure virtual functions must be implemented:
+A custom event listener instancer derives from `Rml::EventListenerInstancer`. The following pure virtual functions must be implemented:
 
 ```cpp
 // Instance an event listener object.
 // @param value Value of the event.
-virtual {{page.lib_ns}}::Core::EventListener* InstanceEventListener(const {{page.lib_ns}}::Core::String& value) = 0;
+virtual Rml::EventListener* InstanceEventListener(const Rml::String& value) = 0;
 ```
 
 `InstanceEventListener()` will be called during RML parsing whenever the factory needs to find an event listener for an inline event. The parameter value will be the raw event response string as specified in the RML.
@@ -229,7 +229,7 @@ Custom events can be dispatched without any particular setup. They will then aut
 
 To provide a custom specification for a new event, first call the method:
 ```cpp
-EventId Rml::Core::RegisterEventType(const String& type, bool interruptible, bool bubbles, DefaultActionPhase default_action_phase)
+EventId Rml::RegisterEventType(const String& type, bool interruptible, bool bubbles, DefaultActionPhase default_action_phase)
 ```
 After this call, any usage of this type will use the provided specification by default. The returned `EventId` can be used to dispatch events instead of the type string.
 

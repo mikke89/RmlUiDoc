@@ -6,7 +6,7 @@ status: review
 status-desc: Not tested, help wanted for testing and bringing it up-to-date.
 ---
 
-The only dependencies {{page.lib_name}} has is on the [FreeType](http://www.freetype.org) library. The library has build configurations for most platforms, but unfortunately not iOS. This document describes how to build libfreetype.a as a universal binary for iOS and the Mac (i386, x86_64, arm6, arm7).
+The only dependencies RmlUi has is on the [FreeType](http://www.freetype.org) library. The library has build configurations for most platforms, but unfortunately not iOS. This document describes how to build libfreetype.a as a universal binary for iOS and the Mac (i386, x86_64, arm6, arm7).
 
 ### Download the Source
 

@@ -50,7 +50,7 @@ h1 span
 
 ### Effects
 
-{{page.lib_name}} comes with the following built-in font effects:
+RmlUi comes with the following built-in font effects:
 
 1. [glow effect](font_effects/glow.html), for glowing text.
 2. [outline effect](font_effects/outline.html), for outlining text.

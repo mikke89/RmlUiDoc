@@ -3,7 +3,7 @@ layout: page
 title: Drag Tutorial
 ---
 
-{{page.lib_name}} has a few ways of implementing dragging of elements, such as:
+RmlUi has a few ways of implementing dragging of elements, such as:
 
 * the `<handle>`{:.tag} tag, as used by the documents in the sample applications
 * setting an element's `drag`{:.prop} property to `drag`{:.value} or `drag-drop`{:.value} and listening to the raw drag events (`dragstart`{:.evt}, `dragend`{:.evt}, etc) and animating element positions manually
@@ -17,7 +17,7 @@ Compile the drag tutorial (at `/Samples/tutorial/tutorial_drag/`{:.path}) and ru
 
 ![dragging_1.jpg](dragging_1.jpg)
 
-Take a look at the source code. As you can see, the application creates two Inventory objects, each of which loads a document from the `inventory.rml`{:.path} file. The application then creates four inventory objects in one of the inventories; each of these objects is a {{page.lib_name}} element with a tag of `icon`{:.tag}. At the bottom of the `tutorial.rcss`{:.path} file you can see the properties applied to `icon`{:.tag}. It is sized to 100px x 100px with a margin to separate it from its neighbour icons and a decorator for its background image. It is floated left so icons will stack from left to right in the inventory windows.
+Take a look at the source code. As you can see, the application creates two Inventory objects, each of which loads a document from the `inventory.rml`{:.path} file. The application then creates four inventory objects in one of the inventories; each of these objects is a RmlUi element with a tag of `icon`{:.tag}. At the bottom of the `tutorial.rcss`{:.path} file you can see the properties applied to `icon`{:.tag}. It is sized to 100px x 100px with a margin to separate it from its neighbour icons and a decorator for its background image. It is floated left so icons will stack from left to right in the inventory windows.
 
 ### Step 2: Adding a drag property
 
@@ -29,7 +29,7 @@ If you try dragging the icons now, nothing much happens. In the tutorial's, RCSS
 
 to the rule for `icon`{:.tag} elements. Now try dragging the icons again; success! A clone of the icons now follows the cursor when you drag them around. We'll need to add code to listen to the end of the drag and respond accordingly, but before we get to that I'll explain how the `drag`{:.prop} property works.
 
-The `drag`{:.prop} property can take several different values depending on how you want {{page.lib_name}} to inform you about dragging. The possible values are:
+The `drag`{:.prop} property can take several different values depending on how you want RmlUi to inform you about dragging. The possible values are:
 
 * `none`{:.value}: The element does not send any drag messages. This is the default.
 * `block`{:.value}: The element does not send any drag messages, and prevents any elements 'underneath' the element from being dragged as well. This is useful for buttons on a window's title bar, for example.
@@ -43,23 +43,23 @@ The clone value, however, takes care of almost everything if all you need to do 
 
 ### Step 3: Listening to the events
 
-Now that the items can be visibly dragged around, we need to actually change their parenting when they're dropped. Create a class which inherits from `{{page.lib_ns}}::Core::EventListener` and give it a static method for registering the containers. Override the `ProcessEvent()` function as well so we can process the `dragdrop`{:.evt} event.
+Now that the items can be visibly dragged around, we need to actually change their parenting when they're dropped. Create a class which inherits from `Rml::EventListener` and give it a static method for registering the containers. Override the `ProcessEvent()` function as well so we can process the `dragdrop`{:.evt} event.
 
 ```cpp
 #ifndef DRAGLISTENER_H
 #define DRAGLISTENER_H
 
-#include <{{page.lib_dir}}/Core/EventListener.h>
-#include <{{page.lib_dir}}/Core/Types.h>
+#include <RmlUi/Core/EventListener.h>
+#include <RmlUi/Core/Types.h>
 
-class DragListener : public {{page.lib_ns}}::Core::EventListener
+class DragListener : public Rml::EventListener
 {
 public:
 	/// Registers an elemenet as being a container of draggable elements.
-	static void RegisterDraggableContainer({{page.lib_ns}}::Core::Element* element);
+	static void RegisterDraggableContainer(Rml::Element* element);
 
 protected:
-	virtual void ProcessEvent({{page.lib_ns}}::Core::Event& event);
+	virtual void ProcessEvent(Rml::Event& event);
 };
 
 #endif
@@ -69,12 +69,12 @@ The `RegisterDraggableContainer()` function simply needs to attach the listener 
 
 ```cpp
 #include "DragListener.h"
-#include <{{page.lib_dir}}/Core/Element.h>
+#include <RmlUi/Core/Element.h>
 
 static DragListener drag_listener;
 
 // Registers an element as being a container of draggable elements.
-void DragListener::RegisterDraggableContainer({{page.lib_ns}}::Core::Element* element)
+void DragListener::RegisterDraggableContainer(Rml::Element* element)
 {
 	element->AddEventListener("dragdrop", &drag_listener);
 }
@@ -89,12 +89,12 @@ The event we'll be processing is the `dragdrop`{:.evt} event. This event is sent
 We can now write a simple handler that will move dragged elements between the two containers:
 
 ```cpp
-void DragListener::ProcessEvent({{page.lib_ns}}::Core::Event& event)
+void DragListener::ProcessEvent(Rml::Event& event)
 {
 	if (event == "dragdrop")
 	{
-		{{page.lib_ns}}::Core::Element* dest_container = event.GetCurrentElement();
-		{{page.lib_ns}}::Core::Element* drag_element = static_cast< {{page.lib_ns}}::Core::Element* >(event.GetParameter< void* >("drag_element", NULL));
+		Rml::Element* dest_container = event.GetCurrentElement();
+		Rml::Element* drag_element = static_cast< Rml::Element* >(event.GetParameter< void* >("drag_element", NULL));
 
 		drag_element->GetParentNode()->RemoveChild(drag_element);
 		dest_container->AppendChild(drag_element);
@@ -127,13 +127,13 @@ Easy! We've attached as a `dragdrop`{:.evt} listener to the item containers. Thi
 So we can find the destination item and container with the following:
 
 ```cpp
-void DragListener::ProcessEvent({{page.lib_ns}}::Core::Event& event)
+void DragListener::ProcessEvent(Rml::Event& event)
 {
 	if (event == "dragdrop")
 	{
-		{{page.lib_ns}}::Core::Element* dest_container = event.GetCurrentElement();
-		{{page.lib_ns}}::Core::Element* dest_element = event.GetTargetElement();
-		{{page.lib_ns}}::Core::Element* drag_element = static_cast< {{page.lib_ns}}::Core::Element* >(event.GetParameter< void* >("drag_element", NULL));
+		Rml::Element* dest_container = event.GetCurrentElement();
+		Rml::Element* dest_element = event.GetTargetElement();
+		Rml::Element* drag_element = static_cast< Rml::Element* >(event.GetParameter< void* >("drag_element", NULL));
 ```
 
 If the dragged item is dropped directly onto a container, then the current and target elements will be the same. In this case, we want to keep the old processing:
@@ -155,7 +155,7 @@ Otherwise, we want to insert the item into its new container before the item it 
 			// The dragged element was dragged onto an item inside a container. In order to get the
 			// element in the right place, it will be inserted into the container before the item
 			// it was dragged on top of.
-			{{page.lib_ns}}::Core::Element* insert_before = dest_element;
+			Rml::Element* insert_before = dest_element;
 
 			drag_element->GetParentNode()->RemoveChild(drag_element);
 			dest_container->InsertBefore(drag_element, insert_before);

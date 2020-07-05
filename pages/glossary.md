@@ -13,7 +13,7 @@ title: Glossary
 
 ### URI
 
-{{page.lib_name}} uses URIs as specified by [RFC1630](http://www.w3.org/TR/1999/REC-html401-19991224/references.html#ref-RFC1630).
+RmlUi uses URIs as specified by [RFC1630](http://www.w3.org/TR/1999/REC-html401-19991224/references.html#ref-RFC1630).
 
 ### Style information
 
