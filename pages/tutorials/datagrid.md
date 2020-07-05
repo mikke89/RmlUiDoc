@@ -218,7 +218,7 @@ Then to tie it all together we need to instance the formatter. It'll automatical
 So your class should look something like this:
 
 ```cpp
-#include <RmlUi/Controls/DataFormatter.h>
+#include <RmlUi/Core/Elements/DataFormatter.h>
 
 class HighScoresShipFormatter : public Rml::DataFormatter
 {

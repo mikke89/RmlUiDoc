@@ -30,7 +30,7 @@ Here is an RML sample demonstrating the declaration of a tab set:
 </rml>
 ```
 
-The `Rml::ElementTabSet` class (found in `<RmlUi/Controls/ElementTabSet.h>`{:.incl}) defines the interface to tab set elements.
+The `Rml::ElementTabSet` class (found in `<RmlUi/Core/Elements/ElementTabSet.h>`{:.incl}) defines the interface to tab set elements.
 
 The function `GetNumTabs()` will return the number of panels within the tab set.
 
