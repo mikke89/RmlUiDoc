@@ -158,14 +158,14 @@ scrollbarvertical sliderarrowinc:active
 
 ### Sliders
 
-The controls plugin adds support for range sliders; these are instanced through the RML tag `<input type="range" ... />`{:.tag}. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
+Range sliders can be instanced through the RML tag `<input type="range" ... />`{:.tag}. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
 
 * `sliderarrowdec`{:.tag}
 * `sliderarrowinc`{:.tag}
 * `slidertrack`{:.tag}
 * `sliderbar`{:.tag}
 
-These are styled in the same way you style scrollbars. Note that for input types, the controls plugin automatically sets the `type`{:.attr} attribute of an `<input>`{:.tag} element as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
+These are styled in the same way you style scrollbars. Note that for input types, the `type`{:.attr} attribute of an `<input>`{:.tag} element is automatically set as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
 
 ```css
 input.range slidertrack
@@ -176,7 +176,7 @@ input.range slidertrack
 
 ### Drop-down selection boxes
 
-The controls plugin adds support for drop-down boxes; these are instanced through the RML tag `<select>`{:.tag}, with individual options specified within the selection element with `<option>`{:.tag} tags.
+Drop-down boxes can be instanced through the RML tag `<select>`{:.tag}, with individual options specified within the selection element with `<option>`{:.tag} tags.
 
 #### Generated elements
 

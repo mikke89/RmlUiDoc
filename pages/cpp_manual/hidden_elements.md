@@ -4,7 +4,7 @@ title: Hidden elements
 parent: cpp_manual
 ---
 
-RmlUi distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the [drop-down select element](element_packages/form.html#drop-down-select-box) in the Controls plugin creates hidden elements for its arrow button, the value field and the selection box.
+RmlUi distinguishes between normal elements that are part of the DOM and visible to all subsystems, and hidden (or non-DOM) elements that (by default) can only be found if explicitly asked for. Hidden elements are typically used by custom elements; for example, the [drop-down select element](element_packages/form.html#drop-down-select-box) creates hidden elements for its arrow button, the value field and the selection box.
 
 ### Differences in hidden elements
 
@@ -274,4 +274,4 @@ while (!last_line)
 
 ### Examples
 
-You can see plenty of examples of using hidden elements in the Controls plugin, particularly in the select form control (`ElementFormControlSelect.cpp`{:.path} and `WidgetDropDown.cpp`{:.path}), or for text layout, the text area control (`ElementFormControlText.cpp`{:.path} and `WidgetTextInput.cpp`{:.path}). 
+You can see plenty of examples of using hidden elements in the [element packages](element_packages.html), particularly in the select form control (`ElementFormControlSelect.cpp`{:.path} and `WidgetDropDown.cpp`{:.path}), or for text layout, the text area control (`ElementFormControlText.cpp`{:.path} and `WidgetTextInput.cpp`{:.path}).

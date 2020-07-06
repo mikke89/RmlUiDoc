@@ -2,7 +2,7 @@
 layout: page
 title: Core Overview
 parent: cpp_manual
-next: elements
+next: main_loop
 ---
 
 So you've got RmlUi integrated into your application, but how are you meant to use it? This is an overview of the significant concepts and objects at the core of RmlUi.

@@ -2,7 +2,7 @@
 layout: page
 title: Plugins
 parent: cpp_manual
-next: controls
+next: troubleshooting
 ---
 
 RmlUi has a simple, straightforward system for writing plugins. Plugins receive notification when contexts and elements are created and destroyed.

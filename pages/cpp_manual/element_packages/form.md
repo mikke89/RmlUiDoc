@@ -15,7 +15,7 @@ RmlUi includes a fully-featured set of form controls. The full RML specification
 * [data-driven drop-down selection list](#data-driven-drop-down-select-box)
 * [range slider](#range-slider)
 
-Below is the hierarchy for the custom form elements included in the Controls plugin.
+Below is the hierarchy for the custom form elements included in RmlUi.
 
 ![form_1.gif](form_1.gif)
 

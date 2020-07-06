@@ -26,7 +26,7 @@ See the [style guide](../style_guide.html) for documentation on applying propert
 
 ### Generating scrollbars
 
-Custom elements can generate scrollbars using the element's scroll interface. This is done, for example, by the text area form control in the Controls plugin.
+Custom elements can generate scrollbars using the element's scroll interface. This is done, for example, by the [text area](element_packages/form.html#text-area) form control.
 
 Scrollbar generation is usually done in a custom element in response to the `resize`{:.evt} event, sent during layout. To retrieve a pointer to an element's scroll interface, call `GetElementScroll()` on the element. This will return a `Rml::ElementScroll` object.
 

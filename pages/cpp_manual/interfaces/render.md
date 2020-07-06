@@ -11,6 +11,39 @@ The render interface is how RmlUi sends its generated geometry through to the ap
 
 The render interface is given in `<RmlUi/Core/RenderInterface.h>`{:.incl}. To develop a custom render interface, create a class derived from `Rml::RenderInterface` and provide function definitions for the pure virtual functions, and any of the others that you wish to provide functionality for.
 
+
+### Rendering conventions
+
+Before implementing the rendering API in RmlUi, the user should understand the following rendering conventions and assumptions used by the library.
+
+* Vertex position coordinates are in `pixel` units.
+* The coordinate system of documents in RmlUi places the origin at the top-left corner of the window.
+* Indices define sets of triangles in a counter-clockwise winding order.
+* The generated textures in RmlUi use the convention that the origin is at the bottom left corner.
+
+Other rendering assumptions.
+
+* Alpha blending should be enabled.
+* Textures should have their fetched color multiplied by the vertex color.
+* The 'Transform' matrix supplied by RmlUi does not include projection to the user's window, thus, the user should use a matrix which is the product of `Projection * Transform` to produce the vertex position output.
+
+#### Projection matrix 
+
+The user must construct their own projection matrix while considering the above conventions, along with the conventions and settings used in their graphics API. Eg. the OpenGL convention is to place the origin at the bottom-left corner of the window. Thus, the user should flip the y-axis when constructing their projection matrix. The DirectX convention is to place the origin at the top-left corner of the window, thus, an orthographic projection matrix which follows this convention can be used.
+
+#### Generated textures
+
+The generated textures in RmlUi follow the OpenGL convention of placing the texture origin at the bottom-left corner. Other graphics APIs, including DirectX, use the top-left corner as the origin. Thus, textures can appear vertically flipped. In this case, the user can flip the texture y-coordinates provided by RmlUi.
+
+#### Face culling
+
+If face culling is enabled, make sure to get the culled face direction correct. Otherwise you will get a blank window. Eg. by default OpenGL defines front faces to be in a counter-clockwise winding direction, and will cull back faces. Thus, in terms of the geometry submitted by RmlUi these defaults can be used. On the other hand, the DirectX convention is to use clockwise winding direction for front faces, thus, if back face culling is enabled you will get a blank screen. The solution is to either disable face culling, or set the culling to cull front faces and not back faces.
+
+#### Viewport
+
+Make sure to properly setup the viewport in your graphics API. This should typically correspond to the dimensions set on the `Rml::Context` being rendered.
+
+
 ### Rendering simple geometry
 
 If you do not provide function definitions for compiling geometry, or do not compile some geometry, RmlUi will call the `RenderGeometry()` function with geometry to be displayed:

@@ -249,7 +249,7 @@ Rml::ElementPtr div_element = Rml::Factory::InstanceElement(nullptr,
                                                                             Rml::XMLAttributes());
 ```
 
-The following will instance a radio button element using the Controls plugin input instancer, but gives it a tag of `radio`{:.tag}:
+The following will instance a radio button element using the library's `input` instancer, but gives it a tag of `radio`{:.tag}:
 
 ```cpp
 Rml::XMLAttributes attributes;
@@ -510,7 +510,7 @@ The only requirement on the element type that it is templated to is that the con
 
 ### Custom XML node handling
 
-For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, in the Controls plugin, columns in a data grid element are specified by `<col>`{:.tag} tags immediately beneath the `<datagrid>`{:.tag} tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
+For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, columns in a data grid element are specified by `<col>`{:.tag} tags immediately beneath the `<datagrid>`{:.tag} tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
 
 Node handlers are registered against RML tag names. When an RML file is being parsed, the XML parser maintains a stack of node handlers. Whenever a new tag is encountered, the parser checks if a specific node handler is registered against that tag; if so, that handler is pushed onto the stack and takes over the parsing until its associated tag is closed. If no handler is associated with a particular element, the current node handler continues parsing.
 
@@ -592,4 +592,4 @@ static Rml::XMLNodeHandler* RegisterNodeHandler(const Rml::String& tag,
 
 ### Samples
 
-Custom XML node handlers are used extensively in the Controls plugin; consult the source for the `XMLNodeHandlerDataGrid`, `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 
+Custom XML node handlers are used extensively by the included [element packages](element_packages.html); consult the source for the `XMLNodeHandlerDataGrid`, `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 
