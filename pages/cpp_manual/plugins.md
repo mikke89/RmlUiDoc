@@ -55,7 +55,7 @@ The `OnInitialise()` function will be called on all registered plugins when RmlU
 
 ### Registering a plugin
 
-To register a plugin, call the `RegisterPlugin()` function in `Rml::Core`.
+To register a plugin, call the `Rml::RegisterPlugin()` function.
 
 ```cpp
 Rml::Plugin* plugin = new CustomPlugin();

@@ -79,7 +79,7 @@ RmlUi will give you the opportunity to compile all geometry it renders into a fo
 virtual Rml::CompiledGeometryHandle CompileGeometry(Rml::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::TextureHandle texture);
 
 // Called by RmlUi when it wants to render application-compiled geometry.
-virtual void RenderCompiledGeometry(Rml::CompiledGeometryHandle geometry, const Core::Rml::Vector2f& translation);
+virtual void RenderCompiledGeometry(Rml::CompiledGeometryHandle geometry, const Rml::Vector2f& translation);
 
 // Called by RmlUi when it wants to release application-compiled geometry.
 virtual void ReleaseCompiledGeometry(Rml::CompiledGeometryHandle geometry);

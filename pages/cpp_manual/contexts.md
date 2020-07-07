@@ -21,7 +21,7 @@ Computer terminals or consoles in a 3D game world could themselves be RmlUi cont
 
 ### Creating a context
 
-To create a new context, use the `CreateContext()` function in `Rml::Core`.
+To create a new context, use the `Rml::CreateContext()` function.
 
 ```cpp
 // Creates a new element context.

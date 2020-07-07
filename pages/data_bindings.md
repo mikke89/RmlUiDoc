@@ -47,7 +47,7 @@ The `data-model` attribute declares that all its children elements here belong t
 
 The data model is first set up in C++. Using the above example, all that is needed is the following code.
 ```cpp
-using namespace Rml::Core;
+using namespace Rml;
 
 struct MyData {
 	String title = "Hello World!";
@@ -120,7 +120,7 @@ Notice the comparisons and additions used in some places? These are *data expres
 Next, let us define the data we want to use for this model.
 
 ```cpp
-using namespace Rml::Core;
+using namespace Rml;
 
 struct Invader {
 	String name;
@@ -160,7 +160,7 @@ There are three main data variable types supported in RmlUi:
 2. `Array`. A container which we can index into. The underlying type can be any data variable type.
 3. `Struct`. A collection of named members. Members can be any data variable type.
 
-Arithmetic types (eg. `int`, `float`), as well as `Rml::Core::String` are supported without the need to register them. Other types need to be registered first. The following C++ code demonstrates how to register the types for the above data, and bind the variables.
+Arithmetic types (eg. `int`, `float`), as well as `Rml::String` are supported without the need to register them. Other types need to be registered first. The following C++ code demonstrates how to register the types for the above data, and bind the variables.
 
 ```cpp
 bool SetupDataBinding(Context* context, DataModelHandle& invaders_model)
@@ -213,11 +213,10 @@ void Update(DataModelHandle invaders_model)
 	const double t_next_spawn = invaders_data.time_last_invader_spawn + 60.0 / double(invaders_data.incoming_invaders_rate);
 	if (t >= t_next_spawn)
 	{
-		using namespace Rml::Core;
 		const int num_items = 4;
-		static std::array<String, num_items> names = { "Angry invader", "Harmless invader", "Deceitful invader", "Cute invader" };
-		static std::array<String, num_items> sprites = { "icon-invader", "icon-flag", "icon-game", "icon-waves" };
-		static std::array<Colourb, num_items> colors = {{ { 255, 40, 30 }, {20, 40, 255}, {255, 255, 30}, {230, 230, 230} }};
+		static std::array<Rml::String, num_items> names = { "Angry invader", "Harmless invader", "Deceitful invader", "Cute invader" };
+		static std::array<Rml::String, num_items> sprites = { "icon-invader", "icon-flag", "icon-game", "icon-waves" };
+		static std::array<Rml::Colourb, num_items> colors = {{ { 255, 40, 30 }, {20, 40, 255}, {255, 255, 30}, {230, 230, 230} }};
 
 		Invader new_invader;
 		new_invader.name = names[rand() % num_items];
@@ -270,7 +269,7 @@ invaders.size
 a.very[5].long.data[99].address
 ```
 
-Arithmetic types (eg. `int`, `float`), as well as `Rml::Core::String` are supported without the need to register them. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation. 
+Arithmetic types (eg. `int`, `float`), as well as `Rml::String` are supported without the need to register them. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation. 
 
 
 ## Data expressions
@@ -399,10 +398,10 @@ Registers `T` as a Struct. The function returns an object which can be used to r
 struct Vec2 {
 	float x, y;
 	
-	void GetLength(Rml::Core::Variant& variant) {
+	void GetLength(Rml::Variant& variant) {
 		variant = Variant(std::sqrt(x*x + y*y));
 	}
-	void SetLength(const Rml::Core::Variant& variant) {
+	void SetLength(const Rml::Variant& variant) {
 		float new_length = variant.Get<float>();
 		float cur_length = std::sqrt(x*x + y*y);
 		x *= new_length / cur_length;
@@ -433,7 +432,7 @@ The first argument contains the value of the left hand side of the operator, and
 
 #### Binding data variables
 
-Data variables strictly apply to the current data model. The data variable is a a wrapper around a raw pointer - or a get/set function pair. The pointed-to type must first have been *registered* unless it is an arithmetic type (such as `int`, `char`, `float`), or `Rml::Core::String`. 
+Data variables strictly apply to the current data model. The data variable is a a wrapper around a raw pointer - or a get/set function pair. The pointed-to type must first have been *registered* unless it is an arithmetic type (such as `int`, `char`, `float`), or `Rml::String`. 
 
 Bind the data variables using the following functions.
 ```cpp
@@ -701,7 +700,7 @@ The special variable `ev` can be used inside the expressions to retrieve values 
 The referenced `add_mouse_pos` event callback is triggered when the element is clicked, which can be implemented in C++ as follows.
 
 ```cpp
-using namespace Rml::Core;
+using namespace Rml;
 
 std::vector<Vector2f> positions;
 

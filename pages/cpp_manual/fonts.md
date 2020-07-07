@@ -7,7 +7,7 @@ next: input
 
 TrueType and OpenType fonts can be loaded into RmlUi by the application. RmlUi has no default font, so at least one font must be loaded before text can be rendered.
 
-To load a font, call one of the `LoadFontFace()` functions in `Rml::Core`. The simplest of these takes a file name and an optional fallback parameter:
+To load a font, call one of the `Rml::LoadFontFace()` functions. The simplest of these takes a file name and an optional fallback parameter:
 
 ```cpp
 // Adds a new font face to the font engine. The face's family, style and weight will be determined from the face itself.
