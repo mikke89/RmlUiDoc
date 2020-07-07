@@ -24,9 +24,14 @@
 .mycontainer table th,
 .mycontainer table td
 {
-	text-align: left;
-	padding: 0 5px;
-	border: 1px solid #ccc;
+	padding: 6px 10px;
+	border: 1px solid #cbcbcb;
+}
+
+.mycontainer thead tr,
+.mycontainer tbody tr:nth-child(even)
+{
+	background-color: #fafafa;
 }
 
 .navbar-inner

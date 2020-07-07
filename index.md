@@ -26,9 +26,8 @@ description: RmlUi's documentation
 
 ### Features Documentation
 
-1. [Data binding (model-view-controller)]()
-2. [High DPI support]()
-3. [Localisation](pages/localisation.html)
+1. [Data binding (model-view-controller)](pages/data_bindings.html)
+2. [Localisation](pages/localisation.html)
 
 ### Tutorials
 

@@ -2,7 +2,7 @@
 layout: page
 title: Element packages
 parent: cpp_manual
-next: debugger
+next: scrollbars
 ---
 
 The included element packages contain custom elements for form controls (radio buttons, range sliders, etc), data tables, tabbed windows, and other useful RML elements. You are free to use the elements as-is in your application, or use the elements as a starting point for more specialised controls in your application. The elements are located in the `Include/RmlUi/Core/Elements/`{:.path} and `Source/Core/Elements/`{:.path} directories.
