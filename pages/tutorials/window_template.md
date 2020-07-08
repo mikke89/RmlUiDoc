@@ -507,4 +507,4 @@ The document is loaded on line 68 of main.cpp. Before the document is rendered, 
 	}
 ```
 
-In a real-world application, you can automate this by putting a `onload`{:.evt} event into the document template and setting the title in the event handler. 
+In a real-world application, you can automate this by putting a `load`{:.evt} event into the document template and setting the title in the event handler. 

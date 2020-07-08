@@ -57,10 +57,16 @@
 	padding-right: 0.4em;
 }
 
-pre code
+pre.highlight code
 {
 	font-size: 95%;
 	tab-size: 4;
+	white-space: pre;
+}
+
+pre.highlight
+{
+	overflow: auto;
 }
 
 blockquote p
@@ -85,6 +91,7 @@ dd
 .path, .incl, .tag, .attr, .prop, .value, .cls, .evt
 {
 	border: none;
+	padding: 3px 5px;
 }
 
 .path, .incl, .value, .cls

@@ -186,7 +186,7 @@ To register a custom decorator instancer with RmlUi, call the `RegisterDecorator
 // Registers an instancer that will be used to instance decorators.
 // @param[in] name The name of the decorator the instancer will be called for.
 // @param[in] instancer The instancer to call when the decorator name is encountered.
-// @lifetime The instancer must be kept alive until after the call to Core::Shutdown.
+// @lifetime The instancer must be kept alive until after the call to Rml::Shutdown.
 // @return The added instancer if the registration was successful, nullptr otherwise.
 static Rml::DecoratorInstancer* RegisterDecoratorInstancer(const Rml::String& name,
                                                                     Rml::DecoratorInstancer* instancer);

@@ -46,13 +46,13 @@ void ProcessMouseMove(int x, int y, int key_modifier_state);
 
 Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time `ProcessMouseMove()` was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
 
-* `onmousemove`{:.evt}
-* `onmouseover`{:.evt}
-* `onmouseout`{:.evt}
-* `ondragstart`{:.evt}
-* `ondrag`{:.evt}
-* `ondragover`{:.evt}
-* `ondragout`{:.evt}
+* `mousemove`{:.evt}
+* `mouseover`{:.evt}
+* `mouseout`{:.evt}
+* `dragstart`{:.evt}
+* `drag`{:.evt}
+* `dragover`{:.evt}
+* `dragout`{:.evt}
 
 #### Mouse buttons
 
@@ -72,17 +72,17 @@ void ProcessMouseButtonUp(int button_index, int key_modifier_state);
 
 `ProcessMouseButtonDown()` may generate any of the following events:
 
-* `onfocus`{:.evt}
-* `onblur`{:.evt}
-* `onmousedown`{:.evt}
+* `focus`{:.evt}
+* `blur`{:.evt}
+* `mousedown`{:.evt}
 
 `ProcessMouseButtonUp()` may generate:
 
-* `onmouseup`{:.evt}
-* `onclick`{:.evt}
-* `ondblclick`{:.evt}
-* `ondragdrop`{:.evt}
-* `ondragend`{:.evt}
+* `mouseup`{:.evt}
+* `click`{:.evt}
+* `dblclick`{:.evt}
+* `dragdrop`{:.evt}
+* `dragend`{:.evt}
 
 #### Mouse wheel
 
@@ -96,7 +96,7 @@ If you want to send mouse-wheel events to your documents, call the `ProcessMouse
 bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 ```
 
-`ProcessMouseWheel()` will generate an `onmousescroll`{:.evt} event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
+`ProcessMouseWheel()` will generate a `mousescroll`{:.evt} event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
 
 ### Key input
 
@@ -118,7 +118,7 @@ void ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_s
 void ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
-`ProcessKeyDown()` will generate an `onkeydown`{:.evt} event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the `onkeyup`{:.evt} event.
+`ProcessKeyDown()` will generate a `keydown`{:.evt} event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the `keyup`{:.evt} event.
 
 ### Text input
 
@@ -137,7 +137,7 @@ bool ProcessTextInput(char character);
 bool ProcessTextInput(const String& string);
 ```
 
-These functions will generate an `ontextinput`{:.evt} event targeted at the context's current focus element (if there is one).
+These functions will generate a `textinput`{:.evt} event targeted at the context's current focus element (if there is one).
 
 ### Sample input processing
 
