@@ -131,7 +131,7 @@ Note that neither of these functions actually attaches the new element to the do
 
 ### Custom documents
 
-All documents are instanced like normal elements from the 'body' tag. The process for [creating a custom document](elements.html#custom-elements) type is identical to that for creating a custom element, except you should derive from `Rml::ElementDocument` instead of `Rml::Element`, and only register the element instancer against the `<body>`{:.tag} tag.
+All documents are instanced like normal elements from the 'body' tag. The process for creating a custom document type is identical to that for [creating a custom element](custom_elements.html), except you should derive from `Rml::ElementDocument` instead of `Rml::Element`, and only register the element instancer against the `<body>`{:.tag} tag.
 
 If you register an instancer for the `<body>`{:.tag} tag that returns an element not derived from `Rml::ElementDocument`, documents will fail to load.
 

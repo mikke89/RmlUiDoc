@@ -27,18 +27,19 @@ title: C++ Manual
 
 1. [Elements](cpp_manual/elements.html)
 2. [Text elements](cpp_manual/text_elements.html)
-3. [Hidden elements](cpp_manual/hidden_elements.html)
-4. [Element packages](cpp_manual/element_packages.html)
+3. [Custom elements](cpp_manual/custom_elements.html)
+4. [Hidden elements](cpp_manual/hidden_elements.html)
+5. [Element packages](cpp_manual/element_packages.html)
     * [Form controls](cpp_manual/element_packages/form.html)
     * [Data grid](cpp_manual/element_packages/data_grid.html)
     * [Tab set](cpp_manual/element_packages/tab_set.html)
     * [Progress bar](cpp_manual/element_packages/progress_bar.html)
-5. [Scrollbars](cpp_manual/scrollbars.html)
-6. [Documents](cpp_manual/documents.html)
-7. [Contexts](cpp_manual/contexts.html)
-8. [Events](cpp_manual/events.html)
-9. [Style sheets and properties](cpp_manual/rcss.html)
-10. [Decorators](cpp_manual/decorators.html)
+6. [Scrollbars](cpp_manual/scrollbars.html)
+7. [Documents](cpp_manual/documents.html)
+8. [Contexts](cpp_manual/contexts.html)
+9. [Events](cpp_manual/events.html)
+10. [Style sheets and properties](cpp_manual/rcss.html)
+11. [Decorators](cpp_manual/decorators.html)
 
 
 ### Plugins
