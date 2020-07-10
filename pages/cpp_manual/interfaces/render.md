@@ -20,12 +20,12 @@ Before implementing the rendering API in RmlUi, the user should understand the f
 * The coordinate system of documents in RmlUi places the origin at the top-left corner of the window.
 * Indices define sets of triangles in a counter-clockwise winding order.
 * The generated textures in RmlUi use the convention that the origin is at the bottom left corner.
+* To handle transforms correctly, see the [transforms](#transforms) section.
 
 Other rendering assumptions.
 
 * Alpha blending should be enabled.
 * Textures should have their fetched color multiplied by the vertex color.
-* The 'Transform' matrix supplied by RmlUi does not include projection to the user's window, thus, the user should use a matrix which is the product of `Projection * Transform` to produce the vertex position output.
 
 #### Projection matrix 
 
@@ -148,9 +148,34 @@ Transforms allow the rendered location and size of any geometry to be modified, 
 
 ```cpp
 // Called by RmlUi when it wants the renderer to use a new transform matrix.
-// If no transform applies to the current element, nullptr is submitted. Then it expects the renderer to use an identity matrix or otherwise omit the multiplication with the transform.
+// If no transform applies to the current element, nullptr is submitted. Then it expects the renderer to use
+// an identity matrix or otherwise omit the multiplication with the transform.
 // @param[in] transform The new transform to apply, or nullptr if no transform applies to the current element.
 virtual void SetTransform(const Rml::Matrix4f* transform);
 ```
 
 A nullptr will be submitted when RmlUi wants to set the transform back to identity. This function is never called if there are no `transform`{:.prop} properties present.
+
+Important things to be aware of to get correct results:
+
+- The `Matrix4f` type is in **column-major** ordering. If your graphics API of choice takes row-major matrices, the matrix must first be transposed before submitting it to the graphics API.
+- When a draw call is received through one of the `Render...()` calls, the `translation` vector should first be applied to the position of the vertices. Then the resulting 2d-vector should be extended to a 4d-vector with elements `z = 0` and `w = 1` for correct results of the translation and perspective parts of the transform.
+- The provided `transform` matrix does not include projection to the user's window, thus, the user should create their own projection matrix `project` and use the product of `project * transform` to produce the vertex position output.
+- Make sure to set the *z*<sub>far</sub> and *z*<sub>near</sub> planes of your projection matrix sufficiently far away from the document plane (*z*=0) so that geometry is not clipped when it is rotated or translated into the *z*-axis.
+- When both a transform and scissor region is active, the scissor region must also have the `transform` matrix applied for correct results. One solution to this is to draw a rectangle with the position and dimensions of the scissor region into a stencil buffer with the transform applied. Then, when rendering vertices, use this stencil buffer to reject pixels outside of the drawn parts of the stencil buffer.
+
+Pseudo vertex shader code for the vertex positions:
+
+```c
+input Vec2 vertex_pos;
+input Vec2 translation;
+input Mat4 transform;
+input Mat4 project;
+
+output Vec4 frag_pos;
+
+void main() {
+	Vec4 pos_document = Vec4(vertex_pos + translation, 0, 1);
+	frag_pos = project * transform * pos_document; 
+}
+```
