@@ -281,7 +281,7 @@ The syntax resembles C++, and should be familiar for most programmers. The follo
 | Precedence| Operator        | Description                       |
 | --------- | ----------------| --------------------------------- |
 |   1       |  !              | Logical NOT.                      |
-|   2       |  \* \/          | Multiplication and division.      |
+|   2       |  \* /           | Multiplication and division.      |
 |   3       |  +              | Addition or string concatenation. |
 |   3       |  -              | Subtraction.                      |
 |   4       | == != < <= > => | Relational comparisons.           |
@@ -344,11 +344,11 @@ For now, assignment expressions can only be used in the `data-event` controller.
 | ---------------------------------------------------------------------   | --------------------- |
 | `rating < 80`                                                           | `1`                   |
 | `radius + 'm'`                                                          | `8.7m`                |
-| `(radius \| format(2)) + 'm'`                                           | `8.70m`               |
+| `(radius | format(2)) + 'm'`                                            | `8.70m`               |
 | `radius < 10.5 ? 'small' : 'large'`                                     | `small`               |
-| `'hot' + 'dog' \| to_upper`                                             | `HOTDOG`              |
+| `'hot' + 'dog' | to_upper`                                              | `HOTDOG`              |
 | `'x: ' + ev.mouse_x + '<br/>y: ' + ev.mouse_y`                          | `x: 128<br/>y: 958`   |
-| `true \|\| false ? (true && 3==1+2 ? 'Absolutely!' : 'well..') : 'no'`  | `Absolutely!`         |
+| `true || false ? (true && 3==1+2 ? 'Absolutely!' : 'well..') : 'no'`    | `Absolutely!`         |
 
 
 
