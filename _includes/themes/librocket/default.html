@@ -32,7 +32,7 @@
     <div class="navbar">
       <div class="navbar-inner">
         <div class="mycontainer">
-          <a class="brand" href="{{ HOME_URL }}">{{ site.title }}</a>
+          <a class="brand" href="{{ HOME_URL }}"><img src="{{ ASSETS_PATH }}/rmlui_bw.svg" width="24" height="28" alt=""/> {{ site.title }}</a>
           {% if page.parent %}
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
             {% capture grandparent_url %}/pages/{{ page.grandparent }}{% endcapture %}

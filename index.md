@@ -2,6 +2,7 @@
 layout: page
 title: RmlUi Documentation
 description: RmlUi's documentation
+can_edit: false
 ---
 
 ![rmlui-logo](assets/rmlui.png)

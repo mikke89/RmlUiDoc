@@ -39,16 +39,31 @@
 	padding: 0;
 }
 
+.navbar .brand
+{
+	line-height: 28px;
+	padding: 5px 20px;
+}
+.navbar .brand img
+{
+	vertical-align: top;
+	padding-right: 0.3em;
+}
+.navbar a
+{
+	text-decoration: none;
+	color: #777777;
+}
+.navbar a:hover
+{
+	color: #222;
+}
+
 .navbar .nav
 {
 	float: right;
-	padding: 10px 20px 10px;
-	font-size: 20px;
-}
-
-.navbar .nav a
-{
-	text-decoration: none;
+	padding: 10px 0px 10px 20px;
+	font-size: 17px;
 }
 
 .navbar .nav .divider
@@ -108,12 +123,33 @@ dd
 {
 	color: green;
 }
+
+.edit_page
+{
+	margin-top: -10px;
+	float: right;
+	padding: 1em 0em 1em 1em;
+}
+.edit_page a:before
+{
+	content: "\f09b ";
+	font-family: 'Font Awesome 5 Brands';
+	font-weight: 400;
+	font-style: normal;
+	font-size: 0.92em;
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 0.2em;
+	padding-right: 0.4em;
+}
+
 .status
 {
 	margin-top: -10px;
 	float: right;
 	position: relative;
 	padding: 1em 1.5em;
+	margin-left: 1em;
 	color: #fff;
 }
 .status hr { margin: 0; padding: 0; border: 1px solid rgba(255,255,255,0.5); }
@@ -137,6 +173,7 @@ a[href^="http"]:after {
 	padding-left: 0.4em;
 	padding-right: 0.2em;
 }
+.edit_page a:after { content: ""; }
 
 .bottom-nav a {
 	vertical-align: text-bottom;
