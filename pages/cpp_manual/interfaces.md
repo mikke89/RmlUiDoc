@@ -19,6 +19,17 @@ To install a custom interface, instance your interface and install it with the a
 ```cpp
 auto file_interface = std::make_unique<CustomFileInterface>();
 Rml::SetFileInterface(file_interface.get());
+
+/* ... */
+
+Rml::Initalise();
+
+/* ... */
+
+Rml::Shutdown();
+
+file_interface.reset();
+
 ```
 
 RmlUi takes non-owning pointers to the interfaces, thus, make sure to keep the interface alive until after the call to `Rml::Shutdown()`, and clean it up afterwards.
