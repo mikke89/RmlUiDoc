@@ -13,7 +13,7 @@ can_edit: false
 
 **[Gallery](pages/gallery.html)**
 
-***Note:*** RmlUi is currently undergoing some breaking changes in preparation for RmlUi 4.0. This documentation reflects the current master branch of RmlUi. If you are on RmlUi 3.x we encourage you to download the [offline documentation for RmlUi 3.3](https://github.com/mikke89/RmlUiDoc/releases/tag/3.3).
+***Note:*** RmlUi is currently undergoing some [breaking changes](https://github.com/mikke89/RmlUi/blob/master/changelog.md#rmlui-40-wip) in preparation for RmlUi 4.0. This documentation reflects the current master branch of RmlUi. If you are on RmlUi 3.x we encourage you to download the [offline documentation for RmlUi 3.3](https://github.com/mikke89/RmlUiDoc/releases/tag/3.3) or upgrade to the master branch.
 
 ### Programming Documentation
 
