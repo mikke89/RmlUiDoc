@@ -9,9 +9,11 @@ can_edit: false
 
 ### RmlUi
 
-[RmlUi]({{page.lib_site}}) is the C++ user interface library based on the HTML and CSS standards. The documentation is mostly kept up-to-date with the master branch. Documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
+[RmlUi]({{page.lib_site}}) is the C++ user interface library based on the HTML and CSS standards. The online documentation tracks the RmlUi master branch. Documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
 **[Gallery](pages/gallery.html)**
+
+***Note:*** RmlUi is currently undergoing some breaking changes in preparation for RmlUi 4.0. This documentation reflects the current master branch of RmlUi. If you are on RmlUi 3.x we encourage you to download the [offline documentation for RmlUi 3.3](https://github.com/mikke89/RmlUiDoc/releases/tag/3.3).
 
 ### Programming Documentation
 
