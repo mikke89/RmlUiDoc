@@ -63,6 +63,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `transform`{:.prop} | See [transforms](animations_transitions_transforms.html#transform-property) | none | all | no | | 
 `vertical-align`{:.prop} | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
 `visibility`{:.prop} | visible \| hidden | visible | all | no | | 
-`white-space`{:.prop} | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | block-level elements | yes | | 
+`white-space`{:.prop} | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
+`word-break`{:.prop} | normal \| break-all \| break-word | normal | all elements | yes | | 
 `width`{:.prop} | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
 `z-index`{:.prop} | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 

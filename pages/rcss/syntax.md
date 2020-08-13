@@ -107,7 +107,7 @@ color: rgba(255, 0, 0, 255);
 A style sheet can be either stored in an external file (usually with the extension .rcss) and referenced from an RML file, or declared inline inside an RML file. Referencing an external RCSS file is done using the `<link>`{:.tag} tag in the following manner:
 
 ```html
-<html>
+<rml>
 	<head>
 		<link type="text/css" href="sample.rcss" />
 
@@ -119,7 +119,7 @@ File paths are relative to the referencing document.
 Declaring an inline style sheet is done using the `<style>`{:.tag} tag, also within the <head> tag:
 
 ```html
-<html>
+<rml>
 	<head>
 		<style>
 			body

@@ -74,7 +74,7 @@ h1
 
 Value: | normal \| pre \| nowrap \| pre-wrap \| pre-line
 Initial: | normal
-Applies to: | block-level elements
+Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
@@ -94,6 +94,29 @@ This property defines how whitespace (any spaces, end-lines, carriage-returns an
 
 `pre-line`{:.value}
 : Sequences of whitespace are collapsed. Lines are broken to fit line boxes or where line breaks are present in the source. 
+
+### Breaking rules for text: the 'word-break' property
+
+`word-break`{:.prop}
+
+Value: | normal \| break-all \| break-word
+Initial: | normal
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+This property defines how text is broken into new lines where they otherwise would overflow. Values have the following meanings:
+
+`normal`{:.value}
+: Text is only broken at word boundaries (whitespace).
+
+`break-all`{:.value}
+: Word breaks can be inserted at any point to avoid overflow.
+
+`break-word`{:.value}
+: Text is normally broken at word boundaries, but a word break can be inserted anywhere when a single word in the line would otherwise result in overflow.
+
+These properties will only take effect if the `white-space`{:.prop} property allows wrapping.
 
 ### Text transform: the 'text-transform' property
 
