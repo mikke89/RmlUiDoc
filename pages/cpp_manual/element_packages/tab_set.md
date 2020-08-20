@@ -88,7 +88,7 @@ void RemoveTab(int tab_index);
 
 ### Applying properties
 
-Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. By default, all tabs have their `display`{:.prop} property set to _inline-block_, as required for a horizontal layout. If you want to change this behaviour, you will need to edit the tab creation code in `ElementTabSet.cpp`{:.path}.
+Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. For a horizontal layout, the `display`{:.prop} properties of tabs should be set to *inline-block*. For panels, the `display`{:.prop} can be set to *block* for typical layout scenarios. Note that panels will automatically have their `display`{:.prop} property set to *none* on the local element style when they are not the active tab. Subsequently, when a panel is activated the `display`{:.prop} property is removed from the local element style, effectively activating the property set in the RCSS document. Thus, ensure that the  `display`{:.prop} property is added to the RCSS document rather than as inline style for panel elements.
 
 The diagram below details the internal hierarchy of the tab set.
 
@@ -116,6 +116,7 @@ tabset tabs
 /* Force each tab to only take up 50 pixels across the tabs element. */
 tabset tab
 {
+	display: inline-block;
 	width: 50px;
 }
 
