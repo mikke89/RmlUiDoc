@@ -17,6 +17,8 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | \<color\> | black | all | no | | 
 `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
 `border-width`{:.prop} | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | | 
+[`border-top-left-radius`{:.prop}][border-radius] [`border-top-right-radius`{:.prop}][border-radius] [`border-bottom-right-radius`{:.prop}][border-radius] [`border-bottom-left-radius`{:.prop}][border-radius] | \<length\> | 0px | all | no | | Percentages and two-axis radii not supported. |
+[`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
 `bottom`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | No 'auto'.
 `clear`{:.prop} | left \| right \| both \| none | none | block-level elements | no | | 
 `clip`{:.prop} | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
@@ -67,3 +69,6 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `word-break`{:.prop} | normal \| break-all \| break-word | normal | all elements | yes | | 
 `width`{:.prop} | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
 `z-index`{:.prop} | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
+
+
+[border-radius]: colours_backgrounds.html#border-radius

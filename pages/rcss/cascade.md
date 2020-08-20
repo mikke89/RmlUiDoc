@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Assigning property values, Cascading and Inheritance
+title: Assigning property values, cascading, and inheritance
 parent: rcss
 next: box_model
 ---

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Colours and backgrounds
+title: Colours, backgrounds, and rounded corners
 parent: rcss
 next: fonts
 ---
@@ -35,6 +35,26 @@ This property sets the color of the element's generated boxes. The background co
 
 An alias for `background-color`{:.prop}.
 
+### Rounded corners
+{:#border-radius}
+
+<img alt="cmake-gui" src="../../assets/images/border-radius.png" style="max-width: 50%">
+
+The border radius properties can be used to draw rounded backgrounds and borders.
+
+`border-top-left-radius`{:.prop}, `border-top-right-radius`{:.prop}, `border-bottom-right-radius`{:.prop}, `border-bottom-left-radius`{:.prop}
+
+Value: | \<length\>
+Initial: | 0px
+Applies to: | all elements
+Inherited: | no
+Percentages: | N/A
+
+The properties set the radius of the outer border edge for the given corner. Backgrounds and borders will be shaped accordingly. Decorators do not always respect this property, currently, only the [gradient decorator](decorators/gradient.html) will properly clip to the rounded corner. Note that unlike CSS, RmlUi does not support percentages or elliptic values (two values per corner).
+
+`border-radius`{:.prop}
+
+A shorthand property for setting all four border radii properties at once. If there is only one value, it applies to all corners. If there are two values, the first applies to the top-left and bottom-right, the second to bottom-left and top-right. If there are three values, the first applies to the top-left, the second to bottom-left and top-right, the third to the bottom-right. If there are four values, they are applied to top-left, top-right, bottom-right, bottom-left respectively.
 
 ### Opacity
 
