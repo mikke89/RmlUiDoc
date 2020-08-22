@@ -18,6 +18,29 @@ Percentages: | N/A
 This property defines the cursor to display while the mouse is hovering over the element. The value is submitted directly through the [system interface](../cpp_manual/interfaces/system.html) if the element's [context](../cpp_manual/contexts.html#mouse-cursor) is set to enable cursors.
 
 
+### Box sizing
+{:#box-sizing}
+
+`box-sizing`{:.prop}
+
+Value: | content-box \| border-box
+Initial: | content-box
+Applies to: | block and replaced inline elements
+Inherited: | no
+Percentages: | N/A
+
+Determines how widths and heights are calculated.
+
+`content-box`{:.value}
+: This is the normal behavior. The `width`{:.prop} and `height`{:.prop} properties set the size of the *content box*.
+
+`border-box`{:.value}
+: The `width`{:.prop} and `height`{:.prop} properties set the size of the *border box*. This includes the content, padding and border, but not the margins. The sizes of the content box is calculated by subtracting the padding and border size, and is then floored at zero. 
+
+Setting the value to `border-box`{:.value} can be valuable for laying out elements to fit on a line, especially when combining percentages and lengths for widths or heights, paddings, and borders. For example, if you have two elements of `width: 50%`{:.value} and some positive length for the border, they will not normally fit on a line. However, by applying `box-sizing: border-box`{:.value} to the elements they will be able to fit next to each other.
+
+This property takes no effect for `auto`{:.value} values of `width`{:.prop} or `height`{:.prop}. 
+
 ### Pointer events: the 'pointer-events' property
 
 `pointer-events`{:.prop}

@@ -50,7 +50,7 @@ If any of a box's `width`{:.prop}, `margin-left`{:.prop} or `margin-right`{:.pro
 
 * For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `width`{:.prop} is ignored.
 * For an inline replaced box, `auto`{:.value} margins are set to '0'. A `width`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
-* For a block box, the formula `margin-left + border-left-width + padding-left + 'width' + padding-right + border-right-width + margin-right = containing block width` must hold true. If `width`{:.prop} is `auto`{:.value}, then any `auto`{:.value} margins are set to '0' and the box width is set to the appropriate value. Otherwise, the inequality in the equation is split evenly between the auto-margins. 
+* For a block box, the formula `margin-left + border-left-width + padding-left + 'content width' + padding-right + border-right-width + margin-right = containing block width` must hold true. If `width`{:.prop} is `auto`{:.value}, then any `auto`{:.value} margins are set to '0' and the box width is set to the appropriate value. Otherwise, the inequality in the equation is split evenly between the auto-margins. 
 
 This is different from the CSS equation in the following ways:
 
@@ -70,7 +70,7 @@ Percentages: | relative to the width of the containing block
 `max-width`{:.prop}
 
 Value: | \<length\> \| \<percentage\>
-Initial: | -1
+Initial: | -1px
 Applies to: | block and replaced inline elements
 Inherited: | no
 Percentages: | relative to the width of the containing block
@@ -124,7 +124,7 @@ If any of a box's `height`{:.prop}, `margin-top`{:.prop} or `margin-bottom`{:.pr
 
 * For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `height`{:.prop} is ignored.
 * For an inline replaced box, `auto`{:.value} margins are set to '0'. A `height`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
-* For a block box with a fixed height, the formula `margin-top + border-top-width + padding-top + height + padding-bottom + border-bottom-width + margin-bottom = containing block height` must hold true. The inequality in the equation is split evenly between the auto-margins.
+* For a block box with a fixed height, the formula `margin-top + border-top-width + padding-top + 'content height' + padding-bottom + border-bottom-width + margin-bottom = containing block height` must hold true. The inequality in the equation is split evenly between the auto-margins.
 * For a block box with an `auto`{:.value} height, any `auto`{:.value} margins are set to '0', and the height will stretch to fit the box's content exactly. 
 
 This is different from the CSS equation in the following ways:
@@ -146,7 +146,7 @@ Percentages: | relative to the height of the containing block
 `max-height`{:.prop}
 
 Value: | \<length\> \| \<percentage\>
-Initial: | -1
+Initial: | -1px
 Applies to: | block and replaced inline elements
 Inherited: | no
 Percentages: | relative to the height of the containing block

@@ -20,6 +20,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`border-top-left-radius`{:.prop}][border-radius] [`border-top-right-radius`{:.prop}][border-radius] [`border-bottom-right-radius`{:.prop}][border-radius] [`border-bottom-left-radius`{:.prop}][border-radius] | \<length\> | 0px | all | no | | Percentages and two-axis radii not supported. |
 [`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
 `bottom`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | No 'auto'.
+[`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
 `clear`{:.prop} | left \| right \| both \| none | none | block-level elements | no | | 
 `clip`{:.prop} | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
 `color`{:.prop} | \<colour\> | black | all | yes | | 
@@ -72,3 +73,4 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 
 
 [border-radius]: colours_backgrounds.html#border-radius
+[box-sizing]: user_interface.html#box-sizing

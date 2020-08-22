@@ -25,9 +25,10 @@ The virtual functions that can be overridden in a custom element are:
 virtual float GetBaseline() const;
 
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
-// @param[in] dimensions The dimensions to size, if appropriate.
+// @param[out] dimensions The dimensions to size, if appropriate.
+// @param[out] ratio The intrinsic ratio (width/height), if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(Rml::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions(Rml::Vector2f& dimensions, float& ratio);
 
 // Called when an emitted event propagates to this element, for event types with default actions.
 // Note: See 'EventSpecification' for the events that call this function and during which phase.
@@ -67,12 +68,13 @@ A custom element can override the `GetIntrinsicDimensions()` function if it want
 
 ```cpp
 // Gets the intrinsic dimensions of this element, if it is of a type that has an inherent size.
-// @param[in] dimensions The dimensions to size, if appropriate.
+// @param[out] dimensions The dimensions to size, if appropriate.
+// @param[out] ratio The intrinsic ratio (width/height), if appropriate.
 // @return True if the element has intrinsic dimensions, false otherwise.
-virtual bool GetIntrinsicDimensions(Rml::Vector2f& dimensions);
+virtual bool GetIntrinsicDimensions(Rml::Vector2f& dimensions, float& ratio);
 ```
 
-If a custom element is to be a replaced element, it should override this function and return true. The actual intrinsic dimensions of the element should be put into the dimensions parameter. This function will be called every time the element is laid out, so the dimension can be a dynamic value. The default element returns false.
+If a custom element is to be a replaced element, it should override this function and return true. The actual intrinsic dimensions of the element should be put into the dimensions parameter. If the element has an intrinsic ratio, this can be set on the ratio parameter, either in addition or instead of the dimensions parameter. This function will be called every time the element is laid out, so the parameters can be dynamic values. The default element returns false.
 
 A custom replaced element (ie, one with intrinsic dimensions) can override the `GetBaseline()` function if it wants to change its reference point for horizontal positioning on a line.
 
