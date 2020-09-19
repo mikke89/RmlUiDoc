@@ -13,3 +13,5 @@ The Lua implementation works analogous to the old [Python scripting implementati
 ## Interfaces
 
 ## Appendix
+
+1. [API reference](lua_manual/api_reference.html)
