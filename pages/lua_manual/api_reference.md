@@ -6,11 +6,11 @@ status: improve
 
 All instantiable classes define a `new()` method which returns an object of that particular class. 
 
-With the exception of this `new()` method, all functions listed will be member methods.
+With the exception of this `new()` method, all members listed will be member methods.
 
 ## ElementDataGrid
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 ElementDataGrid derives from Element. The data grid has the following methods and properties:
 
@@ -18,15 +18,15 @@ ElementDataGrid derives from Element. The data grid has the following methods an
 
 | Types | Name |
 | ------------ | ---- |
-| ElementDataGridRow{: .type } | rows |
+| `ElementDataGridRow`{: .type } | rows |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | AddColumn(string{: .type } fields, string{: .type } formatter, number{: .type } initial_width, string{: .type } header_rml) |
-| nil{: .type } | SetDataSource(string{: .type } data_source_name) |
+| `nil`{: .type } | AddColumn(`string`{: .type } fields, `string`{: .type } formatter, `number`{: .type } initial_width, `string`{: .type } header_rml) |
+| `nil`{: .type } | SetDataSource(`string`{: .type } data_source_name) |
 
 
 ### Metafunctions
@@ -36,27 +36,27 @@ ElementDataGrid derives from Element. The data grid has the following methods an
 
 ### Property Descriptions
 
-*  ElementDataGridRow{: .type } rows
+*  `ElementDataGridRow`{: .type } rows
 
-Returns an array containing all the rows in the data grid.
+> Returns an array containing all the rows in the data grid.
 
 
 
 ### Method Descriptions
 
-* nil AddColumn(string{: .type } fields, string{: .type } formatter, number{: .type } initial_width, string{: .type } header_rml)
+* `nil`{: .type} AddColumn(`string`{: .type } fields, `string`{: .type } formatter, `number`{: .type } initial_width, `string`{: .type } header_rml)
 
-Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. header_rml specifies the RML content of the column's header.
+> Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. header_rml specifies the RML content of the column's header.
 
-* nil SetDataSource(string{: .type } data_source_name)
+* `nil`{: .type} SetDataSource(`string`{: .type } data_source_name)
 
-Sets the name and table of the new data source to be used by the data grid.
+> Sets the name and table of the new data source to be used by the data grid.
 
 
 
 ## Colourb
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 Constructs a colour with four channels, each from 0 to 255.
 
@@ -64,18 +64,18 @@ Constructs a colour with four channels, each from 0 to 255.
 
 | Types | Name |
 | ------------ | ---- |
-| integer{: .type } | blue |
-| integer{: .type } | green |
-| integer{: .type } | rgba |
-| integer{: .type } | alpha |
-| integer{: .type } | red |
+| `integer`{: .type } | blue |
+| `integer`{: .type } | green |
+| `integer`{: .type } | rgba |
+| `integer`{: .type } | alpha |
+| `integer`{: .type } | red |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| Colourb | new() |
+| `Colourb`{: .type} | new() |
 
 
 ### Metafunctions
@@ -89,39 +89,39 @@ Constructs a colour with four channels, each from 0 to 255.
 
 ### Property Descriptions
 
-*  integer{: .type } blue
+*  `integer`{: .type } blue
 
+> 
 
+*  `integer`{: .type } green
 
-*  integer{: .type } green
+> 
 
+*  `integer`{: .type }, `integer`{: .type }, `integer`{: .type }, `integer`{: .type } rgba
 
+> 
 
-*  integer{: .type }, integer{: .type }, integer{: .type }, integer{: .type } rgba
+*  `integer`{: .type } alpha
 
+> 
 
+*  `integer`{: .type } red
 
-*  integer{: .type } alpha
-
-
-
-*  integer{: .type } red
-
-
+> 
 
 
 
 ### Method Descriptions
 
-* nil Colourbnew()
+* `nil`{: .type} new()
 
-
+> 
 
 
 
 ## Colourf
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -129,18 +129,18 @@ Inherits: nil{: .type }
 
 | Types | Name |
 | ------------ | ---- |
-| number{: .type } | blue |
-| number{: .type } | green |
-| number{: .type } | rgba |
-| number{: .type } | alpha |
-| number{: .type } | red |
+| `number`{: .type } | blue |
+| `number`{: .type } | green |
+| `number`{: .type } | rgba |
+| `number`{: .type } | alpha |
+| `number`{: .type } | red |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| Colourf | new() |
+| `Colourf`{: .type} | new() |
 
 
 ### Metafunctions
@@ -152,39 +152,39 @@ Inherits: nil{: .type }
 
 ### Property Descriptions
 
-*  number{: .type } blue
+*  `number`{: .type } blue
 
+> 
 
+*  `number`{: .type } green
 
-*  number{: .type } green
+> 
 
+*  `number`{: .type }, `number`{: .type }, `number`{: .type }, `number`{: .type } rgba
 
+> 
 
-*  number{: .type }, number{: .type }, number{: .type }, number{: .type } rgba
+*  `number`{: .type } alpha
 
+> 
 
+*  `number`{: .type } red
 
-*  number{: .type } alpha
-
-
-
-*  number{: .type } red
-
-
+> 
 
 
 
 ### Method Descriptions
 
-* nil Colourfnew()
+* `nil`{: .type} new()
 
-
+> 
 
 
 
 ## Vector2i
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 Constructs a two-dimensional integral vector.
 
@@ -192,16 +192,16 @@ Constructs a two-dimensional integral vector.
 
 | Types | Name |
 | ------------ | ---- |
-| number{: .type } | magnitude |
-| integer{: .type } | y |
-| integer{: .type } | x |
+| `number`{: .type } | magnitude |
+| `integer`{: .type } | y |
+| `integer`{: .type } | x |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| Vector2i | new() |
+| `Vector2i`{: .type} | new() |
 
 
 ### Metafunctions
@@ -217,31 +217,31 @@ Constructs a two-dimensional integral vector.
 
 ### Property Descriptions
 
-*  number{: .type } magnitude
+*  `number`{: .type } magnitude
 
+> 
 
+*  `integer`{: .type } y
 
-*  integer{: .type } y
+> 
 
+*  `integer`{: .type } x
 
-
-*  integer{: .type } x
-
-
+> 
 
 
 
 ### Method Descriptions
 
-* nil Vector2inew()
+* `nil`{: .type} new()
 
-
+> 
 
 
 
 ## Vector2f
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 Constructs a two-dimensional floating-point vector.
 
@@ -249,19 +249,19 @@ Constructs a two-dimensional floating-point vector.
 
 | Types | Name |
 | ------------ | ---- |
-| number{: .type } | y |
-| number{: .type } | magnitude |
-| number{: .type } | x |
+| `number`{: .type } | y |
+| `number`{: .type } | magnitude |
+| `number`{: .type } | x |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| Vector2f{: .type }<br> | Rotate(number{: .type } ) |
-| Vector2f{: .type }<br> | Normalise() |
-| number{: .type }<br> | DotProduct(Vector2f{: .type } ) |
-| Vector2f | new() |
+| `Vector2f`{: .type }<br> | Rotate(`number`{: .type } ) |
+| `Vector2f`{: .type }<br> | Normalise() |
+| `number`{: .type }<br> | DotProduct(`Vector2f`{: .type } ) |
+| `Vector2f`{: .type} | new() |
 
 
 ### Metafunctions
@@ -277,43 +277,43 @@ Constructs a two-dimensional floating-point vector.
 
 ### Property Descriptions
 
-*  number{: .type } y
+*  `number`{: .type } y
 
+> 
 
+*  `number`{: .type } magnitude
 
-*  number{: .type } magnitude
+> 
 
+*  `number`{: .type } x
 
-
-*  number{: .type } x
-
-
+> 
 
 
 
 ### Method Descriptions
 
-*  Vector2f{: .type } Rotate(number{: .type } )
+*  `Vector2f`{: .type } Rotate(`number`{: .type } )
 
+> 
 
+*  `Vector2f`{: .type } Normalise()
 
-*  Vector2f{: .type } Normalise()
+> 
 
+*  `number`{: .type } DotProduct(`Vector2f`{: .type } )
 
+> 
 
-*  number{: .type } DotProduct(Vector2f{: .type } )
+* `nil`{: .type} new()
 
-
-
-* nil Vector2fnew()
-
-
+> 
 
 
 
 ## ElementStyleProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -347,7 +347,7 @@ Inherits: nil{: .type }
 
 ## ContextDocumentsProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -380,7 +380,7 @@ Inherits: nil{: .type }
 
 ## SelectOptionsProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -413,7 +413,7 @@ Inherits: nil{: .type }
 
 ## RmlUiContextsProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -446,7 +446,7 @@ Inherits: nil{: .type }
 
 ## Log
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -459,7 +459,7 @@ Inherits: nil{: .type }
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | LogMessage() |
+| `nil`{: .type } | LogMessage() |
 
 
 ### Metafunctions
@@ -473,15 +473,15 @@ Inherits: nil{: .type }
 
 ### Method Descriptions
 
-* nil LogMessage()
+* `nil`{: .type} Message()
 
-
+> 
 
 
 
 ## ElementChildNodesProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -514,7 +514,7 @@ Inherits: nil{: .type }
 
 ## Document
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 Document derives from Element. Document has no constructor; it must be instantiated through a Context object instead, either by loading an external RML file or creating an empty document. It has the following methods and properties:
 
@@ -522,21 +522,21 @@ Document derives from Element. Document has no constructor; it must be instantia
 
 | Types | Name |
 | ------------ | ---- |
-| string{: .type } | title |
-| Context{: .type } | context |
+| `string`{: .type } | title |
+| `Context`{: .type } | context |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | Hide() |
-| nil{: .type } | Show(integer{: .type } [flags]) |
-| nil{: .type } | PushToBack() |
-| nil{: .type } | Close() |
-| ElementPtr{: .type }<br> | CreateElement(string{: .type } tag_name) |
-| ElementPtr{: .type }<br> | CreateTextNode(string{: .type } text) |
-| nil{: .type } | PullToFront() |
+| `nil`{: .type } | Hide() |
+| `nil`{: .type } | Show(`integer`{: .type } [flags]) |
+| `nil`{: .type } | PushToBack() |
+| `nil`{: .type } | Close() |
+| `ElementPtr`{: .type }<br> | CreateElement(`string`{: .type } tag_name) |
+| `ElementPtr`{: .type }<br> | CreateTextNode(`string`{: .type } text) |
+| `nil`{: .type } | PullToFront() |
 
 
 ### Metafunctions
@@ -546,51 +546,51 @@ Document derives from Element. Document has no constructor; it must be instantia
 
 ### Property Descriptions
 
-*  string{: .type } title
+*  `string`{: .type } title
 
-The title of the document, as initially set by the \<title\> tag in the document's header.
+> The title of the document, as initially set by the \<title\> tag in the document's header.
 
-*  Context{: .type } context
+*  `Context`{: .type } context
 
-The context the document belongs to. Read-only.
+> The context the document belongs to. Read-only.
 
 
 
 ### Method Descriptions
 
-* nil Hide()
+* `nil`{: .type} Hide()
 
-Hides the document.
+> Hides the document.
 
-* nil Show(integer{: .type } [flags])
+* `nil`{: .type} Show(`integer`{: .type } [flags])
 
-Shows the document. flags is either NONE, FOCUS or MODAL. flags defaults to FOCUS.
+> Shows the document. flags is either NONE, FOCUS or MODAL. flags defaults to FOCUS.
 
-* nil PushToBack()
+* `nil`{: .type} PushToBack()
 
-Pushes the document behind other documents within its context with a similar z-index.
+> Pushes the document behind other documents within its context with a similar z-index.
 
-* nil Close()
+* `nil`{: .type} Close()
 
-Hides and closes the document, destroying its contents.
+> Hides and closes the document, destroying its contents.
 
-*  ElementPtr{: .type } CreateElement(string{: .type } tag_name)
+*  `ElementPtr`{: .type } CreateElement(`string`{: .type } tag_name)
 
-Instances an element with a tag of tag_name.
+> Instances an element with a tag of tag_name.
 
-*  ElementPtr{: .type } CreateTextNode(string{: .type } text)
+*  `ElementPtr`{: .type } CreateTextNode(`string`{: .type } text)
 
-Instances a text element containing the string text.
+> Instances a text element containing the string text.
 
-* nil PullToFront()
+* `nil`{: .type} PullToFront()
 
-Pulls the document in front of other documents within its context with a similar z-index.
+> Pulls the document in front of other documents within its context with a similar z-index.
 
 
 
 ## IElementText
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 IElementText derives from Element. IElementText is an interface, and therefore cannot be instanced directly. A concrete ElementText must be instantiated through a Document object instead. It has the following property:
 
@@ -598,7 +598,7 @@ IElementText derives from Element. IElementText is an interface, and therefore c
 
 | Types | Name |
 | ------------ | ---- |
-| nil{: .type } | text |
+| `nil`{: .type } | text |
 
 
 ### Methods
@@ -613,9 +613,9 @@ IElementText derives from Element. IElementText is an interface, and therefore c
 
 ### Property Descriptions
 
-* nil{: .type } text
+* `nil`{: .type } text
 
-The raw text content of the text element in UTF-8 encoding.
+> The raw text content of the text element in UTF-8 encoding.
 
 
 
@@ -625,7 +625,7 @@ The raw text content of the text element in UTF-8 encoding.
 
 ## ElementInstancer
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -638,8 +638,8 @@ Inherits: nil{: .type }
 
 | Return value | Name |
 | ------------ | ---- |
-| value{: .type }<br> | InstanceElement(ElementInstancer{: .type } ) |
-| ElementInstancer | new() |
+| `value`{: .type }<br> | InstanceElement(`ElementInstancer`{: .type } ) |
+| `ElementInstancer`{: .type} | new() |
 
 
 ### Metafunctions
@@ -653,19 +653,19 @@ Inherits: nil{: .type }
 
 ### Method Descriptions
 
-*  value{: .type } InstanceElement(ElementInstancer{: .type } )
+*  `value`{: .type } InstanceElement(`ElementInstancer`{: .type } )
 
+> 
 
+* `nil`{: .type} new()
 
-* nil ElementInstancernew()
-
-
+> 
 
 
 
 ## DataFormatter
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -678,8 +678,8 @@ Inherits: nil{: .type }
 
 | Return value | Name |
 | ------------ | ---- |
-| DataFormatter | new() |
-| value{: .type }<br> | FormatData(DataFormatter{: .type } ) |
+| `DataFormatter`{: .type} | new() |
+| `value`{: .type }<br> | FormatData(`DataFormatter`{: .type } ) |
 
 
 ### Metafunctions
@@ -693,19 +693,19 @@ Inherits: nil{: .type }
 
 ### Method Descriptions
 
-* nil DataFormatternew()
+* `nil`{: .type} new()
 
+> 
 
+*  `value`{: .type } FormatData(`DataFormatter`{: .type } )
 
-*  value{: .type } FormatData(DataFormatter{: .type } )
-
-
+> 
 
 
 
 ## ElementAttributesProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -738,7 +738,7 @@ Inherits: nil{: .type }
 
 ## ElementPtr
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -767,7 +767,7 @@ Inherits: nil{: .type }
 
 ## LuaDataSource
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -780,7 +780,7 @@ Inherits: nil{: .type }
 
 | Return value | Name |
 | ------------ | ---- |
-| LuaDataSource | new() |
+| `LuaDataSource`{: .type} | new() |
 
 
 ### Metafunctions
@@ -794,15 +794,15 @@ Inherits: nil{: .type }
 
 ### Method Descriptions
 
-* nil DataSourcenew()
+* `nil`{: .type} DataSourcenew()
 
-
+> 
 
 
 
 ## ElementFormControlDataSelect
 
-Inherits: ElementFormControlSelect{: .type }
+Inherits: `ElementFormControlSelect`{: .type }
 
 ElementFormControlDataSelect derives from ElementFormControlSelect. It has the following additional method:
 
@@ -815,7 +815,7 @@ ElementFormControlDataSelect derives from ElementFormControlSelect. It has the f
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | SetDataSource(string{: .type } data_source_name) |
+| `nil`{: .type } | SetDataSource(`string`{: .type } data_source_name) |
 
 
 ### Metafunctions
@@ -829,15 +829,15 @@ ElementFormControlDataSelect derives from ElementFormControlSelect. It has the f
 
 ### Method Descriptions
 
-* nil SetDataSource(string{: .type } data_source_name)
+* `nil`{: .type} SetDataSource(`string`{: .type } data_source_name)
 
-Sets the name and table of the new data source to be used by the select box.
+> Sets the name and table of the new data source to be used by the select box.
 
 
 
 ## ElementForm
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 ElementForm derives from Element. The form element has the following method:
 
@@ -850,7 +850,7 @@ ElementForm derives from Element. The form element has the following method:
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | Submit(string{: .type } submit_value) |
+| `nil`{: .type } | Submit(`string`{: .type } submit_value) |
 
 
 ### Metafunctions
@@ -864,15 +864,15 @@ ElementForm derives from Element. The form element has the following method:
 
 ### Method Descriptions
 
-* nil Submit(string{: .type } submit_value)
+* `nil`{: .type} Submit(`string`{: .type } submit_value)
 
-Submits the form with a submit value of submit_value.
+> Submits the form with a submit value of submit_value.
 
 
 
 ## ElementText
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 
 
@@ -880,7 +880,7 @@ Inherits: Element{: .type }
 
 | Types | Name |
 | ------------ | ---- |
-| string{: .type } | text |
+| `string`{: .type } | text |
 
 
 ### Methods
@@ -895,9 +895,9 @@ Inherits: Element{: .type }
 
 ### Property Descriptions
 
-*  string{: .type } text
+*  `string`{: .type } text
 
-
+> 
 
 
 
@@ -907,7 +907,7 @@ Inherits: Element{: .type }
 
 ## Element
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 The Element class has no constructor; it must be instantiated through a [Document](#document) object instead. It has the following methods and properties:
 
@@ -915,58 +915,58 @@ The Element class has no constructor; it must be instantiated through a [Documen
 
 | Types | Name |
 | ------------ | ---- |
-| nil{: .type } | next_sibling |
-| Document{: .type } | owner_document |
-| string{: .type } | class_name |
-| Element{: .type } | offset_parent |
-| number{: .type } | scroll_height |
-| number{: .type } | scroll_left |
-| number{: .type } | offset_width |
-| string{: .type } | id |
-| nil{: .type } | first_child |
-| nil{: .type } | last_child |
-| number{: .type } | client_left |
-| ElementChildNodesProxy{: .type } | child_nodes |
-| nil{: .type } | previous_sibling |
-| number{: .type } | client_height |
-| number{: .type } | scroll_top |
-| number{: .type } | offset_top |
-| ElementStyleProxy{: .type } | style |
-| number{: .type } | scroll_width |
-| number{: .type } | client_top |
-| number{: .type } | offset_left |
-| number{: .type } | offset_height |
-| string{: .type } | tag_name |
-| string{: .type } | inner_rml |
-| number{: .type } | client_width |
-| ElementAttributesProxy{: .type } | attributes |
-| nil{: .type } | parent_node |
+| `nil`{: .type } | next_sibling |
+| `Document`{: .type } | owner_document |
+| `string`{: .type } | class_name |
+| `Element`{: .type } | offset_parent |
+| `number`{: .type } | scroll_height |
+| `number`{: .type } | scroll_left |
+| `number`{: .type } | offset_width |
+| `string`{: .type } | id |
+| `nil`{: .type } | first_child |
+| `nil`{: .type } | last_child |
+| `number`{: .type } | client_left |
+| `ElementChildNodesProxy`{: .type } | child_nodes |
+| `nil`{: .type } | previous_sibling |
+| `number`{: .type } | client_height |
+| `number`{: .type } | scroll_top |
+| `number`{: .type } | offset_top |
+| `ElementStyleProxy`{: .type } | style |
+| `number`{: .type } | scroll_width |
+| `number`{: .type } | client_top |
+| `number`{: .type } | offset_left |
+| `number`{: .type } | offset_height |
+| `string`{: .type } | tag_name |
+| `string`{: .type } | inner_rml |
+| `number`{: .type } | client_width |
+| `ElementAttributesProxy`{: .type } | attributes |
+| `nil`{: .type } | parent_node |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | AddEventListener(BOOL{: .type } event, string{: .type } listener[, lua_type{: .type } in_capture_phase]) |
-| nil{: .type } | SetAttribute(string{: .type } name, string{: .type } value) |
-| boolean{: .type }<br> | RemoveChild(Element{: .type } element) |
-| Element{: .type }<br> | GetElementById(string{: .type } id) |
-| boolean{: .type }<br> | HasChildNodes() |
-| nil{: .type }<br> | DispatchEvent(string{: .type } event, lua_type{: .type } parameters, string{: .type } interruptible) |
-| nil{: .type } | AppendChild(ElementPtr{: .type } element) |
-| nil{: .type } | RemoveAttribute(string{: .type } name) |
-| Variant{: .type }<br> | GetAttribute(string{: .type } name) |
-| integer{: .type }<br>Element{: .type }<br>settable{: .type }<br> | GetElementsByTagName(string{: .type } tag_name) |
-| boolean{: .type }<br> | IsClassSet(string{: .type } name) |
-| nil{: .type } | ScrollIntoView(BOOL{: .type } align_with_top) |
-| nil{: .type } | SetClass(string{: .type } name, BOOL{: .type } value) |
-| nil{: .type } | Blur() |
-| nil{: .type } | InsertBefore(ElementPtr{: .type } element, Element{: .type } adjacent_element) |
-| Element | new() |
-| nil{: .type } | Focus() |
-| boolean{: .type }<br> | HasAttribute(string{: .type } name) |
-| boolean{: .type }<br> | ReplaceChild(ElementPtr{: .type } inserted_element, Element{: .type } replaced_element) |
-| nil{: .type } | Click() |
+| `nil`{: .type } | AddEventListener(`BOOL`{: .type } event, `string`{: .type } listener[, `lua_type`{: .type } in_capture_phase]) |
+| `nil`{: .type } | SetAttribute(`string`{: .type } name, `string`{: .type } value) |
+| `boolean`{: .type }<br> | RemoveChild(`Element`{: .type } element) |
+| `Element`{: .type }<br> | GetElementById(`string`{: .type } id) |
+| `boolean`{: .type }<br> | HasChildNodes() |
+| `nil`{: .type }<br> | DispatchEvent(`string`{: .type } event, `lua_type`{: .type } parameters, `string`{: .type } interruptible) |
+| `nil`{: .type } | AppendChild(`ElementPtr`{: .type } element) |
+| `nil`{: .type } | RemoveAttribute(`string`{: .type } name) |
+| `Variant`{: .type }<br> | GetAttribute(`string`{: .type } name) |
+| `integer`{: .type }<br>`Element`{: .type }<br>`settable`{: .type }<br> | GetElementsByTagName(`string`{: .type } tag_name) |
+| `boolean`{: .type }<br> | IsClassSet(`string`{: .type } name) |
+| `nil`{: .type } | ScrollIntoView(`BOOL`{: .type } align_with_top) |
+| `nil`{: .type } | SetClass(`string`{: .type } name, `BOOL`{: .type } value) |
+| `nil`{: .type } | Blur() |
+| `nil`{: .type } | InsertBefore(`ElementPtr`{: .type } element, `Element`{: .type } adjacent_element) |
+| `Element`{: .type} | new() |
+| `nil`{: .type } | Focus() |
+| `boolean`{: .type }<br> | HasAttribute(`string`{: .type } name) |
+| `boolean`{: .type }<br> | ReplaceChild(`ElementPtr`{: .type } inserted_element, `Element`{: .type } replaced_element) |
+| `nil`{: .type } | Click() |
 
 
 ### Metafunctions
@@ -976,199 +976,199 @@ The Element class has no constructor; it must be instantiated through a [Documen
 
 ### Property Descriptions
 
-*  nil{: .type }, Element{: .type } next_sibling
+*  `nil`{: .type }, `Element`{: .type } next_sibling
 
-The element's next sibling, or None if it is the last sibling. Read-only.
+> The element's next sibling, or None if it is the last sibling. Read-only.
 
-*  Document{: .type } owner_document
+*  `Document`{: .type } owner_document
 
-The document this element is part of. Read-only.
+> The document this element is part of. Read-only.
 
-*  string{: .type } class_name
+*  `string`{: .type } class_name
 
-The space-separated list of classes on the element.
+> The space-separated list of classes on the element.
 
-*  Element{: .type } offset_parent
+*  `Element`{: .type } offset_parent
 
-The element's offset parent. Read only.
+> The element's offset parent. Read only.
 
-*  number{: .type } scroll_height
+*  `number`{: .type } scroll_height
 
-The height of this element's content. This will be at least as high as the client height. Read-only.
+> The height of this element's content. This will be at least as high as the client height. Read-only.
 
-*  number{: .type } scroll_left
+*  `number`{: .type } scroll_left
 
-The offset between the left edge of this element's client area and the left edge of the content area.
+> The offset between the left edge of this element's client area and the left edge of the content area.
 
-*  number{: .type } offset_width
+*  `number`{: .type } offset_width
 
-The width of the element, excluding margins. Read-only.
+> The width of the element, excluding margins. Read-only.
 
-*  string{: .type } id
+*  `string`{: .type } id
 
-The ID of the element, or the empty string if the element has no ID.
+> The ID of the element, or the empty string if the element has no ID.
 
-*  nil{: .type }, Element{: .type } first_child
+*  `nil`{: .type }, `Element`{: .type } first_child
 
-The first child of the element, or None if the client has no children. Read-only.
+> The first child of the element, or None if the client has no children. Read-only.
 
-*  nil{: .type }, Element{: .type } last_child
+*  `nil`{: .type }, `Element`{: .type } last_child
 
-The last child of the element, or None if the client has no children. Read-only.
+> The last child of the element, or None if the client has no children. Read-only.
 
-*  number{: .type } client_left
+*  `number`{: .type } client_left
 
-The distance between the left border edge and the left client edge of the element. Read-only.
+> The distance between the left border edge and the left client edge of the element. Read-only.
 
-*  ElementChildNodesProxy{: .type } child_nodes
+*  `ElementChildNodesProxy`{: .type } child_nodes
 
-The array of child nodes on the element. Read-only.
+> The array of child nodes on the element. Read-only.
 
-*  nil{: .type }, Element{: .type } previous_sibling
+*  `nil`{: .type }, `Element`{: .type } previous_sibling
 
-The element's previous sibling, or None if it is the first sibling. Read-only.
+> The element's previous sibling, or None if it is the first sibling. Read-only.
 
-*  number{: .type } client_height
+*  `number`{: .type } client_height
 
-The height of the element's client area. Read-only.
+> The height of the element's client area. Read-only.
 
-*  number{: .type } scroll_top
+*  `number`{: .type } scroll_top
 
-The offset between the top edge of this element's client area and the top edge of the content area.
+> The offset between the top edge of this element's client area and the top edge of the content area.
 
-*  number{: .type } offset_top
+*  `number`{: .type } offset_top
 
-The distance between the element's offset parent's top border edge and this element's top border edge. Read-only.
+> The distance between the element's offset parent's top border edge and this element's top border edge. Read-only.
 
-*  ElementStyleProxy{: .type } style
+*  `ElementStyleProxy`{: .type } style
 
-An object used to access this element's style information. Individual RCSS properties can be accessed by using the name of the property as a Python property on the object itself (ie, element.style.width = "40px").
+> An object used to access this element's style information. Individual RCSS properties can be accessed by using the name of the property as a Python property on the object itself (ie, element.style.width = "40px").
 
-*  number{: .type } scroll_width
+*  `number`{: .type } scroll_width
 
-The width of this element's content. This will be at least as wide as the client width. Read-only.
+> The width of this element's content. This will be at least as wide as the client width. Read-only.
 
-*  number{: .type } client_top
+*  `number`{: .type } client_top
 
-The distance between the top border edge and the top client edge of the element. Read-only.
+> The distance between the top border edge and the top client edge of the element. Read-only.
 
-*  number{: .type } offset_left
+*  `number`{: .type } offset_left
 
-The distance between the element's offset parent's left border edge and this element's left border edge. Read-only.
+> The distance between the element's offset parent's left border edge and this element's left border edge. Read-only.
 
-*  number{: .type } offset_height
+*  `number`{: .type } offset_height
 
-The height of the element, excluding margins. Read-only.
+> The height of the element, excluding margins. Read-only.
 
-*  string{: .type } tag_name
+*  `string`{: .type } tag_name
 
-The tag name used to instance this element. Read-only.
+> The tag name used to instance this element. Read-only.
 
-*  string{: .type } inner_rml
+*  `string`{: .type } inner_rml
 
-The element's RML content.
+> The element's RML content.
 
-*  number{: .type } client_width
+*  `number`{: .type } client_width
 
-The width of the element's client area. Read-only.
+> The width of the element's client area. Read-only.
 
-*  ElementAttributesProxy{: .type } attributes
+*  `ElementAttributesProxy`{: .type } attributes
 
-The array of attributes on the element. Each element has the read-only properties name and value. Read-only.
+> The array of attributes on the element. Each element has the read-only properties name and value. Read-only.
 
-*  nil{: .type }, Element{: .type } parent_node
+*  `nil`{: .type }, `Element`{: .type } parent_node
 
-The element this element is directly parented to. Read-only.
+> The element this element is directly parented to. Read-only.
 
 
 
 ### Method Descriptions
 
-* nil AddEventListener(BOOL{: .type } event, string{: .type } listener[, lua_type{: .type } in_capture_phase])
+* `nil`{: .type} AddEventListener(`BOOL`{: .type } event, `string`{: .type } listener[, `lua_type`{: .type } in_capture_phase])
 
-NOTE: Events added from python cannot be removed.
+> NOTE: Events added from python cannot be removed.
 
-* nil SetAttribute(string{: .type } name, string{: .type } value)
+* `nil`{: .type} SetAttribute(`string`{: .type } name, `string`{: .type } value)
 
-Sets the value of the attribute named name to value.
+> Sets the value of the attribute named name to value.
 
-*  boolean{: .type } RemoveChild(Element{: .type } element)
+*  `boolean`{: .type } RemoveChild(`Element`{: .type } element)
 
-Removes the child element element from this element.
+> Removes the child element element from this element.
 
-*  Element{: .type } GetElementById(string{: .type } id)
+*  `Element`{: .type } GetById(`string`{: .type } id)
 
-Returns the descendant element with an id of id.
+> Returns the descendant element with an id of id.
 
-*  boolean{: .type } HasChildNodes()
+*  `boolean`{: .type } HasChildNodes()
 
-Returns True if the element has at least one child node, false if not.
+> Returns True if the element has at least one child node, false if not.
 
-*  nil{: .type } DispatchEvent(string{: .type } event, lua_type{: .type } parameters, string{: .type } interruptible)
+*  `nil`{: .type } DispatchEvent(`string`{: .type } event, `lua_type`{: .type } parameters, `string`{: .type } interruptible)
 
-Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.
+> Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.
 
-* nil AppendChild(ElementPtr{: .type } element)
+* `nil`{: .type} AppendChild(`ElementPtr`{: .type } element)
 
-Appends element as a child to this element.
+> Appends element as a child to this element.
 
-* nil RemoveAttribute(string{: .type } name)
+* `nil`{: .type} RemoveAttribute(`string`{: .type } name)
 
-Removes the attribute named name from the element.
+> Removes the attribute named name from the element.
 
-*  Variant{: .type } GetAttribute(string{: .type } name)
+*  `Variant`{: .type } GetAttribute(`string`{: .type } name)
 
-Returns the value of the attribute named name. If no such attribute exists, the empty string will be returned.
+> Returns the value of the attribute named name. If no such attribute exists, the empty string will be returned.
 
-*  integer{: .type }, Element{: .type }, settable{: .type } GetElementsByTagName(string{: .type } tag_name)
+*  `integer`{: .type }, `Element`{: .type }, `settable`{: .type } GetsByTagName(`string`{: .type } tag_name)
 
-Returns a list of all descendant elements with the tag of tag_name.
+> Returns a list of all descendant elements with the tag of tag_name.
 
-*  boolean{: .type } IsClassSet(string{: .type } name)
+*  `boolean`{: .type } IsClassSet(`string`{: .type } name)
 
-Returns true if the class name is set on the element, false if not.
+> Returns true if the class name is set on the element, false if not.
 
-* nil ScrollIntoView(BOOL{: .type } align_with_top)
+* `nil`{: .type} ScrollIntoView(`BOOL`{: .type } align_with_top)
 
-Scrolls this element into view if its ancestors have hidden overflow. If align_with_top is True, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If False, its bottom edge will be aligned to the bottom.
+> Scrolls this element into view if its ancestors have hidden overflow. If align_with_top is True, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If False, its bottom edge will be aligned to the bottom.
 
-* nil SetClass(string{: .type } name, BOOL{: .type } value)
+* `nil`{: .type} SetClass(`string`{: .type } name, `BOOL`{: .type } value)
 
-Sets (if value is true) or clears (if value is false) the class name on the element.
+> Sets (if value is true) or clears (if value is false) the class name on the element.
 
-* nil Blur()
+* `nil`{: .type} Blur()
 
-Removes input focus from this element.
+> Removes input focus from this element.
 
-* nil InsertBefore(ElementPtr{: .type } element, Element{: .type } adjacent_element)
+* `nil`{: .type} InsertBefore(`ElementPtr`{: .type } element, `Element`{: .type } adjacent_element)
 
-Inserts the element element as a child of this element, directly before adjacent_element in the list of children.
+> Inserts the element element as a child of this element, directly before adjacent_element in the list of children.
 
-* nil Elementnew()
+* `nil`{: .type} new()
 
+> 
 
+* `nil`{: .type} Focus()
 
-* nil Focus()
+> Gives input focus to this element.
 
-Gives input focus to this element.
+*  `boolean`{: .type } HasAttribute(`string`{: .type } name)
 
-*  boolean{: .type } HasAttribute(string{: .type } name)
+> Returns True if the element has a value for the attribute named name, False if not.
 
-Returns True if the element has a value for the attribute named name, False if not.
+*  `boolean`{: .type } ReplaceChild(`ElementPtr`{: .type } inserted_element, `Element`{: .type } replaced_element)
 
-*  boolean{: .type } ReplaceChild(ElementPtr{: .type } inserted_element, Element{: .type } replaced_element)
+> Replaces the child element replaced_element with inserted_element in this element's list of children. If replaced_element is not a child of this element, inserted_element will be appended onto the list instead.
 
-Replaces the child element replaced_element with inserted_element in this element's list of children. If replaced_element is not a child of this element, inserted_element will be appended onto the list instead.
+* `nil`{: .type} Click()
 
-* nil Click()
-
-Fakes a click on this element.
+> Fakes a click on this element.
 
 
 
 ## ElementFormControl
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 
 
@@ -1176,9 +1176,9 @@ Inherits: Element{: .type }
 
 | Types | Name |
 | ------------ | ---- |
-| boolean{: .type } | disabled |
-| string{: .type } | name |
-| string{: .type } | value |
+| `boolean`{: .type } | disabled |
+| `string`{: .type } | name |
+| `string`{: .type } | value |
 
 
 ### Methods
@@ -1193,17 +1193,17 @@ Inherits: Element{: .type }
 
 ### Property Descriptions
 
-*  boolean{: .type } disabled
+*  `boolean`{: .type } disabled
 
+> 
 
+*  `string`{: .type } name
 
-*  string{: .type } name
+> 
 
+*  `string`{: .type } value
 
-
-*  string{: .type } value
-
-
+> 
 
 
 
@@ -1213,7 +1213,7 @@ Inherits: Element{: .type }
 
 ## Context
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 The Context class has no constructor; it must be instantiated through the CreateContext() function. It has the following methods and properties:
 
@@ -1221,30 +1221,30 @@ The Context class has no constructor; it must be instantiated through the Create
 
 | Types | Name |
 | ------------ | ---- |
-| Element{: .type } | focus_element |
-| Vector2i{: .type } | dimensions |
-| Element{: .type } | hover_element |
-| Element{: .type } | root_element |
-| ContextDocumentsProxy{: .type } | documents |
-| string{: .type } | name |
+| `Element`{: .type } | focus_element |
+| `Vector2i`{: .type } | dimensions |
+| `Element`{: .type } | hover_element |
+| `Element`{: .type } | root_element |
+| `ContextDocumentsProxy`{: .type } | documents |
+| `string`{: .type } | name |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | LoadMouseCursor() |
-| Document{: .type }<br> | LoadDocument(string{: .type } document_path) |
-| boolean{: .type }<br> | Render() |
-| nil{: .type } | UnloadAllMouseCursors() |
-| Document{: .type }<br> | CreateDocument(string{: .type } tag) |
-| nil{: .type } | UnloadDocument(Document{: .type } document) |
-| boolean{: .type }<br> | Update() |
-| nil{: .type } | AddMouseCursor() |
-| nil{: .type } | ShowMouseCursor() |
-| nil{: .type } | AddEventListener(string{: .type } event, Element{: .type } script, BOOL{: .type } element_context, lua_type{: .type } in_capture_phase) |
-| nil{: .type } | UnloadAllDocuments() |
-| nil{: .type } | UnloadMouseCursor() |
+| `nil`{: .type } | LoadMouseCursor() |
+| `Document`{: .type }<br> | LoadDocument(`string`{: .type } document_path) |
+| `boolean`{: .type }<br> | Render() |
+| `nil`{: .type } | UnloadAllMouseCursors() |
+| `Document`{: .type }<br> | CreateDocument(`string`{: .type } tag) |
+| `nil`{: .type } | UnloadDocument(`Document`{: .type } document) |
+| `boolean`{: .type }<br> | Update() |
+| `nil`{: .type } | AddMouseCursor() |
+| `nil`{: .type } | ShowMouseCursor() |
+| `nil`{: .type } | AddEventListener(`string`{: .type } event, `Element`{: .type } script, `BOOL`{: .type } element_context, `lua_type`{: .type } in_capture_phase) |
+| `nil`{: .type } | UnloadAllDocuments() |
+| `nil`{: .type } | UnloadMouseCursor() |
 
 
 ### Metafunctions
@@ -1254,87 +1254,87 @@ The Context class has no constructor; it must be instantiated through the Create
 
 ### Property Descriptions
 
-*  Element{: .type } focus_element
+*  `Element`{: .type } focus_element
 
-Returns the leaf of the context's focus tree. Read-only.
+> Returns the leaf of the context's focus tree. Read-only.
 
-*  Vector2i{: .type } dimensions
+*  `Vector2i`{: .type } dimensions
 
-The dimensions of the context, as a Vector2i type.
+> The dimensions of the context, as a Vector2i type.
 
-*  Element{: .type } hover_element
+*  `Element`{: .type } hover_element
 
-Returns the element under the context's cursor. Read-only.
+> Returns the element under the context's cursor. Read-only.
 
-*  Element{: .type } root_element
+*  `Element`{: .type } root_element
 
-Returns the context's root element. Read-only.
+> Returns the context's root element. Read-only.
 
-*  ContextDocumentsProxy{: .type } documents
+*  `ContextDocumentsProxy`{: .type } documents
 
-Returns an array of the documents within the context. This can be looked up as an array or a dictionary. Read-only.
+> Returns an array of the documents within the context. This can be looked up as an array or a dictionary. Read-only.
 
-*  string{: .type } name
+*  `string`{: .type } name
 
-The name of the context, specified at construction. Read-only.
+> The name of the context, specified at construction. Read-only.
 
 
 
 ### Method Descriptions
 
-* nil LoadMouseCursor()
+* `nil`{: .type} LoadMouseCursor()
 
-Attempts to load a document from the RML file found at cursor_document_path as a cursor. If successful, the cursor's document will be returned with a reference count of one.
+> Attempts to load a document from the RML file found at cursor_document_path as a cursor. If successful, the cursor's document will be returned with a reference count of one.
 
-*  Document{: .type } LoadDocument(string{: .type } document_path)
+*  `Document`{: .type } LoadDocument(`string`{: .type } document_path)
 
-Attempts to load a document from the RML file found at document_path. If successful, the document will be returned with a reference count of one.
+> Attempts to load a document from the RML file found at document_path. If successful, the document will be returned with a reference count of one.
 
-*  boolean{: .type } Render()
+*  `boolean`{: .type } Render()
 
-Renders the context.
+> Renders the context.
 
-* nil UnloadAllMouseCursors()
+* `nil`{: .type} UnloadAllMouseCursors()
 
-Unloads all cursors currently loaded with the context.
+> Unloads all cursors currently loaded with the context.
 
-*  Document{: .type } CreateDocument(string{: .type } tag)
+*  `Document`{: .type } CreateDocument(`string`{: .type } tag)
 
-Creates a new document with the tag name of tag.
+> Creates a new document with the tag name of tag.
 
-* nil UnloadDocument(Document{: .type } document)
+* `nil`{: .type} UnloadDocument(`Document`{: .type } document)
 
-Unloads a specific document within the context.
+> Unloads a specific document within the context.
 
-*  boolean{: .type } Update()
+*  `boolean`{: .type } Update()
 
-Updates the context.
+> Updates the context.
 
-* nil AddMouseCursor()
+* `nil`{: .type} AddMouseCursor()
 
-Adds a cursor document loaded by another context into this context. The cursor document will be returned.
+> Adds a cursor document loaded by another context into this context. The cursor document will be returned.
 
-* nil ShowMouseCursor()
+* `nil`{: .type} ShowMouseCursor()
 
-If show is True, this shows the mouse cursor, otherwise hides it.
+> If show is True, this shows the mouse cursor, otherwise hides it.
 
-* nil AddEventListener(string{: .type } event, Element{: .type } script, BOOL{: .type } element_context, lua_type{: .type } in_capture_phase)
+* `nil`{: .type} AddEventListener(`string`{: .type } event, `Element`{: .type } script, `BOOL`{: .type } element_context, `lua_type`{: .type } in_capture_phase)
 
-Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.
+> Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.
 
-* nil UnloadAllDocuments()
+* `nil`{: .type} UnloadAllDocuments()
 
-Closes all documents currently loaded with the context.
+> Closes all documents currently loaded with the context.
 
-* nil UnloadMouseCursor()
+* `nil`{: .type} UnloadMouseCursor()
 
-Unloads a specific cursor by name.
+> Unloads a specific cursor by name.
 
 
 
 ## ElementFormControlInput
 
-Inherits: ElementFormControl{: .type }
+Inherits: `ElementFormControl`{: .type }
 
 ElementFormControlInput derives from IElementFormControl. The control has the following properties, only appropriate on the relevant types:
 
@@ -1342,13 +1342,13 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 
 | Types | Name |
 | ------------ | ---- |
-| boolean{: .type } | checked |
-| integer{: .type } | min |
-| integer{: .type } | max |
-| integer{: .type } | step |
-| nil{: .type } | max_length |
-| integer{: .type } | maxlength |
-| integer{: .type } | size |
+| `boolean`{: .type } | checked |
+| `integer`{: .type } | min |
+| `integer`{: .type } | max |
+| `integer`{: .type } | step |
+| `nil`{: .type } | max_length |
+| `integer`{: .type } | maxlength |
+| `integer`{: .type } | size |
 
 
 ### Methods
@@ -1363,33 +1363,33 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 
 ### Property Descriptions
 
-*  boolean{: .type } checked
+*  `boolean`{: .type } checked
 
-Relevant for radio and checkbox types. The checked status of the input.
+> Relevant for radio and checkbox types. The checked status of the input.
 
-*  integer{: .type } min
+*  `integer`{: .type } min
 
-Relevant for range types. The value of the control on the top / left of the slider.
+> Relevant for range types. The value of the control on the top / left of the slider.
 
-*  integer{: .type } max
+*  `integer`{: .type } max
 
-Relevant for range types. The value of the control on the bottom / right of the slider.
+> Relevant for range types. The value of the control on the bottom / right of the slider.
 
-*  integer{: .type } step
+*  `integer`{: .type } step
 
-Relevant for range types. The step the control's value changes in.
+> Relevant for range types. The step the control's value changes in.
 
-* nil{: .type } max_length
+* `nil`{: .type } max_length
 
-Relevant for text types. The maximum number of characters permitted in the text field.
+> Relevant for text types. The maximum number of characters permitted in the text field.
 
-*  integer{: .type } maxlength
+*  `integer`{: .type } maxlength
 
+> 
 
+*  `integer`{: .type } size
 
-*  integer{: .type } size
-
-Relevant for text types. The approximate number of characters the text field shows horizontally at once.
+> Relevant for text types. The approximate number of characters the text field shows horizontally at once.
 
 
 
@@ -1399,7 +1399,7 @@ Relevant for text types. The approximate number of characters the text field sho
 
 ## ElementFormControlTextArea
 
-Inherits: ElementFormControl{: .type }
+Inherits: `ElementFormControl`{: .type }
 
 ElementFormControlTextArea derives from IElementFormControl. The control has the following properties:
 
@@ -1407,12 +1407,12 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 
 | Types | Name |
 | ------------ | ---- |
-| integer{: .type } | rows |
-| integer{: .type } | cols |
-| nil{: .type } | max_length |
-| boolean{: .type } | wordwrap |
-| nil{: .type } | word_wrap |
-| integer{: .type } | maxlength |
+| `integer`{: .type } | rows |
+| `integer`{: .type } | cols |
+| `nil`{: .type } | max_length |
+| `boolean`{: .type } | wordwrap |
+| `nil`{: .type } | word_wrap |
+| `integer`{: .type } | maxlength |
 
 
 ### Methods
@@ -1427,29 +1427,29 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 
 ### Property Descriptions
 
-*  integer{: .type } rows
+*  `integer`{: .type } rows
 
-The number of lines the text area shows at once.
+> The number of lines the text area shows at once.
 
-*  integer{: .type } cols
+*  `integer`{: .type } cols
 
-The approximate number of characters the text area shows horizontally at once.
+> The approximate number of characters the text area shows horizontally at once.
 
-* nil{: .type } max_length
+* `nil`{: .type } max_length
 
-The maximum number of characters permitted in the text area.
+> The maximum number of characters permitted in the text area.
 
-*  boolean{: .type } wordwrap
+*  `boolean`{: .type } wordwrap
 
+> 
 
+* `nil`{: .type } word_wrap
 
-* nil{: .type } word_wrap
+> True if lines are split to fit into the text area, False if not.
 
-True if lines are split to fit into the text area, False if not.
+*  `integer`{: .type } maxlength
 
-*  integer{: .type } maxlength
-
-
+> 
 
 
 
@@ -1459,7 +1459,7 @@ True if lines are split to fit into the text area, False if not.
 
 ## ElementFormControlSelect
 
-Inherits: ElementFormControl{: .type }
+Inherits: `ElementFormControl`{: .type }
 
 ElementFormControlSelect derives from IElementFormControl. The control has the following methods and properties:
 
@@ -1467,17 +1467,17 @@ ElementFormControlSelect derives from IElementFormControl. The control has the f
 
 | Types | Name |
 | ------------ | ---- |
-| integer{: .type } | selection |
-| SelectOptionsProxy{: .type } | options |
+| `integer`{: .type } | selection |
+| `SelectOptionsProxy`{: .type } | options |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | RemoveAll() |
-| integer{: .type }<br> | Add(string{: .type } rml, string{: .type } value[, integer{: .type } before]) |
-| nil{: .type } | Remove(integer{: .type } index) |
+| `nil`{: .type } | RemoveAll() |
+| `integer`{: .type }<br> | Add(`string`{: .type } rml, `string`{: .type } value[, `integer`{: .type } before]) |
+| `nil`{: .type } | Remove(`integer`{: .type } index) |
 
 
 ### Metafunctions
@@ -1487,35 +1487,35 @@ ElementFormControlSelect derives from IElementFormControl. The control has the f
 
 ### Property Descriptions
 
-*  integer{: .type } selection
+*  `integer`{: .type } selection
 
-The index of the currently selected option.
+> The index of the currently selected option.
 
-*  SelectOptionsProxy{: .type } options
+*  `SelectOptionsProxy`{: .type } options
 
-The array of options available in the select box. Each entry in the array has the property value, the string value of the option, and element, the root of the element hierarchy that represents the option in the list.
+> The array of options available in the select box. Each entry in the array has the property value, the string value of the option, and element, the root of the element hierarchy that represents the option in the list.
 
 
 
 ### Method Descriptions
 
-* nil RemoveAll()
+* `nil`{: .type} RemoveAll()
 
+> 
 
+*  `integer`{: .type } Add(`string`{: .type } rml, `string`{: .type } value[, `integer`{: .type } before])
 
-*  integer{: .type } Add(string{: .type } rml, string{: .type } value[, integer{: .type } before])
+> Adds a new option to the select box. The new option has the string value of value and is represented by the elements created by the RML string rml. The new option will be inserted by the index specified by before; if this is out of bounds (the default), then the new option will be appended onto the list. The index of the new option will be returned.
 
-Adds a new option to the select box. The new option has the string value of value and is represented by the elements created by the RML string rml. The new option will be inserted by the index specified by before; if this is out of bounds (the default), then the new option will be appended onto the list. The index of the new option will be returned.
+* `nil`{: .type} Remove(`integer`{: .type } index)
 
-* nil Remove(integer{: .type } index)
-
-Removes an existing option from the selection box.
+> Removes an existing option from the selection box.
 
 
 
 ## GlobalLuaFunctions
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -1523,14 +1523,14 @@ Inherits: nil{: .type }
 
 | Types | Name |
 | ------------ | ---- |
-| nil{: .type } | ipairsaux |
+| `nil`{: .type } | ipairsaux |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | LuaPrint() |
+| `nil`{: .type } | LuaPrint() |
 
 
 ### Metafunctions
@@ -1540,23 +1540,23 @@ Inherits: nil{: .type }
 
 ### Property Descriptions
 
-* nil{: .type } ipairsaux
+* `nil`{: .type } ipairsaux
 
-
+> 
 
 
 
 ### Method Descriptions
 
-* nil LuaPrint()
+* `nil`{: .type} LuaPrint()
 
-
+> 
 
 
 
 ## LuaRmlUi
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -1564,18 +1564,18 @@ Inherits: nil{: .type }
 
 | Types | Name |
 | ------------ | ---- |
-| RmlUiContextsProxy{: .type } | contexts |
-| nil{: .type } | key_identifier |
-| nil{: .type } | key_modifier |
+| `RmlUiContextsProxy`{: .type } | contexts |
+| `nil`{: .type } | key_identifier |
+| `nil`{: .type } | key_modifier |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type }<br>Context{: .type }<br> | CreateContext(string{: .type } ) |
-| nil{: .type } | RegisterTag(string{: .type } ) |
-| boolean{: .type }<br> | LoadFontFace(string{: .type } ) |
+| `nil`{: .type }<br>`Context`{: .type }<br> | CreateContext(`string`{: .type } ) |
+| `nil`{: .type } | RegisterTag(`string`{: .type } ) |
+| `boolean`{: .type }<br> | LoadFontFace(`string`{: .type } ) |
 
 
 ### Metafunctions
@@ -1585,39 +1585,39 @@ Inherits: nil{: .type }
 
 ### Property Descriptions
 
-*  RmlUiContextsProxy{: .type } contexts
+*  `RmlUiContextsProxy`{: .type } contexts
 
+> 
 
+* `nil`{: .type } key_identifier
 
-* nil{: .type } key_identifier
+> 
 
+* `nil`{: .type } key_modifier
 
-
-* nil{: .type } key_modifier
-
-
+> 
 
 
 
 ### Method Descriptions
 
-*  nil{: .type }, Context{: .type } CreateContext(string{: .type } )
+*  `nil`{: .type }, `Context`{: .type } CreateContext(`string`{: .type } )
 
+> 
 
+* `nil`{: .type} RegisterTag(`string`{: .type } )
 
-* nil RegisterTag(string{: .type } )
+> 
 
+*  `boolean`{: .type } LoadFontFace(`string`{: .type } )
 
-
-*  boolean{: .type } LoadFontFace(string{: .type } )
-
-
+> 
 
 
 
 ## EventParametersProxy
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 
 
@@ -1650,7 +1650,7 @@ Inherits: nil{: .type }
 
 ## ElementTabSet
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 ElementTabSet derives from Element. The control has the following methods and properties:
 
@@ -1658,16 +1658,16 @@ ElementTabSet derives from Element. The control has the following methods and pr
 
 | Types | Name |
 | ------------ | ---- |
-| integer{: .type } | active_tab |
-| integer{: .type } | num_tabs |
+| `integer`{: .type } | active_tab |
+| `integer`{: .type } | num_tabs |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | SetPanel(integer{: .type } index, string{: .type } rml) |
-| nil{: .type } | SetTab(integer{: .type } index, string{: .type } rml) |
+| `nil`{: .type } | SetPanel(`integer`{: .type } index, `string`{: .type } rml) |
+| `nil`{: .type } | SetTab(`integer`{: .type } index, `string`{: .type } rml) |
 
 
 ### Metafunctions
@@ -1677,31 +1677,31 @@ ElementTabSet derives from Element. The control has the following methods and pr
 
 ### Property Descriptions
 
-*  integer{: .type } active_tab
+*  `integer`{: .type } active_tab
 
-Index of the active panel.
+> Index of the active panel.
 
-*  integer{: .type } num_tabs
+*  `integer`{: .type } num_tabs
 
-The number of tabs in the tab set. Read-only.
+> The number of tabs in the tab set. Read-only.
 
 
 
 ### Method Descriptions
 
-* nil SetPanel(integer{: .type } index, string{: .type } rml)
+* `nil`{: .type} SetPanel(`integer`{: .type } index, `string`{: .type } rml)
 
-Sets the contents of a panel to the RML content rml. If index is out-of-bounds, a new panel will be added at the end.
+> Sets the contents of a panel to the RML content rml. If index is out-of-bounds, a new panel will be added at the end.
 
-* nil SetTab(integer{: .type } index, string{: .type } rml)
+* `nil`{: .type} SetTab(`integer`{: .type } index, `string`{: .type } rml)
 
-Sets the contents of a tab to the RML content rml. If index is out-of-bounds, a new tab will be added at the end.
+> Sets the contents of a tab to the RML content rml. If index is out-of-bounds, a new tab will be added at the end.
 
 
 
 ## IElementFormControl
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 IElementFormControl derives from Element. The form element control has the following properties:
 
@@ -1709,9 +1709,9 @@ IElementFormControl derives from Element. The form element control has the follo
 
 | Types | Name |
 | ------------ | ---- |
-| nil{: .type } | disabled |
-| nil{: .type } | name |
-| nil{: .type } | value |
+| `nil`{: .type } | disabled |
+| `nil`{: .type } | name |
+| `nil`{: .type } | value |
 
 
 ### Methods
@@ -1726,17 +1726,17 @@ IElementFormControl derives from Element. The form element control has the follo
 
 ### Property Descriptions
 
-* nil{: .type } disabled
+* `nil`{: .type } disabled
 
-The disabled status of the control, either True or False.
+> The disabled status of the control, either True or False.
 
-* nil{: .type } name
+* `nil`{: .type } name
 
-The name of the control, initial set with the "name" attribute.
+> The name of the control, initial set with the "name" attribute.
 
-* nil{: .type } value
+* `nil`{: .type } value
 
-The current value of the control.
+> The current value of the control.
 
 
 
@@ -1746,7 +1746,7 @@ The current value of the control.
 
 ## DataSource
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 Abstract DataSource Interface.
 
@@ -1759,11 +1759,11 @@ Abstract DataSource Interface.
 
 | Return value | Name |
 | ------------ | ---- |
-| value{: .type }<br> | GetNumRows(DataSource{: .type } table_name) |
-| nil{: .type } | NotifyRowAdd(string{: .type } table_name, integer{: .type } first_row_added, integer{: .type } num_rows_added) |
-| value{: .type }<br> | GetRow(DataSource{: .type } table_name, lua_type{: .type } index) |
-| nil{: .type } | NotifyRowChange(string{: .type } table_name) |
-| nil{: .type } | NotifyRowRemove(string{: .type } table_name, integer{: .type } first_row_removed, integer{: .type } num_rows_removed) |
+| `value`{: .type }<br> | GetNumRows(`DataSource`{: .type } table_name) |
+| `nil`{: .type } | NotifyRowAdd(`string`{: .type } table_name, `integer`{: .type } first_row_added, `integer`{: .type } num_rows_added) |
+| `value`{: .type }<br> | GetRow(`DataSource`{: .type } table_name, `lua_type`{: .type } index) |
+| `nil`{: .type } | NotifyRowChange(`string`{: .type } table_name) |
+| `nil`{: .type } | NotifyRowRemove(`string`{: .type } table_name, `integer`{: .type } first_row_removed, `integer`{: .type } num_rows_removed) |
 
 
 ### Metafunctions
@@ -1777,31 +1777,31 @@ Abstract DataSource Interface.
 
 ### Method Descriptions
 
-*  value{: .type } GetNumRows(DataSource{: .type } table_name)
+*  `value`{: .type } GetNumRows(`DataSource`{: .type } table_name)
 
-Return the number of rows in the given table
+> Return the number of rows in the given table
 
-* nil NotifyRowAdd(string{: .type } table_name, integer{: .type } first_row_added, integer{: .type } num_rows_added)
+* `nil`{: .type} NotifyRowAdd(`string`{: .type } table_name, `integer`{: .type } first_row_added, `integer`{: .type } num_rows_added)
 
-Notify listeners that rows have been added to the data source.
+> Notify listeners that rows have been added to the data source.
 
-*  value{: .type } GetRow(DataSource{: .type } table_name, lua_type{: .type } index)
+*  `value`{: .type } GetRow(`DataSource`{: .type } table_name, `lua_type`{: .type } index)
 
-Return a list of the column values in string form
+> Return a list of the column values in string form
 
-* nil NotifyRowChange(string{: .type } table_name)
+* `nil`{: .type} NotifyRowChange(`string`{: .type } table_name)
 
-Notify listeners that all rows on the data source have changed.
+> Notify listeners that all rows on the data source have changed.
 
-* nil NotifyRowRemove(string{: .type } table_name, integer{: .type } first_row_removed, integer{: .type } num_rows_removed)
+* `nil`{: .type} NotifyRowRemove(`string`{: .type } table_name, `integer`{: .type } first_row_removed, `integer`{: .type } num_rows_removed)
 
-Notify listeners that rows have been removed from the data source.
+> Notify listeners that rows have been removed from the data source.
 
 
 
 ## Event
 
-Inherits: nil{: .type }
+Inherits: `nil`{: .type }
 
 The Event class has no constructor; it is generated internally. It has the following methods and properties:
 
@@ -1809,17 +1809,17 @@ The Event class has no constructor; it is generated internally. It has the follo
 
 | Types | Name |
 | ------------ | ---- |
-| Element{: .type } | target_element |
-| string{: .type } | type |
-| EventParametersProxy{: .type } | parameters |
-| Element{: .type } | current_element |
+| `Element`{: .type } | target_element |
+| `string`{: .type } | type |
+| `EventParametersProxy`{: .type } | parameters |
+| `Element`{: .type } | current_element |
 
 
 ### Methods
 
 | Return value | Name |
 | ------------ | ---- |
-| nil{: .type } | StopPropagation() |
+| `nil`{: .type } | StopPropagation() |
 
 
 ### Metafunctions
@@ -1829,35 +1829,35 @@ The Event class has no constructor; it is generated internally. It has the follo
 
 ### Property Descriptions
 
-*  Element{: .type } target_element
+*  `Element`{: .type } target_element
 
-The element the event was originally targeted at. Read-only.
+> The element the event was originally targeted at. Read-only.
 
-*  string{: .type } type
+*  `string`{: .type } type
 
-The string name of the event. Read-only.
+> The string name of the event. Read-only.
 
-*  EventParametersProxy{: .type } parameters
+*  `EventParametersProxy`{: .type } parameters
 
-A dictionary like object containing all the parameters in the event.
+> A dictionary like object containing all the parameters in the event.
 
-*  Element{: .type } current_element
+*  `Element`{: .type } current_element
 
-The element the event has propagated to. Read-only.
+> The element the event has propagated to. Read-only.
 
 
 
 ### Method Descriptions
 
-* nil StopPropagation()
+* `nil`{: .type} StopPropagation()
 
-Stops the propagation of the event through the event cycle, if allowed.
+> Stops the propagation of the event through the event cycle, if allowed.
 
 
 
 ## ElementDataGridRow
 
-Inherits: Element{: .type }
+Inherits: `Element`{: .type }
 
 ElementDataGridRow derives from Element. The data grid row has the following properties:
 
@@ -1865,11 +1865,11 @@ ElementDataGridRow derives from Element. The data grid row has the following pro
 
 | Types | Name |
 | ------------ | ---- |
-| boolean{: .type } | row_expanded |
-| ElementDataGrid{: .type } | parent_grid |
-| integer{: .type } | parent_relative_index |
-| ElementDataGridRow{: .type } | parent_row |
-| integer{: .type } | table_relative_index |
+| `boolean`{: .type } | row_expanded |
+| `ElementDataGrid`{: .type } | parent_grid |
+| `integer`{: .type } | parent_relative_index |
+| `ElementDataGridRow`{: .type } | parent_row |
+| `integer`{: .type } | table_relative_index |
 
 
 ### Methods
@@ -1884,25 +1884,25 @@ ElementDataGridRow derives from Element. The data grid row has the following pro
 
 ### Property Descriptions
 
-*  boolean{: .type } row_expanded
+*  `boolean`{: .type } row_expanded
 
-The expanded state of the row, either True or False.
+> The expanded state of the row, either True or False.
 
-*  ElementDataGrid{: .type } parent_grid
+*  `ElementDataGrid`{: .type } parent_grid
 
-The data grid that this row belongs to.
+> The data grid that this row belongs to.
 
-*  integer{: .type } parent_relative_index
+*  `integer`{: .type } parent_relative_index
 
-The index of the row, relative to its parent row. So if you are the third row in your parent, then it will be 3.
+> The index of the row, relative to its parent row. So if you are the third row in your parent, then it will be 3.
 
-*  ElementDataGridRow{: .type } parent_row
+*  `ElementDataGridRow`{: .type } parent_row
 
-The parent row of this row. None if it at the top level.
+> The parent row of this row. None if it at the top level.
 
-*  integer{: .type } table_relative_index
+*  `integer`{: .type } table_relative_index
 
-The index of the row, relative to the data grid it is in. This takes into account all previous rows and their children.
+> The index of the row, relative to the data grid it is in. This takes into account all previous rows and their children.
 
 
 

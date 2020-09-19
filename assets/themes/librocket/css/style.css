@@ -210,3 +210,7 @@ a[href^="http"]:after {
 	max-height: 80vh;
 	padding-bottom: 1em;
 }
+
+.type {
+	font-weight: bold;
+}
