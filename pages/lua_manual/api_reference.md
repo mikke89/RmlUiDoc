@@ -596,9 +596,7 @@ IElementText derives from Element. IElementText is an interface, and therefore c
 
 ### Properties
 
-| Types | Name |
-| ------------ | ---- |
-| `nil`{: .type } | text |
+
 
 
 ### Methods
@@ -612,10 +610,6 @@ IElementText derives from Element. IElementText is an interface, and therefore c
 
 
 ### Property Descriptions
-
-* `nil`{: .type } text
-
-> The raw text content of the text element in UTF-8 encoding.
 
 
 
@@ -1233,18 +1227,13 @@ The Context class has no constructor; it must be instantiated through the Create
 
 | Return value | Name |
 | ------------ | ---- |
-| `nil`{: .type } | LoadMouseCursor() |
 | `Document`{: .type }<br> | LoadDocument(`string`{: .type } document_path) |
 | `boolean`{: .type }<br> | Render() |
-| `nil`{: .type } | UnloadAllMouseCursors() |
 | `Document`{: .type }<br> | CreateDocument(`string`{: .type } tag) |
 | `nil`{: .type } | UnloadDocument(`Document`{: .type } document) |
 | `boolean`{: .type }<br> | Update() |
-| `nil`{: .type } | AddMouseCursor() |
-| `nil`{: .type } | ShowMouseCursor() |
 | `nil`{: .type } | AddEventListener(`string`{: .type } event, `Element`{: .type } script, `BOOL`{: .type } element_context, `lua_type`{: .type } in_capture_phase) |
 | `nil`{: .type } | UnloadAllDocuments() |
-| `nil`{: .type } | UnloadMouseCursor() |
 
 
 ### Metafunctions
@@ -1282,10 +1271,6 @@ The Context class has no constructor; it must be instantiated through the Create
 
 ### Method Descriptions
 
-* `nil`{: .type} LoadMouseCursor()
-
-> Attempts to load a document from the RML file found at cursor_document_path as a cursor. If successful, the cursor's document will be returned with a reference count of one.
-
 *  `Document`{: .type } LoadDocument(`string`{: .type } document_path)
 
 > Attempts to load a document from the RML file found at document_path. If successful, the document will be returned with a reference count of one.
@@ -1293,10 +1278,6 @@ The Context class has no constructor; it must be instantiated through the Create
 *  `boolean`{: .type } Render()
 
 > Renders the context.
-
-* `nil`{: .type} UnloadAllMouseCursors()
-
-> Unloads all cursors currently loaded with the context.
 
 *  `Document`{: .type } CreateDocument(`string`{: .type } tag)
 
@@ -1310,14 +1291,6 @@ The Context class has no constructor; it must be instantiated through the Create
 
 > Updates the context.
 
-* `nil`{: .type} AddMouseCursor()
-
-> Adds a cursor document loaded by another context into this context. The cursor document will be returned.
-
-* `nil`{: .type} ShowMouseCursor()
-
-> If show is True, this shows the mouse cursor, otherwise hides it.
-
 * `nil`{: .type} AddEventListener(`string`{: .type } event, `Element`{: .type } script, `BOOL`{: .type } element_context, `lua_type`{: .type } in_capture_phase)
 
 > Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.
@@ -1325,10 +1298,6 @@ The Context class has no constructor; it must be instantiated through the Create
 * `nil`{: .type} UnloadAllDocuments()
 
 > Closes all documents currently loaded with the context.
-
-* `nil`{: .type} UnloadMouseCursor()
-
-> Unloads a specific cursor by name.
 
 
 
@@ -1346,7 +1315,6 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 | `integer`{: .type } | min |
 | `integer`{: .type } | max |
 | `integer`{: .type } | step |
-| `nil`{: .type } | max_length |
 | `integer`{: .type } | maxlength |
 | `integer`{: .type } | size |
 
@@ -1379,10 +1347,6 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 
 > Relevant for range types. The step the control's value changes in.
 
-* `nil`{: .type } max_length
-
-> Relevant for text types. The maximum number of characters permitted in the text field.
-
 *  `integer`{: .type } maxlength
 
 > 
@@ -1409,9 +1373,7 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 | ------------ | ---- |
 | `integer`{: .type } | rows |
 | `integer`{: .type } | cols |
-| `nil`{: .type } | max_length |
 | `boolean`{: .type } | wordwrap |
-| `nil`{: .type } | word_wrap |
 | `integer`{: .type } | maxlength |
 
 
@@ -1435,17 +1397,9 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 
 > The approximate number of characters the text area shows horizontally at once.
 
-* `nil`{: .type } max_length
-
-> The maximum number of characters permitted in the text area.
-
 *  `boolean`{: .type } wordwrap
 
 > 
-
-* `nil`{: .type } word_wrap
-
-> True if lines are split to fit into the text area, False if not.
 
 *  `integer`{: .type } maxlength
 
@@ -1707,11 +1661,7 @@ IElementFormControl derives from Element. The form element control has the follo
 
 ### Properties
 
-| Types | Name |
-| ------------ | ---- |
-| `nil`{: .type } | disabled |
-| `nil`{: .type } | name |
-| `nil`{: .type } | value |
+
 
 
 ### Methods
@@ -1725,18 +1675,6 @@ IElementFormControl derives from Element. The form element control has the follo
 
 
 ### Property Descriptions
-
-* `nil`{: .type } disabled
-
-> The disabled status of the control, either True or False.
-
-* `nil`{: .type } name
-
-> The name of the control, initial set with the "name" attribute.
-
-* `nil`{: .type } value
-
-> The current value of the control.
 
 
 
