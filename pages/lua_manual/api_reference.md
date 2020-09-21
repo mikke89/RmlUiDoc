@@ -204,7 +204,7 @@ The Context class has no constructor; it must be instantiated through the Create
 
 | Return Type | Name |
 | ------------ | ---- |
-| `nil`{: .lua-type } | [AddEventListener](#Context-AddEventListener){: .lua-method }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `BOOL`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase) |
+| `nil`{: .lua-type } | [AddEventListener](#Context-AddEventListener){: .lua-method }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `boolean`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase) |
 | `Document`{: .lua-type }<br> | [CreateDocument](#Context-CreateDocument){: .lua-method }(`string`{: .lua-type } tag) |
 | `Document`{: .lua-type }<br> | [LoadDocument](#Context-LoadDocument){: .lua-method }(`string`{: .lua-type } document_path) |
 | `boolean`{: .lua-type }<br> | [Render](#Context-Render){: .lua-method }() |
@@ -248,7 +248,7 @@ Returns the context's root element. Read-only.
 
 ### Method Descriptions
 
-#### `nil`{: .lua-type} <a name='Context-AddEventListener'>AddEventListener</a>{: .lua-method }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `BOOL`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase)
+#### `nil`{: .lua-type} <a name='Context-AddEventListener'>AddEventListener</a>{: .lua-method }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `boolean`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase)
 
 Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.
 
@@ -534,7 +534,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 
 | Return Type | Name |
 | ------------ | ---- |
-| `nil`{: .lua-type } | [AddEventListener](#Element-AddEventListener){: .lua-method }(`BOOL`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase]) |
+| `nil`{: .lua-type } | [AddEventListener](#Element-AddEventListener){: .lua-method }(`boolean`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase]) |
 | `nil`{: .lua-type } | [AppendChild](#Element-AppendChild){: .lua-method }(`ElementPtr`{: .lua-type } element) |
 | `nil`{: .lua-type } | [Blur](#Element-Blur){: .lua-method }() |
 | `nil`{: .lua-type } | [Click](#Element-Click){: .lua-method }() |
@@ -551,9 +551,9 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | `nil`{: .lua-type } | [RemoveAttribute](#Element-RemoveAttribute){: .lua-method }(`string`{: .lua-type } name) |
 | `boolean`{: .lua-type }<br> | [RemoveChild](#Element-RemoveChild){: .lua-method }(`Element`{: .lua-type } element) |
 | `boolean`{: .lua-type }<br> | [ReplaceChild](#Element-ReplaceChild){: .lua-method }(`ElementPtr`{: .lua-type } inserted_element, `Element`{: .lua-type } replaced_element) |
-| `nil`{: .lua-type } | [ScrollIntoView](#Element-ScrollIntoView){: .lua-method }(`BOOL`{: .lua-type } align_with_top) |
+| `nil`{: .lua-type } | [ScrollIntoView](#Element-ScrollIntoView){: .lua-method }(`boolean`{: .lua-type } align_with_top) |
 | `nil`{: .lua-type } | [SetAttribute](#Element-SetAttribute){: .lua-method }(`string`{: .lua-type } name, `string`{: .lua-type } value) |
-| `nil`{: .lua-type } | [SetClass](#Element-SetClass){: .lua-method }(`string`{: .lua-type } name, `BOOL`{: .lua-type } value) |
+| `nil`{: .lua-type } | [SetClass](#Element-SetClass){: .lua-method }(`string`{: .lua-type } name, `boolean`{: .lua-type } value) |
 
 
 ### Metafunctions
@@ -671,7 +671,7 @@ The tag name used to instance this element. Read-only.
 
 ### Method Descriptions
 
-#### `nil`{: .lua-type} <a name='Element-AddEventListener'>AddEventListener</a>{: .lua-method }(`BOOL`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase])
+#### `nil`{: .lua-type} <a name='Element-AddEventListener'>AddEventListener</a>{: .lua-method }(`boolean`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase])
 
 NOTE: Events added from python cannot be removed.
 
@@ -739,7 +739,7 @@ Removes the child element element from this element.
 
 Replaces the child element replaced_element with inserted_element in this element's list of children. If replaced_element is not a child of this element, inserted_element will be appended onto the list instead.
 
-#### `nil`{: .lua-type} <a name='Element-ScrollIntoView'>ScrollIntoView</a>{: .lua-method }(`BOOL`{: .lua-type } align_with_top)
+#### `nil`{: .lua-type} <a name='Element-ScrollIntoView'>ScrollIntoView</a>{: .lua-method }(`boolean`{: .lua-type } align_with_top)
 
 Scrolls this element into view if its ancestors have hidden overflow. If align_with_top is True, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If False, its bottom edge will be aligned to the bottom.
 
@@ -747,7 +747,7 @@ Scrolls this element into view if its ancestors have hidden overflow. If align_w
 
 Sets the value of the attribute named name to value.
 
-#### `nil`{: .lua-type} <a name='Element-SetClass'>SetClass</a>{: .lua-method }(`string`{: .lua-type } name, `BOOL`{: .lua-type } value)
+#### `nil`{: .lua-type} <a name='Element-SetClass'>SetClass</a>{: .lua-method }(`string`{: .lua-type } name, `boolean`{: .lua-type } value)
 
 Sets (if value is true) or clears (if value is false) the class name on the element.
 
