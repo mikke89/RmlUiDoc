@@ -64,7 +64,7 @@ Constructs a colour with four channels, each from 0 to 255.
 | [blue](#Colourb-blue){: .lua-method } | `integer`{: .lua-type } |
 | [green](#Colourb-green){: .lua-method } | `integer`{: .lua-type } |
 | [red](#Colourb-red){: .lua-method } | `integer`{: .lua-type } |
-| [rgba](#Colourb-rgba){: .lua-method } | `integer`{: .lua-type } |
+| [rgba](#Colourb-rgba){: .lua-method } | `integer, integer, integer, integer`{: .lua-type } |
 
 
 ### Methods
@@ -131,7 +131,7 @@ Inherits: `nil`{: .lua-type }
 | [blue](#Colourf-blue){: .lua-method } | `number`{: .lua-type } |
 | [green](#Colourf-green){: .lua-method } | `number`{: .lua-type } |
 | [red](#Colourf-red){: .lua-method } | `number`{: .lua-type } |
-| [rgba](#Colourf-rgba){: .lua-method } | `number`{: .lua-type } |
+| [rgba](#Colourf-rgba){: .lua-method } | `number, number, number, number`{: .lua-type } |
 
 
 ### Methods
@@ -509,19 +509,19 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [client_left](#Element-client_left){: .lua-method } | `number`{: .lua-type } |
 | [client_top](#Element-client_top){: .lua-method } | `number`{: .lua-type } |
 | [client_width](#Element-client_width){: .lua-method } | `number`{: .lua-type } |
-| [first_child](#Element-first_child){: .lua-method } | `nil`{: .lua-type } |
+| [first_child](#Element-first_child){: .lua-method } | `nil, Element`{: .lua-type } |
 | [id](#Element-id){: .lua-method } | `string`{: .lua-type } |
 | [inner_rml](#Element-inner_rml){: .lua-method } | `string`{: .lua-type } |
-| [last_child](#Element-last_child){: .lua-method } | `nil`{: .lua-type } |
-| [next_sibling](#Element-next_sibling){: .lua-method } | `nil`{: .lua-type } |
+| [last_child](#Element-last_child){: .lua-method } | `nil, Element`{: .lua-type } |
+| [next_sibling](#Element-next_sibling){: .lua-method } | `nil, Element`{: .lua-type } |
 | [offset_height](#Element-offset_height){: .lua-method } | `number`{: .lua-type } |
 | [offset_left](#Element-offset_left){: .lua-method } | `number`{: .lua-type } |
 | [offset_parent](#Element-offset_parent){: .lua-method } | `Element`{: .lua-type } |
 | [offset_top](#Element-offset_top){: .lua-method } | `number`{: .lua-type } |
 | [offset_width](#Element-offset_width){: .lua-method } | `number`{: .lua-type } |
 | [owner_document](#Element-owner_document){: .lua-method } | `Document`{: .lua-type } |
-| [parent_node](#Element-parent_node){: .lua-method } | `nil`{: .lua-type } |
-| [previous_sibling](#Element-previous_sibling){: .lua-method } | `nil`{: .lua-type } |
+| [parent_node](#Element-parent_node){: .lua-method } | `nil, Element`{: .lua-type } |
+| [previous_sibling](#Element-previous_sibling){: .lua-method } | `nil, Element`{: .lua-type } |
 | [scroll_height](#Element-scroll_height){: .lua-method } | `number`{: .lua-type } |
 | [scroll_left](#Element-scroll_left){: .lua-method } | `number`{: .lua-type } |
 | [scroll_top](#Element-scroll_top){: .lua-method } | `number`{: .lua-type } |
