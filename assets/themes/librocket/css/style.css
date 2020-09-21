@@ -211,6 +211,10 @@ a[href^="http"]:after {
 	padding-bottom: 1em;
 }
 
-.type {
+.lua-type {
+	font-weight: bold;
+}
+
+.lua-method {
 	font-weight: bold;
 }
