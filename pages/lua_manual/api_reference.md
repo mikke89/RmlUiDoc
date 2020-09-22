@@ -79,7 +79,7 @@ Constructs a colour with four channels, each from 0 to 255.
 
 | Name | Return Type |
 | ------------ | ---- |
-| [new](#Colourb-new){: .lua-function }() | `Colourb`{: .lua-type} |
+| [new](#Colourb-new){: .lua-function }(`integer` red, `integer` green, `integer` blue, `integer` alpha) | `Colourb`{: .lua-type} |
 
 
 ### Metafunctions
@@ -144,7 +144,7 @@ Constructs a colour with four floating point channels.
 
 | Name | Return Type |
 | ------------ | ---- |
-| [new](#Colourf-new){: .lua-function }() | `Colourf`{: .lua-type} |
+| [new](#Colourf-new){: .lua-function }(`number` red, `number` green, `number` blue, `number` alpha) | `Colourf`{: .lua-type} |
 
 
 ### Metafunctions
@@ -180,7 +180,7 @@ Red channel
 
 ### Function Descriptions
 
-#### `Colourf`{: .lua-type} <a href='#Colourf-new' name='Colourf-new'>new</a>{: .lua-function }()
+#### `Colourf`{: .lua-type} <a href='#Colourf-new' name='Colourf-new'>new</a>{: .lua-function }(`number` red, `number` green, `number` blue, `number` alpha)
 
 Construct a new `Colourf` object.
 
@@ -372,8 +372,8 @@ Abstract DataSource Interface.
 | Name | Return Type |
 | ------------ | ---- |
 | [new](#DataSource-new){: .lua-function }(`string`{: .lua-type } name) | `DataSource`{: .lua-type }<br> |
-| [GetNumRows](#DataSource-GetNumRows){: .lua-function }(`DataSource`{: .lua-type } table_name) | `value`{: .lua-type }<br> |
-| [GetRow](#DataSource-GetRow){: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index) | `value`{: .lua-type }<br> |
+| [GetNumRows](#DataSource-GetNumRows){: .lua-function }(`DataSource`{: .lua-type } table_name) | `integer`{: .lua-type }<br> |
+| [GetRow](#DataSource-GetRow){: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index) | `string`{: .lua-type }<br> |
 | [NotifyRowAdd](#DataSource-NotifyRowAdd){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_added, `integer`{: .lua-type } num_rows_added) | `nil`{: .lua-type } |
 | [NotifyRowChange](#DataSource-NotifyRowChange){: .lua-function }(`string`{: .lua-type } table_name, `nil, integer`{: .lua-type } first_row_changed, `nil, integer`{: .lua-type } num_rows_changed) | `nil`{: .lua-type } |
 | [NotifyRowRemove](#DataSource-NotifyRowRemove){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_removed, `integer`{: .lua-type } num_rows_removed) | `nil`{: .lua-type } |
@@ -394,11 +394,11 @@ Abstract DataSource Interface.
 
 Construct a new `DataSource` object.
 
-####  `value`{: .lua-type } <a href='#DataSource-GetNumRows' name='DataSource-GetNumRows'>GetNumRows</a>{: .lua-function }(`DataSource`{: .lua-type } table_name)
+####  `integer`{: .lua-type } <a href='#DataSource-GetNumRows' name='DataSource-GetNumRows'>GetNumRows</a>{: .lua-function }(`DataSource`{: .lua-type } table_name)
 
 Return the number of rows in the given table
 
-####  `value`{: .lua-type } <a href='#DataSource-GetRow' name='DataSource-GetRow'>GetRow</a>{: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index)
+####  `string`{: .lua-type } <a href='#DataSource-GetRow' name='DataSource-GetRow'>GetRow</a>{: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index)
 
 Return a list of the column values in string form
 
@@ -660,7 +660,7 @@ The width of the element's client area. Read-only.
 
 ####  `nil`{: .lua-type }, `Element`{: .lua-type } <a href='#Element-first_child' name='Element-first_child'>first_child</a>{: .lua-function }
 
-The first child of the element, or None if the client has no children. Read-only.
+The first child of the element, or `nil` if the client has no children. Read-only.
 
 ####  `string`{: .lua-type } <a href='#Element-id' name='Element-id'>id</a>{: .lua-function }
 
@@ -672,11 +672,11 @@ The element's RML content.
 
 ####  `nil`{: .lua-type }, `Element`{: .lua-type } <a href='#Element-last_child' name='Element-last_child'>last_child</a>{: .lua-function }
 
-The last child of the element, or None if the client has no children. Read-only.
+The last child of the element, or `nil` if the client has no children. Read-only.
 
 ####  `nil`{: .lua-type }, `Element`{: .lua-type } <a href='#Element-next_sibling' name='Element-next_sibling'>next_sibling</a>{: .lua-function }
 
-The element's next sibling, or None if it is the last sibling. Read-only.
+The element's next sibling, or `nil` if it is the last sibling. Read-only.
 
 ####  `number`{: .lua-type } <a href='#Element-offset_height' name='Element-offset_height'>offset_height</a>{: .lua-function }
 
@@ -728,7 +728,7 @@ The width of this element's content. This will be at least as wide as the client
 
 ####  `ElementStyleProxy`{: .lua-type } <a href='#Element-style' name='Element-style'>style</a>{: .lua-function }
 
-An object used to access this element's style information. Individual RCSS properties can be accessed by using the name of the property as a Python property on the object itself (ie, element.style.width = "40px").
+An object used to access this element's style information. Individual RCSS properties can be accessed by using the name of the property as a Lua property on the object itself (ie, element.style.width = "40px").
 
 ####  `string`{: .lua-type } <a href='#Element-tag_name' name='Element-tag_name'>tag_name</a>{: .lua-function }
 
@@ -776,15 +776,15 @@ Returns the descendant element with an id of id.
 
 ####  `table`{: .lua-type } <a href='#Element-GetsByTagName' name='Element-GetsByTagName'>GetsByTagName</a>{: .lua-function }(`string`{: .lua-type } tag_name)
 
-Returns a list of all descendant elements with the tag of tag_name. Returned table is indexable with integers.
+Returns a list of all descendant elements with the tag of `tag_name`. Returned table is indexable with integers.
 
 ####  `boolean`{: .lua-type } <a href='#Element-HasAttribute' name='Element-HasAttribute'>HasAttribute</a>{: .lua-function }(`string`{: .lua-type } name)
 
-Returns True if the element has a value for the attribute named name, False if not.
+Returns true if the element has a value for the attribute named name, false if not.
 
 ####  `boolean`{: .lua-type } <a href='#Element-HasChildNodes' name='Element-HasChildNodes'>HasChildNodes</a>{: .lua-function }()
 
-Returns True if the element has at least one child node, false if not.
+Returns true if the element has at least one child node, false if not.
 
 #### `nil`{: .lua-type} <a href='#Element-InsertBefore' name='Element-InsertBefore'>InsertBefore</a>{: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element)
 
@@ -804,11 +804,11 @@ Removes the child element element from this element.
 
 ####  `boolean`{: .lua-type } <a href='#Element-ReplaceChild' name='Element-ReplaceChild'>ReplaceChild</a>{: .lua-function }(`ElementPtr`{: .lua-type } inserted_element, `Element`{: .lua-type } replaced_element)
 
-Replaces the child element replaced_element with inserted_element in this element's list of children. If replaced_element is not a child of this element, inserted_element will be appended onto the list instead.
+Replaces the child element replaced_element with `inserted_element` in this element's list of children. If replaced_element is not a child of this element, `inserted_element` will be appended onto the list instead.
 
 #### `nil`{: .lua-type} <a href='#Element-ScrollIntoView' name='Element-ScrollIntoView'>ScrollIntoView</a>{: .lua-function }(`boolean`{: .lua-type } align_with_top)
 
-Scrolls this element into view if its ancestors have hidden overflow. If align_with_top is True, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If False, its bottom edge will be aligned to the bottom.
+Scrolls this element into view if its ancestors have hidden overflow. If `align_with_top` is true, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If false, its bottom edge will be aligned to the bottom.
 
 #### `nil`{: .lua-type} <a href='#Element-SetAttribute' name='Element-SetAttribute'>SetAttribute</a>{: .lua-function }(`string`{: .lua-type } name, `string`{: .lua-type } value)
 
@@ -930,7 +930,7 @@ Returns an array containing all the rows in the data grid.
 
 #### `nil`{: .lua-type} <a href='#ElementDataGrid-AddColumn' name='ElementDataGrid-AddColumn'>AddColumn</a>{: .lua-function }(`string`{: .lua-type } fields, `string`{: .lua-type } formatter, `number`{: .lua-type } initial_width, `string`{: .lua-type } header_rml)
 
-Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. header_rml specifies the RML content of the column's header.
+Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. `header_rml` specifies the RML content of the column's header.
 
 #### `nil`{: .lua-type} <a href='#ElementDataGrid-SetDataSource' name='ElementDataGrid-SetDataSource'>SetDataSource</a>{: .lua-function }(`string`{: .lua-type } data_source_name)
 
@@ -983,7 +983,7 @@ The parent row of this row. None if it at the top level.
 
 ####  `boolean`{: .lua-type } <a href='#ElementDataGridRow-row_expanded' name='ElementDataGridRow-row_expanded'>row_expanded</a>{: .lua-function }
 
-The expanded state of the row, either True or False.
+The expanded state of the row, either true or false.
 
 ####  `integer`{: .lua-type } <a href='#ElementDataGridRow-table_relative_index' name='ElementDataGridRow-table_relative_index'>table_relative_index</a>{: .lua-function }
 
@@ -1619,7 +1619,7 @@ Inherits: `nil`{: .lua-type }
 
 #### `nil`{: .lua-type} <a href='#GlobalLuaFunctions-LuaPrint' name='GlobalLuaFunctions-LuaPrint'>LuaPrint</a>{: .lua-function }(`...` output)
 
-Print all values passed in as arguments
+Print all the values that are passed in as arguments
 
 ---
 
