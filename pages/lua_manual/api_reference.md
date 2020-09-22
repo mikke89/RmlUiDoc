@@ -180,7 +180,7 @@ Red channel
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#Colourf-new' name='Colourf-new'>new</a>{: .lua-function }()
+#### `Colourf`{: .lua-type} <a href='#Colourf-new' name='Colourf-new'>new</a>{: .lua-function }()
 
 Construct a new `Colourf` object.
 
@@ -758,7 +758,7 @@ Fakes a click on this element.
 
 Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.
 
-#### `nil`{: .lua-type} <a href='#Element-new' name='Element-new'>new</a>{: .lua-function }(`string`{: .lua-type } tag)
+#### `Element`{: .lua-type} <a href='#Element-new' name='Element-new'>new</a>{: .lua-function }(`string`{: .lua-type } tag)
 
 Construct new `Element` object.
 
@@ -1320,7 +1320,7 @@ Inherits: `nil`{: .lua-type }
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#ElementInstancer-new' name='ElementInstancer-new'>new</a>{: .lua-function }()
+#### `ElementInstancer`{: .lua-type} <a href='#ElementInstancer-new' name='ElementInstancer-new'>new</a>{: .lua-function }()
 
 
 
