@@ -1,11 +1,12 @@
 ---
 layout: page
 title: Lua API Reference
+parent: lua_manual
 ---
 
-All instantiable classes define a `new()` function which returns an object of that particular class.
+Most of the Lua types, properties, and functions listed in this reference correspond directly to their C++ API equivalent, users are encourged to take a look at the [C++ Manual](../cpp_manual.html) for more detailed descriptions.
 
-With the exception of this `new()` function, all members listed will be member functions.
+All instantiable classes define a `new()` function which returns an object of that particular class. With the exception of this `new()` function, all members listed will be member functions.
 
 #### Main Types
 - [Context](#Context)
@@ -1002,6 +1003,9 @@ Inherits: `nil`{: .lua-type }
 
 Inherits: `nil`{: .lua-type }
 
+Represents an owned element. This type is mainly used to modify the DOM tree by passing the object into other elements. For example [Element.AppendChild()](#Element-AppendChild).
+
+A current limitation in the Lua plugin is that `Element`{: .lua-type } member properties and functions cannot be used directly on this type.
 
 
 ---
