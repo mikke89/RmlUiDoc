@@ -8,10 +8,8 @@ All instantiable classes define a `new()` function which returns an object of th
 
 With the exception of this `new()` function, all members listed will be member functions.
 
-| Contents |
-| -------- |
-| [Colourb](#Colourb) |
-| [Colourf](#Colourf) |
+| Main |
+| ---- |
 | [Context](#Context) |
 | [ContextDocumentsProxy](#ContextDocumentsProxy) |
 | [DataFormatter](#DataFormatter) |
@@ -20,6 +18,27 @@ With the exception of this `new()` function, all members listed will be member f
 | [Element](#Element) |
 | [ElementAttributesProxy](#ElementAttributesProxy) |
 | [ElementChildNodesProxy](#ElementChildNodesProxy) |
+| [ElementInstancer](#ElementInstancer) |
+| [ElementPtr](#ElementPtr) |
+| [ElementStyleProxy](#ElementStyleProxy) |
+| [Event](#Event) |
+| [EventParametersProxy](#EventParametersProxy) |
+| [GlobalLuaFunctions](#GlobalLuaFunctions) |
+| [Log](#Log) |
+| [LuaDataSource](#LuaDataSource) |
+| [rmlui](#rmlui) |
+| [RmlUiContextsProxy](#RmlUiContextsProxy) |
+| [SelectOptionsProxy](#SelectOptionsProxy) |
+
+| Utility |
+| ------- |
+| [Colourb](#Colourb) |
+| [Colourf](#Colourf) |
+| [Vector2f](#Vector2f) |
+| [Vector2i](#Vector2i) |
+
+| Special Elements |
+| ---------------- |
 | [ElementDataGrid](#ElementDataGrid) |
 | [ElementDataGridRow](#ElementDataGridRow) |
 | [ElementForm](#ElementForm) |
@@ -28,24 +47,15 @@ With the exception of this `new()` function, all members listed will be member f
 | [ElementFormControlInput](#ElementFormControlInput) |
 | [ElementFormControlSelect](#ElementFormControlSelect) |
 | [ElementFormControlTextArea](#ElementFormControlTextArea) |
-| [ElementInstancer](#ElementInstancer) |
-| [ElementPtr](#ElementPtr) |
-| [ElementStyleProxy](#ElementStyleProxy) |
 | [ElementTabSet](#ElementTabSet) |
 | [ElementText](#ElementText) |
-| [Event](#Event) |
-| [EventParametersProxy](#EventParametersProxy) |
-| [GlobalLuaFunctions](#GlobalLuaFunctions) |
 | [IElementFormControl](#IElementFormControl) |
 | [IElementText](#IElementText) |
-| [Log](#Log) |
-| [LuaDataSource](#LuaDataSource) |
-| [LuaRmlUi](#LuaRmlUi) |
-| [RmlUiContextsProxy](#RmlUiContextsProxy) |
-| [SelectOptionsProxy](#SelectOptionsProxy) |
-| [Vector2f](#Vector2f) |
-| [Vector2i](#Vector2i) |
 
+| Enumerations |
+| ------------ |
+| [DocumentFocus](#DocumentFocus) |
+| [DocumentModal](#DocumentModal) |
 
 ---
 
@@ -87,19 +97,19 @@ Constructs a colour with four channels, each from 0 to 255.
 
 ####  `integer`{: .lua-type } <a href='#Colourb-alpha' name='Colourb-alpha'>alpha</a>{: .lua-function }
 
-
+Alpha channel
 
 ####  `integer`{: .lua-type } <a href='#Colourb-blue' name='Colourb-blue'>blue</a>{: .lua-function }
 
-
+Blue channel
 
 ####  `integer`{: .lua-type } <a href='#Colourb-green' name='Colourb-green'>green</a>{: .lua-function }
 
-
+Green channel
 
 ####  `integer`{: .lua-type } <a href='#Colourb-red' name='Colourb-red'>red</a>{: .lua-function }
 
-
+Red channel
 
 ####  `integer`{: .lua-type }, `integer`{: .lua-type }, `integer`{: .lua-type }, `integer`{: .lua-type } <a href='#Colourb-rgba' name='Colourb-rgba'>rgba</a>{: .lua-function }
 
@@ -109,11 +119,9 @@ Constructs a colour with four channels, each from 0 to 255.
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#Colourb-new' name='Colourb-new'>new</a>{: .lua-function }()
+#### `Colourb`{: .lua-type} <a href='#Colourb-new' name='Colourb-new'>new</a>{: .lua-function }(`integer` red, `integer` green, `integer` blue, `integer` alpha)
 
-
-
-
+Contruct a new `Colourb` object
 
 ---
 
@@ -121,7 +129,7 @@ Constructs a colour with four channels, each from 0 to 255.
 
 Inherits: `nil`{: .lua-type }
 
-
+Constructs a colour with four floating point channels.
 
 ### Properties
 
@@ -152,19 +160,19 @@ Inherits: `nil`{: .lua-type }
 
 ####  `number`{: .lua-type } <a href='#Colourf-alpha' name='Colourf-alpha'>alpha</a>{: .lua-function }
 
-
+Alpha channel
 
 ####  `number`{: .lua-type } <a href='#Colourf-blue' name='Colourf-blue'>blue</a>{: .lua-function }
 
-
+Blue channel
 
 ####  `number`{: .lua-type } <a href='#Colourf-green' name='Colourf-green'>green</a>{: .lua-function }
 
-
+Green channel
 
 ####  `number`{: .lua-type } <a href='#Colourf-red' name='Colourf-red'>red</a>{: .lua-function }
 
-
+Red channel
 
 ####  `number`{: .lua-type }, `number`{: .lua-type }, `number`{: .lua-type }, `number`{: .lua-type } <a href='#Colourf-rgba' name='Colourf-rgba'>rgba</a>{: .lua-function }
 
@@ -176,9 +184,7 @@ Inherits: `nil`{: .lua-type }
 
 #### `nil`{: .lua-type} <a href='#Colourf-new' name='Colourf-new'>new</a>{: .lua-function }()
 
-
-
-
+Construct a new `Colourf` object.
 
 ---
 
@@ -204,7 +210,7 @@ The Context class has no constructor; it must be instantiated through the Create
 
 | Name | Return Type |
 | ------------ | ---- |
-| [AddEventListener](#Context-AddEventListener){: .lua-function }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `boolean`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase) | `nil`{: .lua-type } |
+| [AddEventListener](#Context-AddEventListener){: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } script, `Element`{: .lua-type } element_context, `boolean`{: .lua-type } in_capture_phase) | `nil`{: .lua-type } |
 | [CreateDocument](#Context-CreateDocument){: .lua-function }(`string`{: .lua-type } tag) | `Document`{: .lua-type }<br> |
 | [LoadDocument](#Context-LoadDocument){: .lua-function }(`string`{: .lua-type } document_path) | `Document`{: .lua-type }<br> |
 | [Render](#Context-Render){: .lua-function }() | `boolean`{: .lua-type }<br> |
@@ -248,17 +254,17 @@ Returns the context's root element. Read-only.
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#Context-AddEventListener' name='Context-AddEventListener'>AddEventListener</a>{: .lua-function }(`string`{: .lua-type } event, `Element`{: .lua-type } script, `boolean`{: .lua-type } element_context, `lua_type`{: .lua-type } in_capture_phase)
+#### `nil`{: .lua-type} <a href='#Context-AddEventListener' name='Context-AddEventListener'>AddEventListener</a>{: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } script, `Element`{: .lua-type } element_context, `boolean`{: .lua-type } in_capture_phase)
 
-Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.
+Adds the inline Lua script or a Lua function, `script`, as an event listener to the context. `element_context` is an optional `Element`; if it is not `nil`, then the script will be executed as if it was bound to that element.
 
 ####  `Document`{: .lua-type } <a href='#Context-CreateDocument' name='Context-CreateDocument'>CreateDocument</a>{: .lua-function }(`string`{: .lua-type } tag)
 
-Creates a new document with the tag name of tag.
+Creates a new document with the tag name of `tag`.
 
 ####  `Document`{: .lua-type } <a href='#Context-LoadDocument' name='Context-LoadDocument'>LoadDocument</a>{: .lua-function }(`string`{: .lua-type } document_path)
 
-Attempts to load a document from the RML file found at document_path. If successful, the document will be returned with a reference count of one.
+Attempts to load a document from the RML file found at `document_path`. If successful, the document will be returned with a reference count of one.
 
 ####  `boolean`{: .lua-type } <a href='#Context-Render' name='Context-Render'>Render</a>{: .lua-function }()
 
@@ -284,7 +290,7 @@ Updates the context.
 
 Inherits: `nil`{: .lua-type }
 
-
+Table of documents with the ability to be iterated over or indexed by an integer or a string.
 
 ### Properties
 
@@ -319,20 +325,19 @@ Inherits: `nil`{: .lua-type }
 
 Inherits: `nil`{: .lua-type }
 
-
+Lua data formatting helper.
 
 ### Properties
 
-
-
+| Name | Type |
+| ------------ | ---- |
+| [FormatData](#DataFormatter-FormatData){: .lua-function } | `function`{: .lua-type } |
 
 ### Functions
 
 | Name | Return Type |
 | ------------ | ---- |
-| [new](#DataFormatter-new){: .lua-function }() | `DataFormatter`{: .lua-type} |
-| [FormatData](#DataFormatter-FormatData){: .lua-function }(`DataFormatter`{: .lua-type } ) | `value`{: .lua-type }<br> |
-
+| [new](#DataFormatter-new){: .lua-function }(`nil, function`{: .lua-type } format_data) | `DataFormatter`{: .lua-type} |
 
 ### Metafunctions
 
@@ -341,19 +346,15 @@ Inherits: `nil`{: .lua-type }
 
 ### Property Descriptions
 
+####  `function`{: .lua-type } <a href='#DataFormatter-FormatData' name='DataFormatter-FormatData'>FormatData</a>{: .lua-type }
 
+Formatting function which returns a `string`
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#DataFormatter-new' name='DataFormatter-new'>new</a>{: .lua-function }()
+#### `DataFormatter`{: .lua-type} <a href='#DataFormatter-new' name='DataFormatter-new'>new</a>{: .lua-function }(`nil, function`{: .lua-type } format_data)
 
-
-
-####  `value`{: .lua-type } <a href='#DataFormatter-FormatData' name='DataFormatter-FormatData'>FormatData</a>{: .lua-function }(`DataFormatter`{: .lua-type } )
-
-
-
-
+Construct a new `DataFormatter` object. Optional `format_data` argument which is a function which returns a `string`.
 
 ---
 
@@ -372,10 +373,11 @@ Abstract DataSource Interface.
 
 | Name | Return Type |
 | ------------ | ---- |
+| [new](#DataSource-new){: .lua-function }(`string`{: .lua-type } name) | `DataSource`{: .lua-type }<br> |
 | [GetNumRows](#DataSource-GetNumRows){: .lua-function }(`DataSource`{: .lua-type } table_name) | `value`{: .lua-type }<br> |
 | [GetRow](#DataSource-GetRow){: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index) | `value`{: .lua-type }<br> |
 | [NotifyRowAdd](#DataSource-NotifyRowAdd){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_added, `integer`{: .lua-type } num_rows_added) | `nil`{: .lua-type } |
-| [NotifyRowChange](#DataSource-NotifyRowChange){: .lua-function }(`string`{: .lua-type } table_name) | `nil`{: .lua-type } |
+| [NotifyRowChange](#DataSource-NotifyRowChange){: .lua-function }(`string`{: .lua-type } table_name, `nil, integer`{: .lua-type } first_row_changed, `nil, integer`{: .lua-type } num_rows_changed) | `nil`{: .lua-type } |
 | [NotifyRowRemove](#DataSource-NotifyRowRemove){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_removed, `integer`{: .lua-type } num_rows_removed) | `nil`{: .lua-type } |
 
 
@@ -390,6 +392,10 @@ Abstract DataSource Interface.
 
 ### Function Descriptions
 
+####  `DataSource`{: .lua-type } <a href='#DataSource-new' name='DataSource-new'>new</a>{: .lua-function }(`string`{: .lua-type } name)
+
+Construct a new `DataSource` object.
+
 ####  `value`{: .lua-type } <a href='#DataSource-GetNumRows' name='DataSource-GetNumRows'>GetNumRows</a>{: .lua-function }(`DataSource`{: .lua-type } table_name)
 
 Return the number of rows in the given table
@@ -402,15 +408,78 @@ Return a list of the column values in string form
 
 Notify listeners that rows have been added to the data source.
 
-#### `nil`{: .lua-type} <a href='#DataSource-NotifyRowChange' name='DataSource-NotifyRowChange'>NotifyRowChange</a>{: .lua-function }(`string`{: .lua-type } table_name)
+#### `nil`{: .lua-type} <a href='#DataSource-NotifyRowChange' name='DataSource-NotifyRowChange'>NotifyRowChange</a>{: .lua-function }(`string`{: .lua-type } table_name, `nil, integer`{: .lua-type } first_row_changed, `nil, integer`{: .lua-type } num_rows_changed)
 
-Notify listeners that all rows on the data source have changed.
+Notify listeners that all rows on the data source have changed. Optional arguments `first_row_changed` for specifying the first row number which changed and `num_rows_changed` for specifying how many rows changed after the first row.
 
 #### `nil`{: .lua-type} <a href='#DataSource-NotifyRowRemove' name='DataSource-NotifyRowRemove'>NotifyRowRemove</a>{: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_removed, `integer`{: .lua-type } num_rows_removed)
 
 Notify listeners that rows have been removed from the data source.
 
+---
 
+## <a href='#DocumentFocus' name='DocumentFocus'>DocumentFocus</a>
+
+Inherits: `nil`{: .lua-type }
+
+Enum type used as an argument to various functions requiring focus options.
+
+### Properties
+
+| Name | Type |
+| ------------ | ---- |
+| [None](#DocumentFocus-None){: .lua-function } | `integer`{: .lua-type } |
+| [Document](#DocumentFocus-Document){: .lua-function } | `integer`{: .lua-type } |
+| [Keep](#DocumentFocus-Keep){: .lua-function } | `integer`{: .lua-type } |
+| [Auto](#DocumentFocus-Auto){: .lua-function } | `integer`{: .lua-type } |
+
+### Property Descriptions
+
+####  `integer`{: .lua-type } <a href='#DocumentFocus-None' name='DocumentFocus-None'>None</a>{: .lua-function }
+
+No focus.
+
+####  `integer`{: .lua-type } <a href='#DocumentFocus-Document' name='DocumentFocus-Document'>Document</a>{: .lua-function }
+
+Document focus.
+
+####  `integer`{: .lua-type } <a href='#DocumentFocus-Keep' name='DocumentFocus-Keep'>Keep</a>{: .lua-function }
+
+Keep focus.
+
+####  `integer`{: .lua-type } <a href='#DocumentFocus-Auto' name='DocumentFocus-Auto'>Auto</a>{: .lua-function }
+
+Auto focus.
+
+---
+
+## <a href='#DocumentModal' name='DocumentModal'>DocumentModal</a>
+
+Inherits: `nil`{: .lua-type }
+
+Enum type used as an argument to various functions requiring modal options.
+
+### Properties
+
+| Name | Type |
+| ------------ | ---- |
+| [None](#DocumentModal-None){: .lua-function } | `integer`{: .lua-type } |
+| [Modal](#DocumentModal-Modal){: .lua-function } | `integer`{: .lua-type } |
+| [Keep](#DocumentModal-Keep){: .lua-function } | `integer`{: .lua-type } |
+
+### Property Descriptions
+
+####  `integer`{: .lua-type } <a href='#DocumentModal-None' name='DocumentModal-None'>None</a>{: .lua-function }
+
+No modal.
+
+####  `integer`{: .lua-type } <a href='#DocumentModal-Modal' name='DocumentModal-Modal'>Modal</a>{: .lua-function }
+
+Modal.
+
+####  `integer`{: .lua-type } <a href='#DocumentModal-Keep' name='DocumentModal-Keep'>Keep</a>{: .lua-function }
+
+Keep modal.
 
 ---
 
@@ -438,7 +507,7 @@ Document derives from Element. Document has no constructor; it must be instantia
 | [Hide](#Document-Hide){: .lua-function }() | `nil`{: .lua-type } |
 | [PullToFront](#Document-PullToFront){: .lua-function }() | `nil`{: .lua-type } |
 | [PushToBack](#Document-PushToBack){: .lua-function }() | `nil`{: .lua-type } |
-| [Show](#Document-Show){: .lua-function }(`integer`{: .lua-type } [flags]) | `nil`{: .lua-type } |
+| [Show](#Document-Show){: .lua-function }(`nil, DocumentModal`{: .lua-type } modal, `nil, DocumentFocus`{: .lua-type } focus) | `nil`{: .lua-type } |
 
 
 ### Metafunctions
@@ -484,9 +553,9 @@ Pulls the document in front of other documents within its context with a similar
 
 Pushes the document behind other documents within its context with a similar z-index.
 
-#### `nil`{: .lua-type} <a href='#Document-Show' name='Document-Show'>Show</a>{: .lua-function }(`integer`{: .lua-type } [flags])
+#### `nil`{: .lua-type} <a href='#Document-Show' name='Document-Show'>Show</a>{: .lua-function }(`nil, DocumentModal`{: .lua-type } modal, `nil, DocumentFocus`{: .lua-type } focus)
 
-Shows the document. flags is either NONE, FOCUS or MODAL. flags defaults to FOCUS.
+Shows the document. Optional enum arguments to specify modal and focus mode. Defaults to `DocumentModal.None` and `DocumentFocus.Auto`.
 
 
 
@@ -534,16 +603,16 @@ The Element class has no constructor; it must be instantiated through a [Documen
 
 | Name | Return Type |
 | ------------ | ---- |
-| [AddEventListener](#Element-AddEventListener){: .lua-function }(`boolean`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase]) | `nil`{: .lua-type } |
+| [AddEventListener](#Element-AddEventListener){: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } listener, `boolean`{: .lua-type } in_capture_phase) | `nil`{: .lua-type } |
 | [AppendChild](#Element-AppendChild){: .lua-function }(`ElementPtr`{: .lua-type } element) | `nil`{: .lua-type } |
 | [Blur](#Element-Blur){: .lua-function }() | `nil`{: .lua-type } |
 | [Click](#Element-Click){: .lua-function }() | `nil`{: .lua-type } |
-| [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `lua_type`{: .lua-type } parameters, `string`{: .lua-type } interruptible) | `nil`{: .lua-type }<br> |
-| [new](#Element-new){: .lua-function }() | `Element`{: .lua-type} |
+| [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters, `string`{: .lua-type } interruptible) | `nil`{: .lua-type }<br> |
+| [new](#Element-new){: .lua-function }(`string`{: .lua-type } tag) | `Element`{: .lua-type} |
 | [Focus](#Element-Focus){: .lua-function }() | `nil`{: .lua-type } |
 | [GetAttribute](#Element-GetAttribute){: .lua-function }(`string`{: .lua-type } name) | `Variant`{: .lua-type }<br> |
 | [GetElementById](#Element-GetElementById){: .lua-function }(`string`{: .lua-type } id) | `Element`{: .lua-type }<br> |
-| [GetElementsByTagName](#Element-GetElementsByTagName){: .lua-function }(`string`{: .lua-type } tag_name) | `integer`{: .lua-type }<br>`Element`{: .lua-type }<br>`settable`{: .lua-type }<br> |
+| [GetElementsByTagName](#Element-GetElementsByTagName){: .lua-function }(`string`{: .lua-type } tag_name) | `table`{: .lua-type }<br> |
 | [HasAttribute](#Element-HasAttribute){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
 | [HasChildNodes](#Element-HasChildNodes){: .lua-function }() | `boolean`{: .lua-type }<br> |
 | [InsertBefore](#Element-InsertBefore){: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element) | `nil`{: .lua-type } |
@@ -671,9 +740,9 @@ The tag name used to instance this element. Read-only.
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#Element-AddEventListener' name='Element-AddEventListener'>AddEventListener</a>{: .lua-function }(`boolean`{: .lua-type } event, `string`{: .lua-type } listener[, `lua_type`{: .lua-type } in_capture_phase])
+#### `nil`{: .lua-type} <a href='#Element-AddEventListener' name='Element-AddEventListener'>AddEventListener</a>{: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } listener, `boolean`{: .lua-type } in_capture_phase)
 
-NOTE: Events added from python cannot be removed.
+NOTE: Events added from Lua cannot be removed.
 
 #### `nil`{: .lua-type} <a href='#Element-AppendChild' name='Element-AppendChild'>AppendChild</a>{: .lua-function }(`ElementPtr`{: .lua-type } element)
 
@@ -687,13 +756,13 @@ Removes input focus from this element.
 
 Fakes a click on this element.
 
-####  `nil`{: .lua-type } <a href='#Element-DispatchEvent' name='Element-DispatchEvent'>DispatchEvent</a>{: .lua-function }(`string`{: .lua-type } event, `lua_type`{: .lua-type } parameters, `string`{: .lua-type } interruptible)
+####  `nil`{: .lua-type } <a href='#Element-DispatchEvent' name='Element-DispatchEvent'>DispatchEvent</a>{: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters, `string`{: .lua-type } interruptible)
 
 Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.
 
-#### `nil`{: .lua-type} <a href='#Element-new' name='Element-new'>new</a>{: .lua-function }()
+#### `nil`{: .lua-type} <a href='#Element-new' name='Element-new'>new</a>{: .lua-function }(`string`{: .lua-type } tag)
 
-
+Construct new `Element` object.
 
 #### `nil`{: .lua-type} <a href='#Element-Focus' name='Element-Focus'>Focus</a>{: .lua-function }()
 
@@ -707,9 +776,9 @@ Returns the value of the attribute named name. If no such attribute exists, the 
 
 Returns the descendant element with an id of id.
 
-####  `integer`{: .lua-type }, `Element`{: .lua-type }, `settable`{: .lua-type } <a href='#Element-GetsByTagName' name='Element-GetsByTagName'>GetsByTagName</a>{: .lua-function }(`string`{: .lua-type } tag_name)
+####  `table`{: .lua-type } <a href='#Element-GetsByTagName' name='Element-GetsByTagName'>GetsByTagName</a>{: .lua-function }(`string`{: .lua-type } tag_name)
 
-Returns a list of all descendant elements with the tag of tag_name.
+Returns a list of all descendant elements with the tag of tag_name. Returned table is indexable with integers.
 
 ####  `boolean`{: .lua-type } <a href='#Element-HasAttribute' name='Element-HasAttribute'>HasAttribute</a>{: .lua-function }(`string`{: .lua-type } name)
 
@@ -835,7 +904,7 @@ ElementDataGrid derives from Element. The data grid has the following functions 
 
 | Name | Type |
 | ------------ | ---- |
-| [rows](#ElementDataGrid-rows){: .lua-function } | `ElementDataGridRow`{: .lua-type } |
+| [rows](#ElementDataGrid-rows){: .lua-function } | `table`{: .lua-type } |
 
 
 ### Functions
@@ -853,7 +922,7 @@ ElementDataGrid derives from Element. The data grid has the following functions 
 
 ### Property Descriptions
 
-####  `ElementDataGridRow`{: .lua-type } <a href='#ElementDataGrid-rows' name='ElementDataGrid-rows'>rows</a>{: .lua-function }
+####  `table`{: .lua-type } <a href='#ElementDataGrid-rows' name='ElementDataGrid-rows'>rows</a>{: .lua-function }
 
 Returns an array containing all the rows in the data grid.
 
@@ -945,7 +1014,7 @@ ElementForm derives from Element. The form element has the following function:
 
 | Name | Return Type |
 | ------------ | ---- |
-| [Submit](#ElementForm-Submit){: .lua-function }(`string`{: .lua-type } submit_value) | `nil`{: .lua-type } |
+| [Submit](#ElementForm-Submit){: .lua-function }(`nil, string`{: .lua-type } name, `nil, string`{: .lua-type } submit_value) | `nil`{: .lua-type } |
 
 
 ### Metafunctions
@@ -959,9 +1028,9 @@ ElementForm derives from Element. The form element has the following function:
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#ElementForm-Submit' name='ElementForm-Submit'>Submit</a>{: .lua-function }(`string`{: .lua-type } submit_value)
+#### `nil`{: .lua-type} <a href='#ElementForm-Submit' name='ElementForm-Submit'>Submit</a>{: .lua-function }(`nil, string`{: .lua-type } name, `nil, string`{: .lua-type } submit_value)
 
-Submits the form with a submit value of submit_value.
+Submits the form with name of `name` and a submit value of `submit_value`. `name` and `value` are optional and are empty by default.
 
 
 
@@ -1131,7 +1200,7 @@ ElementFormControlSelect derives from IElementFormControl. The control has the f
 
 | Name | Return Type |
 | ------------ | ---- |
-| [Add](#ElementFormControlSelect-Add){: .lua-function }(`string`{: .lua-type } rml, `string`{: .lua-type } value[, `integer`{: .lua-type } before]) | `integer`{: .lua-type }<br> |
+| [Add](#ElementFormControlSelect-Add){: .lua-function }(`string`{: .lua-type } rml, `string`{: .lua-type } value, `nil, integer`{: .lua-type } before) | `integer`{: .lua-type }<br> |
 | [Remove](#ElementFormControlSelect-Remove){: .lua-function }(`integer`{: .lua-type } index) | `nil`{: .lua-type } |
 | [RemoveAll](#ElementFormControlSelect-RemoveAll){: .lua-function }() | `nil`{: .lua-type } |
 
@@ -1155,7 +1224,7 @@ The index of the currently selected option.
 
 ### Function Descriptions
 
-####  `integer`{: .lua-type } <a href='#ElementFormControlSelect-Add' name='ElementFormControlSelect-Add'>Add</a>{: .lua-function }(`string`{: .lua-type } rml, `string`{: .lua-type } value[, `integer`{: .lua-type } before])
+####  `integer`{: .lua-type } <a href='#ElementFormControlSelect-Add' name='ElementFormControlSelect-Add'>Add</a>{: .lua-function }(`string`{: .lua-type } rml, `string`{: .lua-type } value, `nil, integer`{: .lua-type } before)
 
 Adds a new option to the select box. The new option has the string value of value and is represented by the elements created by the RML string rml. The new option will be inserted by the index specified by before; if this is out of bounds (the default), then the new option will be appended onto the list. The index of the new option will be returned.
 
@@ -1532,7 +1601,7 @@ Inherits: `nil`{: .lua-type }
 
 | Name | Return Type |
 | ------------ | ---- |
-| [LuaPrint](#GlobalLuaFunctions-LuaPrint){: .lua-function }() | `nil`{: .lua-type } |
+| [LuaPrint](#GlobalLuaFunctions-LuaPrint){: .lua-function }(`...` output) | `nil`{: .lua-type } |
 
 
 ### Metafunctions
@@ -1550,73 +1619,9 @@ Inherits: `nil`{: .lua-type }
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#GlobalLuaFunctions-LuaPrint' name='GlobalLuaFunctions-LuaPrint'>LuaPrint</a>{: .lua-function }()
+#### `nil`{: .lua-type} <a href='#GlobalLuaFunctions-LuaPrint' name='GlobalLuaFunctions-LuaPrint'>LuaPrint</a>{: .lua-function }(`...` output)
 
-
-
-
-
----
-
-## <a href='#IElementFormControl' name='IElementFormControl'>IElementFormControl</a>
-
-Inherits: `nil`{: .lua-type }
-
-IElementFormControl derives from Element. The form element control has the following properties:
-
-### Properties
-
-
-
-
-### Functions
-
-
-
-
-### Metafunctions
-
-
-
-
-### Property Descriptions
-
-
-
-### Function Descriptions
-
-
-
----
-
-## <a href='#IElementText' name='IElementText'>IElementText</a>
-
-Inherits: `nil`{: .lua-type }
-
-IElementText derives from Element. IElementText is an interface, and therefore cannot be instanced directly. A concrete ElementText must be instantiated through a Document object instead. It has the following property:
-
-### Properties
-
-
-
-
-### Functions
-
-
-
-
-### Metafunctions
-
-
-
-
-### Property Descriptions
-
-
-
-### Function Descriptions
-
-
+Print all values passed in as arguments
 
 ---
 
@@ -1624,18 +1629,19 @@ IElementText derives from Element. IElementText is an interface, and therefore c
 
 Inherits: `nil`{: .lua-type }
 
-
+Log messages through RmlUi.
 
 ### Properties
 
-
-
+| Name | Type |
+| ------------ | ---- |
+| [logtype](#Log-logtype){: .lua-function } | `table`{: .lua-type } |
 
 ### Functions
 
 | Name | Return Type |
 | ------------ | ---- |
-| [LogMessage](#Log-LogMessage){: .lua-function }() | `nil`{: .lua-type } |
+| [Message](#Log-Message){: .lua-function }(`Log.logtype`{: .lua-type } type, `string`{: .lua-type } str) | `nil`{: .lua-type } |
 
 
 ### Metafunctions
@@ -1645,77 +1651,46 @@ Inherits: `nil`{: .lua-type }
 
 ### Property Descriptions
 
+#### `table`{: .lua-type } <a href='#Log-logtype' name='Log-logtype'>logtype</a>{: .lua-function }
 
+Enum table for specifying the type of log.
 
-### Function Descriptions
-
-#### `nil`{: .lua-type} <a href='#Log-Message' name='Log-Message'>Message</a>{: .lua-function }()
-
-
-
-
-
----
-
-## <a href='#LuaDataSource' name='LuaDataSource'>LuaDataSource</a>
-
-Inherits: `nil`{: .lua-type }
-
-
-
-### Properties
-
-
-
-
-### Functions
-
-| Name | Return Type |
-| ------------ | ---- |
-| [new](#LuaDataSource-new){: .lua-function }() | `LuaDataSource`{: .lua-type} |
-
-
-### Metafunctions
-
-
-
-
-### Property Descriptions
-
-
+* `Log.logtype.always`
+* `Log.logtype.error`
+* `Log.logtype.warning`
+* `Log.logtype.info`
+* `Log.logtype.debug`
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#LuaDataSource-DataSourcenew' name='LuaDataSource-DataSourcenew'>DataSourcenew</a>{: .lua-function }()
+#### `nil`{: .lua-type} <a href='#Message' name='Message'>Message</a>{: .lua-function }(`Log.logtype`{: .lua-type } type, `string`{: .lua-type } str)
 
-
-
-
+Log a message with a type.
 
 ---
 
-## <a href='#LuaRmlUi' name='LuaRmlUi'>LuaRmlUi</a>
+## <a href='#rmlui' name='rmlui'>rmlui</a>
 
 Inherits: `nil`{: .lua-type }
 
-
+`rmlui` exposes some general RmlUi functionality globally in Lua. Access with the global table `rmlui`.
 
 ### Properties
 
 | Name | Type |
 | ------------ | ---- |
 | [contexts](#LuaRmlUi-contexts){: .lua-function } | `RmlUiContextsProxy`{: .lua-type } |
-| [key_identifier](#LuaRmlUi-key_identifier){: .lua-function } | `nil`{: .lua-type } |
-| [key_modifier](#LuaRmlUi-key_modifier){: .lua-function } | `nil`{: .lua-type } |
+| [key_identifier](#LuaRmlUi-key_identifier){: .lua-function } | `table`{: .lua-type } |
+| [key_modifier](#LuaRmlUi-key_modifier){: .lua-function } | `table`{: .lua-type } |
 
 
 ### Functions
 
 | Name | Return Type |
 | ------------ | ---- |
-| [CreateContext](#LuaRmlUi-CreateContext){: .lua-function }(`string`{: .lua-type } ) | `nil`{: .lua-type }<br>`Context`{: .lua-type }<br> |
-| [LoadFontFace](#LuaRmlUi-LoadFontFace){: .lua-function }(`string`{: .lua-type } ) | `boolean`{: .lua-type }<br> |
-| [RegisterTag](#LuaRmlUi-RegisterTag){: .lua-function }(`string`{: .lua-type } ) | `nil`{: .lua-type } |
+| [CreateContext](#LuaRmlUi-CreateContext){: .lua-function }(`string`{: .lua-type } name, `Vector2i`{: .lua-type } dimensions) | `nil`{: .lua-type }<br>`Context`{: .lua-type }<br> |
+| [LoadFontFace](#LuaRmlUi-LoadFontFace){: .lua-function }(`string`{: .lua-type } path) | `boolean`{: .lua-type }<br> |
+| [RegisterTag](#LuaRmlUi-RegisterTag){: .lua-function }(`string`{: .lua-type } tag) | `nil`{: .lua-type } |
 
 
 ### Metafunctions
@@ -1727,33 +1702,29 @@ Inherits: `nil`{: .lua-type }
 
 ####  `RmlUiContextsProxy`{: .lua-type } <a href='#LuaRmlUi-contexts' name='LuaRmlUi-contexts'>contexts</a>{: .lua-function }
 
+Table of active contexts indexable with integers and context name strings.
 
+#### `table`{: .lua-type } <a href='#LuaRmlUi-key_identifier' name='LuaRmlUi-key_identifier'>key_identifier</a>{: .lua-function }
 
-#### `nil`{: .lua-type } <a href='#LuaRmlUi-key_identifier' name='LuaRmlUi-key_identifier'>key_identifier</a>{: .lua-function }
+Enum containing all input key identifiers.
 
+#### `table`{: .lua-type } <a href='#LuaRmlUi-key_modifier' name='LuaRmlUi-key_modifier'>key_modifier</a>{: .lua-function }
 
-
-#### `nil`{: .lua-type } <a href='#LuaRmlUi-key_modifier' name='LuaRmlUi-key_modifier'>key_modifier</a>{: .lua-function }
-
-
-
-
+Enum containing all input key modifiers.
 
 ### Function Descriptions
 
-####  `nil`{: .lua-type }, `Context`{: .lua-type } <a href='#LuaRmlUi-CreateContext' name='LuaRmlUi-CreateContext'>CreateContext</a>{: .lua-function }(`string`{: .lua-type } )
+####  `Context`{: .lua-type }, `Context`{: .lua-type } <a href='#LuaRmlUi-CreateContext' name='LuaRmlUi-CreateContext'>CreateContext</a>{: .lua-function }(`string`{: .lua-type } name, `Vector2i`{: .lua-type } dimensions)
 
+Create RmlUi context with specified `dimensions`.
 
+####  `boolean`{: .lua-type } <a href='#LuaRmlUi-LoadFontFace' name='LuaRmlUi-LoadFontFace'>LoadFontFace</a>{: .lua-function }(`string`{: .lua-type } path)
 
-####  `boolean`{: .lua-type } <a href='#LuaRmlUi-LoadFontFace' name='LuaRmlUi-LoadFontFace'>LoadFontFace</a>{: .lua-function }(`string`{: .lua-type } )
+Load font face at `path`
 
+#### `nil`{: .lua-type} <a href='#LuaRmlUi-RegisterTag' name='LuaRmlUi-RegisterTag'>RegisterTag</a>{: .lua-function }(`string`{: .lua-type } tag)
 
-
-#### `nil`{: .lua-type} <a href='#LuaRmlUi-RegisterTag' name='LuaRmlUi-RegisterTag'>RegisterTag</a>{: .lua-function }(`string`{: .lua-type } )
-
-
-
-
+Register tag to element instancer.
 
 ---
 
@@ -1846,10 +1817,10 @@ Constructs a two-dimensional floating-point vector.
 
 | Name | Return Type |
 | ------------ | ---- |
-| [DotProduct](#Vector2f-DotProduct){: .lua-function }(`Vector2f`{: .lua-type } ) | `number`{: .lua-type }<br> |
+| [DotProduct](#Vector2f-DotProduct){: .lua-function }(`Vector2f`{: .lua-type } other) | `number`{: .lua-type }<br> |
 | [Normalise](#Vector2f-Normalise){: .lua-function }() | `Vector2f`{: .lua-type }<br> |
-| [Rotate](#Vector2f-Rotate){: .lua-function }(`number`{: .lua-type } ) | `Vector2f`{: .lua-type }<br> |
-| [new](#Vector2f-new){: .lua-function }() | `Vector2f`{: .lua-type} |
+| [Rotate](#Vector2f-Rotate){: .lua-function }(`number`{: .lua-type } angle) | `Vector2f`{: .lua-type }<br> |
+| [new](#Vector2f-new){: .lua-function }(`number`{: .lua-type } x, `number`{: .lua-type } y) | `Vector2f`{: .lua-type} |
 
 
 ### Metafunctions
@@ -1881,7 +1852,7 @@ Constructs a two-dimensional floating-point vector.
 
 ### Function Descriptions
 
-####  `number`{: .lua-type } <a href='#Vector2f-DotProduct' name='Vector2f-DotProduct'>DotProduct</a>{: .lua-function }(`Vector2f`{: .lua-type } )
+####  `number`{: .lua-type } <a href='#Vector2f-DotProduct' name='Vector2f-DotProduct'>DotProduct</a>{: .lua-function }(`Vector2f`{: .lua-type } other)
 
 
 
@@ -1889,11 +1860,11 @@ Constructs a two-dimensional floating-point vector.
 
 
 
-####  `Vector2f`{: .lua-type } <a href='#Vector2f-Rotate' name='Vector2f-Rotate'>Rotate</a>{: .lua-function }(`number`{: .lua-type } )
+####  `Vector2f`{: .lua-type } <a href='#Vector2f-Rotate' name='Vector2f-Rotate'>Rotate</a>{: .lua-function }(`number`{: .lua-type } angle)
 
 
 
-#### `nil`{: .lua-type} <a href='#Vector2f-new' name='Vector2f-new'>new</a>{: .lua-function }()
+#### `Vector2f`{: .lua-type} <a href='#Vector2f-new' name='Vector2f-new'>new</a>{: .lua-function }(`number`{: .lua-type } x, `number`{: .lua-type } y)
 
 
 
@@ -1920,7 +1891,7 @@ Constructs a two-dimensional integral vector.
 
 | Name | Return Type |
 | ------------ | ---- |
-| [new](#Vector2i-new){: .lua-function }() | `Vector2i`{: .lua-type} |
+| [new](#Vector2i-new){: .lua-function }(`integer`{: .lua-type } x, `integer`{: .lua-type } y) | `Vector2i`{: .lua-type} |
 
 
 ### Metafunctions
@@ -1952,7 +1923,7 @@ Constructs a two-dimensional integral vector.
 
 ### Function Descriptions
 
-#### `nil`{: .lua-type} <a href='#Vector2i-new' name='Vector2i-new'>new</a>{: .lua-function }()
+#### `Vector2i`{: .lua-type} <a href='#Vector2i-new' name='Vector2i-new'>new</a>{: .lua-function }(`integer`{: .lua-type } x, `integer`{: .lua-type } y)
 
 
 
