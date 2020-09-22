@@ -1,62 +1,63 @@
 ---
 layout: page
 title: Lua API Reference
-status: improve
 ---
 
-All instantiable classes define a `new()` function which returns an object of that particular class. 
+All instantiable classes define a `new()` function which returns an object of that particular class.
 
 With the exception of this `new()` function, all members listed will be member functions.
 
-| Main |
-| ---- |
-| [Context](#Context) |
-| [ContextDocumentsProxy](#ContextDocumentsProxy) |
-| [DataFormatter](#DataFormatter) |
-| [DataSource](#DataSource) |
-| [Document](#Document) |
-| [Element](#Element) |
-| [ElementAttributesProxy](#ElementAttributesProxy) |
-| [ElementChildNodesProxy](#ElementChildNodesProxy) |
-| [ElementInstancer](#ElementInstancer) |
-| [ElementPtr](#ElementPtr) |
-| [ElementStyleProxy](#ElementStyleProxy) |
-| [Event](#Event) |
-| [EventParametersProxy](#EventParametersProxy) |
-| [GlobalLuaFunctions](#GlobalLuaFunctions) |
-| [Log](#Log) |
-| [LuaDataSource](#LuaDataSource) |
-| [rmlui](#rmlui) |
-| [RmlUiContextsProxy](#RmlUiContextsProxy) |
-| [SelectOptionsProxy](#SelectOptionsProxy) |
+### Contents
 
-| Utility |
-| ------- |
-| [Colourb](#Colourb) |
-| [Colourf](#Colourf) |
-| [Vector2f](#Vector2f) |
-| [Vector2i](#Vector2i) |
+#### Main types
+- [Context](#Context)
+- [Document](#Document)
+- [Element](#Element)
+- [ElementInstancer](#ElementInstancer)
+- [ElementPtr](#ElementPtr)
+- [Event](#Event)
+- [GlobalLuaFunctions](#GlobalLuaFunctions)
+- [rmlui](#rmlui)
 
-| Special Elements |
-| ---------------- |
-| [ElementDataGrid](#ElementDataGrid) |
-| [ElementDataGridRow](#ElementDataGridRow) |
-| [ElementForm](#ElementForm) |
-| [ElementFormControl](#ElementFormControl) |
-| [ElementFormControlDataSelect](#ElementFormControlDataSelect) |
-| [ElementFormControlInput](#ElementFormControlInput) |
-| [ElementFormControlSelect](#ElementFormControlSelect) |
-| [ElementFormControlTextArea](#ElementFormControlTextArea) |
-| [ElementTabSet](#ElementTabSet) |
-| [ElementText](#ElementText) |
+#### Utility
 
-| Enumerations |
-| ------------ |
-| [DocumentFocus](#DocumentFocus) |
-| [DocumentModal](#DocumentModal) |
+- [Colourb](#Colourb)
+- [Colourf](#Colourf)
+- [DataFormatter](#DataFormatter)
+- [DataSource](#DataSource)
+- [Log](#Log)
+- [Vector2f](#Vector2f)
+- [Vector2i](#Vector2i)
+
+#### Special Elements
+
+- [ElementDataGrid](#ElementDataGrid)
+- [ElementDataGridRow](#ElementDataGridRow)
+- [ElementForm](#ElementForm)
+- [ElementFormControl](#ElementFormControl)
+- [ElementFormControlDataSelect](#ElementFormControlDataSelect)
+- [ElementFormControlInput](#ElementFormControlInput)
+- [ElementFormControlSelect](#ElementFormControlSelect)
+- [ElementFormControlTextArea](#ElementFormControlTextArea)
+- [ElementTabSet](#ElementTabSet)
+- [ElementText](#ElementText)
+
+#### Enumerations
+
+- [DocumentFocus](#DocumentFocus)
+- [DocumentModal](#DocumentModal)
+
+#### Proxy
+- [ContextDocumentsProxy](#ContextDocumentsProxy)
+- [ElementAttributesProxy](#ElementAttributesProxy)
+- [ElementChildNodesProxy](#ElementChildNodesProxy)
+- [ElementStyleProxy](#ElementStyleProxy)
+- [EventParametersProxy](#EventParametersProxy)
+- [RmlUiContextsProxy](#RmlUiContextsProxy)
+- [SelectOptionsProxy](#SelectOptionsProxy)
+
 
 ---
-
 
 ## <a href='#Colourb' name='Colourb'>Colourb</a>
 
