@@ -49,8 +49,6 @@ With the exception of this `new()` function, all members listed will be member f
 | [ElementFormControlTextArea](#ElementFormControlTextArea) |
 | [ElementTabSet](#ElementTabSet) |
 | [ElementText](#ElementText) |
-| [IElementFormControl](#IElementFormControl) |
-| [IElementText](#IElementText) |
 
 | Enumerations |
 | ------------ |
