@@ -103,6 +103,9 @@ dd
 	border-left: 3px solid #F7F7F9;
 }
 
+h3 a { color: black; }
+h3 a:hover { text-decoration: none; }
+
 .path, .incl, .tag, .attr, .prop, .value, .cls, .evt
 {
 	border: none;
