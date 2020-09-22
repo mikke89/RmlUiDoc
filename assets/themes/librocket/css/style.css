@@ -210,3 +210,11 @@ a[href^="http"]:after {
 	max-height: 80vh;
 	padding-bottom: 1em;
 }
+
+.lua-type {
+	font-weight: bold;
+}
+
+.lua-function {
+	font-weight: bold;
+}

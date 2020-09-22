@@ -1,0 +1,2932 @@
+{
+    "Colourb": {
+        "inherits": "",
+        "functions": {
+            "Colourbnew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Colourb__eq": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Colourb__add": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Colourb__mul": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "red": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "green": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "blue": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "alpha": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "rgba": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourb",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "4"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "3"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushinteger",
+                    "pushinteger",
+                    "pushinteger",
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "Constructs a colour with four channels, each from 0 to 255.",
+        "py_arguments": "(red, green, blue, alpha)"
+    },
+    "Colourf": {
+        "inherits": "",
+        "functions": {
+            "Colourfnew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Colourf__eq": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "red": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "green": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "blue": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "alpha": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "rgba": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Colourf",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "4"
+                    },
+                    {
+                        "type": "number",
+                        "index": "3"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    },
+                    {
+                        "type": "number",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber",
+                    "pushnumber",
+                    "pushnumber",
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "Context": {
+        "inherits": "",
+        "functions": {
+            "AddEventListener": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "3"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "4"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Adds the inline Python script, script, as an event listener to the context. element_context is an optional Element; if it is not None, then the script will be executed as if it was bound to that element.",
+                "py_arguments": "(event, script, element_context, in_capture_phase)"
+            },
+            "CreateDocument": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Document"
+                ],
+                "py_description": "Creates a new document with the tag name of tag.",
+                "py_arguments": "(tag)"
+            },
+            "LoadDocument": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Document"
+                ],
+                "py_description": "Attempts to load a document from the RML file found at document_path. If successful, the document will be returned with a reference count of one.",
+                "py_arguments": "(document_path)"
+            },
+            "Render": {
+                "type": "function",
+                "arguments": [],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Renders the context.",
+                "py_arguments": "()"
+            },
+            "UnloadAllDocuments": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Closes all documents currently loaded with the context.",
+                "py_arguments": "()"
+            },
+            "UnloadDocument": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "Document",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Unloads a specific document within the context.",
+                "py_arguments": "(document)"
+            },
+            "Update": {
+                "type": "function",
+                "arguments": [],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Updates the context.",
+                "py_arguments": "()"
+            },
+            "dimensions": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2i",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "Vector2i"
+                ],
+                "py_description": "The dimensions of the context, as a Vector2i type.",
+                "py_arguments": null
+            },
+            "documents": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ContextDocumentsProxy"
+                ],
+                "py_description": "Returns an array of the documents within the context. This can be looked up as an array or a dictionary. Read-only.",
+                "py_arguments": null
+            },
+            "focus_element": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "Returns the leaf of the context's focus tree. Read-only.",
+                "py_arguments": null
+            },
+            "hover_element": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "Returns the element under the context's cursor. Read-only.",
+                "py_arguments": null
+            },
+            "name": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The name of the context, specified at construction. Read-only.",
+                "py_arguments": null
+            },
+            "root_element": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Context",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "Returns the context's root element. Read-only.",
+                "py_arguments": null
+            },
+            "AddMouseCursor": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Adds a cursor document loaded by another context into this context. The cursor document will be returned.",
+                "py_arguments": "(cursor_document)"
+            },
+            "LoadMouseCursor": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Attempts to load a document from the RML file found at cursor_document_path as a cursor. If successful, the cursor's document will be returned with a reference count of one.",
+                "py_arguments": "(cursor_document_path)"
+            },
+            "ShowMouseCursor": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "If show is True, this shows the mouse cursor, otherwise hides it.",
+                "py_arguments": "(show)"
+            },
+            "UnloadAllMouseCursors": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Unloads all cursors currently loaded with the context.",
+                "py_arguments": "()"
+            },
+            "UnloadMouseCursor": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Unloads a specific cursor by name.",
+                "py_arguments": "(cursor_name)"
+            }
+        },
+        "py_description": "The Context class has no constructor; it must be instantiated through the CreateContext() function. It has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "ContextDocumentsProxy": {
+        "inherits": "",
+        "functions": {
+            "ContextDocumentsProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ContextDocumentsProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ContextDocumentsProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "Document": {
+        "inherits": "Element",
+        "functions": {
+            "PullToFront": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Pulls the document in front of other documents within its context with a similar z-index.",
+                "py_arguments": "()"
+            },
+            "PushToBack": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Pushes the document behind other documents within its context with a similar z-index.",
+                "py_arguments": "()"
+            },
+            "Show": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Shows the document. flags is either NONE, FOCUS or MODAL. flags defaults to FOCUS.",
+                "py_arguments": "([flags])"
+            },
+            "Hide": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Hides the document.",
+                "py_arguments": "()"
+            },
+            "Close": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Hides and closes the document, destroying its contents.",
+                "py_arguments": "()"
+            },
+            "CreateElement": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementPtr"
+                ],
+                "py_description": "Instances an element with a tag of tag_name.",
+                "py_arguments": "(tag_name)"
+            },
+            "CreateTextNode": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementPtr"
+                ],
+                "py_description": "Instances a text element containing the string text.",
+                "py_arguments": "(text)"
+            },
+            "title": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Document",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Document",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The title of the document, as initially set by the \\<title\\> tag in the document's header.",
+                "py_arguments": null
+            },
+            "context": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Document",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Context"
+                ],
+                "py_description": "The context the document belongs to. Read-only.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "Document derives from Element. Document has no constructor; it must be instantiated through a Context object instead, either by loading an external RML file or creating an empty document. It has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "Element": {
+        "inherits": "",
+        "functions": {
+            "Elementnew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "AddEventListener": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "boolean",
+                        "index": "3"
+                    },
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "NOTE: Events added from python cannot be removed.",
+                "py_arguments": "(event, listener[, in_capture_phase])"
+            },
+            "AppendChild": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "ElementPtr",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Appends element as a child to this element.",
+                "py_arguments": "(element)"
+            },
+            "Blur": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Removes input focus from this element.",
+                "py_arguments": "()"
+            },
+            "Click": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Fakes a click on this element.",
+                "py_arguments": "()"
+            },
+            "DispatchEvent": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "-1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "-2"
+                    },
+                    {
+                        "type": "number",
+                        "index": "-1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "-1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "-1"
+                    },
+                    {
+                        "type": "userdata",
+                        "index": "-1"
+                    }
+                ],
+                "returns": [
+                    "pushnil"
+                ],
+                "py_description": "Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.",
+                "py_arguments": "(event, parameters, interruptible)"
+            },
+            "Focus": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Gives input focus to this element.",
+                "py_arguments": "()"
+            },
+            "GetAttribute": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Variant"
+                ],
+                "py_description": "Returns the value of the attribute named name. If no such attribute exists, the empty string will be returned.",
+                "py_arguments": "(name)"
+            },
+            "GetElementById": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "Returns the descendant element with an id of id.",
+                "py_arguments": "(id)"
+            },
+            "GetElementsByTagName": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushinteger",
+                    "Element",
+                    "settable"
+                ],
+                "py_description": "Returns a list of all descendant elements with the tag of tag_name.",
+                "py_arguments": "(tag_name)"
+            },
+            "HasAttribute": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Returns True if the element has a value for the attribute named name, False if not.",
+                "py_arguments": "(name)"
+            },
+            "HasChildNodes": {
+                "type": "function",
+                "arguments": [],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Returns True if the element has at least one child node, false if not.",
+                "py_arguments": "()"
+            },
+            "InsertBefore": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "ElementPtr",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Inserts the element element as a child of this element, directly before adjacent_element in the list of children.",
+                "py_arguments": "(element, adjacent_element)"
+            },
+            "IsClassSet": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Returns true if the class name is set on the element, false if not.",
+                "py_arguments": "(name)"
+            },
+            "RemoveAttribute": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Removes the attribute named name from the element.",
+                "py_arguments": "(name)"
+            },
+            "RemoveChild": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Removes the child element element from this element.",
+                "py_arguments": "(element)"
+            },
+            "ReplaceChild": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "ElementPtr",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Replaces the child element replaced_element with inserted_element in this element's list of children. If replaced_element is not a child of this element, inserted_element will be appended onto the list instead.",
+                "py_arguments": "(inserted_element, replaced_element)"
+            },
+            "ScrollIntoView": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "boolean",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Scrolls this element into view if its ancestors have hidden overflow. If align_with_top is True, the element's top edge will be aligned with the top (or as close as possible to the top) of its ancestors' viewing windows. If False, its bottom edge will be aligned to the bottom.",
+                "py_arguments": "(align_with_top)"
+            },
+            "SetAttribute": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets the value of the attribute named name to value.",
+                "py_arguments": "(name, value)"
+            },
+            "SetClass": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets (if value is true) or clears (if value is false) the class name on the element.",
+                "py_arguments": "(name, value)"
+            },
+            "attributes": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementAttributesProxy"
+                ],
+                "py_description": "The array of attributes on the element. Each element has the read-only properties name and value. Read-only.",
+                "py_arguments": null
+            },
+            "child_nodes": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementChildNodesProxy"
+                ],
+                "py_description": "The array of child nodes on the element. Read-only.",
+                "py_arguments": null
+            },
+            "class_name": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The space-separated list of classes on the element.",
+                "py_arguments": null
+            },
+            "client_left": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The distance between the left border edge and the left client edge of the element. Read-only.",
+                "py_arguments": null
+            },
+            "client_height": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The height of the element's client area. Read-only.",
+                "py_arguments": null
+            },
+            "client_top": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The distance between the top border edge and the top client edge of the element. Read-only.",
+                "py_arguments": null
+            },
+            "client_width": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The width of the element's client area. Read-only.",
+                "py_arguments": null
+            },
+            "first_child": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Element"
+                ],
+                "py_description": "The first child of the element, or None if the client has no children. Read-only.",
+                "py_arguments": null
+            },
+            "id": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The ID of the element, or the empty string if the element has no ID.",
+                "py_arguments": null
+            },
+            "inner_rml": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The element's RML content.",
+                "py_arguments": null
+            },
+            "last_child": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Element"
+                ],
+                "py_description": "The last child of the element, or None if the client has no children. Read-only.",
+                "py_arguments": null
+            },
+            "next_sibling": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Element"
+                ],
+                "py_description": "The element's next sibling, or None if it is the last sibling. Read-only.",
+                "py_arguments": null
+            },
+            "offset_height": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The height of the element, excluding margins. Read-only.",
+                "py_arguments": null
+            },
+            "offset_left": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The distance between the element's offset parent's left border edge and this element's left border edge. Read-only.",
+                "py_arguments": null
+            },
+            "offset_parent": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "The element's offset parent. Read only.",
+                "py_arguments": null
+            },
+            "offset_top": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The distance between the element's offset parent's top border edge and this element's top border edge. Read-only.",
+                "py_arguments": null
+            },
+            "offset_width": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The width of the element, excluding margins. Read-only.",
+                "py_arguments": null
+            },
+            "owner_document": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Document"
+                ],
+                "py_description": "The document this element is part of. Read-only.",
+                "py_arguments": null
+            },
+            "parent_node": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Element"
+                ],
+                "py_description": "The element this element is directly parented to. Read-only.",
+                "py_arguments": null
+            },
+            "previous_sibling": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Element"
+                ],
+                "py_description": "The element's previous sibling, or None if it is the first sibling. Read-only.",
+                "py_arguments": null
+            },
+            "scroll_height": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The height of this element's content. This will be at least as high as the client height. Read-only.",
+                "py_arguments": null
+            },
+            "scroll_left": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The offset between the left edge of this element's client area and the left edge of the content area.",
+                "py_arguments": null
+            },
+            "scroll_top": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The offset between the top edge of this element's client area and the top edge of the content area.",
+                "py_arguments": null
+            },
+            "scroll_width": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "The width of this element's content. This will be at least as wide as the client width. Read-only.",
+                "py_arguments": null
+            },
+            "style": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementStyleProxy"
+                ],
+                "py_description": "An object used to access this element's style information. Individual RCSS properties can be accessed by using the name of the property as a Python property on the object itself (ie, element.style.width = \"40px\").",
+                "py_arguments": null
+            },
+            "tag_name": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Element",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The tag name used to instance this element. Read-only.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "The Element class has no constructor; it must be instantiated through a [Document](#document) object instead. It has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "ElementPtr": {
+        "inherits": "",
+        "functions": {},
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementAttributesProxy": {
+        "inherits": "",
+        "functions": {
+            "ElementAttributesProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementAttributesProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementAttributesProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementChildNodesProxy": {
+        "inherits": "",
+        "functions": {
+            "ElementChildNodesProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementChildNodesProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementChildNodesProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementInstancer": {
+        "inherits": "",
+        "functions": {
+            "ElementInstancernew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "InstanceElement": {
+                "type": "set",
+                "arguments": [
+                    {
+                        "type": "ElementInstancer",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushvalue"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementStyleProxy": {
+        "inherits": "",
+        "functions": {
+            "ElementStyleProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementStyleProxy__newindex": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementStyleProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "ElementStyleProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementText": {
+        "inherits": "Element",
+        "functions": {
+            "text": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementText",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementText",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "Event": {
+        "inherits": "",
+        "functions": {
+            "StopPropagation": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Stops the propagation of the event through the event cycle, if allowed.",
+                "py_arguments": "()"
+            },
+            "current_element": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Event",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "The element the event has propagated to. Read-only.",
+                "py_arguments": null
+            },
+            "type": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Event",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "The string name of the event. Read-only.",
+                "py_arguments": null
+            },
+            "target_element": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Event",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Element"
+                ],
+                "py_description": "The element the event was originally targeted at. Read-only.",
+                "py_arguments": null
+            },
+            "parameters": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Event",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "EventParametersProxy"
+                ],
+                "py_description": "A dictionary like object containing all the parameters in the event.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "The Event class has no constructor; it is generated internally. It has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "EventParametersProxy": {
+        "inherits": "",
+        "functions": {
+            "EventParametersProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "EventParametersProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "EventParametersProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "GlobalLuaFunctions": {
+        "inherits": "",
+        "functions": {
+            "ipairsaux": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "LuaPrint": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "Log": {
+        "inherits": "",
+        "functions": {
+            "LogMessage": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "LuaRmlUi": {
+        "inherits": "",
+        "functions": {
+            "CreateContext": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2i",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnil",
+                    "Context"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "LoadFontFace": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "RegisterTag": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementInstancer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "contexts": {
+                "type": "get",
+                "arguments": [],
+                "returns": [
+                    "RmlUiContextsProxy"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "key_identifier": {
+                "type": "get",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "key_modifier": {
+                "type": "get",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "RmlUiContextsProxy": {
+        "inherits": "",
+        "functions": {
+            "RmlUiContextsProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "RmlUiContextsProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "RmlUiContextsProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "Vector2f": {
+        "inherits": "",
+        "functions": {
+            "Vector2fnew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2f__mul": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2f__div": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2f__add": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2f__sub": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2f__eq": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "DotProduct": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Normalise": {
+                "type": "function",
+                "arguments": [],
+                "returns": [
+                    "Vector2f"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Rotate": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "number",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "Vector2f"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "x": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "y": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    },
+                    {
+                        "type": "number",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "magnitude": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Vector2f",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "Constructs a two-dimensional floating-point vector.",
+        "py_arguments": "(x, y)"
+    },
+    "Vector2i": {
+        "inherits": "",
+        "functions": {
+            "Vector2inew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2i__mul": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2i__div": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2i__add": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2i__sub": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "Vector2i__eq": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "x": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Vector2i",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2i",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "y": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "Vector2i",
+                        "index": "1"
+                    },
+                    {
+                        "type": "Vector2i",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "magnitude": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "Vector2i",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushnumber"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "Constructs a two-dimensional integral vector.",
+        "py_arguments": "(x, y)"
+    },
+    "DataFormatter": {
+        "inherits": "",
+        "functions": {
+            "FormatData": {
+                "type": "set",
+                "arguments": [
+                    {
+                        "type": "DataFormatter",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushvalue"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "DataFormatternew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "DataSource": {
+        "inherits": "",
+        "functions": {
+            "NotifyRowAdd": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "3"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Notify listeners that rows have been added to the data source.",
+                "py_arguments": "(table_name, first_row_added, num_rows_added)"
+            },
+            "NotifyRowRemove": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "3"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Notify listeners that rows have been removed from the data source.",
+                "py_arguments": "(table_name, first_row_removed, num_rows_removed)"
+            },
+            "NotifyRowChange": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "3"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Notify listeners that all rows on the data source have changed.",
+                "py_arguments": "(table_name)"
+            },
+            "GetNumRows": {
+                "type": "set",
+                "arguments": [
+                    {
+                        "type": "DataSource",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushvalue"
+                ],
+                "py_description": "Return the number of rows in the given table",
+                "py_arguments": "(table_name)"
+            },
+            "GetRow": {
+                "type": "set",
+                "arguments": [
+                    {
+                        "type": "DataSource",
+                        "index": "1"
+                    },
+                    {
+                        "type": "lua_type",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushvalue"
+                ],
+                "py_description": "Return a list of the column values in string form",
+                "py_arguments": "(table_name, index, columns)"
+            }
+        },
+        "py_description": "Abstract DataSource Interface.",
+        "py_arguments": "(name)"
+    },
+    "LuaDataSource": {
+        "inherits": "",
+        "functions": {
+            "DataSourcenew": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementDataGrid": {
+        "inherits": "Element",
+        "functions": {
+            "AddColumn": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    },
+                    {
+                        "type": "number",
+                        "index": "3"
+                    },
+                    {
+                        "type": "string",
+                        "index": "4"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. header_rml specifies the RML content of the column's header.",
+                "py_arguments": "(fields, formatter, initial_width, header_rml)"
+            },
+            "SetDataSource": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets the name and table of the new data source to be used by the data grid.",
+                "py_arguments": "(data_source_name)"
+            },
+            "rows": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementDataGrid",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementDataGridRow"
+                ],
+                "py_description": "Returns an array containing all the rows in the data grid.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementDataGrid derives from Element. The data grid has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "ElementDataGridRow": {
+        "inherits": "Element",
+        "functions": {
+            "row_expanded": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "The expanded state of the row, either True or False.",
+                "py_arguments": null
+            },
+            "parent_relative_index": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The index of the row, relative to its parent row. So if you are the third row in your parent, then it will be 3.",
+                "py_arguments": null
+            },
+            "table_relative_index": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The index of the row, relative to the data grid it is in. This takes into account all previous rows and their children.",
+                "py_arguments": null
+            },
+            "parent_row": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementDataGridRow"
+                ],
+                "py_description": "The parent row of this row. None if it at the top level.",
+                "py_arguments": null
+            },
+            "parent_grid": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementDataGridRow",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "ElementDataGrid"
+                ],
+                "py_description": "The data grid that this row belongs to.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementDataGridRow derives from Element. The data grid row has the following properties:",
+        "py_arguments": ""
+    },
+    "ElementForm": {
+        "inherits": "Element",
+        "functions": {
+            "Submit": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Submits the form with a submit value of submit_value.",
+                "py_arguments": "(submit_value)"
+            }
+        },
+        "py_description": "ElementForm derives from Element. The form element has the following function:",
+        "py_arguments": ""
+    },
+    "ElementFormControl": {
+        "inherits": "Element",
+        "functions": {
+            "disabled": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "name": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "value": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControl",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushstring"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "ElementFormControlDataSelect": {
+        "inherits": "ElementFormControlSelect",
+        "functions": {
+            "SetDataSource": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets the name and table of the new data source to be used by the select box.",
+                "py_arguments": "(data_source_name)"
+            }
+        },
+        "py_description": "ElementFormControlDataSelect derives from ElementFormControlSelect. It has the following additional function:",
+        "py_arguments": ""
+    },
+    "ElementFormControlInput": {
+        "inherits": "ElementFormControl",
+        "functions": {
+            "checked": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "Relevant for radio and checkbox types. The checked status of the input.",
+                "py_arguments": null
+            },
+            "maxlength": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "size": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Relevant for text types. The approximate number of characters the text field shows horizontally at once.",
+                "py_arguments": null
+            },
+            "max": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Relevant for range types. The value of the control on the bottom / right of the slider.",
+                "py_arguments": null
+            },
+            "min": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Relevant for range types. The value of the control on the top / left of the slider.",
+                "py_arguments": null
+            },
+            "step": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlInput",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Relevant for range types. The step the control's value changes in.",
+                "py_arguments": null
+            },
+            "max_length": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "Relevant for text types. The maximum number of characters permitted in the text field.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementFormControlInput derives from IElementFormControl. The control has the following properties, only appropriate on the relevant types:",
+        "py_arguments": ""
+    },
+    "ElementFormControlSelect": {
+        "inherits": "ElementFormControl",
+        "functions": {
+            "Add": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "string",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "3"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Adds a new option to the select box. The new option has the string value of value and is represented by the elements created by the RML string rml. The new option will be inserted by the index specified by before; if this is out of bounds (the default), then the new option will be appended onto the list. The index of the new option will be returned.",
+                "py_arguments": "(rml, value[, before])"
+            },
+            "Remove": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Removes an existing option from the selection box.",
+                "py_arguments": "(index)"
+            },
+            "RemoveAll": {
+                "type": "function",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "options": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlSelect",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "SelectOptionsProxy"
+                ],
+                "py_description": "The array of options available in the select box. Each entry in the array has the property value, the string value of the option, and element, the root of the element hierarchy that represents the option in the list.",
+                "py_arguments": null
+            },
+            "selection": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlSelect",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlSelect",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The index of the currently selected option.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementFormControlSelect derives from IElementFormControl. The control has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "ElementFormControlTextArea": {
+        "inherits": "ElementFormControl",
+        "functions": {
+            "cols": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The approximate number of characters the text area shows horizontally at once.",
+                "py_arguments": null
+            },
+            "maxlength": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "rows": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The number of lines the text area shows at once.",
+                "py_arguments": null
+            },
+            "wordwrap": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementFormControlTextArea",
+                        "index": "1"
+                    },
+                    {
+                        "type": "boolean",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushboolean"
+                ],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "max_length": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "The maximum number of characters permitted in the text area.",
+                "py_arguments": null
+            },
+            "word_wrap": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "True if lines are split to fit into the text area, False if not.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementFormControlTextArea derives from IElementFormControl. The control has the following properties:",
+        "py_arguments": ""
+    },
+    "ElementTabSet": {
+        "inherits": "Element",
+        "functions": {
+            "SetPanel": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets the contents of a panel to the RML content rml. If index is out-of-bounds, a new panel will be added at the end.",
+                "py_arguments": "(index, rml)"
+            },
+            "SetTab": {
+                "type": "function",
+                "arguments": [
+                    {
+                        "type": "integer",
+                        "index": "1"
+                    },
+                    {
+                        "type": "string",
+                        "index": "2"
+                    }
+                ],
+                "returns": [],
+                "py_description": "Sets the contents of a tab to the RML content rml. If index is out-of-bounds, a new tab will be added at the end.",
+                "py_arguments": "(index, rml)"
+            },
+            "active_tab": {
+                "type": "getset",
+                "arguments": [
+                    {
+                        "type": "ElementTabSet",
+                        "index": "1"
+                    },
+                    {
+                        "type": "ElementTabSet",
+                        "index": "1"
+                    },
+                    {
+                        "type": "integer",
+                        "index": "2"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "Index of the active panel.",
+                "py_arguments": null
+            },
+            "num_tabs": {
+                "type": "get",
+                "arguments": [
+                    {
+                        "type": "ElementTabSet",
+                        "index": "1"
+                    }
+                ],
+                "returns": [
+                    "pushinteger"
+                ],
+                "py_description": "The number of tabs in the tab set. Read-only.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "ElementTabSet derives from Element. The control has the following functions and properties:",
+        "py_arguments": ""
+    },
+    "SelectOptionsProxy": {
+        "inherits": "",
+        "functions": {
+            "SelectOptionsProxy__index": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "SelectOptionsProxy__pairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            },
+            "SelectOptionsProxy__ipairs": {
+                "type": "other",
+                "arguments": [],
+                "returns": [],
+                "py_description": "",
+                "py_arguments": ""
+            }
+        },
+        "py_description": "",
+        "py_arguments": ""
+    },
+    "IElementText": {
+        "inherits": "",
+        "functions": {
+            "text": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "The raw text content of the text element in UTF-8 encoding.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "IElementText derives from Element. IElementText is an interface, and therefore cannot be instanced directly. A concrete ElementText must be instantiated through a Document object instead. It has the following property:",
+        "py_arguments": ""
+    },
+    "IElementFormControl": {
+        "inherits": "",
+        "functions": {
+            "disabled": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "The disabled status of the control, either True or False.",
+                "py_arguments": null
+            },
+            "name": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "The name of the control, initial set with the \"name\" attribute.",
+                "py_arguments": null
+            },
+            "value": {
+                "type": "py_only",
+                "arguments": [],
+                "returns": [],
+                "py_description": "The current value of the control.",
+                "py_arguments": null
+            }
+        },
+        "py_description": "IElementFormControl derives from Element. The form element control has the following properties:",
+        "py_arguments": ""
+    }
+}
