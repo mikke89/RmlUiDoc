@@ -631,10 +631,10 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-GetAttribute' name='Element-GetAttribute'>GetAttribute</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `Variant`{: .lua-type }
 : Returns the value of the attribute named name. If no such attribute exists, the empty string will be returned.
 
-<a href='#Element-GetById' name='Element-GetById'>GetById</a>{: .lua-function }(`string`{: .lua-type } id)  &rarr; `Element`{: .lua-type }
+<a href='#Element-GetElementById' name='Element-GetElementById'>GetElementById</a>{: .lua-function }(`string`{: .lua-type } id)  &rarr; `Element`{: .lua-type }
 : Returns the descendant element with an id of id.
 
-<a href='#Element-GetsByTagName' name='Element-GetsByTagName'>GetsByTagName</a>{: .lua-function }(`string`{: .lua-type } tag_name)  &rarr; `table`{: .lua-type }
+<a href='#Element-GetElementsByTagName' name='Element-GetElementsByTagName'>GetElementsByTagName</a>{: .lua-function }(`string`{: .lua-type } tag_name)  &rarr; `table`{: .lua-type }
 : Returns a list of all descendant elements with the tag of `tag_name`. Returned table is indexable with integers.
 
 <a href='#Element-HasAttribute' name='Element-HasAttribute'>HasAttribute</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `boolean`{: .lua-type }
@@ -1221,7 +1221,7 @@ Log messages through RmlUi.
 
 #### Function Descriptions
 
-<a href='#Message' name='Message'>Message</a>{: .lua-function }(`Log.logtype`{: .lua-type } type, `string`{: .lua-type } str)  &rarr; `nil`{: .lua-type}
+<a href='#Log-Message' name='Log-Message'>Message</a>{: .lua-function }(`Log.logtype`{: .lua-type } type, `string`{: .lua-type } str)  &rarr; `nil`{: .lua-type}
 : Log a message with a type.
 
 ---

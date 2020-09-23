@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Lua Manual
-status: improve
 ---
 
 The Lua interface to RmlUi has been designed to resemble Javascript as closely as possible. Due the nature of the language, this is more possible in Lua than C++.
@@ -19,7 +18,10 @@ A good place to get started is the `luainvaders` sample included with the librar
 
 ### Interfaces
 
-
+1. [Elements](lua_manual/elements.html)
+2. [Documents](lua_manual/documents.html)
+3. [Contexts](lua_manual/contexts.html)
+4. [Events](lua_manual/events.html)
 
 ### Appendix
 

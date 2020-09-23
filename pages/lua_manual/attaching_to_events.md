@@ -9,7 +9,7 @@ next: elements
 
 The easiest way to attach to events with Lua is to write your code directly into the RML files, using the `on*`{:.attr} attributes. When the event is fired three global variables are set up, `document`, `event` and `element`.
 
-[element](element.html)  | The element that is currently being processed.
+[element](elements.html)  | The element that is currently being processed.
 [document](documents.html) | The document the element that is currently being processed belongs to.
 [event](events.html) | The event that is currently being processed.
 
