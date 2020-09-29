@@ -1,0 +1,177 @@
+---
+layout: page
+title: Tables
+parent: rcss
+next: user_interface
+---
+
+Table suport in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some differences, the main ones being as follows.
+
+- The width of columns are computed as if setting the CSS property `table-layout: fixed`{:.prop}, with some additions.
+  - Widths can be specified as fractional (like the CSS `fr` unit for grid layout).
+  - `min-width`{:.prop} and `max-width`{:.prop} constraints are respected.
+- RmlUi does not generate anonymous elements or attempt to clean up invalid tables.
+  - Table cells must be located as direct children of row elements. However, row groups are optional.
+  - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
+- Percentage-relative values are calculated based on the initial block-size of the table element, and are not re-adjusted if the table size is changed during formatting.
+- Currently, table rows with `height: auto`{:.prop} will not be distributed to fit the table height if specified. Instead, the table will be resized to the formatted height of each row (as if height was not specified on the table).
+
+
+### The RCSS table model
+
+The RCSS table model follows the structure of CSS tables. This means that the table is made up of table rows, optionally wrapped in row groups, which contains individual cells. Table columns and column groups can optionally be specified for visual effects (mainly backgrounds, borders, and decorators) and for defining widths of columns. Columns never contain cells directly. Table columns and column groups must precede any rows or row groups.
+
+The `display`{:.prop} property is used to define the formatting of tables, with the following relevant values.
+
+`display`{:.prop} value | Description | Attributes | Valid children
+---- | ------ | ------------- | ----------
+`table`{:.value} | Specifies a block-level table. | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value}
+`table-row`{:.value} | Specifies a table row. | `span`{:.value} | `table-cell`{:.value}
+`table-row-group`{:.value} | Specifies a grouping of table rows. | | `table-row`{:.value}
+`table-column`{:.value} | Specifies a table column. | `span`{:.value} | 
+`table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
+`table-cell`{:.value} | Specifies a table cell.  | `colspan`{:.value}, `rowspan`{:.value} |
+
+In particular, the following CSS `display`{:.prop} modes are *not* supported: `inline-table`{:.value}, `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}.
+
+
+#### Example
+
+The following example demonstrates a table with grouped rows and columns, using all the table display modes.
+
+```html
+<table>
+	<col/>
+	<colgroup>
+		<col span="2"/>
+		<col/>
+	</colgroup>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td colspan="2">Items</td>
+			<td>Age</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Gimli</td>
+			<td>Helmet</td>
+			<td>Axe</td>
+			<td>139 years</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="4">Footnote</td>
+		</tr>
+	</tfoot>
+</table>
+```
+
+This example assumes that the recommended stylesheet below is applied.
+
+
+#### Recommended stylesheet
+
+Unlike in HTML, the `table`{:.tag} element or any of the other table tags do not have any special meaning in RmlUi. Instead, they will be derived entirely from their RCSS properties. Furthermore, RmlUi does not contain a default stylesheet, thus, the RCSS properties for tables must first be declared. The following RCSS properties are recommended for declaring tables with the tags known from HTML.
+
+
+```css
+table {
+	box-sizing: border-box;
+	display: table;
+}
+tr {
+	box-sizing: border-box;
+	display: table-row;
+}
+td {
+	box-sizing: border-box;
+	display: table-cell;
+}
+col {
+	box-sizing: border-box;
+	display: table-column;
+}
+colgroup {
+	display: table-column-group;
+}
+thead, tbody, tfoot {
+	display: table-row-group;
+}
+```
+
+### Visual layout of tables
+
+Table elements are rendered in the following order, from bottom to top:
+
+1. Table
+2. Column groups
+3. Columns
+4. Row groups
+5. Rows
+6. Cells
+
+Column groups and column elements are sized to cover the table columns they are spanning. Row groups are sized to cover the rows they are spanning. This way, backgrounds, borders, and decorators can be used on these elements, and will be visible if cells and rows have transparent backgrounds.
+
+
+#### Table width algorithm
+
+- The width of table columns are defined entirely by the width specified on columns, column groups, and/or the cells of the first row.
+- Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
+- Columns with `width: auto`{:.prop} are distributed equally to fill the table width.
+- Columns with `width: <length> | <percentage < 100%>`{:.prop} are respected exactly.
+- Columns with `width: <percentage ≥ 100%>`{:.prop} adjusts the flexible width of the column relative to other flexible columns (like the CSS `fr` unit for grid layout).
+- Columns can use `margin`{:.prop} and `padding`{:.prop} to add additional spacing.
+
+
+#### Table height algorithm
+
+
+
+`vertical-align`{:.prop}
+
+When used on a table cell, this property has the following meaning.
+
+`top`{:.value} (*default*)
+: Aligns the table cell with the top of the first row it spans.
+
+`bottom`{:.value}
+: Aligns the table cell with the bottom of the last row it spans.
+
+`middle`{:.value}
+: Aligns the table cell with the middle of the rows it spans.
+
+*other*{:.value}
+:  Other values have no meaning in this context and defaults to `top`{:.value}.
+
+The alignment is done by adding top or bottom padding to the cell element. Unlike in CSS, `baseline`{:.value} is currently not supported.
+
+
+### Borders
+
+The model for setting borders on tables in RCSS is similar to the separated borders model in CSS (`border-collapse: separate`{:.value}).
+
+That is, each cell element control their own borders separately.
+
+However, unlike CSS, borders can still be added to rows, row groups, columns, and column groups. They will be separated from the cell borders, as if extending the borders of their inner elements.
+
+
+#### Cell spacing
+
+`row-gap`{:.prop}, `column-gap`{:.prop}
+
+Value: | \<length\> \| \<percentage\>
+Initial: | 0px
+Applies to: | `table`{:.value} elements
+Inherited: | no
+Percentages: | N/A
+
+Specifies the gap *between* table cells. Like the CSS property `border-spacing`{:.prop}, except that spacing is not applied before and after the first and last cell, respectively. Instead, use `padding`{:.prop} on the table element to add spacing between the table border and its cells.
+
+`gap`{:.prop}
+
+A shorthand property for setting both `row-gap`{:.prop} and `column-gap`{:.prop} properties, in that order. If only a single value is specified, it sets both gap properties to the given value.
+
+

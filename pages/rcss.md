@@ -23,17 +23,18 @@ If you are not, read through this documentation while consulting the CSS2 specif
 8. [Colours, backgrounds, and rounded corners](rcss/colours_backgrounds.html)
 9. [Fonts](rcss/fonts.html)
 10. [Text](rcss/text.html)
-11. [User interface](rcss/user_interface.html)
-12. [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
-13. [Sprite sheets](rcss/sprite_sheets.html)
-14. [Decorators](rcss/decorators.html)
+11. [Tables](rcss/tables.html)
+12. [User interface](rcss/user_interface.html)
+13. [Animations, transitions, and transforms](rcss/animations_transitions_transforms.html)
+14. [Sprite sheets](rcss/sprite_sheets.html)
+15. [Decorators](rcss/decorators.html)
     * [image](rcss/decorators/image.html)
     * [tiled-horizontal](rcss/decorators/tiled_horizontal.html)
     * [tiled-vertical](rcss/decorators/tiled_vertical.html)
     * [tiled-box](rcss/decorators/tiled_box.html)
     * [ninepatch](rcss/decorators/ninepatch.html)
     * [gradient](rcss/decorators/gradient.html)
-15. [Font effects](rcss/font_effects.html)
+16. [Font effects](rcss/font_effects.html)
     * [glow](rcss/font_effects/glow.html)
     * [outline](rcss/font_effects/outline.html)
     * [shadow](rcss/font_effects/shadow.html)
@@ -42,4 +43,3 @@ If you are not, read through this documentation while consulting the CSS2 specif
 ### Appendix
 
 * [Property index](rcss/property_index.html) 
-
