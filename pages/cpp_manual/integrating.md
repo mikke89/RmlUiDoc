@@ -19,11 +19,11 @@ RmlUi is developed following the C++14 standard and can be used on the following
 
 #### Visual Studio
 
-- Add the include path (`/Include/`{:.path} under the RmlUi directory) to your include paths, found under `Project -> Properties -> C/C++ -> General -> Additional Include Directories`.
+- Add the include path (`/Include/`{:.path} under the RmlUi directory) to your include paths, found under `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
 - Add `#include <RmlUi/Core.h>` in a source or header file.
 - Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build/`{:.path} directory as appropriate) to your library paths.
 - Link with `RmlCore.lib`{:.path}.
-- If you have RmlUi built as a static library, add the following preprocessor definition under `Project -> Properties -> C/C++ -> Preprocessor -> Preprocessor Definitions`: `RMLUI_STATIC_LIB`.
+- If you have RmlUi built as a static library, add the following preprocessor definition under `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}: `RMLUI_STATIC_LIB`.
 - If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs, ie. `Debug/RmlCore.dll`{:.path} for debug builds, `Release/RmlCore.dll`{:.path} for release builds from the `/Build/`{:.path} folder into the directory your executable will run from. 
 
 #### MacOS and Linux
