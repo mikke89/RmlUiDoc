@@ -19,20 +19,26 @@ RmlUi is developed following the C++14 standard and can be used on the following
 
 #### Visual Studio
 
-- Add the include path (`/Include/`{:.path} under the RmlUi directory) to your include paths, found under `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
-- Add `#include <RmlUi/Core.h>` in a source or header file.
-- Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build/`{:.path} directory as appropriate) to your library paths.
-- Link with `RmlCore.lib`{:.path}.
-- If you have RmlUi built as a static library, add the following preprocessor definition under `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}: `RMLUI_STATIC_LIB`.
-- If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs, ie. `Debug/RmlCore.dll`{:.path} for debug builds, `Release/RmlCore.dll`{:.path} for release builds from the `/Build/`{:.path} folder into the directory your executable will run from. 
+- Add the RmlUi include path `RmlUi/Include/`{:.path} to your project's include paths.
+  - See `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
+- Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build/`{:.path} directory as appropriate) and the FreeType library path to your library paths.
+  - See `Project → Properties → Linker → General → Additional Library Directories`{:.path}.
+- Link with `RmlCore.lib`{:.path} and `freetype.lib`{:.path}.
+  - See `Project → Properties → Linker → Input → Additional Dependencies`{:.path}.
+- If you have RmlUi built as a static library, add the following preprocessor definition: `RMLUI_STATIC_LIB`.
+  - See `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}.
+- If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs into the directory your executable will run from..
+  - That is, `Debug/RmlCore.dll`{:.path} for debug builds and `Release/RmlCore.dll`{:.path} for release builds from the `RmlUi/Build/`{:.path} folder.
+- If you have FreeType built as a shared/dynamic library, copy the `freetype.dll` file into the directory your executable will run from.
+- Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
 #### MacOS and Linux
 
-- Add the RmlUi include path (`/Include/`{:.path} under the RmlUi directory) and library path (`/lib/`{:.path}) to the paths in your build system.
-- `#include <RmlUi/Core.h>` in your project.
-- Link with `RmlCore`.
+- Add the RmlUi include path `RmlUi/Include/`{:.path} and library path `RmlUi/Build/`{:.path} to the paths in your build system.
+- Link with `RmlCore` and `freetype`.
 - Either copy the RmlUi libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for MacOS) environment variable. 
 - When the library is built as a static library, add `#define RMLUI_STATIC_LIB` before including the RmlUi headers.
+- Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
 ### Initialising RmlUi
 

@@ -23,7 +23,7 @@ git clone https://github.com/mikke89/RmlUi.git
 
 ### Building on Windows
 
-This section serves as an introduction for users of Visual Studio.
+This section is aimed at users of Visual Studio, however the procedure should be transferable to other environments.
 
 In addition to CMake, you need a copy of the FreeType library, version 2.10.1 is officially supported. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}.
 
@@ -33,7 +33,7 @@ Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to 
 
 If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/win64/freetype.dll`{:.path} file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`{:.path}. By default, this will be the working directory when starting applications from Visual Studio.
 
-Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore, RmlControls, and RmlDebugger projects. If you set the CMake option to build the samples, you can now right click on `invaders`, and click `Set as StartUp Project`. Finally, press `F5` to start building and open the invaders demo when done. Enjoy!
+Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore and RmlDebugger projects. If you set the CMake option to build the samples, you can now right click on `invaders`, and click `Set as StartUp Project`. Finally, press `F5` to start building and open the invaders demo when done. Enjoy!
 
 ### Building on macOS and Linux
 
