@@ -24,9 +24,10 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `clear`{:.prop} | left \| right \| both \| none | none | block-level elements | no | | 
 `clip`{:.prop} | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
 `color`{:.prop} | \<colour\> | black | all | yes | | 
+`column-gap`{:.prop} | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
 `cursor`{:.prop} | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
 `decorator`{:.prop} | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
-`display`{:.prop} | inline \| block \| inline-block \| none | inline | all | no | | 
+`display`{:.prop} | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
 `drag`{:.prop} | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
 `fill-image`{:.prop} | \<string\> | _empty_ | [progressbar's]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) fill element | no | | \<string\> refers to a sprite name or an image url.
 `focus`{:.prop} | none \| auto | auto | all | yes | | 
@@ -36,6 +37,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `font-size`{:.prop} | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
 `font-style`{:.prop} | normal \| italic | normal | all | yes | | 'oblique' not supported.
 `font-weight`{:.prop} | normal \| bold | normal | all | yes | | Intermediate weights not supported.
+`gap`{:.prop} | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
 `height`{:.prop} | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 `image-color`{:.prop} | \<color\> | white | \<img\> elements and decorators | no | | 
 `left`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | No 'auto'.
@@ -56,6 +58,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 `pointer-events`{:.prop} | auto \| none | auto | all | yes | | 
 `position`{:.prop} | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
 `right`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | No 'auto'.
+`row-gap`{:.prop} | \<length\> \| \<percentage\> | 0px | table elements | no | initial height of table | 
 `scrollbar-margin`{:.prop} | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
 `tab-index`{:.prop} | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
 `text-align`{:.prop} | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.

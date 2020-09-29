@@ -166,12 +166,10 @@ Value: | \<length\> \| \<percentage\>
 Initial: | 0px
 Applies to: | `table`{:.value} elements
 Inherited: | no
-Percentages: | N/A
+Percentages: | relative to the height and width, respectively, of the initial table block size
 
 Specifies the gap *between* table cells. Like the CSS property `border-spacing`{:.prop}, except that spacing is not applied before and after the first and last cell, respectively. Instead, use `padding`{:.prop} on the table element to add spacing between the table border and its cells.
 
 `gap`{:.prop}
 
 A shorthand property for setting both `row-gap`{:.prop} and `column-gap`{:.prop} properties, in that order. If only a single value is specified, it sets both gap properties to the given value.
-
-

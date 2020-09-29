@@ -62,7 +62,7 @@ Loose text within elements also generates inline boxes.
 
 `display`{:.prop}
 
-Value: | inline \| block \| inline-block \| none
+Value: | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none
 Initial: | inline
 Applies to: | all elements
 Inherited: | no
@@ -79,10 +79,13 @@ The values have the following meanings:
 `inline-block`{:.value}
 : This element generates a block box, which its descendants are positioned within, but is positioned itself as a single inline box. This is similar to the behaviour of replaced elements (those with intrinsic widths). 
 
+`table, table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
+: These values are used for defining and structuring [tables](tables.html).
+
 `none`{:.value}
 : This element (and all of its descendants) generate no boxes, and are not displayed. Note this will mean the element will not affect layout. The 'visibility' property can be used to make an element affect layout but not be rendered. 
 
-The only difference between this and the CSS display property is the reduced range of values allowed.
+The only difference between this and the CSS display property is the reduced range of allowed values.
 
 ### Positioning schemes
 
