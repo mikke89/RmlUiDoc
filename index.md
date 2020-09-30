@@ -22,8 +22,8 @@ can_edit: false
 
 ### Authoring Documentation 
 
-1. [RML, Rml Markup Language](pages/rml.html)
-2. [RCSS, Rcss Cascading Style Sheets](pages/rcss.html)
+1. [RML Markup Language](pages/rml.html)
+2. [RCSS Cascading Style Sheets](pages/rcss.html)
 3. [Style guide for core elements](pages/style_guide.html) 
 4. [Glossary](pages/glossary.html) 
 

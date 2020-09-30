@@ -23,14 +23,14 @@ The RCSS table model follows the structure of CSS tables. This means that the ta
 
 The `display`{:.prop} property is used to define the formatting of tables, with the following relevant values.
 
-`display`{:.prop} value | Description | Attributes | Valid children
----- | ------ | ------------- | ----------
-`table`{:.value} | Specifies a block-level table. | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value}
-`table-row`{:.value} | Specifies a table row. | | `table-cell`{:.value}
-`table-row-group`{:.value} | Specifies a grouping of table rows. | | `table-row`{:.value}
-`table-column`{:.value} | Specifies a table column. | `span`{:.value} | 
+`display`{:.prop} value       | Description | Attributes | Valid children
+----------------------------- | ----------- | ---------- | --------------
+`table`{:.value}              | Specifies a block-level table.         | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value}
+`table-row`{:.value}          | Specifies a table row.                 | | `table-cell`{:.value}
+`table-row-group`{:.value}    | Specifies a grouping of table rows.    | | `table-row`{:.value}
+`table-column`{:.value}       | Specifies a table column.              | `span`{:.value} | 
 `table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
-`table-cell`{:.value} | Specifies a table cell.  | `colspan`{:.value}, `rowspan`{:.value} |
+`table-cell`{:.value}         | Specifies a table cell.                | `colspan`{:.value}, `rowspan`{:.value} |
 
 In particular, the following CSS `display`{:.prop} modes are *not* supported: `inline-table`{:.value}, `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}.
 
@@ -122,10 +122,10 @@ The table width is the sum of all table columns and the horizontal table spacing
 
 The width of table columns are defined entirely by the width specified on column elements and/or the cells of the first row. In the following, *columns* mean any of the aforementioned elements.
 
-- Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
 - Columns with `width: auto`{:.prop} are distributed equally to fill the table width.
 - Columns with `width: <length> | <percentage < 100%>`{:.prop} are respected exactly.
 - Columns with `width: <percentage ≥ 100%>`{:.prop} adjusts the flexible width of the column relative to other flexible columns (like the CSS `fr` unit for grid layout).
+- Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
 
 Unlike in CSS, column groups and columns can use horizontal `padding`{:.prop}, `border`{:.prop} and `margin`{:.prop}. This will be added to the horizontal spacing of the table. Column groups and columns can also use vertical `border`{:.prop} and `margin`{:.prop} to add borders and offset them from the table edges, but will not affect the position of the cells.
 
