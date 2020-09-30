@@ -26,7 +26,7 @@ The `display`{:.prop} property is used to define the formatting of tables, with 
 `display`{:.prop} value | Description | Attributes | Valid children
 ---- | ------ | ------------- | ----------
 `table`{:.value} | Specifies a block-level table. | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value}
-`table-row`{:.value} | Specifies a table row. | `span`{:.value} | `table-cell`{:.value}
+`table-row`{:.value} | Specifies a table row. | | `table-cell`{:.value}
 `table-row-group`{:.value} | Specifies a grouping of table rows. | | `table-row`{:.value}
 `table-column`{:.value} | Specifies a table column. | `span`{:.value} | 
 `table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
@@ -118,17 +118,27 @@ Column groups and column elements are sized to cover the table columns they are 
 
 #### Table width algorithm
 
-- The width of table columns are defined entirely by the width specified on columns, column groups, and/or the cells of the first row.
+The table width is the sum of all table columns and the horizontal table spacing, such as `column-gap`{:.prop}, column margins, and table padding.
+
+The width of table columns are defined entirely by the width specified on column elements and/or the cells of the first row. In the following, *columns* mean any of the aforementioned elements.
+
 - Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
 - Columns with `width: auto`{:.prop} are distributed equally to fill the table width.
 - Columns with `width: <length> | <percentage < 100%>`{:.prop} are respected exactly.
 - Columns with `width: <percentage ≥ 100%>`{:.prop} adjusts the flexible width of the column relative to other flexible columns (like the CSS `fr` unit for grid layout).
-- Columns can use `margin`{:.prop} and `padding`{:.prop} to add additional spacing.
+
+Unlike in CSS, column groups and columns can use horizontal `padding`{:.prop}, `border`{:.prop} and `margin`{:.prop}. This will be added to the horizontal spacing of the table. Column groups and columns can also use vertical `border`{:.prop} and `margin`{:.prop} to add borders and offset them from the table edges, but will not affect the position of the cells.
 
 
 #### Table height algorithm
 
+The table height is determined by the sum of the height of all its rows, in addition to vertical spacing such as `row-gap`{:.prop}, row margins, and table padding.
 
+Each row has their height determined as follows:
+- If the `table-row`{:.value} has a definite (non-auto) `height`{:.prop}, that is always used.
+- Otherwise, it is determined by the maximum height of the formatted cells in the row.
+
+Unlike in CSS, row groups and rows can use vertical `padding`{:.prop}, `border`{:.prop} and `margin`{:.prop}. This will be added to the vertical spacing of the table. Row groups and rows can also use horizontal `border`{:.prop} and `margin`{:.prop} to add borders and offset them from the table edges, but will not affect the position of the cells.
 
 `vertical-align`{:.prop}
 
