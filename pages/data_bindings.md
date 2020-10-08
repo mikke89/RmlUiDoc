@@ -505,17 +505,18 @@ The modifier may or may not be required depending on the data view.
 The following table lists all built-in data views in RmlUi, along with their declaration.
 
 
-| Name     | Attribute                  | Value                                           | Notes |
-| ---------| ---------------------------| ----------------------------------------------- | ----- |
-| attribute| data-attr-[attribute_name] | [data_expression]                               |       |
-| style    | data-style-[property_name] | [data_expression]                               |       |
-| class    | data-class-[class_name]    | [data_expression]                               |       |
-| if       | data-if                    | [data_expression]                               |       |
-| visible  | data-visible               | [data_expression]                               |       |
-| for      | data-for                   | [iterator_name], [index_name] : [data_address]  | [1]   |
-| rml      | data-rml                   | [data_expression]                               |       |
-| value    | data-value                 | [data_address]                                  | [2]   |
-| text     | N/A                        | N/A                                             | [3]   |
+| Name         | Attribute                    | Value                                           | Notes |
+| ------------ | ---------------------------  | ----------------------------------------------- | ----- |
+| attribute    | data-attr-[attribute_name]   | [data_expression]                               |       |
+| attribute-if | data-attrif-[attribute_name] | [data_expression]                               |       |
+| style        | data-style-[property_name]   | [data_expression]                               |       |
+| class        | data-class-[class_name]      | [data_expression]                               |       |
+| if           | data-if                      | [data_expression]                               |       |
+| visible      | data-visible                 | [data_expression]                               |       |
+| for          | data-for                     | [iterator_name], [index_name] : [data_address]  | [1]   |
+| rml          | data-rml                     | [data_expression]                               |       |
+| value        | data-value                   | [data_address]                                  | [2]   |
+| text         | N/A                          | N/A                                             | [3]   |
 
   [1] `iterator_name` and `index_name` are optional. Defaults to `it` and `it_index`, respectively.  
   [2] In addition to the view, this attribute also applies the `value` controller to the element.  
@@ -528,6 +529,16 @@ Sets the element's attribute `[attribute_name]` to the evaluated expression.
 ```html
 <img data-attr-sprite="item.icon"/>
 ```
+
+### Attribute-if
+
+Sets the element's attribute `[attribute_name]` when the expression evaluates to `true`, otherwise removes the given attribute from the element.
+
+```html
+<input type="checkbox" name="meals" value="pizza" data-attrif-checked="rating > 70" disabled/>
+```
+
+Useful for element behavior which depends on whether or not the attribute is present, such as `checked` and `disabled`. When set, the value of the attribute is an empty string.
 
 
 ### Style
@@ -550,7 +561,7 @@ Enables the class `[class_name]` on the element if the expression evaluates to `
 
 ### If
 
-Sets the `display` property of the element to `none` if the expression evaluates to `false`, otherwise it removes the `display` property from the class.
+Sets the `display` property of the element to `none` if the expression evaluates to `false`, otherwise it removes the `display` property from the element's style.
 
 ```html
 <div data-if="rating > 50">
@@ -563,7 +574,7 @@ Sets the `display` property of the element to `none` if the expression evaluates
 
 ### Visible
 
-Sets the `visibility` property of the element to `hidden` if the expression evaluates to `false`, otherwise it removes the `visibility` property from the class.
+Sets the `visibility` property of the element to `hidden` if the expression evaluates to `false`, otherwise it removes the `visibility` property from the element's style.
 
 ```html
 <div data-visible="collected_stars > 0">
