@@ -87,22 +87,23 @@ The `document_path` parameter will be given to RmlUi's [file interface](interfac
 You can also load documents directly from a memory stream, this can be useful if you want to receive documents over the network or similar.
 
 ```cpp
-// Load a document into the context.
-// @param[in] string The string containing the document RML.
-// @return The loaded document, or nullptr if no document was loaded.
-ElementDocument* LoadDocumentFromMemory(const Rml::String& string);
+/// Load a document into the context.
+/// @param[in] document_rml The string containing the document RML.
+/// @param[in] source_url Optional string used to set the document's source URL, or naming the document for log messages.
+/// @return The loaded document, or nullptr if no document was loaded.
+ElementDocument* LoadDocumentFromMemory(const String& document_rml, const String& source_url = "[document from memory]");
 ```
 
 To create a new, empty document you can populate dynamically, use the `CreateDocument()` function.
 
 ```cpp
-// Creates a new, empty document and places it into this context.
-// @param[in] tag The document type to create.
-// @return The new document, or nullptr if no document could be created.
-ElementDocument* CreateDocument(const Rml::String& tag = "document");
+/// Creates a new, empty document and places it into this context.
+/// @param[in] instancer_name The name of the instancer used to create the document.
+/// @return The new document, or nullptr if no document could be created.
+ElementDocument* CreateDocument(const String& instancer_name = "body");
 ```
 
-The context will attempt to instance an element using the 'body' instancer, with the tag name specified by the caller. If a `Rml::ElementDocument` is instanced, it will be added to the context and returned.
+The context will attempt to instance an element using the instancer specified by the caller, 'body' by default. If an `Rml::ElementDocument` is instanced, it will be added to the context and returned.
 
 ### Mouse cursor
 
