@@ -32,6 +32,10 @@ Animated transforms (entirely in RCSS)
 Progress bars
 
 {: .gallery-item }
+![Lottie animation](animations/lottie.gif)  
+Vector animations with the [Lottie plugin](cpp_manual/lottie.html)
+
+{: .gallery-item }
 ![Covellite++](../assets/gallery/covellitepp_1.jpg)
 ![Covellite++](../assets/gallery/covellitepp_2.jpg)  
 [Covellite++](http://unicornum.github.io/Covellitepp/index.html) A cross-platform framework.

@@ -2,6 +2,7 @@
 layout: page
 title: Debugger plugin
 parent: cpp_manual
+next: lottie
 ---
 
 RmlUi ships with a visual debugger plugin that you can use and modify to aid you in development. You can try it out on all the included samples, such as the _Rocket Invaders from Mars_ application, by pressing `F8`.

@@ -45,6 +45,7 @@ title: C++ Manual
 ### Plugins
 
 * [Debugger](cpp_manual/debugger.html)
+* [Lottie](cpp_manual/lottie.html)
 
 ### Appendix
 
