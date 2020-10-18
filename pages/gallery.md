@@ -32,7 +32,7 @@ Animated transforms (entirely in RCSS)
 Progress bars
 
 {: .gallery-item }
-![Lottie animation](animations/lottie.gif)  
+![Lottie animation](../assets/gallery/lottie.gif)  
 Vector animations with the [Lottie plugin](cpp_manual/lottie.html)
 
 {: .gallery-item }

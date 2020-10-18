@@ -20,7 +20,7 @@ _Attributes_
 `src`{:.attr} = uri (CT)
 : The source location of the JSON-file describing the Lottie animation.
 
-![Lottie sample](../animations/lottie.gif)
+![Lottie sample](../../assets/gallery/lottie.gif)
 
 ### Building the Lottie sample
 
