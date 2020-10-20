@@ -28,9 +28,9 @@ Otherwise, the value and the other attributes can be set using the `Element::Set
 
 ### Styling
 
-The `progressbar`{:.tag} element generates a non-dom `fill`{:.tag} child element which can be used to style the filled part of the bar. The `fill`{:.tag} element can use normal properties such as `background-color`{:.prop}, `border`{:.prop}, and `decorator`{:.prop} to style it, or use the `fill-image`{:.prop} property to set an image which will be clipped according to the progress bar's `value`. The `fill`{:.tag} element will automatically be positioned and scaled to cover the content region of the parent `progressbar`{:.tag} element, then scaled down according to its `value` and `direction` attributes.
+The `progressbar`{:.tag} element generates a non-dom `fill`{:.tag} child element which can be used to style the filled part of the bar. The `fill`{:.tag} element can use normal properties such as `background-color`{:.prop}, `border`{:.prop}, and `decorator`{:.prop} to style it. The `fill`{:.tag} element will automatically be positioned and sized to cover the content region of the parent `progressbar`{:.tag} element, then scaled down according to its `value` and `direction` attributes.
 
-The `fill-image`{:.prop} property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions). The `fill`{:.tag} element is still available but it will always be fixed in size independent of the `value` attribute.
+Alternatively, use the `fill-image`{:.prop} property to style the filled part of the progress bar. This property enables one to set an image which will be clipped according to the progress bar's `value`. The `fill-image`{:.prop} property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions). The `fill`{:.tag} element is still available but it will always be fixed in size independent of the `value` attribute.
 
 
 #### RCSS property
@@ -39,11 +39,11 @@ The `fill-image`{:.prop} property is the only way to style circular progress bar
 
 Value: | \<string\>
 Initial: | *empty*
-Applies to: | `fill`{:.tag} element (child of `progressbar`{:.tag})
+Applies to: | `progressbar`{:.tag} element
 Inherited: | no
 Percentages: | N/A
 
-The `fill-image`{:.prop} property sets an image to fill the progress bar, and must be applied to the `fill`{:.tag} child element. It will be sized according to the progress bar's `value`. This property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions).
+The `fill-image`{:.prop} property sets an image to fill the progress bar. It will be sized according to the progress bar's `value`. This property is the only way to style circular progress bars (`clockwise` and `counter-clockwise` directions).
 
 The value \<string\> refers to a sprite name or an image url.
 
@@ -66,8 +66,6 @@ The following RCSS styles three different progress bars.
 	decorator: image( gauge );
 	width: 100px;
 	height: 86px;
-}
-.gauge fill { 
 	fill-image: gauge-fill;
 }
 .progress_horizontal { 
