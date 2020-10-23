@@ -261,7 +261,6 @@ Table of documents with the ability to be iterated over or indexed by an integer
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 
@@ -682,7 +681,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 
@@ -699,7 +697,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 
@@ -1021,7 +1018,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __newindex |
 | __pairs |
 
@@ -1151,7 +1147,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 
@@ -1161,31 +1156,16 @@ Inherits: `nil`{: .lua-type }
 
 Inherits: `nil`{: .lua-type }
 
-
-
-#### Properties
-
-| Name | Type |
-| ------------ | ---- |
-| [ipairsaux](#GlobalLuaFunctions-ipairsaux){: .lua-function } | `nil`{: .lua-type } |
-
-
 #### Functions
 
 | Name | Return Type |
 | ------------ | ---- |
-| [LuaPrint](#GlobalLuaFunctions-LuaPrint){: .lua-function }(`...` output) | `nil`{: .lua-type } |
-
-
-#### Property Descriptions
-
-<a href='#GlobalLuaFunctions-ipairsaux' name='GlobalLuaFunctions-ipairsaux'>ipairsaux</a>{: .lua-function }  :: `nil`{: .lua-type }
-
+| [print](#GlobalLuaFunctions-print){: .lua-function }(`...` output) | `nil`{: .lua-type } |
 
 #### Function Descriptions
 
-<a href='#GlobalLuaFunctions-LuaPrint' name='GlobalLuaFunctions-LuaPrint'>LuaPrint</a>{: .lua-function }(`...` output)  &rarr; `nil`{: .lua-type}
-: Print all the values that are passed in as arguments
+<a href='#GlobalLuaFunctions-print' name='GlobalLuaFunctions-print'>print</a>{: .lua-function }(`...` output)  &rarr; `nil`{: .lua-type}
+: Overrides the Lua print method and redirects it to the RmlUi logging system, which can eg. be accessed through the RmlUi debugger.
 
 ---
 
@@ -1285,7 +1265,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 
@@ -1302,7 +1281,6 @@ Inherits: `nil`{: .lua-type }
 | Metafunctions |
 | ------------- |
 | __index |
-| __ipairs |
 | __pairs |
 
 

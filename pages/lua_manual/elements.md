@@ -38,6 +38,12 @@ for i,child in ipairs(element.child_nodes) do
 end
 ```
 
+The proxy object can be accessed using indices. Note that the indices are one-based in Lua, as opposed to zero-based in the C++ API.
+
+```lua
+element.child_nodes[2].inner_rml = 'Hello world!'
+```
+
 `attributes` is accessed like a map with name and value pairs. The following example prints the element's `value`{:.attr} attribute.
 
 ```lua
