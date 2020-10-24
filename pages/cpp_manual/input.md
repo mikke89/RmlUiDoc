@@ -41,7 +41,8 @@ Call the `ProcessMouseMove()` function on a context to inform the context that t
 // @param[in] x The x-coordinate of the mouse cursor.
 // @param[in] y The y-coordinate of the mouse cursor.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessMouseMove(int x, int y, int key_modifier_state);
+// @return True if the mouse is not interacting with any elements in the context, otherwise false.
+bool ProcessMouseMove(int x, int y, int key_modifier_state);
 ```
 
 Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time `ProcessMouseMove()` was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
@@ -62,12 +63,14 @@ Call `ProcessMouseButtonDown()` and `ProcessMouseButtonUp()` on a context to to 
 // Sends a mouse-button down event into this context.
 // @param[in] button_index The index of the button that was pressed; 0 for the left button, 1 for right, and any others from 2 onwards.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessMouseButtonDown(int button_index, int key_modifier_state);
+// @return True if the mouse is not interacting with any elements in the context, otherwise false.
+bool ProcessMouseButtonDown(int button_index, int key_modifier_state);
 
 // Sends a mouse-button up event into this context.
 // @param[in] button_index The index of the button that was release; 0 for the left button, 1 for right, and any others from 2 onwards.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessMouseButtonUp(int button_index, int key_modifier_state);
+// @return True if the mouse is not interacting with any elements in the context, otherwise false.
+bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
 ```
 
 `ProcessMouseButtonDown()` may generate any of the following events:
@@ -98,6 +101,18 @@ bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 
 `ProcessMouseWheel()` will generate a `mousescroll`{:.evt} event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
 
+#### Mouse cursor interaction
+
+The following can provide a hint on whether or not the mouse cursor is currently interacting with any documents in the context, as a result of previously submitted `ProcessMouse...()` commands.
+
+```cpp
+// Returns a hint on whether the mouse is currently interacting with any elements in this context.
+// @return True if the mouse hovers over or has activated an element in this context, otherwise false.
+bool IsMouseInteracting() const;
+```
+
+Note that interaction is determined irrespective of background and opacity. See the `pointer-events`{:.prop} property to disable interaction for specific elements.
+
 ### Key input
 
 The key input functions use the `KeyIdentifier` enumeration found in `<RmlUi/Core/Input.h>`{:.incl}; refer to that file for the possible values. They are modeled after the Windows virtual key codes (the VK_* enumeration), so should be familiar to Windows developers. Any confusing enumeration names are explained in the comments.
@@ -110,12 +125,14 @@ Call the following functions on a context to inform the context of key presses o
 // Sends a key down event into this context.
 // @param[in] key_identifier The key pressed.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
+// @return True if the event was not consumed, false if it was.
+bool ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 
 // Sends a key up event into this context.
 // @param[in] key_identifier The key released.
 // @param[in] key_modifier_state The state of key modifiers.
-void ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
+// @return True if the event was not consumed, false if it was.
+bool ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 ```
 
 `ProcessKeyDown()` will generate a `keydown`{:.evt} event targeted at the current focus element (if an element is in focus). `ProcessKeyUp()` will likewise generate the `keyup`{:.evt} event.
@@ -141,4 +158,4 @@ These functions will generate a `textinput`{:.evt} event targeted at the context
 
 ### Sample input processing
 
-The sample shell (found under your RmlUi installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of RmlUi's supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}). 
+The sample shell (found under your RmlUi installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of RmlUi's supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}).
