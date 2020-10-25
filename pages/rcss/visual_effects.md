@@ -16,6 +16,7 @@ The contents of a block box may extend beyond the content area of the box itself
 When overflow occurs, the overflow-x' and 'overflow-y' properties dictate how the overflow is handled.
 
 #### Overflow: the 'overflow' property
+{:#overflow}
 
 `overflow-x`{:.prop}, `overflow-y`{:.prop}
 
@@ -54,6 +55,7 @@ div#content
 ```
 
 #### Clipping: the 'clip' property
+{:#clip}
 
 This property is completely different from the CSS `clip`{:.prop} property. Instead of defining the clipping region of an element, this property defines how the element interacts with the clipping regions of its ancestors.
 
@@ -79,6 +81,7 @@ The values have the following meanings:
 : The element is subjected to the clipping regions of its ancestors, except it skips the closest `<number>`{:.value} ancestors that could have put in place a clipping region (ie, those ancestors with an `overflow-x`{:.prop} or `overflow-y`{:.prop} other than `visible`{:.value}). 
 
 ### Visibility: the 'visibility' property
+{:#visibility}
 
 `visibility`{:.prop}
 

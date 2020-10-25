@@ -14,6 +14,7 @@ During layout, the containing block of an element is fixed when the element is e
 3. If the element is positioned `fixed`{:.value} or `absolute`{:.value}, its containing block is given by the padded size of the nearest block element with a `position`{:.prop} other than `static`{:.value}, or the root if no such element exists. Like other elements, they will look further back in order to get a fixed height. 
 
 ### Content width: the 'width' property
+{:#width}
 
 `width`{:.prop}
 
@@ -58,6 +59,7 @@ This is different from the CSS equation in the following ways:
 * Floating and positioned boxes are evaluated like normal boxes. 
 
 ### Minimum and maximum widths: 'min-width' and 'max-width'
+{:#min-width}
 
 `min-width`{:.prop}
 
@@ -68,6 +70,7 @@ Inherited: | no
 Percentages: | relative to the width of the containing block
 
 `max-width`{:.prop}
+{:#max-width}
 
 Value: | \<length\> \| \<percentage\>
 Initial: | -1px
@@ -88,6 +91,7 @@ Note that there is no `auto`{:.value} value for `max-width`{:.prop}; instead, if
 When evaluating `width`{:.prop}, if the computed width is greater than `max-width`{:.prop}, then the width is computed again, this time substituting `max-width`{:.prop} for `width`{:.prop}. If the computed value is less than `min-width`{:.prop}, the the width is computed again, this time substituting `min-width`{:.prop} for `width`{:.prop}.
 
 ### Content height: the 'height' property
+{:#height}
 
 `height`{:.prop}
 
@@ -134,6 +138,7 @@ This is different from the CSS equation in the following ways:
 * Block boxes with a fixed height will resolve `auto`{:.value} vertical margins similarly to horizontal margins. 
 
 ### Minimum and maximum heights: 'min-height' and 'max-height'
+{:#min-height}
 
 `min-height`{:.prop}
 
@@ -144,6 +149,7 @@ Inherited: | no
 Percentages: | relative to the height of the containing block
 
 `max-height`{:.prop}
+{:#max-height}
 
 Value: | \<length\> \| \<percentage\>
 Initial: | -1px
@@ -164,6 +170,7 @@ Note that there is no `auto`{:.value} value for `max-height`{:.prop}; instead, i
 When evaluating `height`{:.prop}, if the computed width is greater than `max-height`{:.prop}, then the height is computed again, this time substituting `max-height`{:.prop} for `height`{:.prop}. If the computed value is less than `min-height`{:.prop}, the the width is computed again, this time substituting `min-height`{:.prop} for `height`{:.prop}. A block box with a `height`{:.prop} of `auto`{:.value} will never set its height below `min-height`{:.prop} or above `max-height`{:.prop}; this may result in overflow.
 
 ### Line height calculations: the 'line-height' and 'vertical-align' properties
+{:#line-height}
 
 The height of a line box is determined as follows:
 
@@ -205,6 +212,7 @@ div
 ```
 
 `vertical-align`{:.prop}
+{:#vertical-align}
 
 Value: | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\>
 Initial: | baseline

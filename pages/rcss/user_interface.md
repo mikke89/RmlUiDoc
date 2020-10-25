@@ -6,6 +6,7 @@ next: sprite_sheets
 ---
 
 ### Mouse cursor: the 'cursor' property
+{:#cursor}
 
 `cursor`{:.prop}
 
@@ -42,6 +43,7 @@ Setting the value to `border-box`{:.value} can be valuable for laying out elemen
 This property takes no effect for `auto`{:.value} values of `width`{:.prop} or `height`{:.prop}. 
 
 ### Pointer events: the 'pointer-events' property
+{:#pointer-events}
 
 `pointer-events`{:.prop}
 
@@ -62,6 +64,7 @@ Set the element property to disregard mouse input events on this and descending 
 
 
 ### Drag & drop: the 'drag' property
+{:#drag}
 
 The `drag`{:.prop} property is a new property, not shared by CSS. It controls the generation of events as the mouse cursor begins a drag over an element (ie, clicks the left mouse button and moves the mouse), drags over elements (moves the mouse with the button depressed) and finishes a drag, or 'drops', an element over another.
 
@@ -91,6 +94,7 @@ Values have the following meanings:
 :  Like `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `:drag`{:.cls} set on it to allow it to be differentiated from the original element.
 
 ### Tab index: the 'tab-index' property
+{:#tab-index}
 
 The 'tab-index' property is introduced for RCSS. It controls the generation of a tab order, which is an ordered list of elements within a document that gain input focus in turn as the 'tab' key is pressed.
 
@@ -108,4 +112,26 @@ Values have the following meanings:
 : The element is not part of the tabbing order. 
 
 `auto`{:.value}
-: The element inserts itself into the tabbing order in a location relative to its order in the element hierarchy. 
+: The element inserts itself into the tabbing order in a location relative to its order in the element hierarchy.
+
+
+### Focus: the 'focus' property
+{:#focus}
+
+`focus`{:.prop}
+
+Value: | none \| auto
+Initial: | auto
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+The 'focus' property is introduced for RCSS. It controls whether or not an element can receive focus. Typically set to `none`{:.value} for disabled input elements,
+
+Values have the following meanings:
+
+`none`{:.value}
+: The element can not receive focus. This will also prevent click events (when originating from user input) to reach the element.
+
+`auto`{:.value}
+: The element can receive focus.

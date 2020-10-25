@@ -169,6 +169,7 @@ However, unlike CSS, borders can still be added to rows, row groups, columns, an
 
 
 #### Cell spacing
+{:#gap}
 
 `row-gap`{:.prop}, `column-gap`{:.prop}
 

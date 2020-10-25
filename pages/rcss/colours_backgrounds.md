@@ -6,6 +6,7 @@ next: fonts
 ---
 
 ### Foreground colour: the 'color' property
+{:#color}
 
 `color`{:.prop}
 
@@ -18,6 +19,7 @@ Percentages: | N/A
 This property sets the colour of rendered text and text decorations.
 
 ### Background colour
+{:#background-color}
 
 In RCSS, an element's background can be set as a flat colour but not an image. This functionality (and much more!) instead lies with [decorators](decorators.html).
 
@@ -59,6 +61,7 @@ The properties set the radius of the outer border edge for the given corner. Bac
 A shorthand property for setting all four border radii properties at once. If there is only one value, it applies to all corners. If there are two values, the first applies to the top-left and bottom-right, the second to bottom-left and top-right. If there are three values, the first applies to the top-left, the second to bottom-left and top-right, the third to the bottom-right. If there are four values, they are applied to top-left, top-right, bottom-right, bottom-left respectively.
 
 ### Opacity
+{:#opacity}
 
 Opacity can be set on any element. Then, the generated geometry for the element will multiply the alpha channel of the vertex colors by the opacity.
 
@@ -71,6 +74,7 @@ Inherited: | yes
 Percentages: | N/A
 
 ### Image colour: the 'image-color' property
+{:#image-color}
 
 `image-color`{:.prop}
 

@@ -6,6 +6,7 @@ next: visual_effects
 ---
 
 ### Transform property
+{:#transform}
 
 Use `perspective`{:.prop}, `perspective-origin`{:.prop}, `transform`{:.prop} and `transform-origin`{:.prop} in RCSS, roughly equivalent to their respective CSS properties.
 
@@ -46,6 +47,7 @@ Angles take units of 'deg' or 'rad'.
 
 
 ### Animations
+{:#animation}
 
 
 Most RCSS properties can be animated, this includes properties representing lengths, colors, or transforms. From C++, an animation can be started on an Element by calling
@@ -122,6 +124,7 @@ Animations are very powerful coupled with transforms. See the animation sample p
 
 
 ### Transitions
+{:#transition}
 
 Transitions apply an animation between two property values on an element when its property changes. Transitions are implemented in RCSS similar to how they operate in CSS. However, in RCSS, they only apply when a class or pseudo-class is added to or removed from an element.
 

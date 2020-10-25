@@ -24,6 +24,7 @@ The size of the content area is determined by a number of factors, such as the t
 A box's background (and the default RmlUi [decorators](decorators.html)) will render in the padded area of an element (ie, under the content area and the padded edges). The border will be rendered only along the border edges. The margin is always transparent (although a custom decorator could potentially render here).
 
 ### Margin properties
+{:#margin}
 
 `margin-top`{:.prop}, `margin-right`{:.prop}, `margin-bottom`{:.prop}, `margin-left`{:.prop}
 
@@ -64,6 +65,7 @@ div
 In RmlUi, margins between sibling block boxes collapse as specified by CSS, but nested margins currently do not.
 
 ### Padding properties
+{:#padding}
 
 `padding-top`{:.prop}, `padding-right`{:.prop}, `padding-bottom`{:.prop}, `padding-left`{:.prop}
 
@@ -102,6 +104,7 @@ textarea
 _Note_: the `border-style`{:.prop} properties are not supported. All borders are rendered as solid lines. 
 
 #### Border width
+{:#border-width}
 
 `border-top-width`{:.prop}, `border-right-width`{:.prop}, `border-bottom-width`{:.prop}, `border-left-width`{:.prop}
 
@@ -126,6 +129,7 @@ h1
 ```
 
 #### Border colour
+{:#border-color}
 
 `border-top-color`{:.prop}, `border-right-color`{:.prop}, `border-bottom-color`{:.prop}, `border-left-color`{:.prop}
 
@@ -143,6 +147,7 @@ A shorthand property for setting all four border colour properties at once. If t
 Border shorthand properties
 
 #### Border shorthands
+{:#border}
 
 `border-top`{:.prop}, `border-right`{:.prop}, `border-bottom`{:.prop}, `border-left`{:.prop}
 

@@ -6,6 +6,7 @@ next: tables
 ---
 
 ### Alignment: the 'text-align' property
+{:#text-align}
 
 `text-align`{:.prop}
 
@@ -31,6 +32,7 @@ Note that the 'justify' value is not yet supported in RCSS.
 ### Decoration
 
 #### Text decoration: the 'text-decoration' property
+{:#text-decoration}
 
 `text-decoration`{:.prop}
 
@@ -69,6 +71,7 @@ h1
 ```
 
 ### White space: the 'white-space' property
+{:#white-space}
 
 `white-space`{:.prop}
 
@@ -96,6 +99,7 @@ This property defines how whitespace (any spaces, end-lines, carriage-returns an
 : Sequences of whitespace are collapsed. Lines are broken to fit line boxes or where line breaks are present in the source. 
 
 ### Breaking rules for text: the 'word-break' property
+{:#word-break}
 
 `word-break`{:.prop}
 
@@ -119,6 +123,7 @@ This property defines how text is broken into new lines where they otherwise wou
 These properties will only take effect if the `white-space`{:.prop} property allows wrapping.
 
 ### Text transform: the 'text-transform' property
+{:#text-transform}
 
 `text-transform`{:.prop}
 

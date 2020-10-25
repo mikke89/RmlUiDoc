@@ -8,72 +8,124 @@ Following is a full index of properties recognised by RCSS. The **Notes** column
 
 Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----
-`animation`{:.prop} | See [animations](animations_transitions_transforms.html#animations) | none | all | no | | 
-`background`{:.prop} | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
-`background-color`{:.prop} | \<colour\> | transparent | all | no | | 
-`border`{:.prop} | `border-width`{:.prop} `border-color`{:.prop} | | | | | Excludes border style.
-`border-color`{:.prop} | `border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | | | | | 
-`border-top`{:.prop} `border-right`{:.prop} `border-bottom`{:.prop} `border-left`{:.prop} | `border-<edge>-width`{:.prop} `border-<edge>-color`{:.prop} | | | | | Excludes border style.
-`border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | \<color\> | black | all | no | | 
-`border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
-`border-width`{:.prop} | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | | 
+[`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | | 
+[`background`{:.prop}][background] | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
+[`background-color`{:.prop}][background-color] | \<colour\> | transparent | all | no | | 
+[`border`{:.prop}][border] | `border-width`{:.prop} `border-color`{:.prop} | | | | | Excludes border style.
+[`border-color`{:.prop}][border-color] | `border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | | | | | 
+[`border-top`{:.prop}][border] [`border-right`{:.prop}][border] [`border-bottom`{:.prop}][border] [`border-left`{:.prop}][border] | `border-<edge>-width`{:.prop} `border-<edge>-color`{:.prop} | | | | | Excludes border style.
+[`border-top-color`{:.prop}][border-color] [`border-right-color`{:.prop}][border-color] [`border-bottom-color`{:.prop}][border-color] [`border-left-color`{:.prop}][border-color] | \<color\> | black | all | no | | 
+[`border-top-width`{:.prop}][border-width] [`border-right-width`{:.prop}][border-width] [`border-bottom-width`{:.prop}][border-width] [`border-left-width`{:.prop}][border-width] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
+[`border-width`{:.prop}][border-width] | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | | 
 [`border-top-left-radius`{:.prop}][border-radius] [`border-top-right-radius`{:.prop}][border-radius] [`border-bottom-right-radius`{:.prop}][border-radius] [`border-bottom-left-radius`{:.prop}][border-radius] | \<length\> | 0px | all | no | | Percentages and two-axis radii not supported. |
 [`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
-`bottom`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | No 'auto'.
+[`bottom`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | 
 [`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
-`clear`{:.prop} | left \| right \| both \| none | none | block-level elements | no | | 
-`clip`{:.prop} | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
-`color`{:.prop} | \<colour\> | black | all | yes | | 
-`column-gap`{:.prop} | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
-`cursor`{:.prop} | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
-`decorator`{:.prop} | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
-`display`{:.prop} | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
-`drag`{:.prop} | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
-`fill-image`{:.prop} | \<string\> | _empty_ | [progressbar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
-`focus`{:.prop} | none \| auto | auto | all | yes | | 
-`font`{:.prop} | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
-`font-effect`{:.prop} | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.
-`font-family`{:.prop} | \<string\> | | all | yes | | Only single family supported.
-`font-size`{:.prop} | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
-`font-style`{:.prop} | normal \| italic | normal | all | yes | | 'oblique' not supported.
-`font-weight`{:.prop} | normal \| bold | normal | all | yes | | Intermediate weights not supported.
-`gap`{:.prop} | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
-`height`{:.prop} | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
-`image-color`{:.prop} | \<color\> | white | \<img\> elements and decorators | no | | 
-`left`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | No 'auto'.
-`line-height`{:.prop} | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
-`margin`{:.prop} | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
-`margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
-`max-height`{:.prop} | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
-`min-height`{:.prop} | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block | 
-`max-width`{:.prop} | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
-`min-width`{:.prop} | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block | 
-`opacity`{:.prop} | \<number\> | 1 | all | yes | | 
-`overflow`{:.prop} | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 
-`overflow-x`{:.prop} | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
-`overflow-y`{:.prop} | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
-`padding`{:.prop} | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
-`padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
-`perspective`{:.prop} | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform-property).
-`pointer-events`{:.prop} | auto \| none | auto | all | yes | | 
-`position`{:.prop} | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
-`right`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | No 'auto'.
-`row-gap`{:.prop} | \<length\> \| \<percentage\> | 0px | table elements | no | initial height of table | 
-`scrollbar-margin`{:.prop} | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
-`tab-index`{:.prop} | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
-`text-align`{:.prop} | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
-`text-decoration`{:.prop} | none \| underline \| overline \| line-through | none | all | yes | | 
-`text-transform`{:.prop} | none \| capitalize \| uppercase \| lowercase | none | all | yes | | 
-`top`{:.prop} | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | No 'auto'.
-`transition`{:.prop} | See [transitions](animations_transitions_transforms.html#transitions) | none | all | no | | 
-`transform`{:.prop} | See [transforms](animations_transitions_transforms.html#transform-property) | none | all | no | | 
-`vertical-align`{:.prop} | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
-`visibility`{:.prop} | visible \| hidden | visible | all | no | | 
-`white-space`{:.prop} | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
-`word-break`{:.prop} | normal \| break-all \| break-word | normal | all elements | yes | | 
-`width`{:.prop} | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
-`z-index`{:.prop} | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
+[`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
+[`clip`{:.prop}][clip] | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
+[`color`{:.prop}][color] | \<colour\> | black | all | yes | | 
+[`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
+[`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
+[`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
+[`display`{:.prop}][display] | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
+[`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
+[`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progressbar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
+[`focus`{:.prop}][focus] | none \| auto | auto | all | yes | | Introduced for RCSS.
+[`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
+[`font-effect`{:.prop}][font-effect] | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.
+[`font-family`{:.prop}][font-family] | \<string\> | | all | yes | | Only single family supported.
+[`font-size`{:.prop}][font-size] | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
+[`font-style`{:.prop}][font-style] | normal \| italic | normal | all | yes | | 'oblique' not supported.
+[`font-weight`{:.prop}][font-weight] | normal \| bold | normal | all | yes | | Intermediate weights not supported.
+[`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
+[`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
+[`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
+[`left`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | 
+[`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
+[`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
+[`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
+[`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
+[`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block | 
+[`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
+[`min-width`{:.prop}][min-width] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block | 
+[`opacity`{:.prop}][opacity] | \<number\> | 1 | all | yes | | 
+[`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 
+[`overflow-x`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
+[`overflow-y`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
+[`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
+[`padding-top`{:.prop}][padding] [`padding`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
+[`perspective`{:.prop}][perspective] | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform).
+[`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
+[`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
+[`right`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | 
+[`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial height of table | 
+[`scrollbar-margin`{:.prop}][scrollbar-margin] | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
+[`tab-index`{:.prop}][tab-index] | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
+[`text-align`{:.prop}][text-align] | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
+[`text-decoration`{:.prop}][text-decoration] | none \| underline \| overline \| line-through | none | all | yes | | 
+[`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | | 
+[`top`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | 
+[`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | | 
+[`transform`{:.prop}][transform] | See [transforms](animations_transitions_transforms.html#transform) | none | all | no | | 
+[`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
+[`visibility`{:.prop}][visibility] | visible \| hidden | visible | all | no | | 
+[`white-space`{:.prop}][white-space] | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
+[`word-break`{:.prop}][word-break] | normal \| break-all \| break-word | normal | all elements | yes | | 
+[`width`{:.prop}][width] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
+[`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
 
 
+[animation]: animations_transitions_transforms.html#animation
+[background-color]: colours_backgrounds.html#background-color
+[background]: colours_backgrounds.html#background-color
+[border-color]: box_model.html#border-color
 [border-radius]: colours_backgrounds.html#border-radius
+[border-width]: box_model.html#border-width
+[border]: box_model.html#border
 [box-sizing]: user_interface.html#box-sizing
+[clear]: visual_formatting_model.html#clear
+[clip]: visual_effects.html#clip
+[color]: colours_backgrounds.html#color
+[cursor]: user_interface.html#cursor
+[decorator]: decorators.html#decorator
+[display]: visual_formatting_model.html#display
+[drag]: user_interface.html#drag
+[fill-image]: {{"pages/cpp_manual/element_packages/progress_bar.html#fill-image"|relative_url}}
+[float]: visual_formatting_model.html#float
+[focus]: user_interface.html#focus
+[font]: fonts.html#font
+[font-effect]: font_effects.html#font-effect
+[font-family]: fonts.html#font-family
+[font-size]: fonts.html#font-size
+[font-style]: fonts.html#font-style
+[font-weight]: fonts.html#font-weight
+[gap]: tables.html#gap
+[height]: visual_formatting_model_details.html#height
+[image-color]: colours_backgrounds.html#image-color
+[line-height]: visual_formatting_model_details.html#line-height
+[margin]: box_model.html#margin
+[max-height]: visual_formatting_model_details.html#max-height
+[max-width]: visual_formatting_model_details.html#max-width
+[min-height]: visual_formatting_model_details.html#min-height
+[min-width]: visual_formatting_model_details.html#min-width
+[opacity]: colours_backgrounds.html#opacity
+[overflow]: visual_effects.html#overflow
+[padding]: box_model.html#padding
+[perspective]: animations_transitions_transforms.html#transform
+[pointer-events]: user_interface.html#pointer-events
+[position]: visual_formatting_model.html#position
+[scrollbar-margin]: ../style_guide.html#scrollbar-margin
+[tab-index]: user_interface.html#tab-index
+[text-align]: text.html#text-align
+[text-decoration]: text.html#text-decoration
+[text-transform]: text.html#text-transform
+[top_right_bottom_left]: visual_formatting_model.html#top_right_bottom_left
+[transition]: animations_transitions_transforms.html#transition
+[transform]: animations_transitions_transforms.html#transform
+[vertical-align]: tables.html#vertical-align
+[vertical-align]: visual_formatting_model_details.html#vertical-align
+[visibility]: visual_effects.html#visibility
+[white-space]: text.html#white-space
+[width]: visual_formatting_model_details.html#width
+[word-break]: text.html#word-break
+[z-index]: visual_formatting_model.html#z-index

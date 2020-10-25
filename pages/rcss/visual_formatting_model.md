@@ -59,6 +59,7 @@ Inline-level elements are those elements that do not generate blocks of content,
 Loose text within elements also generates inline boxes.
 
 #### The 'display' property
+{:#display}
 
 `display`{:.prop}
 
@@ -96,6 +97,7 @@ RCSS can position elements according to three schemes:
 3. Absolute positioning. Elements that are positioned with `absolute`{:.value} or `fixed`{:.value} are removed from the normal flow (therefore having no impact on the layout of other elements) and placed at an explicit location relative to their containing block. 
 
 #### Choosing a positioning scheme: 'position' property
+{:#position}
 
 `position`{:.prop}
 
@@ -120,32 +122,34 @@ The values have the following meanings:
 : The element is positioned like an `absolute`{:.value} box, but will not scroll along with other content if it is within an overflowing box. 
 
 #### Box offsets: 'top', 'right', 'bottom', 'left'
+{:#top_right_bottom_left}
 
 `top`{:.prop}, `bottom`{:.prop}
 
-Value: | \<length\> \| \<percentage\>
-Initial: | 0px
+Value: | auto \| \<length\> \| \<percentage\>
+Initial: | auto
 Applies to: | positioned elements
 Inherited: | no
 Percentages: | relative to the height of the containing block
 
 `left`{:.prop}, `right`{:.prop}
 
-Value: | \<length\> \| \<percentage\>
-Initial: | 0px
+Value: | auto \| \<length\> \| \<percentage\> \| 
+Initial: | auto
 Applies to: | positioned elements
 Inherited: | no
 Percentages: | relative to the width of the containing block
 
 The values have the following meanings:
 
+`auto`{:.value}
+: Behavior depends on other related properties. For absolutely positioned elements, may adjust position or size to align the box with the containing block.
+
 `<length>`{:.value}
 : The edge is offset a fixed distance from the reference edge. 
 
 `<percentage>`{:.value}
 : The edge is offset from the reference edge a distance relative to the dimensions of the containing block. 
-
-Note that RCSS does not yet support the 'auto' keyword for any of these properties.
 
 ### Normal flow
 
@@ -176,6 +180,7 @@ A float is a box that is shifted horizontally to the left or right edge of its c
 See the [CSS2 documentation](http://www.w3.org/TR/REC-CSS2/visuren.html#floats) on floating elements for a description on the full float model, and interesting uses of floats.
 
 #### Positioning the float: the 'float' property
+{:#float}
 
 `float`{:.prop}
 
@@ -197,6 +202,7 @@ The values of this property have the following meanings:
 : The element's boxes are not floated. 
 
 #### Controlling flow next to floats: the 'clear' property
+{:#clear}
 
 `clear`{:.prop}
 
@@ -237,6 +243,7 @@ Each box has a stacking level within a single stacking context. Boxes within a s
 The root element of a document establishes a stacking context for its descendants. Other elements within a document may establish local stacking contexts of their own. An element which does so has two stacking levels; one within the stacking context it is a member of (given by the `z-index`{:.prop} property) and another inside the stacking context it establishes (always '0').
 
 #### Specifying the stacking level: the 'z-index' property
+{:#z-index}
 
 `z-index`{:.prop}
 

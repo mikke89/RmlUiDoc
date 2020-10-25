@@ -34,6 +34,7 @@ Alternatively, use the `fill-image`{:.prop} property to style the filled part of
 
 
 #### RCSS property
+{:#fill-image}
 
 `fill-image`{:.prop}
 

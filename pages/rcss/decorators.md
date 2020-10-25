@@ -8,6 +8,7 @@ next: font_effects
 Decorators are an extension to CSS for RCSS. A decorator can be declared and named in a style sheet like a property, and then configured with decorator-specific properties. Custom decorator types can be developed to suit the needs of the user, and in this manner any kind of decoration can be applied to an element.
 
 ### Declaring decorators
+{:#decorator}
 
 The decorator property is specified as follows.
 
