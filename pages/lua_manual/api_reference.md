@@ -504,7 +504,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [AppendChild](#Element-AppendChild){: .lua-function }(`ElementPtr`{: .lua-type } element) | `nil`{: .lua-type } |
 | [Blur](#Element-Blur){: .lua-function }() | `nil`{: .lua-type } |
 | [Click](#Element-Click){: .lua-function }() | `nil`{: .lua-type } |
-| [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters, `string`{: .lua-type } interruptible) | `nil`{: .lua-type }<br> |
+| [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters) | `nil`{: .lua-type }<br> |
 | [new](#Element-new){: .lua-function }(`string`{: .lua-type } tag) | `Element`{: .lua-type} |
 | [Focus](#Element-Focus){: .lua-function }() | `nil`{: .lua-type } |
 | [GetAttribute](#Element-GetAttribute){: .lua-function }(`string`{: .lua-type } name) | `Variant`{: .lua-type }<br> |
@@ -618,8 +618,8 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-Click' name='Element-Click'>Click</a>{: .lua-function }()  &rarr; `nil`{: .lua-type}
 : Fakes a click on this element.
 
-<a href='#Element-DispatchEvent' name='Element-DispatchEvent'>DispatchEvent</a>{: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters, `string`{: .lua-type } interruptible)  &rarr; `nil`{: .lua-type }
-: Dispatches an event to this element. The event is of type event. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys and floating-point, integer or string values. interruptible determines if the event can be forced to stop propagation early.
+<a href='#Element-DispatchEvent' name='Element-DispatchEvent'>DispatchEvent</a>{: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters)  &rarr; `nil`{: .lua-type }
+: Dispatches an event to this element. The event is a string value of the event type, *without* the 'on' prefix. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys, and numeric, string or boolean values.
 
 <a href='#Element-new' name='Element-new'>new</a>{: .lua-function }(`string`{: .lua-type } tag)  &rarr; `Element`{: .lua-type}
 : Construct new `Element` object.

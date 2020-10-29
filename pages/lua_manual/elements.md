@@ -66,11 +66,10 @@ end
 Events can be generated on an element from within Lua with the `DispatchEvent()` function. When calling this function, the parameters are given as a Lua table of name-value pairs.
 
 ```lua
-element:DispatchEvent('open', {object = 'trapdoor', priority = 11}, false)
+element:DispatchEvent('open', {object = 'trapdoor', priority = 11})
 ```
-***Note/TODO:*** This example doesn't actually work. Bug in the Lua plugin, or wrong usage here?
 
-Parameter keys must be strings, and values must be strings, booleans, integers or numbers.
+Parameter keys must be strings, and values must be strings, booleans, or numbers.
 
 ### Creating elements
 
