@@ -101,8 +101,7 @@ _Attributes_
 `selected`{:.attr} = cdata (CI)
 : If set, then the option is selected when the `<select>`{:.tag} element is first loaded.
 
-`unselectable`{:.attr} = cdata (CI)
-: If set, then the option is not selectable by the user. Useful for labelling groups of options.
+**Note**: It is possible to use the `disabled`{:.attr} attribute to make the option not selectable by the user. Useful for labelling groups of options.
 
 #### \<dataselect\>
 

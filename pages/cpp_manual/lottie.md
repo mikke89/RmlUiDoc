@@ -33,7 +33,7 @@ git clone --branch v0.2 https://github.com/Samsung/rlottie.git
 cd rlottie
 mkdir build
 cd build
-cmake -G -DBUILD_SHARED_LIBS=OFF ..
+cmake -DBUILD_SHARED_LIBS=OFF ..
 cmake --build . --target rlottie --config Debug
 cmake --build . --target rlottie --config Release
 ```
@@ -43,7 +43,7 @@ You may want to adjust the CMake arguments to your preferences.
 To build RmlUi with the `lottie` sample, [use CMake to generate](building_with_cmake.html) the RmlUi configuration as normal. Make sure to set the option `BUILD_SAMPLES=ON`. For example, in the `RmlUi/Build`{:.path} directory execute the following:
 
 ```cmd
-cmake -G -DBUILD_SHARED_LIBS=OFF -DBUILD_SAMPLES=ON ..
+cmake -DBUILD_SHARED_LIBS=OFF -DBUILD_SAMPLES=ON ..
 ```
 
 This should automatically locate the `rlottie` library, and you can now build and run the included `lottie` sample as you would any other sample.
