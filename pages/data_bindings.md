@@ -40,7 +40,7 @@ Views are automatically updated whenever a variable becomes dirty. This ensures 
 The `data-model` attribute declares that all its children elements here belong to `my_model`.
 - When `{{title}}` is encountered, it is automatically replaced by the data variable `title` bound to its model. Furthermore, whenever the variable is modified its content is automatically updated.
 - The `data-if` attribute creates a data view which displays its content whenever its data variable evaluates to `true`.
-- The `data-value` attribute creates both a data view and a data controller. The view updates the element's value whenever the data is changed in the application. Contrarily, the controller listens to modifications to the element's value and modifies the data variable accordingly. Thus, whenever the user changes the text field, the `animal` variable is modified which results in the text contents of the `p` tag to reflect the new text.
+- The `data-value` attribute creates both a data view and a data controller, enabling a two-way binding. The view updates the element's value whenever the data is changed in the application. Contrarily, the controller listens to modifications to the element's value and modifies the data variable accordingly. Thus, whenever the user changes the text field, the `animal` variable is modified which results in the text contents of the `p` tag to reflect the new text.
 
 
 #### Setting up the data model
@@ -69,17 +69,12 @@ bool SetupDataBinding(Context* context, DataModelHandle& my_model)
 
 	return true;
 }
-
-void Update(DataModelHandle my_model)
-{
-	my_model.Update();
-}
 ```
-The `SetupDataBinding` function should be called once before loading the document. The `Update` function should be called on every game loop iteration, after submitting input events to the context, but before the context update.
+The `SetupDataBinding` function should be called once before loading the document.
 
 That's it! Now the basic example above will work as expected, assigning the input text to the `animal` data binding whenever changed, and updating the paragraph text.
 
-We might want to do more though, and indeed, there is much more power available here. Let us extend the `Update()` method above with the following.
+We might want to do more though, and indeed, there is much more power available here. Let us add an `Update()` method which is called on every game loop iteration. This should be called after submitting input events to the context, but before the context update.
 ```cpp
 void Update(DataModelHandle my_model)
 {
@@ -88,8 +83,6 @@ void Update(DataModelHandle my_model)
 		my_data.title = " Hello " + my_data.animal + "!";
 		my_model.DirtyVariable("title");
 	}
-
-	my_model.Update();
 }
 ```
 Now the title is updated as well whenever the input text is changed. Note that we have to tell the model that the data has changed on the C++ side. This example is slightly contrived, as this behavior could easily be done purely with data bindings in RML. However, it is easy to envision the power here. Let us do a somewhat more involved example next to demonstrate.
@@ -243,8 +236,6 @@ void Update(DataModelHandle invaders_model)
 		}
 		invaders_data.time_last_weapons_launched = t;
 	}
-
-	invaders_model.Update();
 }
 ```
 
@@ -475,7 +466,6 @@ DataModelHandle DataModelConstructor::GetModelHandle() const;
 ```
 
 
-
 ### Model handle
 
 The data model handle is used to interact with the data model after setting it up.
@@ -484,13 +474,9 @@ The data model handle is used to interact with the data model after setting it u
 void DataModelHandle::DirtyVariable(const String& variable_name);
 
 bool DataModelHandle::IsVariableDirty(const String& variable_name);
-
-void DataModelHandle::Update();
 ```
 
-`DirtyVariable()` should be called every time the data is changed on the C++ side.  `IsVariableDirty()` can be used to check if eg. a controller changed the value of a data variable. All dirty variables are cleared after a call to `Update()`. Thus, dirty variables should be checked after inputs have been processed but before the model update.
-
-Finally, `Update()` calls update on all the views of the data model whose dependent data variables are dirty, updating the document to represent the new values of the data variables.
+`DirtyVariable()` should be called every time the data is changed on the C++ side.  `IsVariableDirty()` can be used to check if eg. a controller changed the value of a data variable. All dirty variables are cleared after a call to `Context::Update()`. Thus, dirty variables should be checked after inputs have been processed but before the context update.
 
 
 ## Views
@@ -516,10 +502,11 @@ The following table lists all built-in data views in RmlUi, along with their dec
 | for          | data-for                     | [iterator_name], [index_name] : [data_address]  | [1]   |
 | rml          | data-rml                     | [data_expression]                               |       |
 | value        | data-value                   | [data_address]                                  | [2]   |
+| checked      | data-checked                 | [data_address]                                  | [2]   |
 | text         | N/A                          | N/A                                             | [3]   |
 
   [1] `iterator_name` and `index_name` are optional. Defaults to `it` and `it_index`, respectively.  
-  [2] In addition to the view, this attribute also applies the `value` controller to the element.  
+  [2] These attributes enable two-way bindings, and will attach both the view and corresponding controller to the element.
   [3] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.
 
 ### Attribute
@@ -623,18 +610,13 @@ Sets the element's inner RML to the evaluated expression.
 </div>
 ```
 
-
 ### Value
 
-Sets the element's `value` attribute to the value of the variable located at `data_address`. This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
+See the two-way binding documention on [data-value](#data-value).
 
-```html
-<input type="range" min="0" max="100" step="1" data-value="rating"/>
-```
+### Checked
 
-*Note.* The `data-value` attribute also applies the `value` controller to the element, enabling two-way communication.  
-*Note.* Data expressions are not supported for this data view. Instead, use the attribute view for one-way communication.
-
+See the two-way binding documention on [data-checked](#data-checked).
 
 ### Text
 
@@ -664,22 +646,18 @@ The modifier may or may not be required depending on the data controller.
 | Name      | Attribute                   | Value                             | Notes |
 | --------- | --------------------------- | --------------------------------- | ----- |
 | value     | data-value                  | [data_address]                    | [1]   |
+| checked   | data-checked                | [data_address]                    | [1]   |
 | event     | data-event-[event_type]     | [assignment_expression]           |       |
 
-[1] In addition to the controller, this attribute also applies the `value` view to the element.
-
+[1] These attributes enable two-way bindings, and will attach both the controller and corresponding view to the element.
 
 ### Value
 
-The value controller is triggered whenever a `change` event occurs on the current element. The new value is assigned to the specified data variable.
+See the two-way binding documention on [data-value](#data-value).
 
-```html
-<input type="range" min="0" max="100" step="1" data-value="rating"/>
-```
+### Checked
 
-*Note.* The `data-value` attribute also applies the `value` view  to the element, enabling two-way communication.  
-*Note.* Assignment expressions are not supported for this data controller. Instead, use the `data-event-change` controller for more flexibility.
-
+See the two-way binding documention on [data-checked](#data-checked).
 
 ### Event
 
@@ -723,12 +701,62 @@ void AddMousePos(DataModelHandle model_handle, Event& ev, const VariantList& arg
 ```
 
 
+## Two-way binding
+
+Some data bindings attach both a view and controller from the same attribute, enabling two-way bindings. The following two-way bindings are available.
+
+| Name      | Attribute                   | Value                             |
+| --------- | --------------------------- | --------------------------------- |
+| value     | data-value                  | [data_address]                    |
+| checked   | data-checked                | [data_address]                    |
+
+
+### Value
+{:#data-value}
+
+Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address`. This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
+
+```html
+<input type="range" min="0" max="100" step="1" data-value="rating"/>
+```
+
+A new value is assigned to the specified data variable whenever a `change`{:.evt} event occurs on the current element. The element's `value`{:.attr} attribute is updated whenever the data variable changes on the client side.
+ 
+*Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attr-value` view and `data-event-change` controller for more flexibility.
+
+### Checked
+{:#data-checked}
+
+Binds a checkbox or radio button's `checked` state to the variable located at `data_address`. This variable must be a scalar type. Typically combined with `<input type="checkbox"/>`{:.tag} and `<input type="radio"/>`{:.tag} elements.
+
+```html
+<input type="radio" name="animal" value="dog" data-checked="animal"/> Dog
+<input type="radio" name="animal" value="cat" data-checked="animal"/> Cat
+<input type="checkbox" name="meals" value="pasta" data-checked="pasta"/> Pasta
+```
+
+For checkboxes, the underlying data type should be a `bool`, where `true` means checked and `false` means unchecked. For radio buttons, the underlying type should be an `Rml::String` type where its value corresponds to the `value` attribute of the currently selected radio button.
+
+A new value is assigned to the specified data variable whenever a `change`{:.evt} event occurs on the current element. The element's `checked`{:.attr} attribute is added or removed whenever the data variable changes on the client side.
+ 
+*Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attrif-checked` view and `data-event-change` controller for more flexibility.
+
+## Changelog
+
+A work-in-progress changelog of breaking changes.
+
+### 2020-12-21
+
+- The function `DataModelHandle::Update()` has been removed, as it is no longer needed. Data model updates are now automatically handled during `Context::Update()`.
+
 ## Limitations
 
-- Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - You should not affect the document structure within a data model. This includes manually adding or removing elements. Eg. removing an element inside a `data-for` view is undefined behavior and may lead to a crash.
+- Some special elements inernally change the structure of the document, this includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements. For such elements, data bindings may not work as intended.
+- Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - Adding `data-` attributes after the element has been attached to the document has no effect.
 - Types need to be re-registered if binding variables in different dynamic libraries.
+
 
 ## Authoring notes
 
