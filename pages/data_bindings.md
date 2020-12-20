@@ -506,8 +506,8 @@ The following table lists all built-in data views in RmlUi, along with their dec
 | text         | N/A                          | N/A                                             | [3]   |
 
   [1] `iterator_name` and `index_name` are optional. Defaults to `it` and `it_index`, respectively.  
-  [2] These attributes enable two-way bindings, and will attach both the view and corresponding controller to the element.
-  [3] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.
+  [2] These attributes enable two-way bindings, and will attach both the view and corresponding controller to the element.  
+  [3] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.  
 
 ### Attribute
 
@@ -649,7 +649,7 @@ The modifier may or may not be required depending on the data controller.
 | checked   | data-checked                | [data_address]                    | [1]   |
 | event     | data-event-[event_type]     | [assignment_expression]           |       |
 
-[1] These attributes enable two-way bindings, and will attach both the controller and corresponding view to the element.
+[1] These attributes enable two-way bindings, and will attach both the controller and corresponding view to the element.  
 
 ### Value
 
