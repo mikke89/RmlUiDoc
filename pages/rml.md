@@ -12,10 +12,10 @@ RML maintains the core components of HTML4, including CSS. It provides a number 
 1. [Elements](rml/elements.html) - The basic RML element.
 2. [Documents](rml/documents.html) - The HEAD and BODY of a document.
 3. [Images](rml/images.html) - Referencing images.
-4. [Style Sheets](rml/style_sheets.html) - Adding style to RML documents.
+4. [Style sheets](rml/style_sheets.html) - Adding style to RML documents.
 5. [Forms](rml/forms.html) - User-input forms.
 6. [Controls](rml/controls.html) - Tabsets and window handles.
-7. [Data Display](rml/data_display.html) - Data grids, data selects and progress bars.
+7. [Data display](rml/data_display.html) - Progress bars.
 8. [Templates](rml/templates.html) - Making all your windows look consistent.
 9. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry. 
 
@@ -23,4 +23,4 @@ RML maintains the core components of HTML4, including CSS. It provides a number 
 
 1. [Element index](rml/element_index.html)
 2. [HTML4 style sheet](rml/html4_style_sheet.html) 
-
+3. [Deprecated elements](rml/deprecated.html)

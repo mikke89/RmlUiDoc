@@ -2,6 +2,7 @@
 layout: page
 title: Tab set
 parent: cpp_manual/element_packages
+grandparent: cpp_manual
 next: progress_bar
 ---
 

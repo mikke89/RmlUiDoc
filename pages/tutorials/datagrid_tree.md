@@ -1,9 +1,18 @@
 ---
 layout: page
 title: Datagrid Tree Tutorial
+status: deprecated
+status-desc: datagrid has been deprecated in favor of data bindings
 ---
 
-This tutorial expects that you've got a solid grounding in C++ and know the basics of [RML](../rml.html) and [RCSS](../rcss.html), and know the basics of datagrids (ie, completed the first [datagrid tutorial](datagrid.html).)
+This tutorial expects that you've got a solid grounding in C++ and know the basics of [RML](../rml.html) and [RCSS](../rcss.html), and know the basics of datagrids (ie, completed the first [datagrid tutorial](datagrid.html)).
+
+---
+***NOTE***
+
+The datagrid and related functionality has been deprecated as of RmlUi 4.0. Instead, users are encouraged to use [data bindings](../data_bindings.html) possibly combined with [RCSS tables](../rcss/tables.html). Similar functionality as presented in this tutorial, using a tree structure but instead implemented with data bindings, can be seen in the `treeview` sample.
+
+---
 
 ### Step 1: The Plan
 

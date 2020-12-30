@@ -27,3 +27,5 @@ Elements have a base set of attributes that are common to across all types, whic
 `on*`{:.attr} events = cdata (CS)
 : Event bindings. See [Events](events.html).
 
+`data-*`{:.attr} data bindings = cdata (CS)
+: Denotes views and controllers for [data bindings](../data_bindings.html).

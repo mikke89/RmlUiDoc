@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Datagrid Tutorial
+status: deprecated
+status-desc: datagrid has been deprecated in favor of data bindings
 ---
 
 This tutorial will take you through the process of upgrading an existing body of data to be a data source, then creating a datagrid to read from that source.
@@ -8,6 +10,13 @@ This tutorial will take you through the process of upgrading an existing body of
 This tutorial expects that you've got a solid grounding in C++ and know the basics of [RML](../rml.html) and [RCSS](../rcss.html).
 
 For a detailed description on how DataGrids work with DataSources please see the [C++ Manual](../cpp_manual/element_packages/data_grid.html).
+
+---
+***NOTE***
+
+The datagrid and related functionality has been deprecated as of RmlUi 4.0. Instead, users are encouraged to use [data bindings](../data_bindings.html) possibly combined with [RCSS tables](../rcss/tables.html). The functionality presented in this tutorial is re-implemented as data bindings in the `invader` sample's high score document.
+
+---
 
 ### Step 1: Getting started
 

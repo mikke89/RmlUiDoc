@@ -102,19 +102,3 @@ _Attributes_
 : If set, then the option is selected when the `<select>`{:.tag} element is first loaded.
 
 **Note**: It is possible to use the `disabled`{:.attr} attribute to make the option not selectable by the user. Useful for labelling groups of options.
-
-#### \<dataselect\>
-
-_Attributes_
-
-`source`{:.attr} = datasource (CS)
-: The data source to read the options from.
-
-`fields`{:.attr} = cdata (CS)
-: A comma-separated list of fields to fetch from the data source and to display for each option (or optionally to be sent through the data formatter)
-
-`valuefield`{:.attr} = cdata (CS)
-: The field from the data source to use as the option's value. If not set, then the first field in the fields attribute is used.
-
-`formatter`{:.attr} = cdata (CS)
-: The name of the dataformatter to use to process the raw fields information into RML. If not set, then the fields are displayed in raw text.

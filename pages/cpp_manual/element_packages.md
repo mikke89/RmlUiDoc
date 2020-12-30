@@ -11,7 +11,7 @@ The provided elements can serve as great examples of creating new elements and w
 
 The following element packages are included with the core RmlUi library:
 
-* [Form controls](element_packages/form.html): a comprehensive set of form controls.
-* [Data grids](element_packages/data_grid.html): elements for positioning and rendering dynamic, tabulated data.
-* [Tab sets](element_packages/tab_set.html): elements for partitioning content into panels.
-* [Progress bar](element_packages/progress_bar.html): element for displaying progress.
+- [Form controls](element_packages/form.html): a comprehensive set of form controls.
+- [Tab sets](element_packages/tab_set.html): elements for partitioning content into panels.
+- [Progress bar](element_packages/progress_bar.html): element for displaying progress.
+- [Data grids](element_packages/data_grid.html) (*deprecated*): elements for positioning and rendering dynamic, tabulated data.

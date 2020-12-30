@@ -358,10 +358,11 @@ The procedure for setting up and handling a data model should be as follows.
 3. Bind variables using the data model constructor.
 4. Load the document.
 
-Then, during the update loop, after the inputs have been submitted but before the `Context::Update` call:
+Then, during the update loop:
 
-1. Get dirty state of data variables if desired, and set dirty state on any data changed on the C++-side.
-2. Call `Update` on the *data model handle*.
+1. Submit inputs to the context as normal. Data controllers will update data variables on the client side as necessary, and consequently set the dirty flag on the same variables.
+2. It is now safe to query the data model for dirty data variables if desired, and set dirty state on any data changed on the client side.
+3. Finally, during the call to `Context::Update`, all data views will be updated with any dirtied data variables.
 
 Usage of the model constructor and model handle are detailed in the following sections.
 
@@ -476,7 +477,7 @@ void DataModelHandle::DirtyVariable(const String& variable_name);
 bool DataModelHandle::IsVariableDirty(const String& variable_name);
 ```
 
-`DirtyVariable()` should be called every time the data is changed on the C++ side.  `IsVariableDirty()` can be used to check if eg. a controller changed the value of a data variable. All dirty variables are cleared after a call to `Context::Update()`. Thus, dirty variables should be checked after inputs have been processed but before the context update.
+`DirtyVariable()` should be called every time the data is changed on the client side. `IsVariableDirty()` can be used to check if eg. a controller changed the value of a data variable. All dirty variables are cleared after a call to `Context::Update()`. Thus, dirty variables should be checked after inputs have been processed but before the context update.
 
 
 ## Views
@@ -596,6 +597,20 @@ The `data-for` attribute can use any of the following values, enabling the user 
 | [data_address]                                  | `it`             | `it_index`     |
 | [iterator_name] : [data_address]                | [iterator_name]  | `it_index`     |
 | [iterator_name], [index_name] : [data_address]  | [iterator_name]  | [index_name]   |
+
+The `data-for` loop is expanded by replicating the element with its attributes and its inner RML, for each entry in the array. Eg.
+
+```html
+<p data-for="subject, i : subjects" data-class-selected="i == selected_subject">{{i + ': ' + subject}}</p>
+```
+with three entries in `subjects` is turned into
+```html
+<p data-class-selected="i == selected_subject">{{i + ': ' + subject}}</p>
+<p data-class-selected="i == selected_subject">{{i + ': ' + subject}}</p>
+<p data-class-selected="i == selected_subject">{{i + ': ' + subject}}</p>
+<p style="display: none;"/>
+```
+where `i` and `subject` become aliases to the array index and entry, respectively. Additionally, an element is added after all the entries so that the location of the for loop within the document tree is well defined even when there are no entries. This will become hidden by the `display: none` inline style added by the data view.
 
 *Note.* For performance reasons the names of global data variables shadow iterator names. Thus, do not use an iterator name which is used for a data binding.  
 *Implementation note.* Internally, the XML parser uses a special parsing rule whenever the `data-for` attribute is encountered, providing all the children of the current element as raw RML text to the data view, which is later used for creation of each item in the data array.
@@ -743,16 +758,16 @@ A new value is assigned to the specified data variable whenever a `change`{:.evt
 
 ## Changelog
 
-A work-in-progress changelog of breaking changes.
+A list of breaking changes before the initial release.
 
-### 2020-12-21
+#### 2020-12-21
 
 - The function `DataModelHandle::Update()` has been removed, as it is no longer needed. Data model updates are now automatically handled during `Context::Update()`.
 
 ## Limitations
 
 - You should not affect the document structure within a data model. This includes manually adding or removing elements. Eg. removing an element inside a `data-for` view is undefined behavior and may lead to a crash.
-- Some special elements inernally change the structure of the document, this includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements. For such elements, data bindings may not work as intended.
+- Some special elements internally change the structure of the document, this includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements. For such elements, data bindings may not work as intended.
 - Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - Adding `data-` attributes after the element has been attached to the document has no effect.
 - Types need to be re-registered if binding variables in different dynamic libraries.

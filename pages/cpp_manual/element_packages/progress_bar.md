@@ -2,6 +2,8 @@
 layout: page
 title: Progress bar
 parent: cpp_manual/element_packages
+grandparent: cpp_manual
+next: data_grid
 ---
 
 The `<progressbar>`{:.tag} element can visually display progress or relative values.

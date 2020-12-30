@@ -2,6 +2,7 @@
 layout: page
 title: HTML4 Style Sheet
 parent: rml
+next: deprecated
 ---
 
 This sample style sheet is based on the recommended CSS 2.0 style sheet found [here](http://www.w3.org/TR/REC-CSS2/sample.html). It introduces default rules that we recommend you use as a basis for your own style sheet.
@@ -71,5 +72,34 @@ pre
 hr
 {
 	border-width: 1px;
+}
+
+table
+{
+	box-sizing: border-box;
+	display: table;
+}
+tr
+{
+	box-sizing: border-box;
+	display: table-row;
+}
+td
+{
+	box-sizing: border-box;
+	display: table-cell;
+}
+col
+{
+	box-sizing: border-box;
+	display: table-column;
+}
+colgroup
+{
+	display: table-column-group;
+}
+thead, tbody, tfoot
+{
+	display: table-row-group;
 }
 ```

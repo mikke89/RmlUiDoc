@@ -3,7 +3,8 @@ layout: page
 title: Data grid
 parent: cpp_manual/element_packages
 grandparent: cpp_manual
-next: tab_set
+status: deprecated
+status-desc: datagrid has been deprecated in favor of data bindings
 ---
 
 The data grid element is capable of fetching, positioning and rendering dynamic tabulated data. Data grids read their content from data sources. The class `Rml::ElementDataGrid` is the interface for data grid elements.
