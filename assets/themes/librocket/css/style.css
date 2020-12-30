@@ -122,6 +122,19 @@ h3 a:hover { text-decoration: none; }
 	color: blue;
 }
 
+.data-attr
+{
+	color: #156b00;
+}
+dl.data-desc
+{
+	margin-top: 2em;
+}
+dl.data-desc dt
+{
+	font-size: 1.3em;
+}
+
 .evt
 {
 	color: green;
