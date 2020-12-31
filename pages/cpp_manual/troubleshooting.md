@@ -27,6 +27,11 @@ Sometimes challenges arise when integrating a new library. The most common integ
 - Make sure you call `Context::Update` and then `Context::Render` (in that order).
 - If you have trouble loading your own fonts, you can instead test with the font included with the debugger. To use it, `RmlDebugger` must be linked and initialized, then set the property `font-family: rmlui-debugger-font;` on a given element.
 
+#### Animation issues
+
+Experiencing slow, fast, or non-smooth animations?
+
+- Make sure `SystemInterface::GetElapsedTime()` is properly implemented. It should return a high-resolution time value in seconds, always increasing as the application runs.
 
 Nothing solves your problem? Take a look at the included samples and shell to see how they work. You can also post an issue describing your situation in the [main repository]({{page.lib_site}}), or talk to other users on [RmlUi's Gitter channel](https://gitter.im/RmlUi/community).
 
