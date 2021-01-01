@@ -6,9 +6,9 @@ parent: cpp_manual
 
 Lottie is a popular format for rendering vector-based animations.
 
-There is a plugin in RmlUi for serving such animations, located in the `lottie` sample. This plugin requires the [rlottie](https://github.com/Samsung/rlottie) library to render the animation.
+RmlUi comes integrated with the Lottie plugin for drawing Lottie animations. The plugin uses the [rlottie](https://github.com/Samsung/rlottie) library to render the animations.
 
-Once the `lottie` plugin is initialized, the `<lottie>`{:.tag} element is available as a normal RML tag.
+Once the Lottie plugin is initialized, the `<lottie>`{:.tag} element is available as a normal RML tag.
 
 
 ### \<lottie\>
@@ -22,11 +22,12 @@ _Attributes_
 
 ![Lottie sample](../../assets/gallery/lottie.gif)
 
-### Building the Lottie sample
 
-First, we demonstrate how to download and build the [rlottie](https://github.com/Samsung/rlottie) dependency. Once this dependency is available, the RmlUi can be built with the Lottie plugin integrated.
+### Building with the Lottie plugin
 
-Open up a terminal and navigate to `RmlUi/Dependecies`{:.path}. Then execute the following commands.
+The Lottie plugin is integrated and built with the Core RmlUi library once it is enabled. Then, the plugin is automatically loaded during the call to `Rml::Initialise()`.
+
+First, we demonstrate how to download and build the required [rlottie](https://github.com/Samsung/rlottie) dependency. Open up a terminal and navigate to `RmlUi/Dependecies`{:.path}. Then execute the following commands.
 
 ```cmd
 git clone --branch v0.2 https://github.com/Samsung/rlottie.git
@@ -40,19 +41,17 @@ cmake --build . --target rlottie --config Release
 
 You may want to adjust the CMake arguments to your preferences.
 
-Then, during [CMake configuration](building_with_cmake.html) of RmlUi, enable the option `ENABLE_LOTTIE_PLUGIN`. This will ensure that the Lottie plugin is integrated and built together with `RmlCore`.
-
-To build RmlUi with the `lottie` sample, [use CMake to generate](building_with_cmake.html) the RmlUi configuration with the option `ENABLE_LOTTIE_PLUGIN` enabled. Also make sure to set the option `BUILD_SAMPLES=ON`. For example, in the `RmlUi/Build`{:.path} directory execute the following:
+Then, during [CMake configuration](building_with_cmake.html) of RmlUi, set the option `ENABLE_LOTTIE_PLUGIN=ON`. This will ensure that the Lottie plugin is integrated and built together with `RmlCore`. For example, in the `RmlUi/Build`{:.path} directory execute the following:
 
 ```cmd
 cmake -DBUILD_SHARED_LIBS=OFF -DENABLE_LOTTIE_PLUGIN=ON -DBUILD_SAMPLES=ON ..
 ```
 
-This should automatically locate the `rlottie` library, and you can now build and run the included `lottie` sample as you would any other sample.
+This should automatically locate the `rlottie` library. You can now build and run the included `lottie` sample as you would any other sample to try out the plugin.
 
 
 ### Including the Lottie plugin
 
-To include the Lottie plugin in your own project, make sure you build RmlUi with the CMake option `ENABLE_LOTTIE_PLUGIN` enabled, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `rlottie` library.
+To include the Lottie plugin in your own project, make sure you build RmlUi with the CMake option `ENABLE_LOTTIE_PLUGIN` enabled as described above, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `rlottie` library.
 
 The plugin is then automatically loaded during the call to `Rml::Initialise()`. If everything has worked out properly, the log will output a short message about the Lottie plugin being initialised. The `<lottie>`{:.tag} element should then be available for displaying animations.
