@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Data bindings
+title: Data binding
 ---
 
 {% comment %} 
@@ -26,14 +26,9 @@ See the following detailed sections:
 - [Data model](data_bindings/model.html)
 - [Data views and controllers](data_bindings/views_and_controllers.html)
 
-```html
-<h1>Simple data binding example</h1>
-<div data-model="my_model">
-	<h2>{{title}}</h2>
-	<p data-if="show_text">The quick brown fox jumps over the lazy {{animal}}.</p>
-	<input type="text" data-value="animal"/>
-</div>
-```
+---
+
+![Schematic of the control flow in RmlUi's model-view-controller.](data_bindings/model-view-controller.svg)
 
 ---
 
