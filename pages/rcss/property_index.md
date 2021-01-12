@@ -21,6 +21,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
 [`bottom`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | 
 [`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
+[`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | | 
 [`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
 [`clip`{:.prop}][clip] | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
 [`color`{:.prop}][color] | \<colour\> | black | all | yes | | 
@@ -83,6 +84,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [border-width]: box_model.html#border-width
 [border]: box_model.html#border
 [box-sizing]: user_interface.html#box-sizing
+[caret-color]: user_interface.html#caret-color
 [clear]: visual_formatting_model.html#clear
 [clip]: visual_effects.html#clip
 [color]: colours_backgrounds.html#color

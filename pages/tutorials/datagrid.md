@@ -286,7 +286,7 @@ So, using these hooks, we can make the datagrid look pretty much any way we want
 ```css
 @spritesheet theme 
 {
-	src: ../../../assets/invader.tga;
+	src: /assets/invader.tga;
 	
 	/* ... */
 	

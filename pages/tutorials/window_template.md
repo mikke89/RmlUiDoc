@@ -303,7 +303,7 @@ Next up, we will add the rest of the sprites used in this tutorial to the sprite
 ```css
 @spritesheet theme 
 {
-	src: ../../../assets/invader.tga;
+	src: /assets/invader.tga;
 
 	/* ... */
 	

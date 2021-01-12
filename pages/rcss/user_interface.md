@@ -18,6 +18,18 @@ Percentages: | N/A
 
 This property defines the cursor to display while the mouse is hovering over the element. The value is submitted directly through the [system interface](../cpp_manual/interfaces/system.html) if the element's [context](../cpp_manual/contexts.html#mouse-cursor) is set to enable cursors.
 
+### Caret color
+{:#caret-color}
+
+`caret-color`{:.prop}
+
+Value: | auto \| \<colour\>
+Initial: | auto
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+This property sets the color of the text input cursor, the marker which tells where the next character will be inserted. Can be used on text fields such as in `<input>`{:.tag} and `<textarea>`{:.tag} elements. A value of `auto`{:.value} means that the caret color will use the element's `color`{:.prop} property.
 
 ### Box sizing
 {:#box-sizing}
