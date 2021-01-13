@@ -135,7 +135,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 | `AppendChild()` | Insert a node as the last child node of this element. The newly parented node must first be detached from its existing parent. | appendChild()
 | `Blur()` | Removes keyboard focus from the current element. | blur()
 | `Click()` | Simulates a click on the current element. | click()
-| `Closest()` | Retrieve the first ancestor matching the provided RCSS selector(s). | closest()
+| `Closest()` | Retrieve the first ancestor element matching the provided RCSS selector(s). | closest()
 | `DispatchEvent()` | Dispatch an event to this node in the DOM. | dispatchEvent()
 | `Focus()` | Gives keyboard focus to the current element. | focus()
 | `GetAttribute()` | Retrieve the value of the named attribute from the current node. | getAttribute()

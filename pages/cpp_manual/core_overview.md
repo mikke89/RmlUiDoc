@@ -74,7 +74,7 @@ A RCSS property is analogous to a CSS property on an HTML element.
 
 ### Computed values
 
-Most built-in properties have a corresponding computed value associated with them. This concept is analogous to CSS computed values, that is, computed values convert any properties to the most basic units possible before layouting can be performed. E.g. length-percentage values are often converted to pixels or percentages. The computed values for a given element is calculated during the `Context::Update` call.
+Most built-in properties have a corresponding computed value associated with them. This concept is analogous to CSS computed values, that is, computed values convert any properties to the most basic units possible before layouting can be performed. E.g. length-percentage values are often converted to pixels or percentages. The computed values for a given element are calculated during the `Context::Update` call.
 
 ### Decorators
 

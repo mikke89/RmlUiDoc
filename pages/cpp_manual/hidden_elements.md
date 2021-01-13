@@ -77,7 +77,7 @@ You can either construct the box yourself, or use the static `BuildBox()` functi
 // @param[in] containing_block The dimensions of the content area of the block containing the element.
 // @param[in] element The element to build the box for.
 // @param[in] inline_element True if the element is placed in an inline context, false if not.
-static void BuildBox(Box& box, const Rml::Vector2f& containing_block, Element* element, bool inline_element = false);
+static void BuildBox(Box& box, Rml::Vector2f containing_block, Element* element, bool inline_element = false);
 ```
 
 `BuildBox()` will generate the values of a `Rml::Box` from the `width`{:.prop}, `max-width`{:.prop}, `min-width`{:.prop}, and `height`{:.prop}, `max-height`{:.prop} and `min-height`{:.prop} properties set on an element. The parameters are:
@@ -113,22 +113,12 @@ To set the position of a hidden element, use the `SetOffset()` function. This se
 // @param[in] offset The offset (in pixels) of our primary box's top-left border corner from our offset parent's top-left border corner.
 // @param[in] offset_parent The element this element is being positioned relative to.
 // @param[in] offset_fixed True if the element is fixed in place (and will not scroll), false if not.
-void SetOffset(const Rml::Vector2f& offset,
+void SetOffset(Rml::Vector2f offset,
                Rml::Element* offset_parent,
                bool offset_fixed = false);
 ```
 
-However, `Rml::ElementUtilities` has a number of functions to aid in positioning a hidden element.
-
-```cpp
-// Sizes and positions an element within its parent.
-// @param element[in] The element to size and position.
-// @param offset[in] The offset of the element inside its parent's content area.
-static bool PositionElement(Rml::Element* element,
-                            const Rml::Vector2f& offset);
-```
-
-`PositionElement()` resizes an element (using `BuildBox()`) and positions it within its parent. As positioning border-corner to border-corner can be quite confusing, this function treats the offset as between the content areas of the elements.
+However, `Rml::ElementUtilities` has a number of functions to aid in positioning a hidden element. `PositionElement()` resizes an element (using `BuildBox()`) and positions it within its parent. As positioning border-corner to border-corner can be quite confusing, this function treats the offset as between the content areas of the elements.
 
 ```cpp
 // Sizes an element, and positions it within its parent offset from the borders of its content area.
@@ -136,7 +126,7 @@ static bool PositionElement(Rml::Element* element,
 // @param offset[in] The offset from the parent's borders.
 // @param anchor[in] Defines which corner or edge the border is to be positioned relative to.
 static bool PositionElement(Rml::Element* element,
-                            const Rml::Vector2f& offset,
+                            Rml::Vector2f offset,
                             Rml::ElementUtilities::PositionAnchor anchor);
 ```
 
@@ -246,8 +236,7 @@ Then call `AddLines()` for each generated line.
 // Adds a new line into the text element.
 // @param[in] line_position The position of this line, as an offset from element.
 // @param[in] line The contents of the line.
-void AddLine(const Rml::Vector2f& line_position,
-             const Rml::String& line) = 0;
+void AddLine(Rml::Vector2f line_position, const Rml::String& line) = 0;
 ```
 
 The following code sample extends the previous sample by placing each line of text as it is generated:

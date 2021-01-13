@@ -5,7 +5,7 @@ parent: cpp_manual
 next: custom_elements
 ---
 
-RmlUi uses text elements (elements derived from `Rml::ElementText`) to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the RmlUi factory, or through the `CreateTextNode()` function on a document.
+RmlUi uses text elements, `Rml::ElementText` derived from `Rml::Element`, to store and render loose text. Text elements are generated automatically for text in RML documents, and can be created dynamically by using the '#text' element instancer through the RmlUi factory, or through the `CreateTextNode()` function on a document.
 
 ### Text encoding
 
