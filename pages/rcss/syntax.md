@@ -47,6 +47,8 @@ Specified as <length> in a property's Values list. A length is a horizontal or v
 - `rem`{:.value}: One rem is equivalent to the font size of the root (body) element.
 - `ex`{:.value}: One ex is equivalent to the height of the current font's lower-case x.
 - `dp`{:.value}: One dp is equivalent to one pixel scaled by a globally defined ratio.
+- `vw`{:.value}: One vw is equivalent to 1% of the width of the context.
+- `vh`{:.value}: One vh is equivalent to 1% of the height of the context.
 
 In addition, units based on pixels-per-inch (PPI) are supported. The PPI units are defined as follows:
 
