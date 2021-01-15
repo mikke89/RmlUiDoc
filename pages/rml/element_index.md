@@ -20,6 +20,7 @@ The following is a list of elements supported by RML:
 - [`<textarea>`{:.tag}](forms.html#textarea)
 - [`<select>`{:.tag}](forms.html#select)
 - [`<option>`{:.tag}](forms.html#option)
+- [`<label>`{:.tag}](forms.html#label)
 - [`<tabset>`{:.tag}](controls.html#tabset)
 - [`<tab>`{:.tag}](controls.html#tab)
 - [`<panel>`{:.tag}](controls.html#panel)

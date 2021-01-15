@@ -102,3 +102,25 @@ _Attributes_
 : If set, then the option is selected when the `<select>`{:.tag} element is first loaded.
 
 **Note**: It is possible to use the `disabled`{:.attr} attribute to make the option not selectable by the user. Useful for labelling groups of options.
+
+#### \<label\>
+
+A label associates a form input field with a caption. When a user hovers over or clicks a label, it will be forwarded to the targeted element.
+
+A target element can be specified by providing an ID in the `for`{:.attr} attribute. Otherwise, when omitted, the label will target the first descending element which has one of the following tags: `<button>`{:.tag}, `<input>`{:.tag}, `<textarea>`{:.tag}, `<progressbar>`{:.tag}, or `<select>`{:.tag}.
+
+_Attributes_
+
+`for`{:.attr} = idref (CI)
+: If set, the label element will target the element with the given ID. Otherwise, the label will target the first descending element of a valid tag (see above).
+
+```html
+<label><input type="checkbox" value="pizza"/> Pizza</label>
+
+<div class="left">
+	<input type="checkbox" value="pasta" id="pasta"/>
+</div>
+<div class="right">
+	<label for="pasta">Pasta</label>
+</div>
+```
