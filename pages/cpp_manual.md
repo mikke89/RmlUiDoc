@@ -39,7 +39,8 @@ title: C++ Manual
 8. [Contexts](cpp_manual/contexts.html)
 9. [Events](cpp_manual/events.html)
 10. [Style sheets and properties](cpp_manual/rcss.html)
-11. [Decorators](cpp_manual/decorators.html)
+11. [Animations and transforms](cpp_manual/animations_transforms.html)
+12. [Decorators](cpp_manual/decorators.html)
 
 
 ### Plugins
