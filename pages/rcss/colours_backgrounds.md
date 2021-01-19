@@ -79,7 +79,7 @@ Percentages: | N/A
 `image-color`{:.prop}
 
 Value: | \<colour\>
-Initial: | transparent
+Initial: | white
 Applies to: | \<img\> elements and [decorators](decorators.html)
 Inherited: | no
 Percentages: | N/A
