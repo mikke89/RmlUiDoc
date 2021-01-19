@@ -217,11 +217,26 @@ A custom event listener instancer derives from `Rml::EventListenerInstancer`. Th
 
 ```cpp
 // Instance an event listener object.
-// @param value Value of the event.
-virtual Rml::EventListener* InstanceEventListener(const Rml::String& value) = 0;
+// @param value Value of the inline event.
+// @param element Element that triggers this call to the instancer.
+// @return An event listener which will be attached to the element.
+// @lifetime The returned event listener must be kept alive until the call to `EventListener::OnDetach` on the
+//           returned listener, and then cleaned up by the user. The detach function is called when the listener
+//           is detached manually, or automatically when the element is destroyed.
+virtual Rml::EventListener* InstanceEventListener(const Rml::String& value, Rml::Element* element) = 0;
 ```
 
-`InstanceEventListener()` will be called during RML parsing whenever the factory needs to find an event listener for an inline event. The parameter value will be the raw event response string as specified in the RML.
+`InstanceEventListener()` will be called during RML parsing whenever the factory needs to find an event listener for an inline event. The parameter value will be the raw event response string as specified in the RML, eg. `game.start()`.
+
+Once the event listener instancer is created, it can be passed to the factory.
+
+```cpp
+// Register the instancer to be used for all event listeners, or nullptr to clear an existing instancer.
+// @lifetime The instancer must be kept alive until after the call to Rml::Shutdown, or until a new instancer is set.
+void Rml::Factory::RegisterEventListenerInstancer(Rml::EventListenerInstancer* instancer);
+```
+
+Then all encountered inline event declarations will be passed to the instancer. Only a single instancer can be active at any one time.
 
 ### Custom event types
 
@@ -229,7 +244,7 @@ Custom events can be dispatched without any particular setup. They will then aut
 
 To provide a custom specification for a new event, first call the method:
 ```cpp
-EventId Rml::RegisterEventType(const String& type, bool interruptible, bool bubbles, DefaultActionPhase default_action_phase)
+EventId Rml::RegisterEventType(const String& type, bool interruptible, bool bubbles, DefaultActionPhase default_action_phase);
 ```
 After this call, any usage of this type will use the provided specification by default. The returned `EventId` can be used to dispatch events instead of the type string.
 
