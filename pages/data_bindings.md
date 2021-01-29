@@ -35,7 +35,7 @@ See the following detailed sections:
 ##### Limitations
 
 - You should not affect the document structure within a data model. This includes manually adding or removing elements. Eg. removing an element inside a `data-for` view is undefined behavior and may lead to a crash.
-- Some special elements internally change the structure of the document, this includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements. For such elements, data bindings may not work as intended.
+- Some special elements internally change the structure of the document. For such elements, data bindings may not work as intended. This includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements, as well as the `<tabset>`{:.tag}, `<panel>`{:.tag} and `<tab>`{:.tag} elements. 
 - Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - Adding `data-` attributes after the element has been attached to the document has no effect.
 - Types need to be re-registered if binding variables in different dynamic libraries.
