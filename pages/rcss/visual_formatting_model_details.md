@@ -2,7 +2,7 @@
 layout: page
 title: Visual formatting model details
 parent: rcss
-next: animations_transitions_transforms
+next: visual_effects
 ---
 
 ### Definition of 'containing block'

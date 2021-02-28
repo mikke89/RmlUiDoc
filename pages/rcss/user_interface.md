@@ -2,7 +2,7 @@
 layout: page
 title: User interface
 parent: rcss
-next: sprite_sheets
+next: animations_transitions_transforms
 ---
 
 ### Mouse cursor: the 'cursor' property

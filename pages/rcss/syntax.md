@@ -111,6 +111,26 @@ color: rgba(100%, 0%, 0%, 100%);
 color: rgba(255, 0, 0, 255);
 ```
 
+#### Resolution
+
+Specified as `<resolution>`{:.value} in the property's Values list. Resolution describes the scaling for high DPI displays, and can be used in media queries and sprite sheets.
+
+In RCSS, resolution is always specificied using a number (the scaling factor) followed by the `x`{:.value} unit.
+
+```css
+@media (min-resolution: 1.2x) { /* ... */ }
+```
+
+In this case, the specified number will be compared against the context's [dp-ratio](#density-independent-pixel-dp).
+
+#### Ratio
+
+Specified as `<ratio>`{:.value} in the property's Values list. A ratio is specified using the syntax `<integer> / <integer>`{:.value}.
+
+```css
+@media (min-aspect-ratio: 16 / 9) { /* ... */ }
+```
+
 ### Referencing RCSS from RML
 
 A style sheet can be either stored in an external file (usually with the extension .rcss) and referenced from an RML file, or declared inline inside an RML file. Referencing an external RCSS file is done using the `<link>`{:.tag} tag in the following manner:

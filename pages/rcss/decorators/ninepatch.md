@@ -44,7 +44,7 @@ Value: | \<number-length-percentage-box\>
 Initial: | 0px 0px 0px 0px
 Percentages: | relative to the size of the edge and current dp-ratio
 
-The edge property is specified in the common `top-right-bottom-left`{:.value} box order. If the property is specified (not all 0px), the rendered size of each edge can be specified as a length, or number/percentage to scale it relative to the size of the native image edge size multiplied by the current [dp-ratio](..//syntax.html#density-independent-pixel-dp). The normal box shorthands are available, e.g., a single value will be replicated to all edges.
+The edge property is specified in the common `top-right-bottom-left`{:.value} box order. If the property is specified (not all 0px), the rendered size of each edge can be specified as a length, or number/percentage to scale it relative to the natural size of the image edge. The natural size is determined by the sprite's associated [`resolution`{:.prop} property](../sprite_sheets.html#resolution) and the current [dp-ratio](../syntax.html#density-independent-pixel-dp). The normal box shorthands are available, e.g., a single value will be replicated to all edges.
 
 
 ### Example
@@ -68,9 +68,8 @@ Furthermore, the ninepatch decorator can have the rendered size of its edges spe
 ```css
 decorator: ninepatch( button-outer, button-inner, 19px 12px 25px 12px );
 ```
-Percent and numbers can also be used, they will scale relative to the native size of the given edge multiplied by the current dp ratio. Thus, setting
+Percent and numbers can also be used, they will scale relative to the natural size of the given edge. Thus, setting
 ```css
-decorator: ninepatch( button-outer, button-inner, 1.0 );
+decorator: ninepatch( button-outer, button-inner, 2.0 );
 ```
-is a simple approach to scale the decorators with higher dp ratios. For crisper graphics, increase the sprite sheet's pixel size at the edges and lower the rendered edge size number correspondingly.
-
+will double the size of all edges.

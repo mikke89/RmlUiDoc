@@ -118,6 +118,21 @@ void EnableMouseCursor(bool enable);
 ```
 By default it is enabled.
 
+### Media themes
+{:#themes}
+
+Media themes can be used to activate or deactive parts of a style sheet in combination with [media queries](../rcss/media_queries.html), using the `theme`{:.prop} media feature.
+
+```cpp
+/// Activate or deactivate a media theme. Themes can be used in RCSS media queries.
+/// @param theme_name[in] The name of the theme to (de)activate.
+/// @param activate True to activate the given theme, false to deactivate.
+void ActivateTheme(const String& theme_name, bool activate);
+/// Check if a given media theme has been activated.
+/// @param theme_name The name of the theme.
+/// @return True if the theme is activated.
+bool IsThemeActive(const String& theme_name) const;
+```
 
 ### Events
 
