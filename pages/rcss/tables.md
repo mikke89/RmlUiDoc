@@ -5,27 +5,31 @@ parent: rcss
 next: user_interface
 ---
 
-Table suport in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some differences, the main ones being as follows.
+Table suport in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some enhancements and differences, the main ones being as follows.
 
-- The width of columns are computed as if setting the CSS property `table-layout: fixed`{:.prop}, with some additions.
-  - Widths can be specified as fractional (like the CSS `fr` unit for grid layout).
-  - `min-width`{:.prop} and `max-width`{:.prop} constraints are respected.
+##### Enhancements
+
+- The width of columns and height of rows support flexible sizing (like using the CSS `fr` unit for grid layout).
+- Minimum and maximum size constraints are respected for column widths and row heights.
+- Spacing between rows and between columns can be controlled individually using margin, border and padding.
+
+##### Differences
+
+- The width of columns are computed as if setting the CSS property `table-layout: fixed`{:.prop}, with the above enhancements.
 - RmlUi does not generate anonymous elements or attempt to clean up invalid tables.
-  - Table cells must be located as direct children of row elements. However, row groups are optional.
+  - Table row elements must be present for borders to be generated as specified for the row.
   - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
 - Percentage-relative values are calculated based on the initial block-size of the table element, and are not re-adjusted if the table size is changed during formatting.
-- Currently, table rows with `height: auto`{:.prop} will not be distributed to fit the table height if specified. Instead, the table will be resized to the formatted height of each row (as if height was not specified on the table).
-
 
 ### The RCSS table model
 
-The RCSS table model follows the structure of CSS tables. This means that the table is made up of table rows, optionally wrapped in row groups, which contains individual cells. Table columns and column groups can optionally be specified for visual effects (mainly backgrounds, borders, and decorators) and for defining widths of columns. Columns never contain cells directly. Table columns and column groups must precede any rows or row groups.
+The RCSS table model follows the structure of CSS tables. This means that the table is made up of table rows, optionally wrapped in row groups, which contain individual cells. Table columns and column groups can optionally be specified for visual effects (mainly backgrounds, borders, and decorators) and for defining widths of columns. Columns never contain cells directly. Table columns and column groups must precede any rows or row groups. Table cells can be placed as direct children of the table, then consecutive cells will form a new row.
 
 The `display`{:.prop} property is used to define the formatting of tables, with the following relevant values.
 
 `display`{:.prop} value       | Description | Attributes | Valid children
 ----------------------------- | ----------- | ---------- | --------------
-`table`{:.value}              | Specifies a block-level table.         | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value}
+`table`{:.value}              | Specifies a block-level table.         | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value},<br>`table-cell`{:.value}
 `table-row`{:.value}          | Specifies a table row.                 | | `table-cell`{:.value}
 `table-row-group`{:.value}    | Specifies a grouping of table rows.    | | `table-row`{:.value}
 `table-column`{:.value}       | Specifies a table column.              | `span`{:.value} | 
@@ -123,7 +127,7 @@ The table width is the sum of all table columns and the horizontal table spacing
 The width of table columns are defined entirely by the width specified on column elements and/or the cells of the first row. In the following, *columns* mean any of the aforementioned elements.
 
 - Columns with `width: auto`{:.prop} are distributed equally to fill the table width.
-- Columns with `width: <length> | <percentage < 100%>`{:.prop} are respected exactly.
+- Columns with `width: <length> | <percentage < 100%>`{:.prop} will use the specified value.
 - Columns with `width: <percentage ≥ 100%>`{:.prop} adjusts the flexible width of the column relative to other flexible columns (like the CSS `fr` unit for grid layout).
 - Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
 
@@ -135,8 +139,15 @@ Unlike in CSS, column groups and columns can use horizontal `padding`{:.prop}, `
 The table height is determined by the sum of the height of all its rows, in addition to vertical spacing such as `row-gap`{:.prop}, row margins, and table padding.
 
 Each row has their height determined as follows:
-- If the `table-row`{:.value} has a definite (non-auto) `height`{:.prop}, that is always used.
-- Otherwise, it is determined by the maximum height of the formatted cells in the row.
+
+- Rows with `height: auto`{:.prop} determine their height by the tallest formatted cell in the row.
+- Rows with `height: <length> | <percentage < 100%>`{:.prop} will use the specified value.
+- Rows with `height: <percentage ≥ 100%>`{:.prop} adjusts the flexible height of the row relative to other flexible rows (like the CSS `fr` unit for grid layout).
+- Rows can specify `min-height`{:.prop} and `max-height`{:.prop} to constraint their sizing.
+
+If the rows do not fill the height specified on the table, all rows will be scaled up proportionally while respecting any `max-height`{:.prop} constraints. If there is still space available, empty space will be left at the bottom of the table.
+
+All percentage values are resolved using the initial block height of the table. Thus, if the table height is specified as `auto`{:.value}, they will resolve to zero. Instead, the table height should be set to a specific length. Percentage heights can also be used if the parent element's height is specified.
 
 Unlike in CSS, row groups and rows can use vertical `padding`{:.prop}, `border`{:.prop} and `margin`{:.prop}. This will be added to the vertical spacing of the table. Row groups and rows can also use horizontal `border`{:.prop} and `margin`{:.prop} to add borders and offset them from the table edges, but will not affect the position of the cells.
 
