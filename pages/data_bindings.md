@@ -49,6 +49,7 @@ See the following detailed sections:
 
 A list of breaking changes before the initial release.
 
+- 2021-03-23. Struct member functions are no longer registered using `StructHandle::RegisterMemberFunc()`. Instead, use `StructHandle::RegisterMember()`. Furthermore, function signatures are changed, see [registering Structs](data_bindings/model.html#structs) for details.
 - 2020-12-21. The function `DataModelHandle::Update()` has been removed, as it is no longer needed. Data model updates are now automatically handled during `Context::Update()`.
 
 {% endraw %}
