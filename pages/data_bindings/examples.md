@@ -103,8 +103,8 @@ struct Invader {
 	std::vector<int> damage;
 	float danger_rating = 50;
 
-	void GetColor(Variant& variant) {
-		variant = "rgba(" + ToString(color) + ')';
+	String GetColor() {
+		return "rgba(" + ToString(color) + ')';
 	}
 };
 
@@ -157,7 +157,7 @@ bool SetupDataBinding(Context* context, DataModelHandle& invaders_model)
 		invader_handle.RegisterMember("danger_rating", &Invader::danger_rating);
 
 		// Getter and setter functions can also be used.
-		invader_handle.RegisterMemberFunc("color", &Invader::GetColor);
+		invader_handle.RegisterMember("color", &Invader::GetColor);
 	}
 
 	// We can even have an Array of Structs, infinitely nested if we so desire.
