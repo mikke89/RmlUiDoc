@@ -15,14 +15,18 @@ You can find the RML documentation for the progressbar element [here]({{"pages/r
 
 The `Rml::ElementProgressBar` class (found in `<RmlUi/Core/Elements/ElementProgressBar.h>`{:.incl}) defines the interface to the progress bar element.
 
-The progress bar's value can be set through the C++ interface.
+The progress bar's value and maximum value can be set through the C++ interface.
 
 ```cpp
-// Return the value of the progress bar [0, 1]
+/// Returns the value of the progress bar.
 float GetValue() const;
-
-// Set the value of the progress bar
+/// Sets the value of the progress bar.
 void SetValue(float value);
+
+/// Returns the maximum value of the progress bar.
+float GetMax() const;
+/// Sets the maximum value of the progress bar.
+void SetMax(float max_value);
 ```
 
 Otherwise, the value and the other attributes can be set using the `Element::SetAttribute` function.
@@ -96,7 +100,7 @@ The following RCSS styles three different progress bars.
 Now they can be used in RML as follows.
 ```html
 <progressbar class="gauge" direction="clockwise" start-edge="bottom" value="0.3"/>
-<progressbar class="progress_horizontal" value="0.75"/>
+<progressbar class="progress_horizontal" value="75" max="100"/>
 <progressbar class="progress_vertical" direction="top" value="0.6"/>
 ```
 

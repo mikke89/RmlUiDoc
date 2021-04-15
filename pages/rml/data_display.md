@@ -14,7 +14,10 @@ The `<progressbar>`{:.tag} element can visually display progress or relative val
 _Attributes_
 
 `value`{:.attr} = number (CN)
-: A number [0, 1] representing the fraction of the progress bar that is filled and where 1 means completely filled.
+: A number between `0` and `max`, representing the fraction of the progress bar that is filled and where `max` means completely filled.
+
+`max`{:.attr} = number (CN)
+: A positive number representing the maximum value, defaults to `1`.
 
 `direction`{:.attr} = cdata (CI)
 : The direction the progress bar expands with increasing values. Must be one of:
