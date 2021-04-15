@@ -9,7 +9,7 @@ See also [data bindings](../data_bindings.html) for dynamically displaying and u
 
 ### \<progressbar\>
 
-The `<progressbar>`{:.tag} element can visually display progress or relative values. For a detailed description see [progress bar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) in the C++ Manual.
+The `<progressbar>`{:.tag} element can visually display progress or relative values. For a detailed description and styling information see [progress bar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) in the C++ Manual.
 
 _Attributes_
 

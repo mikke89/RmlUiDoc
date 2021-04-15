@@ -19,7 +19,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`border-width`{:.prop}][border-width] | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | | 
 [`border-top-left-radius`{:.prop}][border-radius] [`border-top-right-radius`{:.prop}][border-radius] [`border-bottom-right-radius`{:.prop}][border-radius] [`border-bottom-left-radius`{:.prop}][border-radius] | \<length\> | 0px | all | no | | Percentages and two-axis radii not supported. |
 [`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
-[`bottom`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | 
+[`bottom`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block | 
 [`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
 [`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | | 
 [`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
@@ -41,7 +41,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
-[`left`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | 
+[`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 [`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
 [`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
@@ -58,14 +58,14 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`perspective`{:.prop}][perspective] | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform).
 [`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
 [`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
-[`right`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | width of containing block | 
+[`right`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
 [`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial height of table | 
 [`scrollbar-margin`{:.prop}][scrollbar-margin] | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
 [`tab-index`{:.prop}][tab-index] | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
 [`text-align`{:.prop}][text-align] | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
 [`text-decoration`{:.prop}][text-decoration] | none \| underline \| overline \| line-through | none | all | yes | | 
 [`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | | 
-[`top`{:.prop}][top_right_bottom_left] | \<length\> \| \<percentage\> | 0px | positioned elements | no | height of containing block | 
+[`top`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block | 
 [`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | | 
 [`transform`{:.prop}][transform] | See [transforms](animations_transitions_transforms.html#transform) | none | all | no | | 
 [`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
