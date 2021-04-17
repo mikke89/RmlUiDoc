@@ -15,7 +15,7 @@ RmlUi is developed following the C++14 standard and can be used on the following
 
 - Windows 32/64bit, compiling with Microsoft Visual Studio 2017+.
 - MacOS 32/64bit, compiling with GCC 5+.
-- Linux, compiling with GCC 5+. 
+- Linux, compiling with GCC 5+.
 
 #### Visual Studio
 
