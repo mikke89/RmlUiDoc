@@ -8,7 +8,7 @@ Lottie is a popular format for rendering vector-based animations.
 
 RmlUi comes integrated with the Lottie plugin for drawing Lottie animations. The plugin uses the [rlottie](https://github.com/Samsung/rlottie) library to render the animations.
 
-Once the Lottie plugin is initialized, the `<lottie>`{:.tag} element is available as a normal RML tag.
+When RmlUi is built with the Lottie plugin, the `<lottie>`{:.tag} element is available as a normal RML tag.
 
 
 ### \<lottie\>

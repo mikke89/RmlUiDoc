@@ -36,6 +36,10 @@ Progress bars
 Vector animations with the [Lottie plugin](cpp_manual/lottie.html)
 
 {: .gallery-item }
+![SVG image](../assets/gallery/svg_plugin.png)  
+SVG vector images with the [SVG plugin](cpp_manual/svg.html)
+
+{: .gallery-item }
 ![Covellite++](../assets/gallery/covellitepp_1.jpg)
 ![Covellite++](../assets/gallery/covellitepp_2.jpg)  
 [Covellite++](http://unicornum.github.io/Covellitepp/index.html) A cross-platform framework.
