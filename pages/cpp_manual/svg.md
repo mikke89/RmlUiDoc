@@ -2,7 +2,6 @@
 layout: page
 title: SVG plugin
 parent: cpp_manual
-next: lottie
 ---
 
 RmlUi comes integrated with the SVG plugin for rendering SVG vector images. The plugin uses the [LunaSVG](https://github.com/sammycage/lunasvg) library to render the SVG document.

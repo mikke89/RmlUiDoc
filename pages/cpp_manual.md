@@ -46,8 +46,8 @@ title: C++ Manual
 ### Plugins
 
 - [Debugger](cpp_manual/debugger.html)
-- [SVG](cpp_manual/svg.html)
 - [Lottie](cpp_manual/lottie.html)
+- [SVG](cpp_manual/svg.html)
 
 ### Appendix
 

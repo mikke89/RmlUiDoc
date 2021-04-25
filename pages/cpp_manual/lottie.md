@@ -2,6 +2,7 @@
 layout: page
 title: Lottie plugin
 parent: cpp_manual
+next: svg
 ---
 
 Lottie is a popular format for rendering vector-based animations.
