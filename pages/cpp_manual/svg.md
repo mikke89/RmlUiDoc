@@ -35,7 +35,7 @@ cd lunasvg
 git checkout 2dc6de0d48ea55458348677580262c65469ee8cf
 mkdir build
 cd build
-cmake -DLUNASVG_BUILD_EXAMPLES=OFF ..
+cmake -DBUILD_SHARED_LIBS=OFF -DLUNASVG_BUILD_EXAMPLES=OFF ..
 cmake --build . --target lunasvg --config Debug
 cmake --build . --target lunasvg --config Release
 ```
@@ -51,8 +51,8 @@ cmake -DBUILD_SHARED_LIBS=OFF -DENABLE_SVG_PLUGIN=ON -DBUILD_SAMPLES=ON ..
 This should automatically locate the `lunasvg` library. You can now build and run the included `svg` sample as you would any other sample to try out the plugin.
 
 
-### Including the Lottie plugin
+### Including the SVG plugin
 
-To include the Lottie plugin in your own project, make sure you build RmlUi with the CMake option `ENABLE_SVG_PLUGIN` enabled as described above, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `lunasvg` library.
+To include the SVG plugin in your own project, make sure you build RmlUi with the CMake option `ENABLE_SVG_PLUGIN` enabled as described above, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `lunasvg` library.
 
 The plugin is then automatically loaded during the call to `Rml::Initialise()`. If everything has worked out properly, the log will output a short message about the SVG plugin being initialised. The `<svg>`{:.tag} element should then be available for displaying vector images.
