@@ -28,7 +28,7 @@ Transitions on mouse hover (entirely in RCSS)
 Animated transforms (entirely in RCSS)
 
 {: .gallery-item }
-![Progress bar](cpp_manual/element_packages/progress_bar.gif)  
+![Progress bars](cpp_manual/element_packages/progress_bar.gif)  
 Progress bars
 
 {: .gallery-item }

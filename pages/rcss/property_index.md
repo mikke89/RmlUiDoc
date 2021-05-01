@@ -30,7 +30,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
 [`display`{:.prop}][display] | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
 [`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
-[`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progressbar]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
+[`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progress]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
 [`focus`{:.prop}][focus] | none \| auto | auto | all | yes | | Introduced for RCSS.
 [`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
 [`font-effect`{:.prop}][font-effect] | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.

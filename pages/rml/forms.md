@@ -107,7 +107,7 @@ _Attributes_
 
 A label associates a form input field with a caption. When a user hovers over or clicks a label, it will be forwarded to the targeted element.
 
-A target element can be specified by providing an ID in the `for`{:.attr} attribute. Otherwise, when omitted, the label will target the first descending element which has one of the following tags: `<button>`{:.tag}, `<input>`{:.tag}, `<textarea>`{:.tag}, `<progressbar>`{:.tag}, or `<select>`{:.tag}.
+A target element can be specified by providing an ID in the `for`{:.attr} attribute. Otherwise, when omitted, the label will target the first descending element which has one of the following tags: `<button>`{:.tag}, `<input>`{:.tag}, `<textarea>`{:.tag}, `<progress>`{:.tag}, or `<select>`{:.tag}.
 
 _Attributes_
 

@@ -32,7 +32,7 @@ title: C++ Manual
 5. [Element packages](cpp_manual/element_packages.html)
     - [Form controls](cpp_manual/element_packages/form.html)
     - [Tab set](cpp_manual/element_packages/tab_set.html)
-    - [Progress bar](cpp_manual/element_packages/progress_bar.html)
+    - [Progress](cpp_manual/element_packages/progress_bar.html)
     - [Data grid](cpp_manual/element_packages/data_grid.html)
 6. [Scrollbars](cpp_manual/scrollbars.html)
 7. [Documents](cpp_manual/documents.html)
