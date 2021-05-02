@@ -20,6 +20,10 @@ Form controls from the 'demo' sample
 Sandbox from the 'demo' sample, try it yourself!
 
 {: .gallery-item }
+![Data bindings](../assets/gallery/data_binding.png)  
+Cute little game from the 'databinding' sample
+
+{: .gallery-item }
 ![Transition](../assets/gallery/transition.gif)  
 Transitions on mouse hover (entirely in RCSS)
 

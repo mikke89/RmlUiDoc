@@ -69,7 +69,7 @@ or
 | transform_name([data_expression], [data_expression], ...)
 ```
 
-Any arguments in parenthesis are forwarded to the transform function. Users can provide their own transform functions. In addition, there are several built-in transform functions.
+Any arguments in parenthesis are forwarded to the transform function. Users can [provide their own](model.html#registering-transforms) transform functions. In addition, there are several built-in transform functions.
 
 | Transform name | Arguments                                 | Return type  | Description                           |
 | -------------  | ----------------------------------------- | ------------ | ------------------------------------- |

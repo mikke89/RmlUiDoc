@@ -14,7 +14,7 @@ Each `Context` can store several named data models. In the RML document, the giv
 The procedure for setting up and handling a data model should be as follows.
 
 1. Create the data model on the context with a given name.
-2. Register any Struct or Array types to be used using the *data model constructor*.
+2. Register any Scalar, Struct or Array types in the *data model constructor*.
 3. Bind variables using the data model constructor.
 4. Load the document.
 
@@ -109,6 +109,7 @@ constructor.RegisterScalar<Rml::Colourb>(
 
 
 #### Registering transform functions
+{:#registering-transforms}
 
 Transform functions can be used in data expression by the `|` operator. A transform function can be registered using the function
 
@@ -120,6 +121,17 @@ where the transform function is defined as
 using DataTransformFunc = std::function<bool(Variant&, const VariantList&)>;
 ```
 The first argument contains the value of the left hand side of the operator, and should be assigned the new, transformed value. The second argument takes a list of optional arguments passed in by the user in the data expression.
+
+```cpp
+// Register a transform function for formatting time
+constructor.RegisterTransformFunc("format_time", [](Rml::Variant& variant, const Rml::VariantList& /*arguments*/) -> bool {
+	const double t = variant.Get<double>();
+	const int minutes = int(t) / 60;
+	const double seconds = t - 60.0 * double(minutes);
+	variant = Rml::CreateString(10, "%02d:%05.2f", minutes, seconds);
+	return true;
+});
+```
 
 #### Binding data variables
 
@@ -135,7 +147,7 @@ Binds a data variable `name` to the data model. Then name is used when referenci
 
 Binding pointers, specifically raw pointers, `std::unique_ptr` and `std::shared_ptr`, is also supported and will automatically be dereferenced as needed. Const-qualified objects however are not supported.
 
-```
+```cpp
 // Bind a get/set function pair.
 bool DataModelConstructor::BindFunc(const String& name, DataGetFunc get_func, DataSetFunc set_func = {});
 ```

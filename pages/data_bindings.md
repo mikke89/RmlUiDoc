@@ -35,22 +35,29 @@ See the following detailed sections:
 ##### Limitations
 
 - You should not affect the document structure within a data model. This includes manually adding or removing elements. Eg. removing an element inside a `data-for` view is undefined behavior and may lead to a crash.
-- Some special elements internally change the structure of the document. For such elements, data bindings may not work as intended. This includes in particular the `<select>`{:.tag} and `<option>`{:.tag} elements, as well as the `<tabset>`{:.tag}, `<panel>`{:.tag} and `<tab>`{:.tag} elements. 
 - Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - Adding `data-` attributes after the element has been attached to the document has no effect.
-- Types need to be re-registered if binding variables in different dynamic libraries.
+- Types may need to be re-registered if binding variables in different dynamic libraries.
+
+##### Element compatibility
+
+- Putting the `data-model` attribute on the `<body>`{:.tag} tag may cause issues when combined with templates.
+- Some special elements internally change the structure of the document. For such elements, data bindings may not work as intended. This includes in particular the `<tabset>`{:.tag}, `<panel>`{:.tag} and `<tab>`{:.tag} elements, notably when combined with the `data-for` view.
+- The `<select>`{:.tag} element may not always properly reflect changes in the underlying `selected`{:.attr} or `value`{:.attr} attributes of its `<option>`{:.tag}s, or the content of the options. For dynamically changing the selected option, use the `data-value` view on the `<select>`{:.tag} element. Note that, initially populating the options using `data-for` should now work.
 
 ##### Authoring notes
 
 - Element attributes starting with `data-` are reserved for databindings in RmlUi.
 - It is considered illegal to use `{{` and `}}` inside RML documents outside the context of data bindings.
 
-##### Changelog
+##### Pre-release changelog
 
-A list of breaking changes before the initial release.
+A list of breaking changes during the pre-release development of the data bindings feature.
 
 - 2021-03-23. Struct member functions are no longer registered using `StructHandle::RegisterMemberFunc()`. Instead, use `StructHandle::RegisterMember()`. Furthermore, function signatures are changed, see [registering Structs](data_bindings/model.html#structs) for details.
 - 2020-12-21. The function `DataModelHandle::Update()` has been removed, as it is no longer needed. Data model updates are now automatically handled during `Context::Update()`.
+
+After the release of RmlUi 4.0 breaking changes will instead be written in the normal changelog, and these notes will eventually be removed.
 
 {% endraw %}
 

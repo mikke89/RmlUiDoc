@@ -7,6 +7,8 @@ next: expressions
 
 {% raw %}
 
+Make sure to have a look at the `databinding` sample for more examples.
+
 ### Basic example
 
 ```html
@@ -156,7 +158,8 @@ bool SetupDataBinding(Context* context, DataModelHandle& invaders_model)
 		invader_handle.RegisterMember("damage", &Invader::damage);
 		invader_handle.RegisterMember("danger_rating", &Invader::danger_rating);
 
-		// Getter and setter functions can also be used.
+		// Getter and setter functions can also be used. Alternatively, register 
+		// the Colourb type as a new Scalar type instead.
 		invader_handle.RegisterMember("color", &Invader::GetColor);
 	}
 
@@ -221,5 +224,7 @@ void Update(DataModelHandle invaders_model)
 ```
 
 This update loop spawns new invaders at regular intervals, determined by the `range` input slider. The `data-for` loop ensures that new invaders are displayed automatically. The data bindings further ensure that the sprite and color of the invaders are set to the given values.
+
+A fleshed out version of this example is located in the included `databinding` sample, users are encouraged to check it out and have some fun with the little game.
 
 {% endraw %}
