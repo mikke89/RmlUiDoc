@@ -42,5 +42,4 @@ can_edit: false
 ### Other
 
 1. [Frequently Asked Questions](pages/faq.html)
-2. [Planned features](pages/planned_features.html)
-3. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)
+2. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)
