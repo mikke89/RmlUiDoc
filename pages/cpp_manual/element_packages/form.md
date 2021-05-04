@@ -163,12 +163,12 @@ Individual options can be accessed with the `GetOption()` method.
 
 ```cpp
 // Returns one of the select control's option elements.
-// @param[in] The index of the desired option element.
-// @return The option element at the given index. This will be NULL if the index is out of bounds.
-Rml::SelectOption* GetOption(int index);
+// @param[in] The index of the desired option.
+// @return The option element or nullptr if the index was out of bounds.
+Rml::Element* GetOption(int index);
 ```
 
-`GetOption()` returns a `Rml::SelectOption` structure, from which you can access the value of the option and the element hierarchy used to render it in the drop-down box.
+`GetOption()` returns a pointer to the `<option>`{:.tag} element of the given index. The value of the given option can be obtained by retrieving its `value`{:.attr} attribute.
 
 The selected option can be accessed with the `GetSelection()` function and set with the `SetSelection()` function.
 
