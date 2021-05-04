@@ -33,7 +33,7 @@ Experiencing slow, fast, or non-smooth animations?
 
 - Make sure `SystemInterface::GetElapsedTime()` is properly implemented. It should return a high-resolution time value in seconds, always increasing as the application runs.
 
-Nothing solves your problem? Take a look at the included samples and shell to see how they work. You can also post an issue describing your situation in the [main repository]({{page.lib_site}}), or talk to other users on [RmlUi's Gitter channel](https://gitter.im/RmlUi/community).
+Nothing solves your problem? Take a look at the included samples and shell to see how they work. You can also write a post describing your situation in the [main repository]({{page.lib_site}}), or talk to other users on [RmlUi's Gitter channel](https://gitter.im/RmlUi/community).
 
 
 #### Simple document

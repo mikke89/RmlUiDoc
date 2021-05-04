@@ -46,7 +46,7 @@ Specified as <length> in a property's Values list. A length is a horizontal or v
 - `em`{:.value}: When specified in the `font-size`{:.prop} property, one em is equivalent to the font size of the parent element. For other properties, it is the font size of the element itself.
 - `rem`{:.value}: One rem is equivalent to the font size of the root (body) element.
 - `ex`{:.value}: One ex is equivalent to the height of the current font's lower-case x.
-- `dp`{:.value}: One dp is equivalent to one pixel scaled by a globally defined ratio.
+- `dp`{:.value}: One dp is equivalent to one pixel scaled by a globally defined ratio, [see below](#dp-unit).
 - `vw`{:.value}: One vw is equivalent to 1% of the width of the context.
 - `vh`{:.value}: One vh is equivalent to 1% of the height of the context.
 
@@ -63,6 +63,7 @@ width: 125px;
 ```
 
 ##### Density-independent pixel (dp)
+{:#dp-unit}
 
 The `dp`{:.value} unit behaves like `px`{:.value} except that its size can be set globally to scale relative to pixels. This makes it easy to achieve a scalable user interface. Set the ratio globally on the context by calling:
 
