@@ -44,7 +44,7 @@ Value: | \<number-length-percentage-box\>
 Initial: | 0px 0px 0px 0px
 Percentages: | relative to the size of the edge and current dp-ratio
 
-The edge property is specified in the common `top-right-bottom-left`{:.value} box order. If the property is specified (not all 0px), the rendered size of each edge can be specified as a length, or number/percentage to scale it relative to the natural size of the image edge. The natural size is determined by the sprite's associated [`resolution`{:.prop} property](../sprite_sheets.html#resolution) and the current [dp-ratio](../syntax.html#density-independent-pixel-dp). The normal box shorthands are available, e.g., a single value will be replicated to all edges.
+The edge property is specified in the common `top-right-bottom-left`{:.value} box order. If the property is specified (not all 0px), the rendered size of each edge can be specified as a length, or number/percentage to scale it relative to the natural size of the image edge. The natural size is determined by the sprite's associated [`resolution`{:.prop} property](../sprite_sheets.html#resolution) and the current [dp-ratio](../syntax.html#dp-unit). The normal box shorthands are available, e.g., a single value will be replicated to all edges.
 
 
 ### Example

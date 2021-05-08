@@ -50,7 +50,7 @@ Name | Range | Value | Description
 `width`{:.prop}         | Yes | \<length\>            | Width of context.
 `height`{:.prop}        | Yes | \<length\>            | Height of context.
 `aspect-ratio`{:.prop}  | Yes | \<ratio\>             | Aspect ratio of context (width / height).
-`resolution`{:.prop}    | Yes | \<resolution\>        | The [dp-ratio](syntax.html#density-independent-pixel-dp) of the context.
+`resolution`{:.prop}    | Yes | \<resolution\>        | The [dp-ratio](syntax.html#dp-unit) of the context. Note that [\<resolution\>](syntax.html#resolution) always takes the `x`{:.value} unit in RCSS.
 `orientation`{:.prop}   | No  | landscape \| portrait | Orientation based on the context width and height.
 `theme`{:.prop}         | No  | \<string\>            | Custom RCSS feature. Can be [activated and deactivated](../cpp_manual/contexts.html#themes) on the context.
 
@@ -65,5 +65,6 @@ Currently, RCSS has some limitations compared to CSS.
 - `@media` rules cannot be nested.
 - Conditions cannot be nested within a media query, eg. using parenthesis.
 - Only the `and` logical operator is supported.
-- Only a single occurrence of a given property can be specified in a single media query.
+- Only a single occurrence of a given feature can be specified in a single media query.
+    - Except that both `min-` and `max-` of the same range feature can be specified.
 - The CSS Level 4 syntax using `<=` operators and similar is not supported.

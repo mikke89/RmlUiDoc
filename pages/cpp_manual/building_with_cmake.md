@@ -16,7 +16,7 @@ Requirements:
 
 - [Conan package manager](#conan)
 
-The easiest way to build RmlUi is by using CMake. You'll first need to download CMake or install it via the package manager of your choice on Linux. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
+The primary way to build RmlUi is by using CMake. You'll first need to download CMake or install it via the package manager of your choice on Linux. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
 
 If you haven't already done so, download a copy of RmlUi. You can download and extract the library as a zip file, or use git from your terminal or command prompt:
 

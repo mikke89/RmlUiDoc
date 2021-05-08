@@ -122,7 +122,7 @@ In RCSS, resolution is always specificied using a number (the scaling factor) fo
 @media (min-resolution: 1.2x) { /* ... */ }
 ```
 
-In this case, the specified number will be compared against the context's [dp-ratio](#density-independent-pixel-dp).
+In this case, the specified number will be compared against the context's [dp-ratio](#dp-unit).
 
 #### Ratio
 

@@ -52,7 +52,7 @@ Percentages: | N/A
 
 Determines the resolution scaling the source image is designed to be displayed at. Eg. if it was made to be displayed at 200% DPI, set this to `2x`{:.value}. This property is optional and defaults to `1x`{:.value}.
 
-This value, together with the current context's [dp-ratio](syntax.html#density-independent-pixel-dp), will determine the natural size of the sprites in this sprite sheet.
+This value, together with the current context's [dp-ratio](syntax.html#dp-unit), will determine the natural size of the sprites in this sprite sheet.
 
 For example, if we set the `resolution`{:.prop} property to `2x`{:.value} and the dp-ratio to `2.0`{:.value} on the context, the size of an `<img>` element using this sprite will be displayed at 1:1 texel to pixel ratio. If for the same sprite, the current dp-ratio is `1.0`{:.value}, the image element will be scaled to half. Of course, RCSS styles can be used to override this natural size of the image element.
 
