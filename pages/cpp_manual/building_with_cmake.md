@@ -77,12 +77,13 @@ Once the build is complete, you may want to have a look at the samples.
 
 The Conan recipe that environment-specific packages are generated from supports certain options derived from the [CMake options](#cmake-options) below. The following table explains options exclusive to RmlUi available in the recipe. Please bear in mind that in general the Conan community discourages double negation that would arise from naming options with one negation included (eg. `NO_THIRDPARTY_CONTAINERS`); this is why certain recipe options have the opposite meaning of their CMake counterpart.
 
- Conan option               | Possible values    | Default value | Related CMake option          | Explanation
- ---------------------------|--------------------|---------------| ----------------------------- |--------------------------------------------------------------------
- enable_rtti_and_exceptions | [True, False]      | True          | `DISABLE_RTTI_AND_EXCEPTIONS` | --
- font_interface             | ["freetype", None] | "freetype"    | `NO_FONT_INTERFACE_DEFAULT`   | The CMake option is defined when the Conan option is set to `None`
- with_lua_bindings          | [True, False]      | False         | `BUILD_LUA_BINDINGS`          | --
- with_thirdparty_containers | [True, False]      | True          | `NO_THIRDPARTY_CONTAINERS`    | --
+ Conan option               | Possible values               | Default value  | Related CMake option          | Explanation
+ ---------------------------|-------------------------------|----------------| ----------------------------- |--------------------------------------------------------------------
+ enable_rtti_and_exceptions | [True, False]                 | True           | `DISABLE_RTTI_AND_EXCEPTIONS` | --
+ font_interface             | ["freetype", None]            | "freetype"     | `NO_FONT_INTERFACE_DEFAULT`   | The CMake option is defined when the Conan option is set to `None`
+ matrix_mode                | ["column_major", "row_major"] | "column_major" | `MATRIX_ROW_MAJOR`            | The CMake option is defined when the Conan option is set to `row_major`
+ with_lua_bindings          | [True, False]                 | False          | `BUILD_LUA_BINDINGS`          | --
+ with_thirdparty_containers | [True, False]                 | True           | `NO_THIRDPARTY_CONTAINERS`    | --
 
 The options outlined above can be set in one's [conanfile.py](https://docs.conan.io/en/latest/reference/conanfile.html) or [conanfile.txt](https://docs.conan.io/en/latest/reference/conanfile_txt.html), depending on preference.
 
@@ -90,6 +91,8 @@ The CMake options that are not supported along with a bit of reasoning are as fo
 - `BUILD_SAMPLES` builds example uses of the library, which would significantly increase the size of pre-built binary packages that Conan generates. In order to avoid this, the option is not offered and is always disabled. However, the recipe can always be edited locally to try them out.
 - `ENABLE_PRECOMPILED_HEADERS` requires a minimum CMake version that Conan can always provide and results in build time reduction with no apparent drawbacks, so it is sensible for it to be always enabled.
 - `ENABLE_TRACY_PROFILING` requires a dependency that is not available from Conan's central repository as of writing this, so it cannot be supported.
+
+The `CUSTOM_CONFIGURATION` CMake option and others related to it (`CUSTOM_CONFIGURATION_FILE`, `CUSTOM_INCLUDE_DIRS` and `CUSTOM_LINK_LIBRARIES`) make it possible for the embedded [robin-hood-hashing](https://github.com/martinus/robin-hood-hashing) library to be upgradable. It is now currently configured to use version [3.9.1](https://conan.io/center/robin-hood-hashing?version=3.9.1).
 
 If the recipe somehow was not to meet certain needs, then contributions to it would be welcome at [conan-center-index](https://github.com/conan-io/conan-center-index).
 
