@@ -37,6 +37,7 @@ See the following detailed sections:
 - You should not affect the document structure within a data model. This includes manually adding or removing elements. Eg. removing an element inside a `data-for` view is undefined behavior and may lead to a crash.
 - Currently, only top-level data variables can have a dirty state. That means data addresses can not be used to dirty just an Array index or Struct member. However, sub-values that have not been changed will be ignored inside the relevant views.
 - Adding `data-` attributes after the element has been attached to the document has no effect.
+- Registering `const` objects or members inheriting from a parent is currently not supported.
 - Types may need to be re-registered if binding variables in different dynamic libraries.
 
 ##### Element compatibility
