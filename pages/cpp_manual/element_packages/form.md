@@ -70,6 +70,7 @@ Most of the form controls are instanced through the `<input>`{:.tag} tag, with t
 * _radio_: A radio button.
 * _checkbox_: A checkbox button.
 * _range_: A slider.
+* _button_: A button.
 * _submit_: An element with button-like behaviour for submitting its parent form. 
 
 One interface is used to represent all such form controls regardless of their type. Their type can be changed even after they've been instanced.

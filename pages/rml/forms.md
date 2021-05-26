@@ -45,6 +45,7 @@ _Attributes_
 * `radio`{:.value} - A radio button.
 * `checkbox`{:.value} - A checkbox.
 * `range`{:.value} - A slider bar.
+* `button`{:.value} - A button. 
 * `submit`{:.value} - A button for submitting the form. 
 
 ##### Text and Password types
