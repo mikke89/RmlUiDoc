@@ -41,6 +41,22 @@ The function `GetNumTabs()` will return the number of panels within the tab set.
 int GetNumTabs();
 ```
 
+### Setting active tab
+
+The following functions will let the active tab be changed and retrieved.
+
+```cpp
+// Sets the currently active (visible) tab index.
+// @param[in] tab_index Index of the tab to display.
+void SetActiveTab(int tab_index);
+
+// Get the current active tab index.
+// @return The index of the active tab.
+int GetActiveTab() const;
+```
+
+When a certain tab is activated, only the corresponding panel is visible. The other panels will have their `display`{:.prop} property set to `none`{:.value}.
+
 ### Setting tab content
 
 Through C++, the contents of the panel tabs can be set to either unparsed RML or an existing element hierarchy.
@@ -89,7 +105,7 @@ void RemoveTab(int tab_index);
 
 ### Applying properties
 
-Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. For a horizontal layout, the `display`{:.prop} properties of tabs should be set to *inline-block*. For panels, the `display`{:.prop} can be set to *block* for typical layout scenarios. Note that panels will automatically have their `display`{:.prop} property set to *none* on the local element style when they are not the active tab. Subsequently, when a panel is activated the `display`{:.prop} property is removed from the local element style, effectively activating the property set in the RCSS document. Thus, ensure that the  `display`{:.prop} property is added to the RCSS document rather than as inline style for panel elements.
+Tab sets and their elements can have properties applied on them like other elements, and will need to in order to be positioned correctly. For a horizontal layout, the `display`{:.prop} properties of tabs should be set to `inline-block`{:.value}. For panels, the `display`{:.prop} can be set to `block`{:.value} for typical layout scenarios. Note that panels will automatically have their `display`{:.prop} property set to `none`{:.value} on the local element style when they are not the active tab. Subsequently, when a panel is activated the `display`{:.prop} property is removed from the local element style, effectively activating the property set in the RCSS document. Thus, ensure that the `display`{:.prop} property is added to the RCSS document rather than as inline style for panel elements.
 
 The diagram below details the internal hierarchy of the tab set.
 
