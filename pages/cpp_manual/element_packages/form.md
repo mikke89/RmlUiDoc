@@ -12,7 +12,6 @@ RmlUi includes a fully-featured set of form controls. The full RML specification
 * [text area](#text-area)
 * [radio button and checkbox](#radio-button-and-checkbox)
 * [drop-down selection list](#drop-down-select-box)
-* [data-driven drop-down selection list](#data-driven-drop-down-select-box)
 * [range slider](#range-slider)
 
 Below is the hierarchy for the custom form elements included in RmlUi.
@@ -209,21 +208,6 @@ void RemoveAll();
 
 See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
 
-### Data-driven drop-down select box
-
-The data-driven drop-down select control is specified in RML with the `<dataselect>`{:.tag} tag. No options are specified within the tag; instead, they are populated from an `Rml::DataSource` object, similarly to a data grid.
-
-The select control's interface is the `Rml::ElementFormControlDataSelect` class. It derives from `Rml::ElementFormControlSelect`. The data select's data source is set with the `source`{:.attr} attribute, and can be changed in C++ through the `SetDataSource()` method:
-
-```cpp
-// Sets the data source the control's options are driven from.
-// @param[in] data_source The name of the new data source.
-void SetDataSource(const Rml::String& data_source);
-```
-
-#### Applying properties
-
-See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
 
 ### Range slider
 
@@ -234,6 +218,7 @@ The minimum and maximum values for the range are specified with the `min`{:.attr
 #### Applying properties
 
 See the [style guide](../../style_guide.html) for documentation on applying properties to a range control.
+
 
 ### Form container
 
@@ -249,6 +234,26 @@ void Submit(const Rml::String& submit_value = "");
 
 The value of the submit_value parameter will become the value of the submit parameter on the submit event. This way, objects listening for event can distinguish between different kinds of submit actions.
 
+
 ### Form submit button
 
 The form submit button is specified in RML with the `<input type="submit" />`{:.tag} tag. The submit button will trigger a submit on its ancestor form when it is clicked, with a submit value equal to its `value`{:.attr} attribute. Its interface is the class `Rml::ElementFormControlInput`. 
+
+
+### Data-driven drop-down select box (deprecated)
+
+> ***Deprecated*** in favor of [data bindings](../../data_bindings.html).
+
+The data-driven drop-down select control is specified in RML with the `<dataselect>`{:.tag} tag. No options are specified within the tag; instead, they are populated from an `Rml::DataSource` object, similarly to a data grid.
+
+The select control's interface is the `Rml::ElementFormControlDataSelect` class. It derives from `Rml::ElementFormControlSelect`. The data select's data source is set with the `source`{:.attr} attribute, and can be changed in C++ through the `SetDataSource()` method:
+
+```cpp
+// Sets the data source the control's options are driven from.
+// @param[in] data_source The name of the new data source.
+void SetDataSource(const Rml::String& data_source);
+```
+
+#### Applying properties
+
+See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
