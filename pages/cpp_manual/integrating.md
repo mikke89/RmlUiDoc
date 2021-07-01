@@ -40,6 +40,13 @@ RmlUi is developed following the C++14 standard and can be used on the following
 - When the library is built as a static library, add `#define RMLUI_STATIC_LIB` before including the RmlUi headers.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
+#### Conan and vcpkg
+
+If you used Conan or vcpkg to acquire RmlUi, then libraries and include paths should already have been setup for you. The only thing remaining:
+
+- Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
+
+
 ### Initialising RmlUi
 
 Before you can initialise RmlUi, you'll need to set the [interfaces](interfaces.html) that the library uses to interact with your application. There are two compulsory interfaces, the system interface and the render interface.

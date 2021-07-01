@@ -16,9 +16,13 @@ Requirements:
 
 - [Conan package manager](#conan)
 
-The primary way to build RmlUi is by using CMake. You'll first need to download CMake or install it via the package manager of your choice on Linux. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
+*or*
 
-If you haven't already done so, download a copy of RmlUi. You can download and extract the library as a zip file, or use git from your terminal or command prompt:
+- [vcpkg](#vcpkg)
+
+RmlUi is based around CMake for building. You'll first need to download CMake or install it via the package manager of your choice. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
+
+If you haven't already done so, download a copy of RmlUi. You can download and extract the library as a zip file, or use git from your terminal:
 
 ```
 git clone https://github.com/mikke89/RmlUi.git
@@ -94,7 +98,45 @@ The CMake options that are not supported along with a bit of reasoning are as fo
 
 The `CUSTOM_CONFIGURATION` CMake option and others related to it (`CUSTOM_CONFIGURATION_FILE`, `CUSTOM_INCLUDE_DIRS` and `CUSTOM_LINK_LIBRARIES`) make it possible for the embedded [robin-hood-hashing](https://github.com/martinus/robin-hood-hashing) library to be upgradable. It is now currently configured to use version [3.9.1](https://conan.io/center/robin-hood-hashing?version=3.9.1).
 
-If the recipe somehow was not to meet certain needs, then contributions to it would be welcome at [conan-center-index](https://github.com/conan-io/conan-center-index).
+If the recipe is out of date or somehow does not meet certain needs, then contributions would be welcome at [conan-center-index](https://github.com/conan-io/conan-center-index).
+
+### Building using vcpkg
+{:#vcpkg}
+
+[vcpkg](https://vcpkg.io) is a C/C++ package manager for acquiring and managing libraries. Read the [getting started with vcpkg](https://vcpkg.io/en/getting-started.html) guide to download and install the package manager.
+
+Then, RmlUi can be installed simply using the command:
+```
+vcpkg install rmlui
+```
+Now you are all set to integrate RmlUi, all you need to do is include the header files into your source code.
+
+The vcpkg port supports certain features derived from the [CMake options](#cmake-options) below.
+
+ vcpkg feature   | Default feature  | Related CMake option          | Explanation
+ ----------------|------------------| ----------------------------- |------------------------------------------------------
+ freetype        | Yes              | `NO_FONT_INTERFACE_DEFAULT`   | Include the integrated font engine based on FreeType.
+ lua             | No               | `BUILD_LUA_BINDINGS`          | Include the Lua bindings.
+
+Note that vcpkg will not install the samples which we recommend to check out before integrating the library into your own project. For this, we need to download and build RmlUi manually, but luckily vcpkg can help ease this process by handling the dependencies.
+
+First install the necessary dependency.
+```
+vcpkg install freetype
+```
+
+Then you can run the following commands to download and build RmlUi with the samples. Make sure to replace the path to vcpkg.
+```
+git clone https://github.com/mikke89/RmlUi.git
+cd RmlUi
+cmake -B Build -S . -DBUILD_SAMPLES=ON -DCMAKE_TOOLCHAIN_FILE="<path-to-vcpkg>/scripts/buildsystems/vcpkg.cmake"
+cmake --build Build
+```
+Now please try out the freshly built `invader` sample and all the rest, enjoy! The executables should be located somewhere in the `Build` directory.
+
+If you want to check out the remaining samples you can also install `lua sfml sdl2 sdl2-image glew` and additionally pass `-DBUILD_LUA_BINDINGS=ON` to the CMake configuration command.
+
+If the version of RmlUi provided with vcpkg is out of date or somehow does not meet certain needs, then contributions would be welcome at the [vcpkg repository](https://github.com/microsoft/vcpkg).
 
 
 ### CMake options
