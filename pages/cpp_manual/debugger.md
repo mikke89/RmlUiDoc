@@ -83,3 +83,15 @@ void SetVisible(bool visibility);
 // @return True if the debugger is visible, false if not.
 bool IsVisible();
 ```
+
+### Shutting down or restarting
+
+The debugger can be shutdown manually if desired using `Rml::Debugger::Shutdown()`.
+
+```cpp
+// Shuts down the debugger.
+// @return True if the debugger was successfully shut down
+bool Shutdown();
+```
+
+The shutdown will automatically be handled during the call to `Rml::Shutdown()` so typically it does not need to be called. However, it can be useful it you want to re-initialise the debugger in another host context. After the shutdown it is possible to call `Rml::Debugger::Initialise()`  to start the debugger again.
