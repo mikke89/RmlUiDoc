@@ -32,4 +32,4 @@ file_interface.reset();
 
 ```
 
-RmlUi takes non-owning pointers to the interfaces, thus, make sure to keep the interface alive until after the call to `Rml::Shutdown()`, and clean it up afterwards.
+***Lifetime notice:*** RmlUi takes non-owning pointers to the interfaces, thus, make sure to keep the interface alive until after the call to `Rml::Shutdown()`, and clean it up afterwards.
