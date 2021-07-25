@@ -25,6 +25,7 @@ Before implementing the rendering API in RmlUi, the user should understand the f
 Other rendering assumptions.
 
 * Alpha blending should be enabled.
+* Vertex colors are given in the sRGB color space.
 * Textures should have their fetched color multiplied by the vertex color.
 
 #### Projection matrix 
