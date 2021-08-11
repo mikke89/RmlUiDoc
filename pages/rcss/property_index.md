@@ -4,7 +4,7 @@ title: Property index
 parent: rcss
 ---
 
-Following is a full index of properties recognised by RCSS. The **Notes** column details important changes from the CSS specification.
+The following table lists all properties recognised by RCSS. The **Notes** column details important changes from the CSS specification.
 
 Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----

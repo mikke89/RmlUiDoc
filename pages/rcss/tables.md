@@ -5,7 +5,7 @@ parent: rcss
 next: user_interface
 ---
 
-Table suport in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some enhancements and differences, the main ones being as follows.
+Table support in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some enhancements and differences, the main ones being as follows.
 
 ##### Enhancements
 
