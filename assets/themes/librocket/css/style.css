@@ -34,6 +34,21 @@
 	background-color: #fafafa;
 }
 
+.navbar
+{
+	position: relative;
+}
+.navbar-flex
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.navbar-flex > *
+{
+	flex-shrink: 0;
+}
+
 .navbar-inner
 {
 	padding: 0;
@@ -61,15 +76,60 @@
 
 .navbar .nav
 {
-	float: right;
 	padding: 10px 0px 10px 20px;
 	font-size: 17px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	flex-shrink: 1;
 }
 
 .navbar .nav .divider
 {
 	padding-left: 0.4em;
 	padding-right: 0.4em;
+}
+
+.navbar .search
+{
+	position: relative;
+	width: 150px;
+}
+.navbar .search-phone
+{
+	margin-right: 22px;
+}
+.navbar .search form
+{
+	margin: 0;
+}
+.navbar .search input
+{
+	width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	height: 24px;
+	line-height: 1.2em;
+}
+.navbar .search-button, .navbar .search-link
+{
+	font-size: 15px;
+	color: #868686;
+	background: transparent;
+}
+.navbar .search-button
+{
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	border: none;
+}
+.navbar .search-link
+{
+	padding: 8px;
+}
+.navbar .search-button:hover {
+	color: #222;
 }
 
 pre.highlight code
@@ -234,4 +294,16 @@ a[href^="http"]:after {
 
 .lua-function {
 	font-weight: bold;
+}
+
+#search-results h4 {
+	margin-bottom: 7px;
+	font-weight: normal;
+}
+#search-results .fas {
+	margin-right: .6em;
+	font-size: 0.9em;
+}
+#search-results p strong {
+	color: #b7731e;
 }

@@ -31,7 +31,7 @@
   <body>
     <div class="navbar">
       <div class="navbar-inner">
-        <div class="mycontainer">
+        <div class="mycontainer navbar-flex">
           <a class="brand" href="{{ HOME_URL }}"><img src="{{ ASSETS_PATH }}/rmlui_bw.svg" width="24" height="28" alt="RmlUi logo"/> {{ site.title }}</a>
           {% if page.parent %}
             {% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
@@ -53,15 +53,24 @@
             {% endfor %}
           {% endif %}
           {% if parent_page %}
-            <div class="nav">
+            <span class="nav hidden-phone">
             {% if grandparent_page %}
               <a href="{{ grandparent_page.url | relative_url }}.html">{{ grandparent_page.title }}</a> <span class="divider">/</span>
             {% endif %}
             {% if parent_page %}
               <a href="{{ parent_page.url | relative_url }}.html">{{ parent_page.title }}</a>
             {% endif %}
-            </div>
+            </span>
           {% endif %}
+            <div class="search hidden-phone">
+              <form action="{{ "search.html" | relative_url }}" method="get">
+                <input type="search" placeholder="Search..." name="q">
+                <button type="submit" class="search-button fas">&#xf002;</button>
+              </form>
+            </div>
+            <div class="search-phone visible-phone">
+              <a class="search-link fas" href="{{ "search.html" | relative_url }}">&#xf002;</a>
+            </div>
         </div>
       </div>
     </div>

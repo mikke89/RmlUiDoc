@@ -3,6 +3,7 @@ layout: page
 title: RmlUi Documentation
 description: RmlUi's documentation
 can_edit: false
+include_in_search_results: false
 ---
 
 ![rmlui-logo](assets/rmlui.png)

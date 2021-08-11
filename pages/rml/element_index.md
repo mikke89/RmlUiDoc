@@ -3,6 +3,7 @@ layout: page
 title: Element Index
 parent: rml
 next: html4_style_sheet
+comment: Please run '_tools/generate_elements_and_properties_index.py' whenever elements or their URLs are added or changed.
 ---
 
 The following is a list of elements supported by RML:

@@ -2,6 +2,7 @@
 layout: page
 title: Property index
 parent: rcss
+comment: Please run '_tools/generate_elements_and_properties_index.py' whenever properties or their URLs are added or changed.
 ---
 
 The following table lists all properties recognised by RCSS. The **Notes** column details important changes from the CSS specification.

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: RML Markup Language
+short_title: RML
 ---
 
 RML is based loosely around [XHTML 1.0](http://www.w3.org/TR/xhtml1/) and [HTML 4.01](http://www.w3.org/TR/1999/REC-html401-19991224/), however element names are (mostly) open-ended in RML and can be used in any way that is logical for your application. All documents follow strict XML1.0 specification and where possible all RmlUi elements follow their HTML equivalent.

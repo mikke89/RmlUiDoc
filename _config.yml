@@ -32,6 +32,7 @@ defaults:
       lib_ns   : "Rml"
       lib_dir  : "RmlUi"
       can_edit : "true"
+      include_in_search_results : "true"
       status   : "none"
       status_label:
         none       : ""
