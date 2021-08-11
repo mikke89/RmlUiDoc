@@ -48,9 +48,6 @@ function setQueryParam(key, value, replace_state) {
 var pages = [
 {% for page in site.pages %}
 	{% if page.include_in_search_results and page.title %}
-		{% if it_page.url == "/pages/rcss/property_index" %}
-			{% assign page_property_index = it_page %}
-		{% endif %}
 		{% capture parent_url %}/pages/{{ page.parent }}{% endcapture %}
 		{% capture grandparent_url %}/pages/{{ page.grandparent }}{% endcapture %}
 		{% assign parent_title = "" %}
@@ -138,6 +135,7 @@ function displaySearchResults(has_search_text, results, pages) {
 			var content = item.content;
 			var property = item.property;
 			var element = item.element;
+			var url = '{{ "" | relative_url }}' + item.url;
 
 			if (element.length || property.length) {
 				num_elements_and_properties++;
@@ -209,11 +207,11 @@ function displaySearchResults(has_search_text, results, pages) {
 			}
 			
 			if (property.length) {
-				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span><a href="' + item.url + '">‘' + property + '’ property</a></h4>';
+				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span><a href="' + url + '">‘' + property + '’ property</a></h4>';
 			} else if (element.length) {
-				results_string += '<h4 title="RML element"><span class="fas">&#xf84c;</span><a href="' + item.url + '">&lt;' + element + '&gt; element</a></h4>';
+				results_string += '<h4 title="RML element"><span class="fas">&#xf84c;</span><a href="' + url + '">&lt;' + element + '&gt; element</a></h4>';
 			} else {
-				results_string += '<h4><a href="' + item.url + '">' + title + (item.parent_title ? ' (' + item.parent_title + ')' : '') + '</a></h4>';
+				results_string += '<h4><a href="' + url + '">' + title + (item.parent_title ? ' (' + item.parent_title + ')' : '') + '</a></h4>';
 				results_string += '<p>' + content + '...</p>';
 			}
 		}
