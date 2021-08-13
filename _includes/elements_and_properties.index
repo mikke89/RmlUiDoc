@@ -496,7 +496,7 @@
 	"content": ""
 },
 {
-	"property": "padding",
+	"property": "padding-right",
 	"element": "",
 	"url": "/pages/rcss/box_model.html#padding",
 	"title": "",

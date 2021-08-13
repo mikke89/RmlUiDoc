@@ -55,7 +55,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`overflow-x`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
 [`overflow-y`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
 [`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
-[`padding-top`{:.prop}][padding] [`padding`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
+[`padding-top`{:.prop}][padding] [`padding-right`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
 [`perspective`{:.prop}][perspective] | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform).
 [`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
 [`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.

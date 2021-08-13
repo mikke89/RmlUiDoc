@@ -134,7 +134,7 @@ Percentages: | relative to the height of the containing block
 
 `left`{:.prop}, `right`{:.prop}
 
-Value: | auto \| \<length\> \| \<percentage\> \| 
+Value: | auto \| \<length\> \| \<percentage\>
 Initial: | auto
 Applies to: | positioned elements
 Inherited: | no

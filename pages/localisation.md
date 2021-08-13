@@ -3,7 +3,7 @@ layout: page
 title: Localisation
 ---
 
-While RmlUi fully supports localisation, there are a number of issues you will need to be aware of.
+RmlUi fully supports localisation through the interface described in the following.
 
 ### String encoding
 

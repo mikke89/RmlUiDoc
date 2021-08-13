@@ -73,7 +73,7 @@ f = open(property_index_path, 'r', encoding="utf8")
 content = f.read()
 f.close()
 
-matches = re.findall(r'''<a href="(\S+)"><code class="prop highlighter-rouge">([^<]+)</code>''', content)
+matches = re.findall(r'''<a href="(\S+)"><code class="language-plaintext prop highlighter-rouge">([^<]+)</code>''', content)
 num_properties = len(matches)
 
 for match in matches:
@@ -96,7 +96,7 @@ f = open(element_index_path, 'r', encoding="utf8")
 content = f.read()
 f.close()
 
-matches = re.findall(r'''<a href="(\S+)"><code class="tag highlighter-rouge">&lt;([^<]+)&gt;</code>''', content)
+matches = re.findall(r'''<a href="(\S+)"><code class="language-plaintext tag highlighter-rouge">&lt;([^<]+)&gt;</code>''', content)
 num_elements = len(matches)
 
 for match in matches:
@@ -115,6 +115,10 @@ for match in matches:
 
 # Output file
 output = output.strip(',') + '\n'
+
+if num_properties == 0 or num_elements == 0:
+	print("Error: Could not parse any properties or elements from the html sources. Regular expressions may need an update?")
+	exit()
 
 f = open(out_path, 'w', encoding="utf8")
 f.write(output)
