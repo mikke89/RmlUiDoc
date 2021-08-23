@@ -49,7 +49,7 @@ It is always possible to do a full reload of the document.
 Rml::ElementDocument* my_document = context->LoadDocument("main_menu.rml");
 // ...
 // Later, after RML source was changed
-context->CloseDocument(my_document);
+my_document->Close();
 my_document = context->LoadDocument("main_menu.rml");
 ```
 This could eg. automatically be done any time `.rml` documents are saved to have your changes be reflected instantly. Users are themselves responsible to implement this automation, look into how to do this on your platform.
