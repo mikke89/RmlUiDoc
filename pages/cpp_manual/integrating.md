@@ -108,10 +108,10 @@ if (document)
 	document->Show();
 ```
 
-Unload the document by calling `UnloadDocument()` on its parent context.
+Unload the document by calling `Close()`.
 
 ```cpp
-document->GetContext()->UnloadDocument(document);
+document->Close();
 ```
 
 ### Injecting input
