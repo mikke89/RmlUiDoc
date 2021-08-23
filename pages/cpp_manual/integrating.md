@@ -114,6 +114,8 @@ Unload the document by calling `Close()`.
 document->Close();
 ```
 
+**Note**: event listeners attached to the document or any of its children must not be destroyed until the next call to `Context::Update()` or `Rml::Shutdown()`.
+
 ### Injecting input
 
 Once you've got a document loading and rendering, the next step is to get your input into RmlUi. The context object has a range of functions for sending mouse, keyboard and text input into the system:
