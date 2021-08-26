@@ -104,6 +104,7 @@ The function takes the following parameters:
 * `in_capture_phase`: If true, the event listener will receive the event in the capture phase, otherwise, in the bubbling phase. See the RML event documentation for more information. 
 
 Note that the event listener must be kept alive until the listener is removed or the element is destroyed.
+Be aware that documents closed with `ElementDocument::Close()` are not actually destroyed until the next call to `Context::Update()` or `Rml::Shutdown()`.
 
 #### Detaching from an element
 

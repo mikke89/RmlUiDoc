@@ -17,6 +17,7 @@ Sometimes challenges arise when integrating a new library. The most common integ
 
 - Make sure everything is initialized in the correct order, see [initialization and main loop](main_loop.html) for details.
 - Make sure your [custom interfaces](interfaces.html) are kept alive until after the call to `Rml::Shutdown()`.
+- When you call `ElementDocument::Close()`, make sure event listeners attached to any element of the document are kept alive until the next call to `Context::Update()` or `Rml::Shutdown()`.
 
 #### Rendering issues
 

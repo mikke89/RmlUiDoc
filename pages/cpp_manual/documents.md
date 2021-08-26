@@ -105,6 +105,8 @@ Calling `Close()` on a document will remove the document from its context and de
 void Close();
 ```
 
+Documents aren't actually destroyed until the next call to `Context::Update()` or `Rml::Shutdown()`, so event listeners attached to the document or any of its children must be kept alive until then.
+
 ### Creating new elements
 
 Similarly to HTML documents, RmlUi documents are capable of creating new elements and text nodes. You can use the `CreateElement()` function to create a new element of a certain type:
