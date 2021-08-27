@@ -51,15 +51,6 @@ See the following detailed sections:
 - Element attributes starting with `data-` are reserved for databindings in RmlUi.
 - It is considered illegal to use `{{` and `}}` inside RML documents outside the context of data bindings.
 
-##### Pre-release changelog
-
-A list of breaking changes during the pre-release development of the data bindings feature.
-
-- 2021-03-23. Struct member functions are no longer registered using `StructHandle::RegisterMemberFunc()`. Instead, use `StructHandle::RegisterMember()`. Furthermore, function signatures are changed, see [registering Structs](data_bindings/model.html#structs) for details.
-- 2020-12-21. The function `DataModelHandle::Update()` has been removed, as it is no longer needed. Data model updates are now automatically handled during `Context::Update()`.
-
-After the release of RmlUi 4.0 breaking changes will instead be written in the normal changelog, and these notes will eventually be removed.
-
 {% endraw %}
 
 {% comment %} End raw mode, see the comment at the beginning of the document. {% endcomment %}
