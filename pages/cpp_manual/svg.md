@@ -26,16 +26,14 @@ _Attributes_
 
 The SVG plugin is integrated and built with the Core RmlUi library once it is enabled. Then, the plugin is automatically loaded during the call to `Rml::Initialise()`.
 
-First, we demonstrate how to download and build the required [LunaSVG](https://github.com/sammycage/lunasvg) dependency. Open up a terminal and navigate to `RmlUi/Dependecies`{:.path}. Then execute the following commands.
+First, we demonstrate how to download and build the required [LunaSVG](https://github.com/sammycage/lunasvg) dependency. Open up a terminal and navigate to `RmlUi/Dependencies`{:.path}. Then execute the following commands.
 
 ```cmd
-git clone --branch v2.0.1 https://github.com/sammycage/lunasvg
+git clone --branch v2.3.0 https://github.com/sammycage/lunasvg
 cd lunasvg
-mkdir build
-cd build
-cmake -DBUILD_SHARED_LIBS=OFF -DLUNASVG_BUILD_EXAMPLES=OFF ..
-cmake --build . --target lunasvg --config Debug
-cmake --build . --target lunasvg --config Release
+cmake -B build -S . -DBUILD_SHARED_LIBS=OFF -DLUNASVG_BUILD_EXAMPLES=OFF
+cmake --build build --target lunasvg --config Debug
+cmake --build build --target lunasvg --config Release
 ```
 
 You may want to adjust the commands and CMake arguments to your preferences. The plugin is tested at the given version of LunaSVG, but newer versions may work.
