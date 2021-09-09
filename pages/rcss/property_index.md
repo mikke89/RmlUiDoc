@@ -7,7 +7,7 @@ comment: Please run '_tools/generate_elements_and_properties_index.py' whenever 
 
 The following table lists all properties recognised by RCSS. The **Notes** column details important changes from the CSS specification.
 
-Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
+Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----
 [`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | | 
 [`background`{:.prop}][background] | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
@@ -24,7 +24,7 @@ Name | Values | Initial value | Applies to | Inherited? | Percentages | Notes
 [`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
 [`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | | 
 [`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
-[`clip`{:.prop}][clip] | \<number\> \| auto \| none | auto | all | yes | | Controls interaction with ancestor element's clipping regions.
+[`clip`{:.prop}][clip] | auto \| none \| always \| \<number\> | auto | all | no | | Controls interaction with ancestor element's clipping regions.
 [`color`{:.prop}][color] | \<colour\> | black | all | yes | | 
 [`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
 [`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.

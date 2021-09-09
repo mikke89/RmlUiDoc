@@ -63,7 +63,7 @@ In RCSS, the clipping region is always the 'client area', which is either the co
 
 `clip`{:.prop}
 
-Value: | auto \| none \| \<number\>
+Value: | auto \| none \| always \| \<number\>
 Initial: | auto
 Applies to: | all elements
 Inherited: | no
@@ -77,8 +77,11 @@ The values have the following meanings:
 `none`{:.value}
 : The element is never clipped (except by the context). 
 
+`always`{:.value}
+: The element always clips, forcing all descendant elements to clip to this element's client area. This can be useful in some cases where elements are not automatically clipped even when set to eg. `overflow: hidden`{:.prop}, such as with absolutely positioned or transformed child elements.
+
 `<number>`{:.value}
-: The element is subjected to the clipping regions of its ancestors, except it skips the closest `<number>`{:.value} ancestors that could have put in place a clipping region (ie, those ancestors with an `overflow-x`{:.prop} or `overflow-y`{:.prop} other than `visible`{:.value}). 
+: The element is subjected to the clipping regions of its ancestors, except it skips the closest `<number>`{:.value} ancestors that could have put in place a clipping region (ie, those ancestors with an `overflow-x`{:.prop} or `overflow-y`{:.prop} other than `visible`{:.value}). The number must be in the range `[1, 127]`{:.value}.
 
 ### Visibility: the 'visibility' property
 {:#visibility}
