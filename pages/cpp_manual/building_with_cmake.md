@@ -20,6 +20,8 @@ Requirements:
 
 - [vcpkg](#vcpkg)
 
+***Note***: FreeType 2.11.0 introduced an issue causing a crash on startup of some of the samples. Please avoid this version, see [this issue](https://gitlab.freedesktop.org/freetype/freetype/-/issues/1092) for details.
+
 RmlUi is based around CMake for building. You'll first need to download CMake or install it via the package manager of your choice. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
 
 If you haven't already done so, download a copy of RmlUi. You can download and extract the library as a zip file, or use git from your terminal:
@@ -32,7 +34,7 @@ git clone https://github.com/mikke89/RmlUi.git
 
 This section is aimed at users of Visual Studio, however the procedure should be transferable to other environments.
 
-In addition to CMake, you need a copy of the FreeType library, version 2.10.1 is officially supported. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}.
+In addition to CMake, you need a copy of the FreeType library, version 2.10.4 is officially supported (avoid 2.11.0, see above). You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}, and the include directory `RmlUi/Dependencies/freetype/include`{:.path} to the parent directory `RmlUi/Dependencies/include`{:.path}.
 
 Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See the CMake options in the section below for a description of some of them. If you'd like to take a look at the included samples, enable the `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
 
