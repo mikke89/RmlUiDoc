@@ -11,25 +11,29 @@ RmlUi generally follows the [CSS Flexible Box specification](https://drafts.cssw
 
 Flexbox layout is initialized by setting an element's [`display`{:.prop} property](visual_formatting_model.html#display) to `display: flex`{:.value}. This generates a flex container for the element, and all its children are formatted as flex items within this container.
 
-(Documentation is a work-in-progress).
 
 ### Basic example
 
 ```css
 .flex {
 	display: flex;
-	background: #666;
+	background: #66806a;
 	padding: 3px;
 }
 .flex > div {
+	background-color: #fff1af;
 	padding: 10px;
 	margin: 3px;
-	background-color: #edd3c0;
 	flex: 1;
+}
+.flex > .double-width {
+	flex: 2;
 }
 h2 {
 	text-align: center;
 	font-size: 1.3em;
+	color: #243434;
+	border-bottom: 1px #666;
 }
 ```
 
@@ -41,26 +45,39 @@ h2 {
 	</div>
 	<div>
 		<h2>Second column</h2>
-		<p>Ut volutpat, odio et facilisis molestie.</p>
+		<p>Ut volutpat, odio et facilisis molestie, lacus elit euismod enim.</p>
 	</div>
-	<div>
+	<div class="double-width">
 		<h2>Third column</h2>
 		<p>Lorem ipsum dolor sit amet.</p>
 	</div>
 </div>
 ```
+##### Output
+
+The rendered output is shown below. Notice that all columns are the same height. This is easy to accomplish in flexible layout, but difficult in any other layout mode when the height depends on the content. Furthermore, the width of the last column will always be exactly twice the width of each of first two columns.
+
+<img alt="flexbox example" src="../../assets/images/flexbox-example.png" style="margin: 0 auto; display: block;">
+
+
 
 ### Differences from CSS
 
-- Will not create anonymous flex items from text.
-- No 'content' flex-basis property value.
-- No 'order' property.
-- No automatic minimum-sizing of flex items (or any elements for that matter).
-- No aspect ratio.
-- No visibility: collapse.
-- Stretched items are not reformatted (§9.4.11).
+##### Behavior
+
+- Anonymous flex items will not be constructed from non-wrapped text.
+- No automatic minimum-sizing of flex items. Generally, RmlUi does not have the 'min-content' size concept.
 - Baseline alignment is only approximate.
-- 'gap' property not (yet) supported for flexbox.
+- Aspect ratio of elements are never used to determine size.
+- Stretched items are not [reformatted](https://drafts.csswg.org/css-flexbox/#algo-stretch).
+
+##### Properties and values
+
+- Property `order`{:.prop} not supported.
+- Property `gap`{:.prop} not currently supported for flexbox.
+- Property value `flex-basis: content`{:.value} not supported.
+- Property value `visibility: collapse`{:.value} not supported.
+
 
 ### Performance
 
@@ -71,8 +88,8 @@ Avoid content based sizing to prevent formatting the same flex items multiple ti
   
 This is especially important when each flex items is complicated to format, such as when using flexbox for larger layout structures.
 
-### Orientation
 
+### Orientation
 
 `flex-direction`{:.prop}
 {:#flex-direction}
@@ -83,6 +100,7 @@ Applies to: | flex containers
 Inherited: | no
 Percentages: | N/A
 
+Determines the direction the flex items are laid out in – the *main axis*. Using `row`{:.value} or `row-reverse`{:.value}, the main axis is horizontal, while for `column`{:.value} or `column-reverse`{:.value} the main axis is vertical. The `-reverse`{:.value} suffixes makes items be arranged in reverse order along the main axis.
 
 
 `flex-wrap`{:.prop}
@@ -94,6 +112,7 @@ Applies to: | flex containers
 Inherited: | no
 Percentages: | N/A
 
+When there is no more space to place items along the main axis, the `wrap`{:.value} and `wrap-reverse`{:.value} values makes it so the items are wrapped to a new flex line along the *cross axis*. The cross axis is defined as perpendicular to the main axis. The `wrap-reverse`{:.value} value makes lines be arranged in reverse order.
 
 
 `flex-flow`{:.prop}
@@ -102,10 +121,7 @@ Percentages: | N/A
 A shorthand for setting the `flex-direction`{:.prop} and `flex-wrap`{:.prop} properties in that order.
 
 
-
-
 ### Flexibility
-
 
 #### The 'flex' shorthand
 {:#flex}
@@ -132,6 +148,8 @@ A shorthand property for setting the flexible sizing behavior of flex items. Gen
 `flex: <number ≥ 1> `{:.value}
 : Equivalent to `flex: <number> 1 0`{:.value}. Items will be sized proportionally to their given `<number>`{:.value}, and then proportionally shrink or grow to match the container size. This gives the best performance.
 
+When omitted from the `flex`{:.prop} shorthand, `flex-grow`{:.prop} and `flex-shrink`{:.prop} default to 1, while `flex-basis`{:.prop} defaults to 0.
+
 The flexbox sizing algorithm will also respect min- and max-sizing constraints given on the items.
 
 
@@ -148,6 +166,8 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | N/A
 
+Sets the grow factor, allowing items to be grown from their initial size to match the container size, thereby filling the container. The flex items will grow proportionally to their given factor.
+
 `flex-shrink`{:.prop}
 {:#flex-shrink}
 
@@ -156,6 +176,8 @@ Initial: | 1
 Applies to: | flex items
 Inherited: | no
 Percentages: | N/A
+
+Sets the shrink factor, allowing items to be shrinked from their initial size to match the container size, thereby avoiding overflow. The flex items will shrink proportionally to their given factor.
 
 `flex-basis`{:.prop}
 {:#flex-basis}
@@ -166,14 +188,21 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | relative to the flex container’s inner main size
 
-Units have the same meaning as for the [`width`{:.prop} property](visual_formatting_model_details.html#width).
+Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrinked using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width).
 
 
 
 ### Alignment
 
+Alignment occurs after sizing all the flex items, and determines how any available space is distributed between items, within flex lines, and between flex lines.
 
-#### Axis alignment
+#### Margin 'auto' alignment
+
+In cases where free space is available along either the main- or cross axis, flex items can be aligned by filling this space using `margin: auto`{:.value} along the desired direction(s). When there are multiple auto-margins along a single axis they will each be given an equal proportion of the available space.
+
+Note that any free space filled by auto-margins will thereby leave no more space for alignment with `justify-content`{:.prop} or `align-self`{:.prop} along that axis.
+
+#### Main-axis alignment
 
 `justify-content`{:.prop}
 {:#justify-content}
@@ -184,6 +213,7 @@ Applies to: | flex containers
 Inherited: | no
 Percentages: | N/A
 
+Determines the alignment of items along the main axis, that is, horizontal alignment in row layout.
 
 #### Cross-axis alignment
 
@@ -196,6 +226,8 @@ Applies to: | flex containers
 Inherited: | no
 Percentages: | N/A
 
+Determines the alignment of items along the cross axis, that is, vertical alignment in row layout.
+
 `align-self`{:.prop}
 {:#align-self}
 
@@ -205,6 +237,7 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | N/A
 
+Override the cross-axis alignment specified on the parent container for this item only.
 
 #### Packing flex lines
 
@@ -217,3 +250,4 @@ Applies to: | multi-line flex containers
 Inherited: | no
 Percentages: | N/A
 
+Determines how any available space in the flex container is distributed between multiple flex lines.
