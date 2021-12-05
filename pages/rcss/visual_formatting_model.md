@@ -63,7 +63,7 @@ Loose text within elements also generates inline boxes.
 
 `display`{:.prop}
 
-Value: | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none
+Value: | inline \| block \| inline-block \| flex \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none
 Initial: | inline
 Applies to: | all elements
 Inherited: | no
@@ -79,6 +79,9 @@ The values have the following meanings:
 
 `inline-block`{:.value}
 : This element generates a block box, which its descendants are positioned within, but is positioned itself as a single inline box. This is similar to the behaviour of replaced elements (those with intrinsic widths). 
+
+`flex`{:.value}
+: This element generates a flex container, and all its children are formatted as flex items, see [flexbox layout](flexboxes.html) for details.
 
 `table, table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
 : These values are used for defining and structuring [tables](tables.html).

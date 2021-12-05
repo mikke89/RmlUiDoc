@@ -9,6 +9,9 @@ The following table lists all properties recognised by RCSS. The **Notes** colum
 
 Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----
+[`align-content`{:.prop}][align-content] |flex-start \| flex-end \| center \| space-between \| space-around \| stretch | stretch | multi-line flex containers | no | | 
+[`align-items`{:.prop}][align-items] | flex-start \| flex-end \| center \| baseline \| space-around \| stretch | stretch | flex containers | no | | 
+[`align-self`{:.prop}][align-self] | auto \| flex-start \| flex-end \| center \| baseline \| space-around \| stretch | auto | flex containers | no | | 
 [`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | | 
 [`background`{:.prop}][background] | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
 [`background-color`{:.prop}][background-color] | \<colour\> | transparent | all | no | | 
@@ -29,9 +32,16 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
 [`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
-[`display`{:.prop}][display] | inline \| block \| inline-block \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
+[`display`{:.prop}][display] | inline \| block \| inline-block \| flex \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
 [`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
 [`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progress]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
+[`flex`{:.prop}][flex] | auto \| none \| \<flex-grow\> \<flex-shrink\>? \<flex-basis\>? \| \<flex-basis\> | 0 1 auto | flex items | no | | 
+[`flex-basis`{:.prop}][flex-basis] | \<length\> \| \<percentage\> \| auto | auto | flex items | no | | 
+[`flex-direction`{:.prop}][flex-direction] | row \| row-reverse \| column \| column-reverse | row | flex containers | no | | 
+[`flex-flow`{:.prop}][flex-flow] |  \<flex-direction\> \<flex-wrap\> | | | | | 
+[`flex-grow`{:.prop}][flex-grow] | \<number\> | 0 | flex items | no | | 
+[`flex-shrink`{:.prop}][flex-shrink] | \<number\> | 1 | flex items | no | | 
+[`flex-wrap`{:.prop}][flex-wrap] | nowrap \| wrap \| wrap-reverse | nowrap | flex containers | no | | 
 [`focus`{:.prop}][focus] | none \| auto | auto | all | yes | | Introduced for RCSS.
 [`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
 [`font-effect`{:.prop}][font-effect] | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.
@@ -42,6 +52,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
+[`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around | flex-start | flex containers | no | | 
 [`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 [`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
@@ -77,6 +88,9 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
 
 
+[align-content]:flexboxes.html#align-content
+[align-items]:flexboxes.html#align-items
+[align-self]:flexboxes.html#align-self
 [animation]: animations_transitions_transforms.html#animation
 [background-color]: colours_backgrounds.html#background-color
 [background]: colours_backgrounds.html#background-color
@@ -94,6 +108,13 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [display]: visual_formatting_model.html#display
 [drag]: user_interface.html#drag
 [fill-image]: {{"pages/cpp_manual/element_packages/progress_bar.html#fill-image"|relative_url}}
+[flex]:flexboxes.html#flex
+[flex-basis]:flexboxes.html#flex-basis
+[flex-direction]:flexboxes.html#flex-direction
+[flex-flow]:flexboxes.html#flex-flow
+[flex-grow]:flexboxes.html#flex-grow
+[flex-shrink]:flexboxes.html#flex-shrink
+[flex-wrap]:flexboxes.html#flex-wrap
 [float]: visual_formatting_model.html#float
 [focus]: user_interface.html#focus
 [font]: fonts.html#font
@@ -105,6 +126,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [gap]: tables.html#gap
 [height]: visual_formatting_model_details.html#height
 [image-color]: colours_backgrounds.html#image-color
+[justify-content]:flexboxes.html#justify-content
 [line-height]: visual_formatting_model_details.html#line-height
 [margin]: box_model.html#margin
 [max-height]: visual_formatting_model_details.html#max-height

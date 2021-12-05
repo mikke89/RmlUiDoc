@@ -1,5 +1,29 @@
 // Generated from '_tools/generate_elements_and_properties_index.py'. Please do not edit manually.
 {
+	"property": "align-content",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#align-content",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "align-items",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#align-items",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "align-self",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#align-self",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
 	"property": "animation",
 	"element": "",
 	"url": "/pages/rcss/animations_transitions_transforms.html#animation",
@@ -280,6 +304,62 @@
 	"content": ""
 },
 {
+	"property": "flex",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-basis",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-basis",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-direction",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-direction",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-flow",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-flow",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-grow",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-grow",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-shrink",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-shrink",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "flex-wrap",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#flex-wrap",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
 	"property": "focus",
 	"element": "",
 	"url": "/pages/rcss/user_interface.html#focus",
@@ -355,6 +435,14 @@
 	"property": "image-color",
 	"element": "",
 	"url": "/pages/rcss/colours_backgrounds.html#image-color",
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "justify-content",
+	"element": "",
+	"url": "/pages/rcss/flexboxes.html#justify-content",
 	"title": "",
 	"parent_title": "",
 	"content": ""

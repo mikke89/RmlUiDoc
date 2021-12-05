@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Flexible boxes (preview)
+title: Flexible boxes
 parent: rcss
 next: user_interface
 ---
 
-Flexible box (flexbox) layout is made for laying out items along a single direction. It allows flexible sizing of items, both shrinking to avoid overflow as well as growing to fill the container. Both horizontal and vertical alignment can be controlled. Together, these properties make this layout scheme powerful for many types of user interfaces.
+Flexible box (flexbox) layout is made for placing items along a single direction. It allows flexible sizing of items, both shrinking to avoid overflow as well as growing to fill the container. Both horizontal and vertical alignment can be controlled. Together, these properties make this layout scheme powerful for many types of user interfaces.
 
 RmlUi generally follows the [CSS Flexible Box specification](https://drafts.csswg.org/css-flexbox/), although there are some smaller differences. There are many resources on how to write flexbox layout in CSS on the web, see eg. a [flexbox introduction at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) and an illustrated overview of the [flexbox properties at CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
@@ -68,25 +68,25 @@ The rendered output is shown below. Notice that all columns are the same height.
 - Anonymous flex items will not be constructed from non-wrapped text.
 - No automatic minimum-sizing of flex items. Generally, RmlUi does not have the 'min-content' size concept.
 - Baseline alignment is only approximate.
-- Aspect ratio of elements are never used to determine size.
+- Aspect ratio of elements are never used to determine their size.
 - Stretched items are not [reformatted](https://drafts.csswg.org/css-flexbox/#algo-stretch).
 
 ##### Properties and values
 
-- Property `order`{:.prop} not supported.
-- Property `gap`{:.prop} not currently supported for flexbox.
-- Property value `flex-basis: content`{:.value} not supported.
-- Property value `visibility: collapse`{:.value} not supported.
+- Property `order`{:.prop} is not supported.
+- Property `gap`{:.prop} is not currently supported for flexbox.
+- Property value `flex-basis: content`{:.value} is not supported.
+- Property value `visibility: collapse`{:.value} is not supported.
 
 
 ### Performance
 
-Avoid content based sizing to prevent formatting the same flex items multiple times:
+To achieve the best performance, avoid content based sizing to prevent formatting the same flex items multiple times:
 
 - Use the `flex: <number ≥ 1> `{:.value} shorthand.
 - Set a definite height (length or percentage) on the flex items – or width in column layout.
   
-This is especially important when each flex items is complicated to format, such as when using flexbox for larger layout structures.
+This is increasingly important when the flex items are complicated to format, such as when using flexbox for larger layout structures.
 
 
 ### Orientation
@@ -146,9 +146,9 @@ A shorthand property for setting the flexible sizing behavior of flex items. Gen
 : Equivalent to `flex: 0 0 auto`{:.value}. Items will be sized according to their content size, and neither shrink nor grow.
 
 `flex: <number ≥ 1> `{:.value}
-: Equivalent to `flex: <number> 1 0`{:.value}. Items will be sized proportionally to their given `<number>`{:.value}, and then proportionally shrink or grow to match the container size. This gives the best performance.
+: Equivalent to `flex: <number> 1 0`{:.value}. Items will be sized proportionally to their given `<number>`{:.value} and fill the container. This enables the best performance.
 
-When omitted from the `flex`{:.prop} shorthand, `flex-grow`{:.prop} and `flex-shrink`{:.prop} default to 1, while `flex-basis`{:.prop} defaults to 0.
+When omitted from the `flex`{:.prop} shorthand, `flex-grow`{:.prop} and `flex-shrink`{:.prop} default to 1, while `flex-basis`{:.prop} defaults to 0. Note that this is different from their initial values.
 
 The flexbox sizing algorithm will also respect min- and max-sizing constraints given on the items.
 
