@@ -32,6 +32,10 @@ Transitions on mouse hover (entirely in RCSS)
 Animated transforms (entirely in RCSS)
 
 {: .gallery-item }
+![Flexbox](../assets/images/flexbox-example.png)  
+Flexbox layout
+
+{: .gallery-item }
 ![Progress bars](cpp_manual/element_packages/progress_bar.gif)  
 Progress bars
 
