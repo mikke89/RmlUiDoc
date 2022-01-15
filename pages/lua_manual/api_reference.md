@@ -4,7 +4,7 @@ title: Lua API Reference
 parent: lua_manual
 ---
 
-Most of the Lua types, properties, and functions listed in this reference correspond directly to their C++ API equivalent, users are encourged to take a look at the [C++ Manual](../cpp_manual.html) for more detailed descriptions.
+Most of the Lua types, properties, and functions listed in this reference correspond directly to their C++ API equivalent, users are encouraged to take a look at the [C++ Manual](../cpp_manual.html) for more detailed descriptions.
 
 All instantiable classes define a `new()` function which returns an object of that particular class. With the exception of this `new()` function, all members listed will be member functions.
 
