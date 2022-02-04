@@ -52,7 +52,7 @@ Rml::ElementDocument* my_document = context->LoadDocument("main_menu.rml");
 my_document->Close();
 my_document = context->LoadDocument("main_menu.rml");
 ```
-This could eg. automatically be done any time `.rml` documents are saved to have your changes be reflected instantly. Users are themselves responsible to implement this automation, look into how to do this on your platform.
+This could eg. automatically be done any time `.rml` documents are saved to have your changes be reflected instantly. Users are themselves responsible to implement this automation, look into how to do this on your platform. Note that style sheets and templates are automatically cached, you may want to clear these first by calling `Rml::Factory::ClearStyleSheetCache()` and `Rml::Factory::ClearTemplateCache()`, respectively.
 
 Now, clearly any state or programmatically changed elements will be reset during this operation. Occasionally, it is desirable to keep the current state such as when only working on the style of the document. Then, users may call the following.
 
@@ -60,7 +60,7 @@ Now, clearly any state or programmatically changed elements will be reset during
 my_document->ReloadStyleSheet();
 ```
 
-This only reloads the style sheet(s) applied to the current document, while keeping the document structure and its state intact. This also updates styles declared in the header, but notably *not* styles declared inline using the element attribute `style`{:.attr}. You might want to call this automatically for visible documents any time `.rcss` files are changed.
+This only reloads the style sheet(s) applied to the current document, while keeping the document structure and its state intact. This also updates styles declared in the header, but notably *not* styles declared inline using the element attribute `style`{:.attr}. You might want to call this automatically for visible documents any time `.rcss` files are changed. This call automatically clears any cache first.
 
 Finally, the following function may be helpful while editing textures,
 ```cpp
