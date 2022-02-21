@@ -130,14 +130,13 @@ virtual void ReleaseTexture(Rml::TextureHandle texture_handle) = 0;
 ```
 
 `LoadTexture()` is called when RmlUi wants to load a texture from an external source (usually a file, but this is up to the application).
-* `source`: the source name specified in the RML (for an image tag) or RCSS (for a decorator image reference).
-* `source_path`: the path of the referencing document.
 * `texture_handle`: a reference to a `Rml::TextureHandle` type. This is a `uintptr_t`, and can be set to whatever you need to uniquely identify the loaded texture, except 0 which is reserved for an invalid texture.
 * `texture_dimensions`: should be set to the x- and y-dimensions of the loaded texture.
+* `source`: the source name specified in the RML (for an image tag) or RCSS (for a decorator image reference), joined with the path of the referencing document.
 
 If the `LoadTexture()` function succeeds in loading the texture, it should return `true`. Otherwise it should return `false`.
 
-`GenerateTexture()` is used by the font system to convert raw pixel data to a texture. The `texture_handle` parameter is a reference to a `Rml::TextureHandle` type to be set, as in `LoadTexture()`. The raw pixel data is given in source; this is an array of unsigned, 8-bit values in RGBA order. It is laid out in tightly-packed rows, so is exactly `(source_dimensions.x * source_dimensions.y * 4)` bytes in size. The source_dimensions variable is set to the dimensions of the raw texture data.
+`GenerateTexture()` is used by the font system to convert raw pixel data to a texture. The `texture_handle` parameter is a reference to a `Rml::TextureHandle` type to be set, as in `LoadTexture()`. The raw pixel data is given in source; this is an array of unsigned, 8-bit values in RGBA order. It is laid out in tightly-packed rows, so exactly `(source_dimensions.x * source_dimensions.y * 4)` bytes in size. The `source_dimensions` variable is set to the dimensions of the raw texture data.
 
 `ReleaseTexture()` is called with a texture handle once it is no longer required by RmlUi.
 
