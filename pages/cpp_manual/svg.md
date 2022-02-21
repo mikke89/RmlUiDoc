@@ -18,6 +18,12 @@ _Attributes_
 `src`{:.attr} = uri (CT)
 : The source location of the SVG image.
 
+`width`{:.attr} = number (CN)
+: The width to force the element to, in pixels.
+
+`height`{:.attr} = number (CN)
+: The height to force the element to, in pixels.
+
 
 ![SVG sample](../../assets/gallery/svg_plugin.png)
 
