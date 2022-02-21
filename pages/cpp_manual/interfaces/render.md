@@ -136,7 +136,7 @@ virtual void ReleaseTexture(Rml::TextureHandle texture_handle) = 0;
 
 If the `LoadTexture()` function succeeds in loading the texture, it should return `true`. Otherwise it should return `false`.
 
-`GenerateTexture()` is used by the font system to convert raw pixel data to a texture. The `texture_handle` parameter is a reference to a `Rml::TextureHandle` type to be set, as in `LoadTexture()`. The raw pixel data is given in source; this is an array of unsigned, 8-bit values in RGBA order. It is laid out in tightly-packed rows, so exactly `(source_dimensions.x * source_dimensions.y * 4)` bytes in size. The `source_dimensions` variable is set to the dimensions of the raw texture data.
+`GenerateTexture()` is used by the font system to convert raw pixel data to a texture. The `texture_handle` parameter is a reference to a `Rml::TextureHandle` type to be set, as in `LoadTexture()`. The raw pixel data is given in `source`; this is an array of unsigned, 8-bit values in RGBA order. It is laid out in tightly-packed rows, so exactly `(source_dimensions.x * source_dimensions.y * 4)` bytes in size. The `source_dimensions` variable is set to the dimensions of the raw texture data.
 
 `ReleaseTexture()` is called with a texture handle once it is no longer required by RmlUi.
 
