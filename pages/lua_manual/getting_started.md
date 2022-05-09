@@ -11,9 +11,9 @@ For a full list of types and methods please see the RmlUi Lua [API Reference](ap
 
 ### Requirements
 
-- [Lua 5.x](https://www.lua.org/)
+- [Lua 5.2+](https://www.lua.org/)
 
-Tested with Lua 5.3, but other versions may work.
+Tested with Lua 5.3 which is the recommended version, but we aim for compatibility with Lua version 5.2 and newer. For Lua 5.1 support there is an unofficial Lua plugin [RmlSolLua](https://github.com/LoneBoco/RmlSolLua) based on sol3.
 
 ### Lua plugin integration
 
