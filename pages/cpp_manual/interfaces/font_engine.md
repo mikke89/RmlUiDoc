@@ -13,14 +13,15 @@ Some of the most important functions for the font engine interface are given in 
 // Called by RmlUi when it wants to load a font face from file.
 // @param[in] file_name The file to load the face from.
 // @param[in] fallback_face True to use this font face for unknown characters in other font faces.
+// @param[in] weight The weight to load when the font face contains multiple weights, otherwise the weight to register the font as.
 // @return True if the face was loaded successfully, false otherwise.
-virtual bool LoadFontFace(const String& file_name, bool fallback_face);
+virtual bool LoadFontFace(const String& file_name, bool fallback_face, Style::FontWeight weight);
 
 // Called by RmlUi when a font configuration is resolved for an element. Should return a handle that 
 // can later be used to resolve properties of the face, and generate string geometry to be rendered.
 // @param[in] family The family of the desired font handle.
 // @param[in] style The style of the desired font handle.
-// @param[in] weight The weight of the desired font handle.
+// @param[in] weight The weight to load when the font face contains multiple weights, otherwise the weight to register the font as.
 // @param[in] size The size of desired handle, in points.
 // @return A valid handle if a matching (or closely matching) font face was found, NULL otherwise.
 virtual FontFaceHandle GetFontFaceHandle(const String& family, Style::FontStyle style, Style::FontWeight weight, int size);

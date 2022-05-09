@@ -44,13 +44,13 @@ This property can be used to request normal or italicised versions of a font fro
 `font-weight`{:.prop}
 {:#font-weight}
 
-Value: | normal \| bold
+Value: | normal \| bold \| \<number \[1,1000\]\>
 Initial: | normal
 Applies to: | all elements
 Inherited: | yes
 Percentages: | N/A
 
-This property can be used to request normal or bolded versions of a font from within a font-family. Note that RCSS only supports bold and non-bold fonts, and not different strengths of boldness.
+This property can be used to request normal or bolded versions of a font from within a font-family. A numeric value can be specified for more granularity on supported fonts. The range is based on the commonly used OpenType specification: 100 (Thin), 200 (Extra Light), 300 (Light), 400 (Normal), 500 (Medium), 600 (Semi Bold), 700 (Bold), 800 (Extra Bold), 900 (Black).
 
 #### Font size: the 'font-size' property
 {:#font-size}

@@ -48,7 +48,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`font-family`{:.prop}][font-family] | \<string\> | | all | yes | | Only single family supported.
 [`font-size`{:.prop}][font-size] | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
 [`font-style`{:.prop}][font-style] | normal \| italic | normal | all | yes | | 'oblique' not supported.
-[`font-weight`{:.prop}][font-weight] | normal \| bold | normal | all | yes | | Intermediate weights not supported.
+[`font-weight`{:.prop}][font-weight] | normal \| bold \| \<number \[1,1000\]\> | normal | all | yes | | Relative weights not supported.
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
