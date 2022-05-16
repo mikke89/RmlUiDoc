@@ -86,7 +86,7 @@ _Attributes_
 : The height of the visible area of the textarea, as a number of text rows.
 
 `wrap`{:.attr} = cdata (CI)
-: If set `nowrap`{:.value}, the textarea will not wrap unbroken lines to a new row.
+: If set to `nowrap`{:.value}, the textarea will not wrap unbroken lines to a new row.
 
 `maxlength`{:.attr} = number (CN)
 : The maximum length (in characters) that the element will accept.
