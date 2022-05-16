@@ -84,7 +84,7 @@ for match in matches:
 {{
 	"property": "{}",
 	"element": "",
-	"url": "{}",
+	"url": '<a href="{}">',
 	"title": "",
 	"parent_title": "",
 	"content": ""
@@ -107,7 +107,7 @@ for match in matches:
 {{
 	"property": "",
 	"element": "{}",
-	"url": "{}",
+	"url": '<a href="{}">',
 	"title": "",
 	"parent_title": "",
 	"content": ""

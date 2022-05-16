@@ -68,7 +68,7 @@ var pages = [
 		"title": "{{ page.title }}",
 		"property": "",
 		"element": "",
-		"url": "{{ page.url }}",
+		"url": '<a href="{{ page.url }}.html">', {% comment %} Url is placed within an <a href> tag so that the offline documentation generator can understand the link and rewrite it when necessary. {% endcomment %}
 		"parent_title": "{{ parent_title }}",
 		"content": "{{ page.content | markdownify | strip_html | replace: '"', " " | replace: "\", " " | normalize_whitespace }}"
 		},
@@ -120,6 +120,10 @@ function displaySearchResults(has_search_text, results, pages) {
 	}
 
 	var el_search_results = document.getElementById('search-results');
+	
+	function insert(str, index, value) {
+		return str.substr(0, index) + value + str.substr(index);
+	}
 
 	if (results.length && has_search_text) {
 		var results_string = '';
@@ -135,7 +139,8 @@ function displaySearchResults(has_search_text, results, pages) {
 			var content = item.content;
 			var property = item.property;
 			var element = item.element;
-			var url = '{{ "" | relative_url }}' + item.url;
+			var a_href = '<a href="';
+			var url = a_href + '{{ "" | relative_url }}' + item.url.substr(a_href.length);
 
 			if (element.length || property.length) {
 				num_elements_and_properties++;
@@ -207,11 +212,11 @@ function displaySearchResults(has_search_text, results, pages) {
 			}
 			
 			if (property.length) {
-				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span><a href="' + url + '">‘' + property + '’ property</a></h4>';
+				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span>' + url + '‘' + property + '’ property</a></h4>';
 			} else if (element.length) {
-				results_string += '<h4 title="RML element"><span class="fas">&#xf84c;</span><a href="' + url + '">&lt;' + element + '&gt; element</a></h4>';
+				results_string += '<h4 title="RML element"><span class="fas">&#xf84c;</span>' + url + '&lt;' + element + '&gt; element</a></h4>';
 			} else {
-				results_string += '<h4><a href="' + url + '">' + title + (item.parent_title ? ' (' + item.parent_title + ')' : '') + '</a></h4>';
+				results_string += '<h4>' + url + title + (item.parent_title ? ' (' + item.parent_title + ')' : '') + '</a></h4>';
 				results_string += '<p>' + content + '...</p>';
 			}
 		}
