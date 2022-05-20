@@ -698,6 +698,7 @@ Inherits: `nil`{: .lua-type }
 | ------------- |
 | __index |
 | __pairs |
+| __len   |
 
 
 ---
