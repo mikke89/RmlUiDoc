@@ -29,7 +29,7 @@ The following is a list of elements supported by RML:
 
 See also [element packages]({{"pages/cpp_manual/element_packages.html"|relative_url}}) in the C++ manual for controlling the behavior of several of these elements.
 
-RmlUi does not provide a default style sheet, thus, tags which only represent a specific style rule in HTML have no special in RmlUi, such as `<div>`{:.tag} and `<span>`{:.tag}. Users can include the [recommended style sheet](html4_style_sheet.html) to enable common rules for these tags.
+RmlUi does not provide a default style sheet, thus, tags which only represent a specific style rule in HTML have no special in RmlUi, such as `<div>`{:.tag}, `<span>`{:.tag} and `<table>`{:.tag}. Users can include the [recommended style sheet](html4_style_sheet.html) to enable common rules for these tags.
 
 The following elements are additionally enabled when including their respective plugins:
 
