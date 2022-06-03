@@ -68,9 +68,11 @@ Clients are themselves responsible to interact with the system clipboard if desi
 #### Virtual keyboard
 
 ```cpp
-// Activate keyboard (for touchscreen devices)
-virtual void ActivateKeyboard();
-// Deactivate keyboard (for touchscreen devices)
+// Activate keyboard (for touchscreen devices).
+virtual void ActivateKeyboard(Rml::Vector2f caret_position, float line_height);
+// Deactivate keyboard (for touchscreen devices).
 virtual void DeactivateKeyboard();
 ```
 These functions are called from RmlUi when it wants to activate or deactivate a virtual keyboard, such as on phones and tablets. These are typically called when the user focuses on or away from a text input field.
+
+Additionally, `ActivateKeyboard()` is called whenever the caret position of the current text field is changed. The `caret_position` is the absolute position of the carret in window coordinates, while `line_height` is the pixel height of the current line being edited. These arguments can be used to position any input method editor (IME).
