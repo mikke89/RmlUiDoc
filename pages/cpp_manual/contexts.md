@@ -64,6 +64,8 @@ If a context is active, it should have `Update()` called on it after the frame's
 bool Update();
 ```
 
+The context update ensures that properties and computed values of all elements located in the context are updated, and layouting is performed on all documents that need it. Elements may not always report their correct size or position until the context is updated, as described on the [elements page](elements.html#validity-of-retrieved-values).
+
 To render a context, call `Render()` on it. Easy!
 
 ```cpp

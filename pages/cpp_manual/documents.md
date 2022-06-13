@@ -96,6 +96,19 @@ To hide a document, call `Hide()`.
 void Hide();
 ```
 
+### Manually updating the document
+
+The document is [always updated](contexts.html#update-and-rendering) during the call to `Context::Update()`. However, sometimes it may in addition be necessary to update the document manually so that elements can be queried for their layed out size or position, in particular after elements have been modified or added to the document.
+
+```cpp
+// Updates the document, including its layout. Users must call this manually before requesting information such as 
+// size or position of an element if any element in the document was recently changed, unless Context::Update has
+// already been called after the change. This has a perfomance penalty, only call when necessary.
+void ElementDocument::UpdateDocument();
+```
+
+See more on the [validity of retrieved element values](elements.html#validity-of-retrieved-values).
+
 ### Closing
 
 Calling `Close()` on a document will remove the document from its context and destroy it and all of its elements.

@@ -156,17 +156,9 @@ Supported methods have simply had their initial letter capitalised to match the 
 
 ### Validity of retrieved values
 
-Whenever an element is modified, added, or removed from the DOM hierarchy, the values retrieved from the [DOM interface](#dom-interface) may become dirty. Instead of immediately updating properties on any affected elements, most of this work is done during the `Context::Update` call in a carefully chosen order for performance reasons. 
+Whenever an element is modified, added, or removed from the DOM hierarchy, the values retrieved from the [DOM interface](#dom-interface) may become dirty. This is also the case when the layout becomes dirty, such as when updating the properties of an element or after a resize event. Instead of immediately updating properties on any affected elements, most of this work is done during the `Context::Update` call in a carefully chosen order for performance reasons.
 
-Thus, values related to the layout (sizes and offsets) and computed values may return default values or values calculated during the previous update loop. If such values need to be retrieved after a modification to the DOM, the element's document can be manually updated by calling
-
-```cpp
-// Updates the document, including its layout. Users must call this manually before requesting information such as 
-// size or position of an element if any element in the document was recently changed, unless Context::Update has
-// already been called after the change. This has a perfomance penalty, only call when necessary.
-void ElementDocument::UpdateDocument();
-```
-before retrieving such values with the performance penalties this entails. This ensures all retrieved values are correct.
+Thus, values related to the layout (sizes and offsets) and computed values may return default values or values calculated during the previous update. If such values need to be retrieved after a modification to the DOM, the [element's document can be manually updated](documents.html#manually-updating-the-document) by calling `ElementDocument::UpdateDocument()` before retrieving such values with the performance penalties this entails. This ensures all retrieved values are correct.
 
 Due to the complexity of the HTML/CSS model, it is a highly challenging task to infer exactly which values of which elements become dirty after a modification to the DOM or style. Simultaneously, for performance reasons, the library can not always do a full update of the whole document when retrieving some element value. Until a good solution can be made for dirtying such values, this workaround is necessary.
 
