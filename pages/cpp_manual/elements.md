@@ -156,7 +156,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 
 ### Validity of retrieved values
 
-Whenever an element is modified, added, or removed from the DOM hierarchy, the values retrieved from the [DOM interface](#dom-interface) may become dirty. This is also the case when the layout becomes dirty, such as when updating the properties of an element or after a resize event. Instead of immediately updating properties on any affected elements, most of this work is done during the `Context::Update` call in a carefully chosen order for performance reasons.
+Whenever an element is modified, added, or removed from the DOM hierarchy, the values retrieved from the [DOM interface](#dom-interface) may become dirty. This is also the case when the layout becomes dirty, such as when updating the properties of an element or after a resize event. Instead of immediately updating properties on any affected elements, most of this work is done during the `Context::Update()` call in a carefully chosen order for performance reasons.
 
 Thus, values related to the layout (sizes and offsets) and computed values may return default values or values calculated during the previous update. If such values need to be retrieved after a modification to the DOM, the [element's document can be manually updated](documents.html#manually-updating-the-document) by calling `ElementDocument::UpdateDocument()` before retrieving such values with the performance penalties this entails. This ensures all retrieved values are correct.
 
