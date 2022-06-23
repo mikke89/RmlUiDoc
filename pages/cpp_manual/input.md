@@ -45,7 +45,7 @@ Call the `ProcessMouseMove()` function on a context to inform the context that t
 bool ProcessMouseMove(int x, int y, int key_modifier_state);
 ```
 
-Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the position of the mouse cursor is not different from the last time `ProcessMouseMove()` was called, no action will be taken. If the mouse has moved, then any of the following events may be generated, targeted at the appropriate elements:
+Note that the x and y coordinates are in pixel offsets from the top-left of the context. If the mouse cursor has moved since the previous call to `ProcessMouseMove()` then the `mousemove`{:.evt} will be submitted to the element being hovered over. Regardless of mouse movement, the hover chain will always be updated to account for any elements that may have changed under the mouse cursor. Then any of the following events may be generated, targeted at the appropriate elements:
 
 * `mousemove`{:.evt}
 * `mouseover`{:.evt}
@@ -54,6 +54,8 @@ Note that the x and y coordinates are in pixel offsets from the top-left of the 
 * `drag`{:.evt}
 * `dragover`{:.evt}
 * `dragout`{:.evt}
+
+After the call to `ProcessMouseMove()` the mouse cursor is considered active. When the cursor is active every call to the context's `Update()` function will update the hover states of the elements, regardless of mouse movement. This ensures that any elements that have been moved, removed, or added, have their hover states changed appropriately. See `ProcessMouseLeave()` to [deactivate the mouse cursor](#mouse-cursor-leave) and prevent `Update()` from updating the hover state of elements.
 
 #### Mouse buttons
 
@@ -100,6 +102,20 @@ bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 ```
 
 `ProcessMouseWheel()` will generate a `mousescroll`{:.evt} event targeted at the hover element. By default, all elements will use this event to scroll their contents up and down if appropriate.
+
+
+### Mouse cursor leave
+
+In some situations the mouse cursor may leave the active window, or should otherwise be disabled such as when changing the input device to a controller. Then `ProcessMouseLeave()` can be called to remove the hovered state from all elements. In addition, this also stops the call to the context's `Update()` function from automatically hovering elements, which is particularly useful when using a controller input.
+
+```cpp
+// Tells the context the mouse has left the window. This removes any hover state from all elements and prevents 'Update()' from setting the hover state for elements under the mouse.
+// @return True if the mouse is not interacting with any elements in the context (see 'IsMouseInteracting'), otherwise false.
+bool ProcessMouseLeave();
+```
+
+The [mouse is considered activate](#mouse-movement) again after the next call to `ProcessMouseMove()`.
+
 
 #### Mouse cursor interaction
 
