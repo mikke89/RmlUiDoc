@@ -114,7 +114,7 @@ In some situations the mouse cursor may leave the active window, or should other
 bool ProcessMouseLeave();
 ```
 
-The [mouse is considered activate](#mouse-movement) again after the next call to `ProcessMouseMove()`.
+The [mouse is considered active](#mouse-movement) again after the next call to `ProcessMouseMove()`.
 
 
 #### Mouse cursor interaction
