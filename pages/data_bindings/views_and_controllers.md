@@ -37,9 +37,10 @@ The following table lists all built-in data views and controllers in RmlUi, alon
   [3] These attributes enable two-way bindings, and will attach both a view and controller to the element.  
 
 
-Attribute
-: `data-attr-[attribute_name]="[data_expression]"`{:.data-attr}
+#### Attribute
 {:#data-attr.data-desc}
+`data-attr-[attribute_name]="[data_expression]"`
+{:.data-attr}
 
 Sets the element's attribute `[attribute_name]` to the evaluated expression.
 
@@ -47,9 +48,10 @@ Sets the element's attribute `[attribute_name]` to the evaluated expression.
 <img data-attr-sprite="item.icon"/>
 ```
 
-Attribute-if
-: `data-attrif-[attribute_name]="[data_expression]"`{:.data-attr}
+#### Attribute-if
 {:#data-attrif.data-desc}
+`data-attrif-[attribute_name]="[data_expression]"`
+{:.data-attr}
 
 Sets the element's attribute `[attribute_name]` when the expression evaluates to `true`, otherwise removes the given attribute from the element.
 
@@ -60,9 +62,10 @@ Sets the element's attribute `[attribute_name]` when the expression evaluates to
 Useful for element behavior which depends on whether or not the attribute is present, such as `disabled`. When set, the value of the attribute is an empty string.
 
 
-Class
-: `data-class-[class_name]="[data_expression]"`{:.data-attr}
+#### Class
 {:#data-class.data-desc}
+`data-class-[class_name]="[data_expression]"`
+{:.data-attr}
 
 Enables the class `[class_name]` on the element if the expression evaluates to `true`, otherwise it disables the class.
 
@@ -71,9 +74,10 @@ Enables the class `[class_name]` on the element if the expression evaluates to `
 ```
 
 
-Style
-: `data-style-[property_name]="[data_expression]"`{:.data-attr}
+#### Style
 {:#data-style.data-desc}
+`data-style-[property_name]="[data_expression]"`
+{:.data-attr}
 
 Sets the property `[property_name]` of the element's style to the evaluated expression.
 
@@ -82,9 +86,10 @@ Sets the property `[property_name]` of the element's style to the evaluated expr
 ```
 
 
-If
-: `data-if="[data_expression]"`{:.data-attr}
+#### If
 {:#data-if.data-desc}
+`data-if="[data_expression]"`
+{:.data-attr}
 
 Sets the `display` property of the element to `none` if the expression evaluates to `false`, otherwise it removes the `display` property from the element's inline style.
 
@@ -97,9 +102,10 @@ Sets the `display` property of the element to `none` if the expression evaluates
 *Note.* The style sheet rules which applies to the element should ensure that the element's `display` property evaluates to something other than `none`. Otherwise, the element will always be hidden.
 
 
-Visible
-: `data-visible="[data_expression]"`{:.data-attr}
+#### Visible
 {:#data-visible.data-desc}
+`data-visible="[data_expression]"`
+{:.data-attr}
 
 Sets the `visibility` property of the element to `hidden` if the expression evaluates to `false`, otherwise it removes the `visibility` property from the element's inline style.
 
@@ -114,9 +120,10 @@ As opposed to the `data-if` view, the `data-visible` view ensures that the eleme
 *Note.* The style sheet rules which applies to the element should ensure that the element's `visibility` property evaluates to `visible`, which is the default value. Otherwise, the element will always be hidden.
 
 
-For
-: `data-for="[iterator_name], [index_name] : [data_address]"`{:.data-attr}
+#### For
 {:#data-for.data-desc}
+`data-for="[iterator_name], [index_name] : [data_address]"`
+{:.data-attr}
 
 Repeats the element and its children *n* times for each item in the data variable designated by the `data_address`. The variable must be a data array type.
 
@@ -157,9 +164,10 @@ where `i` and `subject` become aliases to the array index and entry, respectivel
 *Implementation note.* Internally, the XML parser uses a special parsing rule whenever the `data-for` attribute is encountered, providing all the children of the current element as raw RML text to the data view, which is later used for creation of each item in the data array.
 
 
-Rml
-: `data-rml="[data_expression]"`{:.data-attr}
+#### Rml
 {:#data-rml.data-desc}
+`data-rml="[data_expression]"`
+{:.data-attr}
 
 Sets the element's inner RML to the evaluated expression.
 
@@ -169,9 +177,10 @@ Sets the element's inner RML to the evaluated expression.
 ```
 
 
-Text
-: `N/A`{:.data-attr}
+#### Text
 {:#data-text.data-desc}
+`N/A`
+{:.data-attr}
 
 Evaluates any data expression inside double curly brackets {{ }} encountered in the element's text.
 
@@ -183,9 +192,10 @@ Evaluates any data expression inside double curly brackets {{ }} encountered in 
 This data view is automatically added whenever double curly brackets are encountered in the text and should not be added as an attribute.
 
 
-Value
-: `data-value="[data_address]"`{:.data-attr}
+#### Value
 {:#data-value.data-desc}
+`data-value="[data_address]"`
+{:.data-attr}
 
 Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address`. This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
 
@@ -198,9 +208,10 @@ A new value is assigned to the specified data variable whenever a `change`{:.evt
 *Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attr-value` view and `data-event-change` controller for more flexibility.
 
 
-Checked
-: `data-checked="[data_address]"`{:.data-attr}
+#### Checked
 {:#data-checked.data-desc}
+`data-checked="[data_address]"`
+{:.data-attr}
 
 Binds a checkbox or radio button's `checked` state to the variable located at `data_address`. This variable must be a scalar type. Typically combined with `<input type="checkbox"/>`{:.tag} and `<input type="radio"/>`{:.tag} elements.
 
@@ -217,9 +228,10 @@ A new value is assigned to the specified data variable whenever a `change`{:.evt
 *Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attrif-checked` view and `data-event-change` controller for more flexibility.
 
 
-Event
-: `data-event-[event_type]="[assignment_expression]"`{:.data-attr}
+#### Event
 {:#data-event.data-desc}
+`data-event-[event_type]="[assignment_expression]"`
+{:.data-attr}
 
 The event controller is triggered whenever the `[event_type]` event occurs on the current element. All event types in RmlUi are supported. Upon triggering, the associated *assignment expression* is evaluated.
 

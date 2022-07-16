@@ -181,17 +181,21 @@ h3 a:hover { text-decoration: none; }
 	color: blue;
 }
 
+.data-desc
+{
+	margin-bottom: 0.5em;
+}
 .data-attr
 {
 	color: #156b00;
+	margin-left: 10px;
+	margin-bottom: 1em;
+	padding-left: 1em;
+	border-left: 3px solid #F7F7F9;
 }
-dl.data-desc
+.data-attr code
 {
-	margin-top: 2em;
-}
-dl.data-desc dt
-{
-	font-size: 1.3em;
+	color: #156b00;
 }
 
 .evt
@@ -235,6 +239,36 @@ dl.data-desc dt
 .status.major { background-color: #ec3a09; }
 .status.deprecated { background-color: #ff8000; }
 
+@keyframes target-highlight {
+	from, to { background-color: transparent; outline-color: transparent; }
+	10%, 75% { background-color: #ffe092;     outline-color: #ffe092; }
+}
+#anchor-container > :target {
+	animation: target-highlight 3s;
+	border-radius: 5px;
+	outline: 8px solid transparent;
+}
+
+/* Header links visible on hover */
+a.header-link {
+	visibility: hidden;
+	color: inherit;
+}
+:hover > a.header-link {
+	visibility: visible;
+}
+a.header-link:before {
+	content: " \f0c1";
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-style: normal;
+	font-size: 0.7em;
+	display: inline-block;
+	text-decoration: none;
+	padding-left: 1em;
+	padding-right: 0.2em;
+	vertical-align: bottom;
+}
 
 /* Mark external links with icon */
 a[href^="http"]:after {
