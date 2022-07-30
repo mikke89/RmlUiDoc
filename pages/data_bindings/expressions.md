@@ -60,29 +60,37 @@ Operators read their arguments either as a `bool`, a `double`, or a `String`. Co
 
 #### Transform functions
 
-The transform operator `|` can call a *transform function*. A transform function can modify the evaluated value on its left-hand-side, using the following syntax.
+A *transform function* takes any number of input arguments and produces a new value. The function can be called using the function call convention.
 ```
-| transform_name
+transform_name([data_expression], [data_expression], ...)
 ```
-or
+Alternatively, the pipe operator `|` can equivalently be used which uses the value on the left-hand-side of the operator as the first argument to the transform function.
 ```
-| transform_name([data_expression], [data_expression], ...)
+[data_expression] | transform_name([data_expression], ...)
 ```
+If the transform function takes a single argument the parenthesis can be omited.
+```
+[data_expression] | transform_name
+```  
 
-Any arguments in parenthesis are forwarded to the transform function. Users can [provide their own](model.html#registering-transforms) transform functions. In addition, there are several built-in transform functions.
+There are several built-in transform functions.
 
-| Transform name | Arguments                                 | Return type  | Description                           |
-| -------------  | ----------------------------------------- | ------------ | ------------------------------------- |
-|   to_upper     |                                           | String       | Transform string to upper case.       |
-|   to_lower     |                                           | String       | Transform string to lower case.       |
-|   round        |                                           | Numeric      | Round a value to its nearest integer. |
-|   format       |  `precision`, `remove_trailing_zeros` = `false` | String       | Format a numeric value.<br/>`precision` determines the number of fractional digits written.<br/>`remove_trailing_zeros` removes any trailing zeros and possibly the decimal character from the number. |
+| Transform name | Arguments                                                | Return type  | Description                           |
+| -------------  | -------------------------------------------------------- | ------------ | ------------------------------------- |
+|   to_upper     |  `value`                                                 | String       | Transform string to upper case.       |
+|   to_lower     |  `value`                                                 | String       | Transform string to lower case.       |
+|   round        |  `value`                                                 | Numeric      | Round a value to its nearest integer. |
+|   format       |  `value`, `precision`, `remove_trailing_zeros` = `false` | String       | Format a numeric value.<br/>`precision` determines the number of fractional digits written.<br/>`remove_trailing_zeros` removes any trailing zeros and possibly the decimal character from the number. |
 
-See the data model documentation for how to provide your own transform functions.
+Additionally, users can [provide their own transform functions](model.html#registering-transforms) as detailed in the data model documentation.
 
-Note that transform functions can easily be pipelined as in the following example.
+The pipe operator `|` allows transform functions to easily be chained as in the following example.
 ```
-i * 3.14159 | round | my_pow(4) | transform(2) 
+i * 3.14159 | round | my_pow(4) | transform(2)
+```
+In other situations the function call syntax or a combination may be more convenient.
+```
+make_lines('It takes', num_trolls*3 + ' goats', 'to outsmart', num_trolls | number_suffix('troll','trolls'))
 ```
 
 

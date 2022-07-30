@@ -111,25 +111,26 @@ constructor.RegisterScalar<Rml::Colourb>(
 #### Registering transform functions
 {:#registering-transforms}
 
-Transform functions can be used in data expression by the `|` operator. A transform function can be registered using the function
+Transform functions can be used in data expression using the function call syntax `fnc()` or the pipe operator `| fnc`. A transform function can be registered using the function
 
 ```cpp
 void DataModelConstructor::RegisterTransformFunc(const String& name, DataTransformFunc transform_func);
 ```
 where the transform function is defined as
 ```cpp
-using DataTransformFunc = std::function<bool(Variant&, const VariantList&)>;
+using DataTransformFunc = std::function<Variant(const VariantList&)>;
 ```
-The first argument contains the value of the left hand side of the operator, and should be assigned the new, transformed value. The second argument takes a list of optional arguments passed in by the user in the data expression.
+The input argument contains all the arguments passed into the transform function, in the order they appear in the data expression. When the function is called using the pipe operator, the first argument will be the left hand side of the `|` operator. The transform function should return a `Variant` with the new value or an empty one to indicate failure.
 
 ```cpp
 // Register a transform function for formatting time
-constructor.RegisterTransformFunc("format_time", [](Rml::Variant& variant, const Rml::VariantList& /*arguments*/) -> bool {
-	const double t = variant.Get<double>();
+constructor.RegisterTransformFunc("format_time", [](const Rml::VariantList& arguments) -> Rml::Variant {
+	if (arguments.empty())
+		return {};
+	const double t = arguments[0].Get<double>();
 	const int minutes = int(t) / 60;
 	const double seconds = t - 60.0 * double(minutes);
-	variant = Rml::CreateString(10, "%02d:%05.2f", minutes, seconds);
-	return true;
+	return Rml::Variant(Rml::CreateString(10, "%02d:%05.2f", minutes, seconds));
 });
 ```
 
