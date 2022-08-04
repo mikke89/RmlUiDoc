@@ -5,21 +5,29 @@ parent: rcss
 next: cascade
 ---
 
-Selectors are used to select elements to apply specific rules to. The selector syntax supported in RCSS is as follows:
+Selectors are used to select elements to apply specific rules to. The following selectors are supported in RCSS:
 
-Pattern        | Meaning
----            | ---
-`*`{:.cls}     | Matches any element.
-`E`{:.cls}     | Matches any element of type E (i.e., an element declared in an RML document as `<E>`{:.tag}).
-`E.foo`{:.cls} | Matches any element of type E that has been declared with class `foo`{:.cls}.
-`E#foo`{:.cls} | Matches any element of type E that has been declared with an ID of `foo`{:.value}.
-`E:foo`{:.cls} | Matches any element of type E that has the pseudo-class `foo`{:.cls} currently active.
-`E F`{:.cls}   | Matches any element of type F that is a descendant of an E element.
-`E > F`{:.cls} | Matches any element of type F that is a direct descendant of an E element.
-`E + F`{:.cls} | Matches any element of type F that is immediately preceded by an E element.
-`E ~ F`{:.cls} | Matches any element of type F that is preceded by an E element.
+Selector            | Matches
+---                 | ---
+`*`{:.cls}          | Any element.
+`E`{:.cls}          | Any element of type E (i.e., an element declared in an RML document as `<E>`{:.tag}).
+`.foo`{:.cls}       | Any element that has been declared with class `foo`{:.cls}.
+`#foo`{:.cls}       | Any element that has been declared with an ID of `foo`{:.value}.
+`:foo`{:.cls}       | Any element that has the pseudo-class `foo`{:.cls} currently active, or matches a structural selector below.
+`[foo]`{:.cls}      | Any element with a `foo`{:.attr} attribute, regardless of value.
+`[foo=bar]`{:.cls}  | Any element with a `foo`{:.attr} attribute equal to `bar`{:.value}.
+`[foo~=bar]`{:.cls} | Any element with a `foo`{:.attr} attribute with a space-separated list of values, one of which is equal to `bar`{:.value}.
+`[foo|=bar]`{:.cls} | Any element with a `foo`{:.attr} attribute equal to `bar`{:.value} or which begins with `bar-`{:.value} including the hyphen.
+`[foo^=bar]`{:.cls} | Any element with a `foo`{:.attr} attribute which begins with `bar`{:.value}.
+`[foo$=bar]`{:.cls} | Any element with a `foo`{:.attr} attribute which ends with `bar`{:.value}.
+`[foo*=bar]`{:.cls} | Any element with a `foo`{:.attr} attribute which contains `bar`{:.value}.
+`E F`{:.cls}        | Any element of type F that is a descendant of an E element.
+`E > F`{:.cls}      | Any element of type F that is a direct descendant of an E element.
+`E + F`{:.cls}      | Any element of type F that is immediately preceded by an E element.
+`E ~ F`{:.cls}      | Any element of type F that is preceded by an E element.
 
-Details and combinations of the listed selectors are described below. Note that attribute selectors are currently not supported.
+Details and combinations of the listed selectors are described below.
+
 
 #### Pseudo selectors
 
@@ -50,7 +58,7 @@ See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for m
 
 #### Compound selectors
 
-A compound selector is made up of an optional element type followed by zero or more class selectors, ID selectors and pseudo-class selectors. If an element type is not given, any element type will be matched. So, for example, the selector:
+A *compound selector* is made up of an optional element type followed by zero or more class selectors, ID selectors, attribute selectors, and pseudo selectors. If an element type is not given, any element type will be matched. So, for example, the selector:
 
 ```css
 div#level_list:hover
@@ -61,7 +69,7 @@ will match any element of type `div`{:.tag} with an ID of `level_list`{:.value} 
 
 #### Complex selectors
 
-A complex selector is made up of potentially multiple compound selectors, each separated by a combinator. 
+A *complex selector* is made up of potentially multiple compound selectors, each separated by a combinator. 
 
 ```css
 div.content p {}
@@ -117,10 +125,10 @@ Multiple selectors can be appended with commas, which is equivalent to an OR sta
 ```css
 div#level_list,
 div#weapon_list,
-.colour_list
+.color_list
 ```
 
-will match a `div`{:.tag} element with ID `level_list`{:.value}, or ID `weapon_list`{:.value}, or any element that has a class of `colour_list`{:.value}.
+will match a `div`{:.tag} element with ID `level_list`{:.value}, or ID `weapon_list`{:.value}, or any element that has a class of `color_list`{:.value}.
 
 
 #### Negation selector `:not()`{:.cls}
@@ -139,3 +147,15 @@ The specificity of this selector is determined by the sub-selector that has the 
 #### Numbered selectors `:nth-`{:.cls}
 
 For a much fuller description of the `:nth-`{:.cls} style selectors, please refer to the [respective sections](https://www.w3.org/TR/selectors-4/#the-nth-child-pseudo) of the CSS selectors specification. `even`{:.cls} and `odd`{:.cls} are supported in RCSS.
+
+
+#### Performance considerations
+
+In brief, each element is matched against each [complex selector](#complex-selectors). This process begins by matching the right-most compound selector and then subsequently each selector left of that while traversing the element's tree. To speed-up this process, all style rules with IDs, classes, and tags are indexed for fast retrieval. This way a lot of selectors can be eliminated immediately. However, if the right-most compound selector does not contain any of these three types of selectors (ID, class, tag) then they will have to be tested against every element.
+
+Based on this, here are some general guidelines to ensure good performance:
+
+- Try to keep the number of style rules low.
+- The right-most selector should contain either an ID, class, or tag (in preferred order - the more unique the better).
+- Pseudo, structural, and attribute selectors are not indexed and can be slow. Preferably combine them with ID, class, or tag.
+- Prefer the child `>` and next-sibling `+` combinators over the descendant (whitespace) and subsequent-sibling `~` combinators.
