@@ -57,9 +57,9 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 [`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
 [`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
-[`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
+[`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | height of containing block | 'none' not supported, use negative numbers instead.
 [`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block | 
-[`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> | -1px | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
+[`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | width of containing block | 'none' not supported, use negative numbers instead.
 [`min-width`{:.prop}][min-width] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block | 
 [`opacity`{:.prop}][opacity] | \<number\> | 1 | all | yes | | 
 [`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 

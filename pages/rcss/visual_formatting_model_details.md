@@ -72,8 +72,8 @@ Percentages: | relative to the width of the containing block
 `max-width`{:.prop}
 {:#max-width}
 
-Value: | \<length\> \| \<percentage\>
-Initial: | -1px
+Value: | \<length\> \| \<percentage\> \| none
+Initial: | none
 Applies to: | block and replaced inline elements
 Inherited: | no
 Percentages: | relative to the width of the containing block
@@ -86,7 +86,8 @@ Values have the following meaning:
 `<percentage>`{:.value}
 : Specifies a minimum or maximum width relative to the width of the containing block. 
 
-Note that there is no `auto`{:.value} value for `max-width`{:.prop}; instead, if it is a negative number there is no maximum width.
+`none`{:.value}
+: Specifies that there is no maximum width.
 
 When evaluating `width`{:.prop}, if the computed width is greater than `max-width`{:.prop}, then the width is computed again, this time substituting `max-width`{:.prop} for `width`{:.prop}. If the computed value is less than `min-width`{:.prop}, the the width is computed again, this time substituting `min-width`{:.prop} for `width`{:.prop}.
 
@@ -151,8 +152,8 @@ Percentages: | relative to the height of the containing block
 `max-height`{:.prop}
 {:#max-height}
 
-Value: | \<length\> \| \<percentage\>
-Initial: | -1px
+Value: | \<length\> \| \<percentage\> \| none
+Initial: | none
 Applies to: | block and replaced inline elements
 Inherited: | no
 Percentages: | relative to the height of the containing block
@@ -165,7 +166,8 @@ Values have the following meaning:
 `<percentage>`{:.value}
 : Specifies a minimum or maximum height relative to the height of the containing block. 
 
-Note that there is no `auto`{:.value} value for `max-height`{:.prop}; instead, if it is a negative number there is no maximum height.
+`none`{:.value}
+: Specifies that there is no maximum height.
 
 When evaluating `height`{:.prop}, if the computed width is greater than `max-height`{:.prop}, then the height is computed again, this time substituting `max-height`{:.prop} for `height`{:.prop}. If the computed value is less than `min-height`{:.prop}, the the width is computed again, this time substituting `min-height`{:.prop} for `height`{:.prop}. A block box with a `height`{:.prop} of `auto`{:.value} will never set its height below `min-height`{:.prop} or above `max-height`{:.prop}; this may result in overflow.
 
