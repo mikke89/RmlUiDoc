@@ -9,7 +9,7 @@ RmlUi uses text elements, `Rml::ElementText` derived from `Rml::Element`, to sto
 
 ### Text encoding
 
-The string type used throughout RmlUi `Rml::String` is an alias for `std::string`. This is always assumed to be encoded in UTF-8. This allows storing any Unicode character efficiently, and is compatible with the standard ASCII characters. There are some helper functions for iterating over UTF-8 encoded strings in `RmlUi/Core/StringUtilities.h`{:.path}. There are also helper functions for converting to and from UTF-16 strings, mainly useful for interacting with the Windows API.
+The string type used throughout RmlUi `Rml::String` is an alias for `std::string`. This is always assumed to be encoded in UTF-8. This allows storing any Unicode character efficiently, and is compatible with the standard ASCII characters. There are some helper functions for iterating over UTF-8 encoded strings in `RmlUi/Core/StringUtilities.h`{:.path}.
 
 ### HTML characters
 
@@ -56,4 +56,4 @@ const Rml::String& GetText() const;
 
 ### String generation
 
-Text elements are capable of generating formatted sub-sections of their content. This is generally only required by custom elements placing text internally; see the section on hidden elements for more information. 
+Text elements are capable of generating formatted sub-sections of their content. This is generally only required by custom elements placing text internally; see the section on hidden elements for more information.
