@@ -68,7 +68,7 @@ virtual void RenderElement(Rml::Element* element,
 
 #### Generating geometry
 
-Custom decorators do not need to render their geometry through RmlUi's render interface; as the render interface is quite limiting, decorators way want to talk directly to their application's renderer to access effects such as multiple textures, pixel shaders, etc, for fancy effects. However, you may want to render through the render interface for simplicity if it's all you need.
+Custom decorators do not need to render their geometry through RmlUi's render interface; as the render interface is quite limiting, decorators may want to talk directly to their application's renderer to access effects such as multiple textures, pixel shaders, etc, for fancy effects. However, you may want to render through the render interface for simplicity if it's all you need.
 
 RmlUi uses the `Geometry` class internally for storing and rendering generated geometry. Each geometry object has a single vertex buffer, index buffer and an optional texture. A custom decorator can store one or more geometry objects in each decorator handle.
 
@@ -150,7 +150,7 @@ virtual Rml::SharedPtr<Rml::Decorator> InstanceDecorator(const Rml::String& name
                                                    const Rml::DecoratorInstancerInterface& interface) = 0;
 ```
 
-`InstanceDecorator()` will be called whenever a decorator needs to created using this instancer. It is passed with `name`, the name the decorator was created with, `properties`, the dictionary of the properties the RCSS rules defined for the decorator (see below), and `interface`, an interface for querying the current document state, such as for retrieving sprites.
+`InstanceDecorator()` will be called whenever a decorator needs to be created using this instancer. It is passed with `name`, the name the decorator was created with, `properties`, the dictionary of the properties the RCSS rules defined for the decorator (see below), and `interface`, an interface for querying the current document state, such as for retrieving sprites.
 
 The property dictionary will contain an entry for every property in the decorator's property specification; if a value was not specified in the RCSS, then the default value will be put into the dictionary for you. If the decorator was created successfully, return it from the function. If not, return nullptr and any elements that would have used the decorator will ignore it.
 
