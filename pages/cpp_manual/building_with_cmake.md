@@ -20,7 +20,7 @@ Requirements:
 
 - [vcpkg](#vcpkg)
 
-***Note***: FreeType 2.11.0 introduced an issue causing a crash on startup of some of the samples. Please avoid this version, see [this issue](https://gitlab.freedesktop.org/freetype/freetype/-/issues/1092) for details.
+***Note***: FreeType 2.11.0 introduced an issue causing a crash on startup of some of the samples. Please avoid this version, see [this issue](https://gitlab.freedesktop.org/freetype/freetype/-/issues/1092) for details, which should be fixed since version 2.11.1.
 
 RmlUi is based around CMake for building. You'll first need to download CMake or install it via the package manager of your choice. CMake is not a build system itself: its purpose is to generates Makefiles, Xcode projects and Visual Studio projects, among other formats.
 
@@ -81,7 +81,7 @@ Once the build is complete, you may want to have a look at the samples.
 
 [Conan](https://conan.io) is a C/C++ package manager which can be used for integrating and building the library, and managing its dependencies in an effortless way. If you are new to Conan, then there is a relatively short [Getting Started](https://docs.conan.io/en/latest/getting_started.html) guide worth going through. Information on the RmlUi package itself is available at [ConanCenter: RmlUi](https://conan.io/center/rmlui).
 
-The Conan recipe that environment-specific packages are generated from supports certain options derived from the [CMake options](#cmake-options) below. The following table explains options exclusive to RmlUi available in the recipe. Please bear in mind that in general the Conan community discourages double negation that would arise from naming options with one negation included (eg. `NO_THIRDPARTY_CONTAINERS`); this is why certain recipe options have the opposite meaning of their CMake counterpart.
+The Conan recipe that environment-specific packages are generated from supports certain options derived from the [CMake options](#cmake-options) below. The following table explains options exclusive to RmlUi available in the recipe. Please bear in mind that in general the Conan community discourages double negation that would arise from naming options with one negation included (e.g. `NO_THIRDPARTY_CONTAINERS`); this is why certain recipe options have the opposite meaning of their CMake counterpart.
 
  Conan option               | Possible values               | Default value  | Related CMake option          | Explanation
  ---------------------------|-------------------------------|----------------| ----------------------------- |--------------------------------------------------------------------
@@ -143,18 +143,21 @@ If the version of RmlUi provided with vcpkg is out of date or somehow does not m
 
 ### CMake options
 
-
-- `BUILD_SAMPLES` - Enable to build the included samples.
-- `BUILD_SHARED_LIBS` - Build shared libraries (dynamic libraries, .so/.dylib/.dll) as opposed to static libraries (.a/.lib). If the library is compiled *without* this option, then users of the library must specify `#define RMLUI_STATIC_LIB` before including the library.
-- `BUILD_LUA_BINDINGS` - Build the required bindings for Lua support. You'll need Lua installed.
-- `CMAKE_BUILD_TYPE` - Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
-- `NO_FONT_INTERFACE_DEFAULT` removes the default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
-- `NO_THIRDPARTY_CONTAINERS`: RmlUi comes bundled with some third-party container libraries for improved performance. For users that would rather use the `std` counter-parts, this option is available. The option replaces the containers via a preprocessor definition. If the library is compiled with this option, then users of the library *must* specify `#define RMLUI_NO_THIRDPARTY_CONTAINERS` before including the library.
-- `MATRIX_ROW_MAJOR`: By default RmlUi uses a column-major matrix implementation. By enabling this option, the matrix type is changed to a row-major representation. If this option is enabled, users must `#define RMLUI_MATRIX_ROW_MAJOR` before including the library.
-- `DISABLE_RTTI_AND_EXCEPTIONS` will try to configure the compiler to disable RTTI language support and exceptions. All internal use of RTTI (eg. dynamic_cast) will then be replaced by a custom solution. If set, users of the library must then `#define RMLUI_USE_CUSTOM_RTTI` before including the library.
-- `ENABLE_PRECOMPILED_HEADERS` enables the use of precompiled headers on supported compilers for speeding up compilation times. This requires CMake version 3.16.0 or greater and is enabled by default.
-- `ENABLE_TRACY_PROFILING`: RmlUi has parts of the library tagged with markers for profiling with [Tracy Profiler](https://bitbucket.org/wolfpld/tracy/src/master/). This enables a visual inspection of bottlenecks and slowdowns on individual frames. To compile the library with profiling support, add the Tracy Profiler library to `/Dependencies/tracy/`, enable this option, and compile.  Follow the Tracy Profiler instructions to build and connect the separate viewer. The CMake setup will try to add a new configuration called 'Tracy' which can be selected in eg. Visual Studio next to the 'Debug' and 'Release' configurations, otherwise the profiler will be enabled on the entire project. Users can also add `#define RMLUI_ENABLE_PROFILING` for a given target to enable the profiler.
-- `CUSTOM_CONFIGURATION`: RmlUi's default configuration `<RmlUi/Config/Config.h>`{:.incl} can be overriden by enabling this option. In this way it is possible to replace several types including containers to other STL-compatible containers (such as [EASTL](https://github.com/electronicarts/EASTL)), or to STL containers with custom allocators. After enabling this option, three new variables can be set:
-  - `CUSTOM_CONFIGURATION_FILE`: Set the path to the new configuration file, the default configuration can be used as a template to create this file. Eg. `MyRmlUiConfig.h`{:.path}.
-  - `CUSTOM_INCLUDE_DIRS`: Optionally set additional include directories that may be required by the new configuration file. Eg. `C:\MyProject\`{:.path}.
-  - `CUSTOM_LINK_LIBRARIES`: Optionally set additional libraries to link with.
+- `BUILD_SAMPLES`. Enable to build the included samples.
+- `BUILD_SHARED_LIBS`. Build shared libraries (dynamic libraries, .so/.dylib/.dll) as opposed to static libraries (.a/.lib). If the library is compiled *without* this option, then users of the library must specify `#define RMLUI_STATIC_LIB` before including the library.
+- `BUILD_TESTING`. Build the included tests and benchmarks. This enables three separate executables, see the [Test Suite readme](https://github.com/mikke89/RmlUi/tree/master/Tests) for details.
+  - `VisualTests`{:.path}. A comprehensive test suite for visually testing the layout engine in particular, with automated screenshots and comparisons.
+  - `UnitTests`{:.path}. Tests smaller units of the library to ensure correctness.
+  - `Benchmarks`{:.path}. Benchmarks various components of the library to find performance hotspots and keep track of any regressions.
+- `BUILD_LUA_BINDINGS`. Build the required bindings for Lua support. You'll need Lua installed.
+- `CMAKE_BUILD_TYPE`. Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
+- `NO_FONT_INTERFACE_DEFAULT`. Removes the default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
+- `NO_THIRDPARTY_CONTAINERS`. RmlUi comes bundled with some third-party container libraries for improved performance. For users that would rather use the `std` counter-parts, this option is available. The option replaces the containers via a preprocessor definition. If the library is compiled with this option, then users of the library *must* specify `#define RMLUI_NO_THIRDPARTY_CONTAINERS` before including the library.
+- `MATRIX_ROW_MAJOR`. By default RmlUi uses a column-major matrix implementation. By enabling this option, the matrix type is changed to a row-major representation. If this option is enabled, users must `#define RMLUI_MATRIX_ROW_MAJOR` before including the library.
+- `DISABLE_RTTI_AND_EXCEPTIONS`. Will try to configure the compiler to disable RTTI language support and exceptions. All internal use of RTTI (e.g. dynamic_cast) will then be replaced by a custom solution. If set, users of the library must then `#define RMLUI_USE_CUSTOM_RTTI` before including the library.
+- `ENABLE_PRECOMPILED_HEADERS`. Enables the use of precompiled headers on supported compilers for speeding up compilation times. This requires CMake version 3.16 or greater and is enabled by default.
+- `ENABLE_TRACY_PROFILING`. RmlUi has parts of the library tagged with markers for profiling with [Tracy Profiler](https://bitbucket.org/wolfpld/tracy/src/master/). This enables a visual inspection of bottlenecks and slowdowns on individual frames. To compile the library with profiling support, add the Tracy Profiler library to `/Dependencies/tracy/`, enable this option, and compile.  Follow the Tracy Profiler instructions to build and connect the separate viewer. The CMake setup will try to add a new configuration called 'Tracy' which can be selected in e.g. Visual Studio next to the 'Debug' and 'Release' configurations, otherwise the profiler will be enabled on the entire project. Users can also add `#define RMLUI_ENABLE_PROFILING` for a given target to enable the profiler.
+- `CUSTOM_CONFIGURATION`. RmlUi's default configuration `<RmlUi/Config/Config.h>`{:.incl} can be overriden by enabling this option. In this way it is possible to replace several types including containers to other STL-compatible containers (such as [EASTL](https://github.com/electronicarts/EASTL)), or to STL containers with custom allocators. After enabling this option, three new variables can be set:
+  - `CUSTOM_CONFIGURATION_FILE`. Set the path to the new configuration file, the default configuration can be used as a template to create this file. E.g. `MyRmlUiConfig.h`{:.path}.
+  - `CUSTOM_INCLUDE_DIRS`. Optionally set additional include directories that may be required by the new configuration file. E.g. `C:\MyProject\`{:.path}.
+  - `CUSTOM_LINK_LIBRARIES`. Optionally set additional libraries to link with.
