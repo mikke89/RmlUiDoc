@@ -7,7 +7,8 @@ next: core_overview
 
 This guide will help you get started when you are ready to integrate RmlUi into your own application.
 
-If you haven't already done so, take a look at the sample applications in `/Samples/`{:.path}. There you can find a whole heap of useful examples of how to use and abuse RmlUi. Also in there you can find the shell library we used to develop all the samples (in `/Samples/shell/`{:.path}), which can be great if you want to write a quick and dirty application of your own.
+If you haven't already done so, take a look at the sample applications in [`/Samples/`{:.path}](https://github.com/mikke89/RmlUi/tree/master/Samples). There you can find a whole heap of useful examples of how to use and abuse RmlUi. Also, be sure to take a look at one or more of the included backends (in [`/Backends/`{:.path}](https://github.com/mikke89/RmlUi/tree/master/Backends)), as they provide a good starting point for getting a basic application up and running together with RmlUi.
+
 
 ### Setting up the build environment
 
@@ -16,6 +17,12 @@ RmlUi is developed following the C++14 standard and can be used on the following
 - Windows 32/64bit, compiling with Microsoft Visual Studio 2017+.
 - MacOS 32/64bit, compiling with GCC 5+.
 - Linux, compiling with GCC 5+.
+
+#### Conan and vcpkg
+
+If you used Conan or vcpkg to acquire RmlUi, then libraries and include paths should already have been setup for you. The only thing remaining:
+
+- Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
 #### Visual Studio
 
@@ -40,12 +47,6 @@ RmlUi is developed following the C++14 standard and can be used on the following
 - When the library is built as a static library, add `#define RMLUI_STATIC_LIB` before including the RmlUi headers.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
-#### Conan and vcpkg
-
-If you used Conan or vcpkg to acquire RmlUi, then libraries and include paths should already have been setup for you. The only thing remaining:
-
-- Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
-
 
 ### Initialising RmlUi
 
@@ -65,11 +66,31 @@ For more uses of the system interface, see the [documentation](interfaces/system
 
 #### The render interface
 
-The render interface is defined in `<RmlUi/Core/RenderInterface.h>`{:.incl}. It provides a way for RmlUi to send its geometry into your application's rendering pipeline. If you want to get RmlUi up and running as quickly as possible in your own application, you can copy the render interface defined in the sample shell if your application is using OpenGL (you can find this at `/Samples/shell/include/ShellRenderInterface.h`{:.path} and `/Samples/shell/src/ShellRenderInterface.cpp`{:.path}).
+The render interface is defined in `<RmlUi/Core/RenderInterface.h>`{:.incl}. It provides a way for RmlUi to send its geometry into your application's rendering pipeline. If you want to get RmlUi up and running as quickly as possible, take a look at the included backends described below.
 
 Once you have a render interface for your application, install it into RmlUi by calling `Rml::SetRenderInterface()`.
 
 If you'd like to take an in-depth look at setting up your own render interface, please see the [render interface documentation](interfaces/render.html).
+
+#### Backend integration
+{:#backends}
+
+To simplify the writing of the above interfaces, RmlUi comes packed with several *backends* that provide the render and system interfaces for a variety of renderers and platforms. All available backends are listed in the [repository readme](https://github.com/mikke89/RmlUi#rmlui-backends) and located in the [`/Backends/`{:.path}](https://github.com/mikke89/RmlUi/tree/master/Backends) directory.
+
+A backend usually consists of three source files in addition to their respective headers:
+
+- a *renderer* integrating the render interface,
+- a *platform* integrating the system interface and submitting input events,
+- and finally the *backend* itself - tying the former two together.
+
+If you find a backend that matches your setup, it is recommended to use the underlying renderer and platform directly and compile it within your application. They are also made to be extensible, such as to add the ability to load additional texture formats. The backend itself serves as a sample on how to open a window, handle events, and interact with RmlUi for that combination of platform and renderer.
+
+For example, if you use SDL2 together with OpenGL3, you can add the following source files directly as dependencies in your project:
+
+- [`/Backends/RmlUi_Platform_SDL.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Platform_SDL.cpp).
+- [`/Backends/RmlUi_Renderer_GL3.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Renderer_GL3.cpp).
+
+Then, you can use the `SDL_GL3` backend ([`/Backends/RmlUi_Backend_SDL_GL3.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Backend_SDL_GL3.cpp)) as a starting point or sample reference. This backend in particular also demonstrates how to extend the renderer to load additional texture formats.
 
 #### Initialising the library
 
@@ -90,6 +111,7 @@ You can release the context when you're done with it by calling `Rml::RemoveCont
 
 Your application will need to update and render each context it maintains, as appropriate. Call the `Context::Update()` function on each context as often as necessary to update the context (usually after the frame's input has been injected), and `Context::Render()` at the appropriate place in your application's render loop.
 
+
 ### Loading fonts
 
 RmlUi does not come integrated with any fonts (with the exception of the debugger plugin), they must be provided by the user. Font faces can be loaded through the `Rml::LoadFontFace()` function.
@@ -97,6 +119,7 @@ RmlUi does not come integrated with any fonts (with the exception of the debugge
 ```cpp
 bool success = Rml::LoadFontFace("assets/my_font_face.ttf");
 ```
+
 
 ### Loading a document
 
@@ -116,32 +139,33 @@ document->Close();
 
 **Note**: event listeners attached to the document or any of its children must not be destroyed until the next call to `Context::Update()` or `Rml::Shutdown()`.
 
+
 ### Injecting input
 
 Once you've got a document loading and rendering, the next step is to get your input into RmlUi. The context object has a range of functions for sending mouse, keyboard and text input into the system:
 
 ```cpp
 // Sends a key down event into this context.
-void ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
+bool ProcessKeyDown(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 // Sends a key up event into this context.
-void ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
+bool ProcessKeyUp(Rml::Input::KeyIdentifier key_identifier, int key_modifier_state);
 
 // Sends a single unicode character (code point) as text input into this context.
-void ProcessTextInput(Rml::Character character);
+bool ProcessTextInput(Rml::Character character);
 // Sends a string of UTF-8 text input into this context.
-void ProcessTextInput(const Rml::String& string);
+bool ProcessTextInput(const Rml::String& string);
 
 // Sends a mouse movement event into this context.
-void ProcessMouseMove(int x, int y, int key_modifier_state);
+bool ProcessMouseMove(int x, int y, int key_modifier_state);
 // Sends a mouse-button down event into this context.
-void ProcessMouseButtonDown(int button_index, int key_modifier_state);
+bool ProcessMouseButtonDown(int button_index, int key_modifier_state);
 // Sends a mouse-button up event into this context.
-void ProcessMouseButtonUp(int button_index, int key_modifier_state);
+bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
 // Sends a mouse-wheel movement event into this context.
-void ProcessMouseWheel(float wheel_delta, int key_modifier_state);
+bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 ```
 
-Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. For more information, see the chapter on user input.
+Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. Make sure to take a look at the included backends, as they provide key conversion to RmlUi and event handling for different platforms. For more information on each function, see the [user input manual](input.html). 
 
 
 ### Debugger

@@ -89,3 +89,5 @@ strong
     font-weight: bold;
 }
 ```
+
+If you are unsure about the font-family name of a loaded font file, take a look at the log output as that will list the names of all loaded fonts.

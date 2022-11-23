@@ -36,7 +36,7 @@ In addition, RmlUi provides the following features which should make high DPI gr
 - Decorators and `<img>` elements automatically update when the dp-ratio changes and new sprites are selected.
 - Sprites in decorators and `<img>` elements scale according to the source scaling and targeted dp-ratio.
 
-Clients are themselves responsible for querying the platform for the desired scaling ratio, and then setting the dp-ratio on the RmlUi context. Take a look at RmlUi's sample shell for Windows to see how this is done there.
+Clients are themselves responsible for querying the platform for the desired scaling ratio, and then setting the dp-ratio on the RmlUi context. Take a look at RmlUi's included backends for how this is implemented there for different [platforms with support for high DPI](https://github.com/mikke89/RmlUi#rmlui-backends).
 
 
 ### Can I implement hot reloading of documents?

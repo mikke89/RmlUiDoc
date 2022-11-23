@@ -11,7 +11,6 @@ Game interface from the 'invader' sample
 ![Game menu](../assets/gallery/menu_screen.png)\
 Game menu
 
-
 {: .gallery-item }
 ![Installer](../assets/gallery/xland_installer.png)\
 Installer software by [@xland](https://github.com/xland)
@@ -36,6 +35,10 @@ Transitions with transforms on a game menu</p>
 <p class="gallery-item">
 <video src="animations/game_menu_transform.webm" width="640" height="360" poster="animations/game_menu_transform_poster.png" preload="metadata" controls></video><br/>
 Camera movement in a game menu</p>
+
+{: .gallery-item }
+![VisualTests application](../assets/gallery/visual_tests_flex.png)\
+RmlUi visual testing framework
 
 {: .gallery-item }
 ![Form controls](../assets/gallery/forms.png)\

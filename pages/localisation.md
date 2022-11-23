@@ -20,7 +20,7 @@ A pass-through translator would do the following:
 
 class SampleSystemInterface : public Rml::SystemInterface
 {
-	int TranslateString(Rml::String& translated, const Rml::String& input)
+	int TranslateString(Rml::String& translated, const Rml::String& input) override
 	{
 		translated = input;
 		return 0;
@@ -62,7 +62,7 @@ If we were to localise _Rocket Invaders_, we'd want to move all of the English s
 Assuming the appliation has a `StringTable` class that has loaded the appropriate string table for the language, our sample translator would then become:
 
 ```cpp
-	int TranslateString(Rml::String& translated, const Rml::String& input)
+	int TranslateString(Rml::String& translated, const Rml::String& input) override
 	{
 		// Attempt to find the translation in the string table.
 		if (StringTable::GetString(translated, input))

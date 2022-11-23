@@ -5,7 +5,7 @@ parent: cpp_manual
 next: interfaces
 ---
 
-RmlUi does not read user input, but requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
+RmlUi does not read user input directly, instead, it requires the application to feed its contexts with input events. Each context will process the input it is provided with and dispatch events as appropriate.
 
 ### Key modifiers
 
@@ -127,7 +127,7 @@ The following can provide a hint on whether or not the mouse cursor is currently
 bool IsMouseInteracting() const;
 ```
 
-Note that interaction is determined irrespective of background and opacity. See the `pointer-events`{:.prop} property to disable interaction for specific elements.
+Note that interaction is determined irrespective of background and opacity. See the [`pointer-events`{:.prop}](../rcss/user_interface.html#pointer-events) property to disable interaction for specific elements.
 
 ### Key input
 
@@ -174,4 +174,4 @@ These functions will generate a `textinput`{:.evt} event targeted at the context
 
 ### Sample input processing
 
-The sample shell (found under your RmlUi installation at `/Samples/shell/`{:.path}) contains a sample implementation of input processing for all of RmlUi's supported platforms, including a key-to-text converter for a US-keyboard layout (see `/Samples/shell/src/Input.cpp`{:.path}).
+The included backends (found under your RmlUi installation at `/Backends/`{:.path}) contain sample implementations of input processing for multiple supported platforms, including key conversion to RmlUi (see `/Backends/RmlUi_Platform_<...>.cpp`{:.path}).

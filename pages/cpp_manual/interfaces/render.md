@@ -11,6 +11,8 @@ The render interface is how RmlUi sends its generated geometry through to the ap
 
 The render interface is given in `<RmlUi/Core/RenderInterface.h>`{:.incl}. To develop a custom render interface, create a class derived from `Rml::RenderInterface` and provide function definitions for the pure virtual functions, and any of the others that you wish to provide functionality for.
 
+For example implementations of the interface, take a look the included backends in RmlUi and their respective renderers (`/Backends/RmlUi_Renderer_<...>.cpp`{:.path}).
+
 
 ### Rendering conventions
 
@@ -108,8 +110,6 @@ virtual void SetScissorRegion(int x, int y, int width, int height) = 0;
 
 `SetScissorRegion()` is called when RmlUi wants to define the current scissor region. The scissor region is given as a rectangle, x and y being the top-left corner (as a pixel offset from the top-left corner of the rendering context). width and height are the dimensions of the rectangle, in pixels. Until the scissor region is changed, all RmlUi geometry should be clipped to fall within this region.
 
-For example implementations of the scissoring functions, see the sample shell (`/Samples/shell/`{:.path}) for an OpenGL approach.
-
 ### Generating and releasing textures
 
 RmlUi makes calls to the render interface to load, generate and release textures. As this functionality is required by RmlUi, these functions must be implemented in all render interfaces.
@@ -139,8 +139,6 @@ If the `LoadTexture()` function succeeds in loading the texture, it should retur
 `GenerateTexture()` is used by the font system to convert raw pixel data to a texture. The `texture_handle` parameter is a reference to a `Rml::TextureHandle` type to be set, as in `LoadTexture()`. The raw pixel data is given in `source`; this is an array of unsigned, 8-bit values in RGBA order. It is laid out in tightly-packed rows, so exactly `(source_dimensions.x * source_dimensions.y * 4)` bytes in size. The `source_dimensions` variable is set to the dimensions of the raw texture data.
 
 `ReleaseTexture()` is called with a texture handle once it is no longer required by RmlUi.
-
-See the sample shell for an OpenGL texture implementations.
 
 ### Transforms
 
