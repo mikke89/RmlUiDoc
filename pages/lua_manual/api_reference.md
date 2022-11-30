@@ -194,7 +194,15 @@ The Context class has no constructor; it must be instantiated through the Create
 | ------------ | ---- |
 | [AddEventListener](#Context-AddEventListener){: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } script, `Element`{: .lua-type } element_context, `boolean`{: .lua-type } in_capture_phase) | `nil`{: .lua-type } |
 | [CreateDocument](#Context-CreateDocument){: .lua-function }(`string`{: .lua-type } tag) | `Document`{: .lua-type }<br> |
+| [IsMouseInteracting](#Context-IsMouseInteracting){: .lua-function }() | `boolean`{: .lua-type }<br> |
 | [LoadDocument](#Context-LoadDocument){: .lua-function }(`string`{: .lua-type } document_path) | `Document`{: .lua-type }<br> |
+| [ProcessKeyDown](#Context-ProcessKeyDown){: .lua-function }(`integer`{: .lua-type } key_identifier, `integer`{: .lua-type } key_modifier_state) | `boolean`{ .lua-type } <br> |
+| [ProcessKeyUp](#Context-ProcessKeyUp){: .lua-function }(`integer`{: .lua-type } key_identifier, `integer`{: .lua-type } key_modifier_state) | `boolean`{ .lua-type } <br> |
+| [ProcessMouseButtonDown](#Context-ProcessMouseButtonDown){: .lua-function }( `integer`{: .lua-type } button_index, `integer`{: .lua-type } key_modifier_state) | `boolean`{ .lua-type } <br> |
+| [ProcessMouseButtonUp](#Context-ProcessMouseButtonUp){: .lua-function }( `integer`{: .lua-type } button_index, `integer`{: .lua-type } key_modifier_state) | `boolean`{ .lua-type } <br> |
+| [ProcessMouseLeave](#Context-ProcessMouseLeave){: .lua-function }() | `boolean`{: .lua-type }<br> |
+| [ProcessMouseWheel](#Context-ProcessMouseWheel){: .lua-function }(`number`{: lua-type} delta, `integer`{: .lua-type } key_modifier_state) | `boolean`{ .lua-type } <br> |
+| [ProcessTextInput](#Context-ProcessTextInput){: .lua-function }(`string`{: lua-type} `integer`{: .lua-type }  input) | `boolean`{ .lua-type } <br> |
 | [Render](#Context-Render){: .lua-function }() | `boolean`{: .lua-type }<br> |
 | [UnloadAllDocuments](#Context-UnloadAllDocuments){: .lua-function }() | `nil`{: .lua-type } |
 | [UnloadDocument](#Context-UnloadDocument){: .lua-function }(`Document`{: .lua-type } document) | `nil`{: .lua-type } |
@@ -231,8 +239,24 @@ The Context class has no constructor; it must be instantiated through the Create
 <a href='#Context-CreateDocument' name='Context-CreateDocument'>CreateDocument</a>{: .lua-function }(`string`{: .lua-type } tag)  &rarr; `Document`{: .lua-type }
 : Creates a new document with the tag name of `tag`.
 
+<a href='#Context-IsMouseInteracting' name='Context-IsMouseInteracting'>IsMouseInteracting</a>{: .lua-function }() &rarr; `boolean`{: .lua-type }: Returns a hint on whether the mouse is currently interacting with any elements in this context.
+
 <a href='#Context-LoadDocument' name='Context-LoadDocument'>LoadDocument</a>{: .lua-function }(`string`{: .lua-type } document_path)  &rarr; `Document`{: .lua-type }
 : Attempts to load a document from the RML file found at `document_path`. If successful, the document will be returned with a reference count of one.
+
+<a href='#Context-ProcessKeyDown' name='Context-ProcessKeyDown'>ProcessKeyDown</a>{: .lua-function }(`integer`{: .lua-type } key_identifier, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }: Sends a key down event into this context. `key_identifier` is the key pressed and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the event was consumed, otherwise false.
+
+<a href='#Context-ProcessKeyUp' name='Context-ProcessKeyUp'>ProcessKeyUp</a>{: .lua-function }(`integer`{: .lua-type } key_identifier, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }: Sends a key release event into this context. `key_identifier` is the key released and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the event was consumed, otherwise false.
+
+<a href='#Context-ProcessMouseButtonDown' name='Context-ProcessMouseButtonDown'>ProcessMouseButtonDown</a>{: .lua-function }(`integer`{: .lua-type } button_index, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }: Sends a mouse-button down event into this context. `button_index` is the the index of the button that was pressed (0 for the left button, 1 for right, and any others from 2 onwards), and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the mouse is not interacting with any elements in the context, otherwise false.
+
+<a href='#Context-ProcessMouseButtonUp' name='Context-ProcessMouseButtonUp'>ProcessMouseButtonUp</a>{: .lua-function }(`integer`{: .lua-type } button_index, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }: Sends a mouse-button up event into this context. `button_index` is the the index of the button that was released (0 for the left button, 1 for right, and any others from 2 onwards), and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the mouse is not interacting with any elements in the context, otherwise false.
+
+<a href='#Context-ProcessMouseLeave' name='Context-ProcessMouseLeave'>ProcessMouseLeave</a>{: .lua-function }()  &rarr; `boolean`{: .lua-type }: Tells the context that the mouse has left the window. Returns true if the mouse is not interacting with any elements in the context, otherwise false.
+
+<a href='#Context-ProcessMouseWheel' name='Context-ProcessMouseWheel'>ProcessMouseWheel</a>{: .lua-function }(`number`{: lua-type} delta, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }: Sends a mouse-wheel movement event into this context. `wheel_delta` is the mouse-wheel movement this frame, and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the event was not consumed (ie, was prevented from propagating by an element), false if it was.
+
+<a href='#Context-ProcessTextInput' name='Context-ProcessTextInput'>ProcessTextInput</a>{: lua-function }(`string`{: lua-type} `integer`{: .lua-type }  input) &rarr; `boolean`{ .lua-type }: Sends a text input event into the context. If the `input` type is `integer`, sends a single key event, if the `input` is `string`, sends this string as a text input event. Return true if the event was not consumed (ie, was prevented from propagating by an element), false if it was.
 
 <a href='#Context-Render' name='Context-Render'>Render</a>{: .lua-function }()  &rarr; `boolean`{: .lua-type }
 : Renders the context.
