@@ -260,10 +260,10 @@ The Context class has no constructor; it must be instantiated through the Create
 <a href='#Context-ProcessMouseLeave' name='Context-ProcessMouseLeave'>ProcessMouseLeave</a>{: .lua-function }()  &rarr; `boolean`{: .lua-type }
 : Tells the context that the mouse has left the window. Returns true if the mouse is not interacting with any elements in the context, otherwise false.
 
-<a href='#Context-ProcessMouseWheel' name='Context-ProcessMouseWheel'>ProcessMouseWheel</a>{: .lua-function }(`number`{: lua-type} delta, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{ .lua-type }
+<a href='#Context-ProcessMouseWheel' name='Context-ProcessMouseWheel'>ProcessMouseWheel</a>{: .lua-function }(`number`{: lua-type} delta, `integer`{: .lua-type } key_modifier_state) &rarr; `boolean`{: .lua-type }
 : Sends a mouse-wheel movement event into this context. `wheel_delta` is the mouse-wheel movement this frame, and the `key_modifier_state` is the state of key modifiers at the moment of the event. Returns true if the event was not consumed (ie, was prevented from propagating by an element), false if it was.
 
-<a href='#Context-ProcessTextInput' name='Context-ProcessTextInput'>ProcessTextInput</a>{: lua-function }(`string`{: lua-type} `integer`{: .lua-type }  input) &rarr; `boolean`{ .lua-type }
+<a href='#Context-ProcessTextInput' name='Context-ProcessTextInput'>ProcessTextInput</a>{: lua-function }(`string`{: lua-type} `integer`{: .lua-type }  input) &rarr; `boolean`{: .lua-type }
 : Sends a text input event into the context. If the `input` type is `integer`, sends a single key event, if the `input` is `string`, sends this string as a text input event. Return true if the event was not consumed (ie, was prevented from propagating by an element), false if it was.
 
 <a href='#Context-Render' name='Context-Render'>Render</a>{: .lua-function }()  &rarr; `boolean`{: .lua-type }
