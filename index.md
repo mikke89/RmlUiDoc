@@ -6,9 +6,7 @@ can_edit: false
 include_in_search_results: false
 ---
 
-![rmlui-logo](assets/rmlui.png)
-
-### RmlUi
+![RmlUi logo](assets/rmlui.png)
 
 [RmlUi]({{page.lib_site}}) is the C++ user interface library based on the HTML and CSS standards. The online documentation reflects the current master branch of RmlUi, there is also [offline documentation](https://github.com/mikke89/RmlUiDoc/releases/) occasionally released for earlier versions of the library. Documentation feedback and pull requests are welcome on the official [documentation repository]({{site.repository_url}}).
 
