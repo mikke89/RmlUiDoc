@@ -182,6 +182,7 @@ The Context class has no constructor; it must be instantiated through the Create
 | ------------ | ---- |
 | [dimensions](#Context-dimensions){: .lua-function } | `Vector2i`{: .lua-type } |
 | [documents](#Context-documents){: .lua-function } | `ContextDocumentsProxy`{: .lua-type } |
+| [dp_ratio](#Context-dp_ratio){: .lua-function } | `number`{: .lua-type } |
 | [focus_element](#Context-focus_element){: .lua-function } | `Element`{: .lua-type } |
 | [hover_element](#Context-hover_element){: .lua-function } | `Element`{: .lua-type } |
 | [name](#Context-name){: .lua-function } | `string`{: .lua-type } |
@@ -216,6 +217,9 @@ The Context class has no constructor; it must be instantiated through the Create
 
 <a href='#Context-documents' name='Context-documents'>documents</a>{: .lua-function }  :: `ContextDocumentsProxy`{: .lua-type }
 : Returns an array of the documents within the context. This can be looked up as an array or a dictionary. Read-only.
+
+<a href='#Context-dp_ratio' name='Context-dp_ratio'>dp_ratio</a>{: .lua-function }  :: `number`{: .lua-type }
+: The density independent pixel ratio of the context. This value determines ratio between 'dp' and 'px' units.
 
 <a href='#Context-focus_element' name='Context-focus_element'>focus_element</a>{: .lua-function }  :: `Element`{: .lua-type }
 : Returns the leaf of the context's focus tree. Read-only.
