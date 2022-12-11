@@ -36,7 +36,7 @@ The following will guide you through the process of building RmlUi. This is nece
 
 For new users, the recommended approach is to use a package manager such as vcpkg or Conan to handle building and integration of the library. These take care of dependencies and all the integration details, getting you set-up with a breeze.
 
-For full access to all the build options, the library can be manually built using CMake. You'll first need to download CMake or install it via a package manager of your choice. CMake is not a build system itself, its purpose is to generate Makefiles, Xcode projects and Visual Studio projects, among other formats. Next, follow the instructions for your operating system below.
+For full access to all the build options, the library can be manually built using CMake. You'll first need to download CMake or install it via a package manager of your choice. CMake is not a build system itself, its purpose is to generate Makefiles, Xcode projects and Visual Studio projects, among other formats. Next, follow the instructions for your platform below.
 
 If you haven't already done so, download a copy of RmlUi. You can download and extract the library as a zip file, or use git from your terminal:
 
@@ -117,7 +117,7 @@ If the recipe is out of date or somehow does not meet certain needs, then contri
 
 This section is aimed at users of Visual Studio, however the procedure should be transferable to other environments.
 
-In addition to CMake, you need a copy of the FreeType library, version 2.12.1 is officially supported, although any newer versions are normally backward compatible. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}, and the include directory `RmlUi/Dependencies/freetype/include`{:.path} to the parent directory `RmlUi/Dependencies/include`{:.path}.
+In addition to CMake, you need a copy of the FreeType library, version 2.12.1 is officially supported, although newer versions are normally backward compatible. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}, and the include directory `RmlUi/Dependencies/freetype/include`{:.path} to the parent directory `RmlUi/Dependencies/include`{:.path}.
 
 Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See the CMake options in the section below for a description of some of them. If you'd like to take a look at the included samples, enable the `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
 
@@ -164,7 +164,7 @@ Once the build is complete, you may want to have a look at the samples.
 ### Building using Emscripten
 {:#emscripten}
 
-RmlUi can be compiled using [Emscripten](https://emscripten.org/) into WebAssembly, which makes it possible to run the library on the Web or with other wasm runtimes. Follow the instructions on the Emscripten website to get started, make sure you have downloaded and installed the software for your platform. If you are on Windows we recommend to follow the instructions below using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). Verify that everything is in order by running `emcc -v` in your terminal which should output some version information.
+RmlUi can be compiled using [Emscripten](https://emscripten.org/) into WebAssembly, which makes it possible to run the library on the Web or with other wasm runtimes. Follow the instructions on the Emscripten website to get started, make sure you have downloaded and installed the software for your platform. If you are on Windows we recommend to follow the instructions below using [WSL](https://learn.microsoft.com/en-us/windows/wsl/install). Verify that everything is in order by running `emcc -v` in your terminal which should output version information.
 
 The CMake configuration in RmlUi enables the included samples to target Emscripten. To build the samples, first find the RmlUi source directory in your terminal, make a subdirectory, and enter it.
 ```
