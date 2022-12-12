@@ -52,7 +52,7 @@ Start by defining a template file `basic.rml`:
 
 #### Body template
 
-The template can then be can be used as a body template in a document as follows.
+The template can then be used as a body template in a document as follows.
 
 
 ```html
