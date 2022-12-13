@@ -117,13 +117,13 @@ If the recipe is out of date or somehow does not meet certain needs, then contri
 
 This section is aimed at users of Visual Studio, however the procedure should be transferable to other environments.
 
-In addition to CMake, you need a copy of the FreeType library, version 2.12.1 is officially supported, although newer versions are normally backward compatible. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}, and the include directory `RmlUi/Dependencies/freetype/include`{:.path} to the parent directory `RmlUi/Dependencies/include`{:.path}.
+In addition to CMake, you need a copy of the FreeType library, version 2.12.1 is officially supported, although newer versions are normally backward compatible. You can find prebuilt dynamic Windows binaries [here](https://github.com/ubawurinna/freetype-windows-binaries). Create the directory `RmlUi/Dependencies/freetype`{:.path} if it does not exist, and copy the FreeType files here. Move the FreeType library file `RmlUi/Dependencies/freetype/release dll/win64/freetype.lib`{:.path} to the new location `RmlUi/Dependencies/lib/freetype.lib`{:.path}, and the include directory `RmlUi/Dependencies/freetype/include`{:.path} to the parent directory `RmlUi/Dependencies/include`{:.path}.
 
 Next, start up `cmake-gui` and browse here to your RmlUi source code. Choose to build the binaries under `RmlUi/Build`{:.path}. Click configure and select your Visual Studio version. Now there will be a few options appearing. See the CMake options in the section below for a description of some of them. If you'd like to take a look at the included samples, enable the `BUILD_SAMPLES` option. Finally, click `Generate`. If it was successful, your Visual Studio solution file should be located at `RmlUi/Build/RmlUi.sln`{:.path}.
 
 ![cmake-gui](../../assets/images/cmake-gui.png)
 
-If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/win64/freetype.dll`{:.path} file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`{:.path}. By default, this will be the working directory when starting applications from Visual Studio.
+If you use the dynamic binary version of FreeType, copy the `RmlUi/Dependencies/freetype/release dll/win64/freetype.dll`{:.path} file into a place where the RmlUi applications can see it, such as  `RmlUi/Build`{:.path}. By default, this will be the working directory when starting applications from Visual Studio.
 
 Open up the generated Visual Studio solution file. Now there should be several samples available in addition to the RmlCore and RmlDebugger projects. If you set the CMake option to build the samples, you can now right click on `invaders`, and click `Set as StartUp Project`. Finally, press `F5` to start building and open the invaders demo when done. Enjoy!
 
