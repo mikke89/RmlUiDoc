@@ -39,7 +39,7 @@ DataModelConstructor Context::CreateDataModel(const String& name);
 
 #### Registering types
 
-Users should first register types before binding variables, as RmlUi may need the type information to instanciate the data variables. All registered types apply to every data model in the current context.
+Users should first register types before binding variables, as RmlUi may need the type information to instantiate the data variables. All registered types apply to every data model in the current context.
 
 Built-in types are handled automatically and do not need to be registered, this applies to arithmetic types such as `int` and `float`, as well as `Rml::String`.
 
