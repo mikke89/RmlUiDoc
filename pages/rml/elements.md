@@ -13,7 +13,7 @@ The user is encouraged to follow standard HTML guidelines where possible to impr
 
 ### Global Attributes
 
-Elements have a base set of attributes that are common to across all types, which are:
+Elements have a base set of attributes that are common to all types, which are:
 
 `id`{:.attr} = id (CS)
 : The unique identifier for the element in this document.

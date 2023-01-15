@@ -2,20 +2,22 @@
 layout: page
 title: RML Document Structure
 parent: rml
-next: images
+next: style_sheets
 ---
 
 ### \<rml\>
 
-All RmlUi documents begin with the `<rml>`{:.tag} element. The element should contain two children, `<head>`{:.tag} and `<body>`{:.tag}.
+All RmlUi documents begin with the `<rml>`{:.tag} element. The element should contain two children, `<head>`{:.tag} and `<body>`{:.tag}, as shown in the following basic structure of a document.
 
 ```html
 <rml>
 	<head>
-	...
+		<title>...</title>
+		<link type="text/rcss" href="style.rcss"/>
+		...
 	</head>
 	<body>
-	...
+		...
 	</body>
 </rml>
 ```

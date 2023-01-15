@@ -1,11 +1,11 @@
 ---
 layout: page
-title: HTML4 Style Sheet
+title: HTML Style Sheet
 parent: rml
 next: deprecated
 ---
 
-This sample style sheet is based on the recommended CSS 2.0 style sheet found [here](http://www.w3.org/TR/REC-CSS2/sample.html). It introduces default rules that we recommend you use as a basis for your own style sheet.
+This sample style sheet is based on the recommended CSS 2 style sheet found [here](https://drafts.csswg.org/css2/#html-stylesheet). It introduces default rules that we recommend you use as a basis for your own style sheet.
 
 ```css
 body, div,
@@ -26,31 +26,30 @@ h1
 h2
 {
 	font-size: 1.5em;
-	margin: .83em 0;
+	margin: .75em 0;
 }
 
 h3
 {
 	font-size: 1.17em;
-	margin: 1em 0;
+	margin: .83em 0;
 }
 
 h4, p
 {
-	margin: 1.33em 0;
+	margin: 1.12em 0;
 }
 
 h5
 {
 	font-size: .83em;
-	line-height: 1.17em;
-	margin: 1.67em 0;
+	margin: 1.5em 0;
 }
 
 h6
 {
-	font-size: .67em;
-	margin: 2.33em 0;
+	font-size: .75em;
+	margin: 1.67em 0;
 }
 
 h1, h2, h3, h4,

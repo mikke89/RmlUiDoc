@@ -2,7 +2,7 @@
 layout: page
 title: RML Data Display Elements
 parent: rml
-next: templates
+next: element_index
 ---
 
 See also [data bindings](../data_bindings.html) for dynamically displaying and updating data from the client application.

@@ -2,14 +2,10 @@
 layout: page
 title: RML Events
 parent: rml
-next: element_index
+next: images
 ---
 
-The event system is based on the extremely flexible DOM event system.
-
-When an event is fired at a target element, it **captures** from the root to the target and then **bubbles** back up to the root. Event listeners can be attached in either capture or bubble phase.
-
-Binding done in RML will always attach to the bubble phase.
+The event system is based on the extremely flexible DOM event system. When an event is fired at a target element, it **captures** from the root to the target and then **bubbles** back up to the root. Event listeners can be attached in either capture or bubble phase. Binding done in RML will always attach to the bubble phase.
 
 Some events do not execute the bubble phase. For additional details, see the [C++ events documentation](../cpp_manual/events.html).
 

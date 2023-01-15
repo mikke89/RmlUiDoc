@@ -2,7 +2,7 @@
 layout: page
 title: RML Templates
 parent: rml
-next: events
+next: syntax
 ---
 
 ### \<template\>
