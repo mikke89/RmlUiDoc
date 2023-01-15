@@ -5,9 +5,9 @@ parent: rml
 next: events
 ---
 
-RML generally follows the XML syntax for HTML. In particular this means that all tags must be closed, otherwise the document will be parsed incorrectly. Further, it is assumed that documents are encoded in UTF-8. XML namespaces are not supported.
+RML generally follows the [XML syntax](https://html.spec.whatwg.org/multipage/xhtml.html) for HTML. In particular this means that all tags must be closed, otherwise the document will be parsed incorrectly. Further, it is assumed that documents are encoded in UTF-8. XML namespaces are not supported.
 
-RML documents are written as a tree of tags, see the [documents](documents.html) page for their general structure. The following describes some features beyond the common tree parsing behavior. For the most part, the syntax is equivalent to a subset of XML and HTML, and with some additions.
+RML documents are written as a tree of tags, see the [documents](documents.html) page for their general structure. The following describes some features beyond the common tree parsing behavior. For the most part, the syntax is equivalent to a subset of XML and HTML, with some additions.
 
 
 ### Character references
@@ -45,6 +45,7 @@ Comments are supported using the familiar format.
 ```
 
 Comments can also include tags, which will be ignored.
+
 
 ### CData sections
 
