@@ -78,13 +78,13 @@ All mouse events send through key modifiers.
 : Sent to the element under the mouse cursor when a mouse button is clicked. A click is defined as a button press followed by a button release over the same element.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The button that was clicked. 
+* `button`: The mouse button number that was clicked. 
 
 `dblclick`{:.evt}
 : Sent to the element under the mouse cursor when a mouse button is double clicked. Note that the `click`{:.attr} event will always be sent before `dblclick`{:.evt}.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The button that was clicked. 
+* `button`: The mouse button number that was clicked. 
 
 `mouseover`{:.evt}
 : Sent to an element as the mouse cursor moves onto it.
@@ -105,13 +105,13 @@ All mouse events send through key modifiers.
 : Sent to the element under the mouse cursor when a mouse button is released.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The button that was released. 
+* `button`: The mouse button number that was released. 
 
 `mousedown`{:.evt}
 : Sent to the element under the mouse cursor when a mouse button is pressed down.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The button that was pressed. 
+* `button`: The mouse button number that was pressed. 
 
 `mousescroll`{:.evt}
 : Sent to the focus element when the mouse's scroll wheel is scrolled.
