@@ -22,7 +22,7 @@ RML maintains the core components of HTML5, including CSS. It provides a number 
 ##### Part II -- Images and forms
 
 {:start="7"}
-7. [Images](rml/images.html) - Referencing images.
+7. [Images](rml/images.html) - Embedding images.
 8. [Forms](rml/forms.html) - User-input forms.
 9. [Controls](rml/controls.html) - Tabsets and window handles.
 10. [Data display](rml/data_display.html) - Progress bars.

@@ -5,14 +5,14 @@ parent: rml
 next: events
 ---
 
-RML generally follows the [XML syntax](https://html.spec.whatwg.org/multipage/xhtml.html) for HTML. In particular this means that all tags must be closed, otherwise the document will be parsed incorrectly. Further, it is assumed that documents are encoded in UTF-8. XML namespaces are not supported.
+RML generally follows the [XML syntax](https://html.spec.whatwg.org/multipage/xhtml.html) for HTML. In particular this means that *all tags* must be closed. Further, it is assumed that documents are encoded in UTF-8. XML namespaces are not supported.
 
-RML documents are written as a tree of tags, see the [documents](documents.html) page for their general structure. The following describes some features beyond the common tree parsing behavior. For the most part, the syntax is equivalent to a subset of XML and HTML, with some additions.
+RML documents consist of a tree of nodes, see the [documents](documents.html) page for their general structure. The following describes some features beyond the common tree parsing behavior. For the most part, the syntax is equivalent to a subset of XML and HTML, with some additions.
 
 
 ### Character references
 
-RML supports character references in attributes and in data (text) encountered inside tags. When encountered, they will be translated into a specified Unicode code point.
+RML supports character references in attributes and in data (text) encountered inside tags. When encountered, they will be translated into the specified Unicode code point.
 
 #### Named character references
 
@@ -49,7 +49,7 @@ Comments can also include tags, which will be ignored.
 
 ### CData sections
 
-CData sections can be used to include text that should not be parsed as RML. The section is started by `<![CDATA[`, followed by any data, and finally ended by `]]>`.
+CData sections can be used to include text that should not be parsed as RML. The section is started by `<![CDATA[`, followed by some data, and finally ended by `]]>`.
 
 **Example**
 ```html
@@ -62,7 +62,7 @@ CData sections can be used to include text that should not be parsed as RML. The
 
 ### CData tags
 
-When a CData tag is encountered in a document, all subsequent text is considered raw data until its respective end tag is encountered.
+When a CData tag is encountered in a document, all subsequent text is considered raw data until its end tag is encountered.
 
 |   CData tags  |
 | ------------- |
@@ -72,13 +72,13 @@ When a CData tag is encountered in a document, all subsequent text is considered
 
 ### Structural data attributes
 
-When a node with the given attribute is encountered, then all descendant RML nodes and data will be treated as a single data child of the structural node.
+When a node with a structural data attribute is encountered, then all descendant RML nodes and data will be treated as a single data child of the structural node.
 
 | Structural data attributes  |
-| -------------  |
-| `data-for`{:.attr}     |
+| --------------------------  |
+| `data-for`{:.attr}          |
 
-Note that a valid subtree is still required and considered to find the correct end tag.
+Note that a valid subtree is still required, and that the subtree will be considered when finding the node's end tag.
 
 ##### Example
 
