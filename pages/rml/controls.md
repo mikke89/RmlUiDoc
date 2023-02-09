@@ -12,15 +12,28 @@ The `<handle>`{:.tag} element can be used to move or change the size of elements
 _Attributes_
 
 `move_target`{:.attr} = idref (CI)
-: If specified, the handle will move the element specified by the ID when dragged. Can be `#document`{:.value} to reference the parent document.
+: If specified, the handle will move the element specified by the ID when dragged. Can be `#document`{:.value} to reference the current document, or `#parent`{:.value} to reference the parent element.
 
 `size_target`{:.attr} = idref (CI)
-: If specified, the handle will size the element specified by the ID when dragged. Can be `#document`{:.value} to reference the parent document.
+: If specified, the handle will size the element specified by the ID when dragged. Can be `#document`{:.value} to reference the current document, or `#parent`{:.value} to reference the parent element.
+
+The target element is sized by adjusting its `width`{:.prop} and `height`{:.prop} properties, while it is moved by adjusting its `top`{:.prop} and `left`{:.prop} properties.
 
 ```html
 <handle move_target="#document">
 	<div id="title">My document</div>
 </handle>
+```
+
+```html
+<div class="help_box">
+	<handle size_target="#parent"/>
+</div>
+```
+
+```html
+<div id="bucket">Bucket</div>
+<handle move_target="bucket">Drag to move the bucket.</handle>
 ```
 
 ### \<tabset\>
