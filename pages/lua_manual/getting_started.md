@@ -11,15 +11,15 @@ For a full list of types and methods please see the RmlUi Lua [API Reference](ap
 
 ### Requirements
 
-- [Lua 5.2+](https://www.lua.org/)
+- [Lua 5.1+](https://www.lua.org/)
 
-Tested with Lua 5.3 which is the recommended version, but we aim for compatibility with Lua version 5.2 and newer. For Lua 5.1 support there is an unofficial Lua plugin [RmlSolLua](https://github.com/LoneBoco/RmlSolLua) based on sol3.
+Tested with Lua 5.3 which is the recommended version, but we aim for compatibility with Lua version 5.1 and newer, including support for LuaJIT. There is also an unofficial Lua plugin [RmlSolLua](https://github.com/LoneBoco/RmlSolLua) based on sol3 with Lua 5.1 compatibility.
 
 ### Lua plugin integration
 
 Perform the following steps to integrate the Lua plugin with RmlUi.
 
-1. Download and build the Lua 5.x library, or install it with your system package manager.
+1. Download and build the Lua 5.x library, or install it with your package manager.
 
 2. Build RmlUi with the Lua plugin enabled. See [Building with CMake](../cpp_manual/building_with_cmake.html) in the C++ manual for details.
     - Enable the option `BUILD_LUA_BINDINGS` during the CMake configuration.
@@ -36,4 +36,4 @@ Perform the following steps to integrate the Lua plugin with RmlUi.
     - This call should happen just after the call to `Rml::Initialise();`.
 	- It is also possible to provide your own lua state by calling `Rml::Lua::Initialise(lua_State* L);`.
 
-Once you are done integrating the Lua plugin, you can start embedding Lua scripts inside your RML documents.
+Once you are done integrating the Lua plugin, you can start [embedding Lua scripts](embedding_script.html) inside your RML documents.

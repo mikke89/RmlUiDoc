@@ -196,7 +196,8 @@ The samples all use the [`SDL_GL3`](https://github.com/mikke89/RmlUi/blob/master
   - `VisualTests`{:.path}. A comprehensive test suite for visually testing the layout engine in particular, with automated screenshots and comparisons.
   - `UnitTests`{:.path}. Tests smaller units of the library to ensure correctness.
   - `Benchmarks`{:.path}. Benchmarks various components of the library to find performance hotspots and keep track of any regressions.
-- `BUILD_LUA_BINDINGS`. Build the required bindings for Lua support. You'll need Lua installed.
+- `BUILD_LUA_BINDINGS`. Build the required bindings for Lua support. You'll need Lua installed. Enables the following option:
+  - `BUILD_LUA_BINDINGS_FOR_LUAJIT`. Find and link to LuaJIT instead of Lua.
 - `SAMPLES_BACKEND`. Choose the backend to use for the samples, based on a [supported combination](https://github.com/mikke89/RmlUi#rmlui-backends) of platform and renderer, or `auto`{:.value}.
 - `CMAKE_BUILD_TYPE`. Choose the build type between: Debug, Release, RelWithDebInfo, MinSizeRel, or None (passed in CMAKE_CXX_FLAGS flags are used).
 - `NO_FONT_INTERFACE_DEFAULT`. Removes the default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
