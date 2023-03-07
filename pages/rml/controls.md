@@ -17,7 +17,12 @@ _Attributes_
 `size_target`{:.attr} = idref (CI)
 : If specified, the handle will size the element specified by the ID when dragged. Can be `#document`{:.value} to reference the current document, or `#parent`{:.value} to reference the parent element.
 
-The target element is sized by adjusting its `width`{:.prop} and `height`{:.prop} properties, while it is moved by adjusting its `top`{:.prop} and `left`{:.prop} properties.
+During drag operations, the handle element will size the target element by adjusting its `width`{:.prop} and `height`{:.prop} properties, while it will move the target by adjusting its `top`{:.prop} and `left`{:.prop} properties.
+
+```html
+<div id="bucket">Bucket</div>
+<handle move_target="bucket">Drag to move the bucket.</handle>
+```
 
 ```html
 <handle move_target="#document">
@@ -31,10 +36,6 @@ The target element is sized by adjusting its `width`{:.prop} and `height`{:.prop
 </div>
 ```
 
-```html
-<div id="bucket">Bucket</div>
-<handle move_target="bucket">Drag to move the bucket.</handle>
-```
 
 ### \<tabset\>
 
