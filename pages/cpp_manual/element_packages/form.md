@@ -206,7 +206,7 @@ void RemoveAll();
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
+See the [style guide](../../style_guide.html#drop-down-selection-boxes) for documentation on applying properties to a select box.
 
 
 ### Range slider
@@ -217,7 +217,7 @@ The minimum and maximum values for the range are specified with the `min`{:.attr
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a range control.
+See the [style guide](../../style_guide.html#sliders) for documentation on applying properties to a range control.
 
 
 ### Form container
@@ -256,4 +256,4 @@ void SetDataSource(const Rml::String& data_source);
 
 #### Applying properties
 
-See the [style guide](../../style_guide.html) for documentation on applying properties to a select box.
+See the [style guide](../../style_guide.html#drop-down-selection-boxes) for documentation on applying properties to a select box.

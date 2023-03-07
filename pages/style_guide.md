@@ -184,8 +184,10 @@ Drop-down boxes can be instanced through the RML tag `<select>`{:.tag}, with ind
 The select element generates three hidden elements:
 
 * `selectvalue`{:.tag}: The container element for the selected option.
-* `selectarrow`{:.tag}: The button rendered to the right of the value element. This element has the pseudo-class `checked`{:.cls} set on it when the selection box is visible.
-* `selectbox`{:.tag}: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected. 
+* `selectarrow`{:.tag}: The button rendered to the right of the value element. 
+* `selectbox`{:.tag}: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected.
+
+The pseudo-class `:checked`{:.cls} is set on the select element while the selection box is visible. Additionally, the selected option inside its drop-down list also has the `:checked`{:.cls} pseudo-class set.
 
 ![style_guide_2.gif](style_guide_2.gif)
 
