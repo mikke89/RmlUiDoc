@@ -114,8 +114,10 @@ All mouse events send through key modifiers.
 * `button`: The mouse button number that was pressed. 
 
 `mousescroll`{:.evt}
-: Sent to the focus element when the mouse's scroll wheel is scrolled.
-* `wheel_delta`: A float value representing how far the wheel has been scrolled. 
+: Sent to the focus element when the mouse's scroll wheel is scrolled, or autoscroll mode scrolls the document.
+* `wheel_delta`: A float value representing how far the wheel has been scrolled, if applicable.
+* `delta_x`: The desired horizontal distance to be scrolled, in pixels.
+* `delta_y`: The desired vertical distance to be scrolled, in pixels.
 
 #### Dragging Events
 

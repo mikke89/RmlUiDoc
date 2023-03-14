@@ -50,7 +50,9 @@ The `LogMessage()` function is called when RmlUi generates a message. Here, `typ
 // Set the mouse cursor.
 virtual void SetMouseCursor(const Rml::String& cursor_name);
 ```
-The `SetMouseCursor()` function is called when RmlUi wants to change the mouse cursor. This behavior is controlled by the [`cursor`{:.prop} property](../../rcss/user_interface.html#cursor), the value of which is directly sent through the interface as the `cursor_name`. The user is responsible for setting the system cursor or otherwise rendering the cursor as desired. The default value for the `cursor`{:.prop} property is an empty string, thus, this can be used to set a default cursor. It is possible to choose for each context whether it should call this function, see [context cursor](../contexts.html#mouse-cursor) for additional details.
+The `SetMouseCursor()` function is called when RmlUi wants to change the mouse cursor. This behavior is controlled by the [`cursor`{:.prop} property](../../rcss/user_interface.html#cursor), the value of which is directly sent through the interface as the `cursor_name`. The default value for the `cursor`{:.prop} property is an empty string, thus, this can be used to set a default cursor. There are also some [built-in cursor names](../contexts.html#builtin-cursors) that are submitted when the context is in a certain state, such as during autoscrolling.
+
+The user is responsible for setting the system cursor or otherwise rendering the cursor as desired. It is possible to choose for each context whether it should call this function, see [context cursor](../contexts.html#mouse-cursor) for additional details.
 
 #### Clipboard
 

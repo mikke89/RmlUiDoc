@@ -107,9 +107,48 @@ ElementDocument* CreateDocument(const String& instancer_name = "body");
 
 The context will attempt to instance an element using the instancer specified by the caller, 'body' by default. If an `Rml::ElementDocument` is instanced, it will be added to the context and returned.
 
+### Scrolling
+
+The context can initiate scrolling in multiple ways, in addition to an element's scrollbars being dragged, or its scroll position programmatically set.
+
+- `ProcessMouseWheel()` will submit a `mousescroll`{:.evt} event to the element being hovered, thereby scrolling its nearest ancestor whose contents can be scrolled.
+- `ProcessMouseButtonDown()` can activate [autoscroll mode](#autoscroll) when the middle mouse button is submitted, which may result in `mousescroll`{:.evt} events during the context's update call.
+
+Autoscroll mode
+: Activated by pressing or holding the middle mouse button. Scrolls the document with a controllable velocity based on the mouse cursor's distance from its initial activation position.
+{:#autoscroll}
+
+ 
 ### Mouse cursor
 
 Each context can propagate the mouse cursor name to the user through the [system interface](interfaces/system.html). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#cursor). When the cursor name changes, the new name is sent though the interface. The client can then change the displayed cursor using the cursor facilities on their platform.
+
+The submitted cursor name is chosen in the following order.
+
+1. If the context is in autoscroll mode, submit one of the built-in cursor names listed below.
+2. Otherwise, if an element is being dragged, the cursor is taken from that element's `cursor`{:.prop} property.
+3. Otherwise, if an element is being hovered, the cursor is taken from that element's `cursor`{:.prop} property.
+4. Otherwise, an empty string is submitted.
+
+#### Built-in cursor names
+{:#builtin-cursors}
+
+The following built-in cursor names are submitted to the system interface under specific conditions.
+
+|        Cursor name        | Description   |
+|---------------------------|---------------|
+| `rmlui-scroll-idle`       | Autoscroll mode active, but scrolling is idle.                 |
+| `rmlui-scroll-up`         | Autoscroll mode active, scrolling in the given direction.      |
+| `rmlui-scroll-down`       | "                                                              |
+| `rmlui-scroll-left`       | "                                                              |
+| `rmlui-scroll-right`      | "                                                              |
+| `rmlui-scroll-up-left`    | "                                                              |
+| `rmlui-scroll-up-right`   | "                                                              |
+| `rmlui-scroll-down-left`  | "                                                              |
+| `rmlui-scroll-down-right` | "                                                              |
+
+
+#### Multiple contexts
 
 In the case of multiple contexts, it might be convenient for only a single context to handle the mouse cursor. The following function can be used to control this behavior:
 ```cpp
@@ -123,7 +162,7 @@ By default it is enabled.
 ### Media themes
 {:#themes}
 
-Media themes can be used to activate or deactive parts of a style sheet in combination with [media queries](../rcss/media_queries.html), using the `theme`{:.prop} media feature.
+Media themes can be used to activate or deactivate parts of a style sheet in combination with [media queries](../rcss/media_queries.html), using the `theme`{:.prop} media feature.
 
 ```cpp
 /// Activate or deactivate a media theme. Themes can be used in RCSS media queries.

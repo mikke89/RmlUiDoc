@@ -63,13 +63,13 @@ Call `ProcessMouseButtonDown()` and `ProcessMouseButtonUp()` on a context to to 
 
 ```cpp
 // Sends a mouse-button down event into this context.
-// @param[in] button_index The index of the button that was pressed; 0 for the left button, 1 for right, and any others from 2 onwards.
+// @param[in] button_index The index of the button that was pressed; 0 for the left button, 1 for right, and 2 for middle button.
 // @param[in] key_modifier_state The state of key modifiers.
 // @return True if the mouse is not interacting with any elements in the context, otherwise false.
 bool ProcessMouseButtonDown(int button_index, int key_modifier_state);
 
 // Sends a mouse-button up event into this context.
-// @param[in] button_index The index of the button that was release; 0 for the left button, 1 for right, and any others from 2 onwards.
+// @param[in] button_index The index of the button that was pressed; 0 for the left button, 1 for right, and 2 for middle button.
 // @param[in] key_modifier_state The state of key modifiers.
 // @return True if the mouse is not interacting with any elements in the context, otherwise false.
 bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
@@ -80,12 +80,14 @@ bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
 * `focus`{:.evt}
 * `blur`{:.evt}
 * `mousedown`{:.evt}
+* `dblclick`{:.evt}
+
+Middle mouse button may initiate [autoscroll mode](contexts.html#autoscroll).
 
 `ProcessMouseButtonUp()` may generate:
 
 * `mouseup`{:.evt}
 * `click`{:.evt}
-* `dblclick`{:.evt}
 * `dragdrop`{:.evt}
 * `dragend`{:.evt}
 
