@@ -109,16 +109,39 @@ The context will attempt to instance an element using the instancer specified by
 
 ### Scrolling
 
-The context can initiate scrolling in multiple ways, in addition to an element's scrollbars being dragged, or its scroll position programmatically set.
+The context can initiate scrolling in multiple ways:
 
-- `ProcessMouseWheel()` will submit a `mousescroll`{:.evt} event to the element being hovered, thereby scrolling its nearest ancestor whose contents can be scrolled.
-- `ProcessMouseButtonDown()` can activate [autoscroll mode](#autoscroll) when the middle mouse button is submitted, which may result in `mousescroll`{:.evt} events during the context's update call.
+- `ProcessMouseWheel()` may initiate a scroll action on the hover element's closest scrollable ancestor.
+- `ProcessMouseButtonDown()` can activate [autoscroll mode](#autoscroll) when the middle mouse button is submitted.
+- Further, an element's scrollbar can be dragged, or its scroll position programmatically set.
 
-Autoscroll mode
-: Activated by pressing or holding the middle mouse button. Scrolls the document with a controllable velocity based on the mouse cursor's distance from its initial activation position.
+See the [input documentation](input.html#mouse-buttons) for more details on these functions. In some situations, a scroll action initiates [smooth scrolling](#smooth-scrolling). An element's closest scrollable ancestor is decided by scroll chaining, which can be controlled using the [`overflow-behavior`{:.prop} property](../rcss/user_interface.html#overscroll-behavior).
+
+#### Autoscroll mode
 {:#autoscroll}
 
- 
+Autoscroll mode is activated by pressing or holding the middle mouse button. This scrolls the document with a controllable velocity based on the mouse cursor's distance from its initial activation position.
+
+#### Smooth scrolling
+{:#smooth-scrolling}
+
+Smooth scrolling makes a given scroll action animate smoothly towards its destination. Smooth scrolling can be activated in several situations:
+
+- During a call to `ProcessMouseWheel()`.
+- When clicking a scrollbar's arrow keys or track.
+- When calling any of the `Element::Scroll...()` methods using `ScrollBehavior::Smooth` or `ScrollBehavior::Auto`.
+
+The default smooth scroll behavior can be configured on the context, and is enabled by default. This affects all scroll actions with auto scroll behavior, including mouse wheel and scrollbar interaction.
+
+```cpp
+/// Sets the default scroll behavior, such as for mouse wheel processing and scrollbar interaction.
+/// @param[in] scroll_behavior The default smooth scroll behavior, set to instant to disable smooth scrolling.
+/// @param[in] speed_factor A factor for adjusting the final smooth scrolling speed, must be strictly positive, defaults to 1.0.
+void SetDefaultScrollBehavior(ScrollBehavior scroll_behavior, float speed_factor);
+```
+By default, smooth scrolling is enabled. It can be disabled by setting the `scroll_behavior` to `ScrollBehavior::Instant`. The speed of the smooth scroll can also be adjusted using the `speed_factor` parameter.
+
+
 ### Mouse cursor
 
 Each context can propagate the mouse cursor name to the user through the [system interface](interfaces/system.html). The cursor name is set on an element through the  [`cursor`{:.prop} property](../rcss/user_interface.html#cursor). When the cursor name changes, the new name is sent though the interface. The client can then change the displayed cursor using the cursor facilities on their platform.

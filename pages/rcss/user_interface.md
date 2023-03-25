@@ -75,6 +75,28 @@ Set the element property to disregard mouse input events on this and descending 
 : The element is never the target of pointer events.
 
 
+### Scroll chaining: the 'overscroll-behavior' property
+{:#overscroll-behavior}
+
+`overscroll-behavior`{:.prop}
+
+Value: | auto \| contain
+Initial: | auto
+Applies to: | scroll containers
+Inherited: | no
+Percentages: | N/A
+
+Controls how a scroll action is passed up the scroll chain, from one scroll container to its parent scroll container.
+
+`auto`{:.value}
+: The element will consume the scroll action if any of its scrollbars are visible. Otherwise, it will pass the scroll action up the scroll chain.
+
+`contain`{:.value}
+: The element will consume the scroll action if any of its scrollbars are visible. Otherwise, the scroll action is cancelled.
+
+The `contain`{:.value} value can be useful to ensure that mouse wheel scrolling is not propagated outside a given element, regardless of whether its scrollbars are visible. The element will never pass a scroll action up the scroll chain.
+
+
 ### Drag & drop: the 'drag' property
 {:#drag}
 

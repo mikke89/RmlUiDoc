@@ -152,6 +152,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 | `RemoveEventListener()` | Removes an event listener from the element. | removeEventListener()
 | `ReplaceChild()` | Replaces one child node in the current element with another. | replaceChild()
 | `ScrollIntoView()` | Scrolls the page until the element gets into the view. | scrollIntoView()
+| `ScrollTo()` | Scrolls the element to the given offset. | scrollTo()
 | `SetAttribute()` | Set the value of the named attribute from the current node. | setAttribute()
 
 ### Validity of retrieved values

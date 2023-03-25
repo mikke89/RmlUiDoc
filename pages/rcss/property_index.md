@@ -65,6 +65,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 
 [`overflow-x`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
 [`overflow-y`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
+[`overscroll-behavior`{:.prop}][overscroll-behavior] | auto \| contain | auto | scroll containers | no | | 
 [`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
 [`padding-top`{:.prop}][padding] [`padding-right`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
 [`perspective`{:.prop}][perspective] | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform).
@@ -135,6 +136,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [min-width]: visual_formatting_model_details.html#min-width
 [opacity]: colours_backgrounds.html#opacity
 [overflow]: visual_effects.html#overflow
+[overscroll-behavior]: user_interface.html#overscroll-behavior
 [padding]: box_model.html#padding
 [perspective]: animations_transitions_transforms.html#transform
 [pointer-events]: user_interface.html#pointer-events

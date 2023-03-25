@@ -257,7 +257,7 @@ The following lists the specifications of all built-in events. Also see the para
 |  `EventId` id  |  `String` type  | `bool` interruptible  | `bool` bubbles |   `DefaultActionPhase` default_action  |
 |------------------------|-----------------|-------|-------|---------------------------------------|
 | Mousedown    | mousedown     | true  | true  | TargetAndBubble |
-| Mousescroll  | mousescroll   | true  | true  | TargetAndBubble |
+| Mousescroll  | mousescroll   | true  | true  | None            |
 | Mouseover    | mouseover     | true  | true  | Target          |
 | Mouseout     | mouseout      | true  | true  | Target          |
 | Focus        | focus         | false | false | Target          |

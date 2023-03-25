@@ -114,10 +114,12 @@ All mouse events send through key modifiers.
 * `button`: The mouse button number that was pressed. 
 
 `mousescroll`{:.evt}
-: Sent to the focus element when the mouse's scroll wheel is scrolled, or autoscroll mode scrolls the document.
-* `wheel_delta`: A float value representing how far the wheel has been scrolled, if applicable.
-* `delta_x`: The desired horizontal distance to be scrolled, in pixels.
-* `delta_y`: The desired vertical distance to be scrolled, in pixels.
+: Sent to the focus element when the mouse's scroll wheel is scrolled, or [autoscroll mode](../cpp_manual/contexts.html#autoscroll) is being initiated. The scroll can be cancelled by stopping the event's propagation.
+* `mouse_x`: The mouse x position within the context.
+* `mouse_y`: The mouse y position within the context.
+* `wheel_delta_x`: The distance the wheel has been scrolled horizontally, as a float value with positive values to the right.
+* `wheel_delta_y`: The distance the wheel has been scrolled vertically, as a float value with positive values down.
+* `autoscroll`: Set to true if autoscroll is being initiated.
 
 #### Dragging Events
 
