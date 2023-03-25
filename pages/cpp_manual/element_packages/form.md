@@ -84,6 +84,25 @@ The size of a text field refers of the average number of characters visible acro
 
 The maximum number of characters allowed in a text field is set with the `maxlength`{:.attr} attribute.
 
+#### Text selection
+{:#text-selection}
+
+Input elements with text and password types are represented by the `Rml::ElementFormControlInput` class, which contains the following text selection interface.
+
+```cpp
+/// Selects all text.
+void Select();
+/// Selects the text in the given character range.
+/// @param[in] selection_start The first character to be selected.
+/// @param[in] selection_end The first character *after* the selection.
+void SetSelectionRange(int selection_start, int selection_end);
+/// Retrieves the selection range and text.
+/// @param[out] selection_start The first character selected.
+/// @param[out] selection_end The first character *after* the selection.
+/// @param[out] selected_text The selected text.
+void GetSelection(int* selection_start, int* selection_end, String* selected_text) const;
+```
+
 ### Text area
 
 The text area, or multi-line text field, is specified in RML with the `<textarea>`{:.tag} tag. Any loose text between the text area's opening and closing tag will become the initial value of the control. The interface to the text area is the `Rml::ElementFormControlTextArea` class.
@@ -131,6 +150,8 @@ void SetWordWrap(bool word_wrap);
 // @return True if the text area is word-wrapping, false otherwise.
 bool GetWordWrap();
 ```
+
+In addition, the methods from the [text selection interface](#text-selection) are also duplicated for the text area interface.
 
 ### Radio button and checkbox
 
