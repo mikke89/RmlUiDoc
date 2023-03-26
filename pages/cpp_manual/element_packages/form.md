@@ -103,6 +103,8 @@ void SetSelectionRange(int selection_start, int selection_end);
 void GetSelection(int* selection_start, int* selection_end, String* selected_text) const;
 ```
 
+These methods are also available on `<textarea>`{:.tag} elements through the `Rml::ElementFormControlTextArea` class.
+
 ### Text area
 
 The text area, or multi-line text field, is specified in RML with the `<textarea>`{:.tag} tag. Any loose text between the text area's opening and closing tag will become the initial value of the control. The interface to the text area is the `Rml::ElementFormControlTextArea` class.

@@ -127,7 +127,7 @@ Autoscroll mode is activated by pressing or holding the middle mouse button. Thi
 
 Smooth scrolling makes a given scroll action animate smoothly towards its destination. Smooth scrolling can be activated in several situations:
 
-- During a call to `ProcessMouseWheel()`.
+- During a call to `Context::ProcessMouseWheel()`.
 - When clicking a scrollbar's arrow keys or track.
 - When calling any of the `Element::Scroll...()` methods using `ScrollBehavior::Smooth` or `ScrollBehavior::Auto`.
 
