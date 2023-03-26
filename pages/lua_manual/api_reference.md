@@ -915,6 +915,15 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 | [step](#ElementFormControlInput-step){: .lua-function } | `integer`{: .lua-type } |
 
 
+#### Functions
+
+| Name | Return Type |
+| ------------ | ---- |
+| [GetSelection](#ElementFormControlInput-GetSelection){: .lua-function }() | `integer, integer, string`{: .lua-type } |
+| [Select](#ElementFormControlInput-Select){: .lua-function }() | `nil`{: .lua-type } |
+| [SetSelection](#ElementFormControlInput-SetSelection){: .lua-function }(`integer`{: .lua-type } selection_start, `integer`{: .lua-type } selection_end) | `nil`{: .lua-type } |
+
+
 #### Property Descriptions
 
 <a href='#ElementFormControlInput-checked' name='ElementFormControlInput-checked'>checked</a>{: .lua-function }  :: `boolean`{: .lua-type }
@@ -935,6 +944,17 @@ ElementFormControlInput derives from IElementFormControl. The control has the fo
 <a href='#ElementFormControlInput-step' name='ElementFormControlInput-step'>step</a>{: .lua-function }  :: `integer`{: .lua-type }
 : Relevant for range types. The step the control's value changes in.
 
+
+#### Function Descriptions
+
+<a href='#ElementFormControlInput-GetSelection' name='ElementFormControlInput-GetSelection'>GetSelection</a>{: .lua-function }()  &rarr; `integer, integer, string`{: .lua-type }
+: Retrieves the selection range and text. If no text is selected, both offsets are equal to 1.
+
+<a href='#ElementFormControlInput-Select' name='ElementFormControlInput-Select'>Select</a>{: .lua-function }()  &rarr; `nil`{: .lua-type }
+: Selects all text.
+
+<a href='#ElementFormControlInput-SetSelection' name='ElementFormControlInput-SetSelection'>SetSelection</a>{: .lua-function }(`integer`{: .lua-type } selection_start, `integer`{: .lua-type } selection_end)  &rarr; `nil`{: .lua-type }
+: Selects the text in the given character range.
 
 
 ---
@@ -1001,6 +1021,15 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 | [wordwrap](#ElementFormControlTextArea-wordwrap){: .lua-function } | `boolean`{: .lua-type } |
 
 
+#### Functions
+
+| Name | Return Type |
+| ------------ | ---- |
+| [GetSelection](#ElementFormControlTextArea-GetSelection){: .lua-function }() | `integer, integer, string`{: .lua-type } |
+| [Select](#ElementFormControlTextArea-Select){: .lua-function }() | `nil`{: .lua-type } |
+| [SetSelection](#ElementFormControlTextArea-SetSelection){: .lua-function }(`integer`{: .lua-type } selection_start, `integer`{: .lua-type } selection_end) | `nil`{: .lua-type } |
+
+
 #### Property Descriptions
 
 <a href='#ElementFormControlTextArea-cols' name='ElementFormControlTextArea-cols'>cols</a>{: .lua-function }  :: `integer`{: .lua-type }
@@ -1013,6 +1042,18 @@ ElementFormControlTextArea derives from IElementFormControl. The control has the
 : The number of lines the text area shows at once.
 
 <a href='#ElementFormControlTextArea-wordwrap' name='ElementFormControlTextArea-wordwrap'>wordwrap</a>{: .lua-function }  :: `boolean`{: .lua-type }
+
+
+#### Function Descriptions
+
+<a href='#ElementFormControlTextArea-GetSelection' name='ElementFormControlTextArea-GetSelection'>GetSelection</a>{: .lua-function }()  &rarr; `integer, integer, string`{: .lua-type }
+: Retrieves the selection range and text. If no text is selected, both offsets are equal to 1.
+
+<a href='#ElementFormControlTextArea-Select' name='ElementFormControlTextArea-Select'>Select</a>{: .lua-function }()  &rarr; `nil`{: .lua-type }
+: Selects all text.
+
+<a href='#ElementFormControlTextArea-SetSelection' name='ElementFormControlTextArea-SetSelection'>SetSelection</a>{: .lua-function }(`integer`{: .lua-type } selection_start, `integer`{: .lua-type } selection_end)  &rarr; `nil`{: .lua-type }
+: Selects the text in the given character range.
 
 
 ---
