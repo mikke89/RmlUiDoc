@@ -73,6 +73,8 @@ To render a context, call `Render()` on it. Easy!
 bool Render();
 ```
 
+See the [main loop documentation](main_loop.html) for how these calls fits into an application's main loop. See also [on-demand rendering](#on-demand-rendering) below, for utilities allowing the application to delay update and rendering, in case there is a desire to reduce resource consumption when idle.
+
 ### Loading and creating documents
 
 Documents are loaded through contexts. To load a document from an RML file into a context, call the `LoadDocument()` function on the appropriate context.
@@ -225,6 +227,50 @@ Note as for all raw pointers, they are non-owning. Thus, it is the user's respon
 ### Input
 
 See the section on [input](input.html) for detail on sending user input from your application into RmlUi contexts.
+
+### On-demand rendering (power saving mode)
+{:#on-demand-rendering}
+
+In the graphics world we can roughly divide applications into two groups. 
+
+1. Applications that aim to pump out as many frames as possible, as fast as possible, such as games.
+2. Other applications that only redraw their window when their contents change, to reduce CPU usage and power consumption.
+
+RmlUi provides utilities to handle either of these cases, to suit the target application's requirements. Users of RmlUi control their own update loop, thus, doing it the first way is as simple as running the context update and rendering in a loop, without delay. On the other hand, the second approach requires some support from the library side, because the application needs to know e.g. when animations are happening or when a text cursor should blink.
+
+#### Loop update triggers
+
+During on-demand rendering, the application needs to update the user interface in the following situations:
+
+1. When time-dependent, library-internal changes affect the rendered output.
+2. When platform events are received.
+3. When the application wants to make their own changes to the document.
+
+This feature is intended to assist in the first case. The second case depends on the user's platform, and is outside the responsibility of the library itself, but there are many examples in the [included backends](https://github.com/mikke89/RmlUi/tree/master/Backends). The last case is fully up to the user, it is their own responsibility to know when they need to make their own changes to the interface, and to decide how to proceed.
+
+#### Update delay utilities
+
+Opting in to on-demand rendering requires explicit support by the code that drives the update loop. The feature consists of two functions which can be used to manipulate a time value.
+
+```cpp
+// Updates the time until Update should get called again.
+// @param[in] delay Maximum time until next update
+void RequestNextUpdate(double delay);
+```
+
+This function is used by RmlUi and custom elements to set the delay until the user interface should be rendered again, unless platform events are received in-between. This is not a direct setter, it takes the minimum value of the already stored and the passed-in value.
+
+The rendering loop can then use the following function to retrieve the value in the range zero to infinity.
+
+```cpp
+// Get the max delay until update and render should get called again
+// @return Time until next update is expected.
+double GetNextUpdateDelay() const;
+```
+
+A returned value of zero means the rendering loop should not block for events, that is, render the next frame as soon as possible. This happens for example if an animation is playing. A non-zero, finite value means a delay in seconds until the update and render loop should be invoked again. Infinity means there is no reason to redraw the content at all unless a platform event is received. This is the usual case if there are no custom elements or running animations. 
+
+You can see this in action by tweaking the `power_save` flag passed to `Backend::Process()` function in the [provided samples](https://github.com/mikke89/RmlUi/blob/master/Samples/basic/loaddocument/src/main.cpp). This is implemented in most of the [included backends](https://github.com/mikke89/RmlUi/tree/master/Backends), take a look at the `RmlUi_Backend_….cpp`{:.path} files to see how this functionality is integrated there.
 
 ### Custom contexts
 
