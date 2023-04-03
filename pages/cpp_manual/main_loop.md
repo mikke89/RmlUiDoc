@@ -122,3 +122,12 @@ int main(int argc, char** argv)
 ```
 
 In a real application, you typically want to separate the render and update loops. Regardless, you may consider updating the RmlUi context at the rendering updates, as this provides the lowest input lag which is important to make the user interface feel good.
+
+### On demand rendering
+In the graphics world you can roughly divide applications into two groups. On the one hand there are games that aim to spit out as much frames in as little time as possible. On the other extrem are desktop applications that will only redraw parts of the screen if there has been an update to the content.
+
+RmlUi provides a way to allow the application to sleep waiting for events unless there have been changes to the onscreen content. In order to keep breaking changes to a minimum, this feature is not enabled by default and requires explicit support by the code that drives the rendering loop. The feature consists of two functions on the `Context` class, which can be used to manipulate a time value.
+
+`RequestNextUpdate` is used by RmlUi and custom elements to set the delay until the ui should be rendered again, unless user input is received in between. This is not a direct setter, it takes the minimum value of the already stored and the passed in value. The rendering loop can then use `GetNextUpdateDelay` to retrieve the value in the range between 0 and positive infinity. Zero means the rendering loop should not block for events and render the next frame as soon as possible. This usually means some kind of animation is playing. Infinity means there is no reason to redraw the content at all unless a user event is received. This is the usual case if there are no custom elements or running animations. Everything else is a delay in seconds until the update and render loop should be invoked again.
+
+You can see this in action by tweaking the `power_save` flag passed to `Backend::Process` function in the provided samples. With the exception of SFML, it is implemented for all supported backends.
