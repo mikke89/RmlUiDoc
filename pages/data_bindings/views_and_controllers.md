@@ -28,6 +28,7 @@ The following table lists all built-in data views and controllers in RmlUi, alon
 | [For](#data-for)             | View       | data-for                     | [iterator_name], [index_name] : [data_address]  | [1]   |
 | [Rml](#data-rml)             | View       | data-rml                     | [data_expression]                               |       |
 | [Text](#data-text)           | View       | N/A                          | N/A                                             | [2]   |
+| [Alias](#data-alias)         | View       | data-alias-[alias_name]      | [data_address]                                  |       |
 | [Value](#data-value)         | Two-way    | data-value                   | [data_address]                                  | [3]   |
 | [Checked](#data-checked)     | Two-way    | data-checked                 | [data_address]                                  | [3]   |
 | [Event](#data-event)         | Controller | data-event-[event_type]      | [assignment_expression]                         |       |
@@ -190,6 +191,37 @@ Evaluates any data expression inside double curly brackets {{ }} encountered in 
 ```
 
 This data view is automatically added whenever double curly brackets are encountered in the text and should not be added as an attribute.
+
+
+#### Alias
+{:#data-alias.data-desc}
+`data-alias-[alias_name]="[data_address]"`
+{:.data-attr}
+
+Creates a new alias variable at the given scope, allowing the stated data address to be referred to by its alias name.
+
+This allows [templates](../rml/templates.html) to be used as reusable components within data models. By wrapping the inline template in an element that defines variable name aliases, the template can refer to any outside variable by a fixed name.
+
+To illustrate, consider the following template.
+
+```html
+<template name="data-title">
+<head></head>
+<body>
+	<div class="icon" data-attr-icon="icon"></div>
+	<h1 class="title">{{ title }}</h1>
+</body>
+</template>
+```
+This template can then be used with different variables as follows:
+```html
+<div data-alias-title="t0" data-alias-icon="i0">
+	<template src="data-title"/>
+</div>
+<div data-alias-title="t1" data-alias-icon="i1">
+	<template src="data-title"/>
+</div>
+```
 
 
 #### Value
