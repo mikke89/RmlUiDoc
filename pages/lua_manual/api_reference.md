@@ -1195,6 +1195,7 @@ The Event class has no constructor; it is generated internally. It has the follo
 | Name | Return Type |
 | ------------ | ---- |
 | [StopPropagation](#Event-StopPropagation){: .lua-function }() | `nil`{: .lua-type } |
+| [StopImmediatePropagation](#Event-StopImmediatePropagation){: .lua-function }() | `nil`{: .lua-type } |
 
 
 #### Property Descriptions
@@ -1217,6 +1218,9 @@ The Event class has no constructor; it is generated internally. It has the follo
 
 <a href='#Event-StopPropagation' name='Event-StopPropagation'>StopPropagation</a>{: .lua-function }()  &rarr; `nil`{: .lua-type}
 : Stops the propagation of the event through the event cycle, if allowed.
+
+<a href='#Event-StopImmediatePropagation' name='Event-StopImmediatePropagation'>StopImmediatePropagation</a>{: .lua-function }()  &rarr; `nil`{: .lua-type}
+: Stops the propagation of the event through the event cycle, including to any other listeners on the current element.
 
 
 
