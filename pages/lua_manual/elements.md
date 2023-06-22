@@ -77,12 +77,9 @@ Elements can be created dynamically in Lua using the document's `CreateElement()
 
 ```lua
 input_element = document:CreateElement('input')
+input_element = document:AppendChild(input_element)
 input_element:SetAttribute('type', 'radio')
 input_element:SetAttribute('name', 'graphics')
 input_element:SetAttribute('value', 'ok')
-document:AppendChild(input_element)
-
-text_element = document:CreateTextNode('OK')
-document:AppendChild(text_element)
 ```
-***Note/TODO:*** The first part of the example doesn't work because it returns an ElementPtr and that cannot use SetAttribute. We can improve this situation in the Lua plugin. For now you can use `Element.inner_rml = '...'` to create children, or append the child as above and then add attributes after getting the element from `Element.last_child`.
+***Note:*** The newly created element cannot be modified right away because `CreateElement` returns `ElementPtr` and that cannot use `SetAttribute`. We can work around this by using the return value of `AppendChild`. See [this issue](https://github.com/mikke89/RmlUi/issues/390) for more information.
