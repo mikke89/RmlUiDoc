@@ -537,7 +537,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | Name | Return Type |
 | ------------ | ---- |
 | [AddEventListener](#Element-AddEventListener){: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } listener, `boolean`{: .lua-type } in_capture_phase) | `nil`{: .lua-type } |
-| [AppendChild](#Element-AppendChild){: .lua-function }(`ElementPtr`{: .lua-type } element) | `nil`{: .lua-type } |
+| [AppendChild](#Element-AppendChild){: .lua-function }(`ElementPtr`{: .lua-type } element) | `nil, Element`{: .lua-type } |
 | [Blur](#Element-Blur){: .lua-function }() | `nil`{: .lua-type } |
 | [Click](#Element-Click){: .lua-function }() | `nil`{: .lua-type } |
 | [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters) | `nil`{: .lua-type }<br> |
@@ -548,7 +548,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [GetElementsByTagName](#Element-GetElementsByTagName){: .lua-function }(`string`{: .lua-type } tag_name) | `table`{: .lua-type }<br> |
 | [HasAttribute](#Element-HasAttribute){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
 | [HasChildNodes](#Element-HasChildNodes){: .lua-function }() | `boolean`{: .lua-type }<br> |
-| [InsertBefore](#Element-InsertBefore){: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element) | `nil`{: .lua-type } |
+| [InsertBefore](#Element-InsertBefore){: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element) | `nil, Element`{: .lua-type } |
 | [IsClassSet](#Element-IsClassSet){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
 | [QuerySelector](#Element-QuerySelector){: .lua-function }(`string`{: .lua-type } name) | `Element`{: .lua-type }<br> |
 | [QuerySelectorAll](#Element-QuerySelectorAll){: .lua-function }(`string`{: .lua-type } name) | `table`{: .lua-type }<br> |
@@ -647,7 +647,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-AddEventListener' name='Element-AddEventListener'>AddEventListener</a>{: .lua-function }(`string`{: .lua-type } event, `function, string`{: .lua-type } listener, `boolean`{: .lua-type } in_capture_phase)  &rarr; `nil`{: .lua-type}
 : NOTE: Events added from Lua cannot be removed.
 
-<a href='#Element-AppendChild' name='Element-AppendChild'>AppendChild</a>{: .lua-function }(`ElementPtr`{: .lua-type } element)  &rarr; `nil`{: .lua-type}
+<a href='#Element-AppendChild' name='Element-AppendChild'>AppendChild</a>{: .lua-function }(`ElementPtr`{: .lua-type } element)  &rarr; `nil, Element`{: .lua-type}
 : Appends element as a child to this element.
 
 <a href='#Element-Blur' name='Element-Blur'>Blur</a>{: .lua-function }()  &rarr; `nil`{: .lua-type}
@@ -680,7 +680,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-HasChildNodes' name='Element-HasChildNodes'>HasChildNodes</a>{: .lua-function }()  &rarr; `boolean`{: .lua-type }
 : Returns true if the element has at least one child node, false if not.
 
-<a href='#Element-InsertBefore' name='Element-InsertBefore'>InsertBefore</a>{: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element)  &rarr; `nil`{: .lua-type}
+<a href='#Element-InsertBefore' name='Element-InsertBefore'>InsertBefore</a>{: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element)  &rarr; `nil, Element`{: .lua-type}
 : Inserts the element element as a child of this element, directly before adjacent_element in the list of children.
 
 <a href='#Element-IsClassSet' name='Element-IsClassSet'>IsClassSet</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `boolean`{: .lua-type }
