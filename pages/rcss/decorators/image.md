@@ -35,7 +35,7 @@ Flips or rotates the image.
 
 `image-fit`{:.prop}
 
-Value: | fill \| contain \| cover \| scale-none \| scale-down
+Value: | fill \| contain \| cover \| scale-none \| scale-down \| repeat \| repeat-x \| repeat-y
 Initial: | fill
 Percentages: | N/A
 
@@ -53,6 +53,15 @@ Percentages: | N/A
 
 `scale-down`{:.value}
 : The image acts like 'scale-none' if smaller than boundaries, or like 'contain' otherwise.
+
+`repeat`{:.value}
+: The image is tiled, repeating both horizontally and vertically. It does not work on sprite images.
+
+`repeat-x`{:.value}
+: The image is horizontally tiled along the X-axis. It does not work on sprite images.
+
+`repeat-y`{:.value}
+: The image is vertically tiled along the Y-axis. It does not work on sprite images.
 
 
 `image-align-x`{:.prop}
