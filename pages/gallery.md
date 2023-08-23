@@ -16,6 +16,10 @@ Game menu
 Installer software by [@xland](https://github.com/xland)
 
 {: .gallery-item }
+![TruckersMP](../assets/gallery/truckers_mp.webp)\
+[TruckersMP](https://truckersmp.com/) A multiplayer mod for truck simulators - Chat box in RmlUi
+
+{: .gallery-item }
 ![Covellite++](../assets/gallery/covellitepp_1.jpg)
 ![Covellite++](../assets/gallery/covellitepp_2.jpg)\
 [Covellite++](http://unicornum.github.io/Covellitepp/index.html) A cross-platform framework
