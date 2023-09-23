@@ -37,6 +37,14 @@ See the _Rocket Invaders from Mars_ demo style sheet and the [templating tutoria
 #### The 'scrollbar-margin' property
 {:#scrollbar-margin}
 
+`scrollbar-margin`{:.prop}
+
+Value: | \<length\>
+Initial: | 0px
+Applies to: | scroll containers
+Inherited: | no
+Percentages: | N/A
+
 As described above, the scrollbar elements (`scrollbarvertical`{:.tag} and `scrollbarhorizontal`{:.tag}) will shorten themselves automatically to avoid a corner intersection. This can lead to scenarios where a scrollbar is popping on and off (during a window resize, for example) and causing the other scrollbar to rapidly change size. To avoid this, and force a scrollbar to always shorten itself for a corner, you can use the numerical `scrollbar-margin`{:.prop} property on a scrollbar element. An element will shorten itself (on the bottom or right side, as appropriate) by the minimum of the appropriate corner dimension and the scrollbar margin.
 
 #### Example RCSS
