@@ -89,16 +89,16 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
 
 
-[align-content]:flexboxes.html#align-content
-[align-items]:flexboxes.html#align-items
-[align-self]:flexboxes.html#align-self
+[align-content]: flexboxes.html#align-content
+[align-items]: flexboxes.html#align-items
+[align-self]: flexboxes.html#align-self
 [animation]: animations_transitions_transforms.html#animation
 [background-color]: colours_backgrounds.html#background-color
 [background]: colours_backgrounds.html#background-color
+[border]: box_model.html#border
 [border-color]: box_model.html#border-color
 [border-radius]: colours_backgrounds.html#border-radius
 [border-width]: box_model.html#border-width
-[border]: box_model.html#border
 [box-sizing]: user_interface.html#box-sizing
 [caret-color]: user_interface.html#caret-color
 [clear]: visual_formatting_model.html#clear
@@ -109,13 +109,13 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [display]: visual_formatting_model.html#display
 [drag]: user_interface.html#drag
 [fill-image]: {{"pages/cpp_manual/element_packages/progress_bar.html#fill-image"|relative_url}}
-[flex]:flexboxes.html#flex
-[flex-basis]:flexboxes.html#flex-basis
-[flex-direction]:flexboxes.html#flex-direction
-[flex-flow]:flexboxes.html#flex-flow
-[flex-grow]:flexboxes.html#flex-grow
-[flex-shrink]:flexboxes.html#flex-shrink
-[flex-wrap]:flexboxes.html#flex-wrap
+[flex]: flexboxes.html#flex
+[flex-basis]: flexboxes.html#flex-basis
+[flex-direction]: flexboxes.html#flex-direction
+[flex-flow]: flexboxes.html#flex-flow
+[flex-grow]: flexboxes.html#flex-grow
+[flex-shrink]: flexboxes.html#flex-shrink
+[flex-wrap]: flexboxes.html#flex-wrap
 [float]: visual_formatting_model.html#float
 [focus]: user_interface.html#focus
 [font]: fonts.html#font
@@ -127,7 +127,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [gap]: tables.html#gap
 [height]: visual_formatting_model_details.html#height
 [image-color]: colours_backgrounds.html#image-color
-[justify-content]:flexboxes.html#justify-content
+[justify-content]: flexboxes.html#justify-content
 [line-height]: visual_formatting_model_details.html#line-height
 [margin]: box_model.html#margin
 [max-height]: visual_formatting_model_details.html#max-height

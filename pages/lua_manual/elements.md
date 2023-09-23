@@ -3,8 +3,6 @@ layout: page
 title: Elements
 parent: lua_manual
 next: documents
-status: improve
-status-desc: Some examples do not work properly.
 ---
 
 ### Interface

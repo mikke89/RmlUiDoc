@@ -55,7 +55,7 @@ This property can be used to request normal or bolded versions of a font from wi
 #### Font size: the 'font-size' property
 {:#font-size}
 
-`font-size`{:.prop} 
+`font-size`{:.prop}
 
 Value: | \<length\> \| \<percentage\>
 Initial: | 12px
