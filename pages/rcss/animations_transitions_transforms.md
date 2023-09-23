@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Animations, Transitions, and Transforms
+title: Animations, transitions, and transforms
 parent: rcss
 next: media_queries
 ---

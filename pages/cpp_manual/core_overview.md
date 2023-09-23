@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Core Overview
+title: Core overview
 parent: cpp_manual
 next: main_loop
 ---

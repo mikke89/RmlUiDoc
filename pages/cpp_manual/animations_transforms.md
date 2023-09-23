@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Animations and Transforms
+title: Animations and transforms
 parent: cpp_manual
 next: decorators
 ---

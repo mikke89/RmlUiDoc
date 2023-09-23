@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Style sheets and Properties
+title: Style sheets and properties
 parent: cpp_manual
 next: animations_transforms
 ---
