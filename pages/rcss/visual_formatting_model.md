@@ -189,7 +189,7 @@ See the [CSS2 documentation](http://www.w3.org/TR/REC-CSS2/visuren.html#floats) 
 
 Value: | left \| right \| none
 Initial: | none
-Applies to: | all but absolutely positioned elements
+Applies to: | all
 Inherited: | no
 Percentages: | N/A
 

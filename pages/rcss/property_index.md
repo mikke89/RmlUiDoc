@@ -42,6 +42,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`flex-grow`{:.prop}][flex-grow] | \<number\> | 0 | flex items | no | | 
 [`flex-shrink`{:.prop}][flex-shrink] | \<number\> | 1 | flex items | no | | 
 [`flex-wrap`{:.prop}][flex-wrap] | nowrap \| wrap \| wrap-reverse | nowrap | flex containers | no | | 
+[`float`{:.prop}][float] | left \| right \| none | none | all | no | | 
 [`focus`{:.prop}][focus] | none \| auto | auto | all | yes | | Introduced for RCSS.
 [`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
 [`font-effect`{:.prop}][font-effect] | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.
