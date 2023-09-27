@@ -360,6 +360,14 @@
 	"content": ""
 },
 {
+	"property": "float",
+	"element": "",
+	"url": '<a href="/pages/rcss/visual_formatting_model.html#float">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
 	"property": "focus",
 	"element": "",
 	"url": '<a href="/pages/rcss/user_interface.html#focus">',
@@ -618,7 +626,15 @@
 {
 	"property": "perspective",
 	"element": "",
-	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transform">',
+	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#perspective">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "perspective-origin",
+	"element": "",
+	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#perspective-origin">',
 	"title": "",
 	"parent_title": "",
 	"content": ""
@@ -715,6 +731,14 @@
 	"property": "transform",
 	"element": "",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transform">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "transform-origin",
+	"element": "",
+	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transform-origin">',
 	"title": "",
 	"parent_title": "",
 	"content": ""

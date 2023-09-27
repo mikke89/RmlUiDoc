@@ -12,20 +12,46 @@ See also the [C++ documentation](../cpp_manual/animations_transforms.html) on an
 ### Animations
 {:#animation}
 
-
 Most RCSS properties can be animated, this includes properties representing numbers, lengths, percentages, angles, colors, transforms, and keywords. Animations can be specified entirely in RCSS, with keyframes.
+
+`animation`{:.prop}
+
+Value: | none \| \[\<duration\> \<delay\>? \<tweening-function\>? \[\<num-iterations\>\|infinite\]? alternate? paused? \<keyframes-name\>\]<span class="prop-def-symbol" title="one or more comma-separated occurrences">#</span>
+Initial: | none
+Applies to: | all elements
+Inherited: | no
+Percentages: | N/A
+
+`none`{:.value}
+: No animations specified.
+
+`<duration>`{:.value}
+: Duration of the animation, specified in seconds (`s`{:.value} unit). Required value.
+
+`<delay>`{:.value}
+: Time delay before starting the animation, specified in seconds. Default: `0s`{:.value}.
+
+`<tweening-function>`{:.value}
+:  Tweening functions specify how the animated value progresses during the animation cycle. See [tweening functions](#tweening-functions) below for details and possible values. Default: `linear-in-out`{:.value}.
+
+`<num-iterations> | infinite`{:.value}
+: Number of iterations to play the animation before pausing. Specify as an integer or the keyword `infinite`{:.value}. Default: 1.
+
+`alternate`{:.value}
+: If present, alternate the direction of the animation every other cycle.
+
+`paused`{:.value}
+: If present, the animation does not start on load.
+
+`<keyframes-name>`{:.value}
+: A string specifying the name of the keyframes. Keyframes are specified [as in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes), see examples below. Required value.
+
+Values can be given in any order, with the exception that `duration`{:.value} must come before `delay`{:.value}.
+
+Example usage:
+
 ```css
-animation: <duration> <delay> <tweening-function> <num_iterations|infinite> <alternate> <paused> <keyframes-name>;
-```
-All values, except `duration`{:.value} and `keyframes-name`{:.value}, are optional. `delay`{:.value} must be specified after `duration`{:.value}, otherwise values can be given in any order. Keyframes are specified [as in CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes), see the example below. Tweening functions specify how the animated value progresses during the animation cycle. See [tweening functions](#tweening-functions) below for details.
-
-Multiple animations can be specified on the same element by using a comma-separated list. 
-
-RCSS example usage:
-
-```css
-@keyframes my-progress-bar
-{
+@keyframes my-progress-bar {
 	0%, 30% {
 		background-color: #d99;
 	}
@@ -37,11 +63,21 @@ RCSS example usage:
 		width: 100%;
 	}
 }
-#my_element
-{
+#my_element {
 	width: 25px;
 	animation: 2s cubic-in-out infinite alternate my-progress-bar;
 }
+```
+
+Multiple animations can be specified on the same element by using a comma-separated list. 
+
+```css
+@keyframes my-progress-bar { ... }
+@keyframes make-red {
+	from { color: #333; }
+	to   { color: #f33; }
+}
+#multi-animation { animation: 1s elastic-out my-progress-bar, 2s make-red; }
 ```
 
 Internally, animations apply their properties on the local style of the element. Thus, mixing RML style attributes and animations should be avoided on the same element.
@@ -54,11 +90,30 @@ See the `animation` sample for more examples and details.
 
 Transitions apply an animation between two property values on an element when its property changes. Transitions are implemented in RCSS similar to how they operate in CSS. However, in RCSS, they only apply when a class or pseudo-class is added to or removed from an element.
 
-```css
-transition: <space-separated-list-of-properties|all|none> <duration> <delay> <tweening-function>;
-```
-The property list specifies the properties to be animated. `delay`{:.value} and `tweening-function`{:.value} are optional. `delay`{:.value} must be specified after `duration`{:.value}, otherwise values can be given in any order. Multiple transitions can be specified on the same element by using a comma-separated list. The [tweening function](#tweening-functions) is specified as in the `animation`{:.prop} property.
+`transition`{:.prop}
 
+Value: | none \| \[ \[\<property-name\><span class="prop-def-symbol" title="one or more space-separated occurrences">+</span> \| all \| none\] \<duration\> \<delay\>? \<tweening-function\>?\]<span class="prop-def-symbol" title="one or more comma-separated occurrences">#</span>
+Initial: | none
+Applies to: | all elements
+Inherited: | no
+Percentages: | N/A
+
+`none`{:.value}
+: No transitions specified.
+
+`<property-name>+ | all | none`{:.value}
+: Specifies the list of properties to be animated when they are changed, as a space-separated list of names. Alternatively, the `all`{:.value} keyword animates all properties, while `none`{:.value} will not animate any properties.
+
+`<duration>`{:.value}
+: Duration of the animation, specified in seconds (`s`{:.value} unit). Required value.
+
+`<delay>`{:.value}
+: Time delay before starting the animation, specified in seconds. Default: `0s`{:.value}.
+
+`<tweening-function>`{:.value}
+:  Tweening functions specify how the animated value progresses during the animation cycle. See [tweening functions](#tweening-functions) below for details and possible values. Default: `linear-in-out`{:.value}.
+
+Values can be given in any order, with the exception that `duration`{:.value} must come before `delay`{:.value}. Multiple transitions can be specified on the same element by using a comma-separated list.
 
 Example usage:
 
@@ -97,7 +152,7 @@ A tweening function in RCSS is specified as `<name>-in`{:.value}, `<name>-out`{:
 - `quintic`{:.value}
 - `sine`{:.value}
 
-See the animation and transition documentation above for usage examples there. Each tweening function provides a specific mapping between normalized time and used interpolation value, which can be seen in the following plot.
+See the animation and transition documentation above for usage examples there. Each tweening function provides a specific mapping between normalized time *t* and used interpolation value *y*, as seen in the following plot.
 
 <div style="text-align: center">
 	<img alt="Tweening functions" src="../../assets/images/tweening_functions.svg" style="width: 100%; max-width: 700px">
@@ -112,40 +167,100 @@ See also the `demo` sample, where users can play with different tweening functio
 Transforms can be applied to elements using the `transform`{:.prop} property. The related properties `transform-origin`{:.prop}, `perspective`{:.prop}, and `perspective-origin`{:.prop} are also supported in RCSS, which controls aspects of how the transform will be applied and rendered. These are roughly equivalent to their respective [CSS properties](https://developer.mozilla.org/en-US/docs/Web/CSS/transform).
 
 ```css
-perspective: 1000px;
-perspective-origin: 20px 50%;
 transform: rotateX(10deg) skew(-10deg, 15deg) translateZ(100px);
 transform-origin: left top 0;
+perspective: 1000px;
+perspective-origin: 20px 50%;
 ```
 
-All transform properties and their argument types are as follows:
-```
-perspective,  length1
-matrix,       abs_numbers6
-matrix3d,     abs_numbers16
-translateX,   length1
-translateY,   length1
-translateZ,   length1
-translate,    length2
-translate3d,  length3
-scaleX,       number1
-scaleY,       number1
-scaleZ,       number1
-scale,        number2
-scale,        number1
-scale3d,      number3
-rotateX,      angle1
-rotateY,      angle1
-rotateZ,      angle1
-rotate,       angle1
-rotate3d,     number3angle1
-skewX,        angle1
-skewY,        angle1
-skew,         angle2
-```
+`transform`{:.prop}
 
-Angles take units of 'deg' or 'rad'. See the `transform` sample and `animation` sample for more examples.
+Value: | none \| \<transform-function\><span class="prop-def-symbol" title="one or more space-separated occurrences">+</span>
+Initial: | none
+Applies to: | all elements
+Inherited: | no
+Percentages: | See individual transform functions
 
+`none`{:.value}
+: No transform applied.
+
+`<transform-function>+`{:.value}
+: Specifies a list of transform functions to be applied to the element, see [all available values](#transform-functions) below.
+
+
+`transform-origin`{:.prop}
+{:#transform-origin}
+
+Value: | \[\<transform-origin-x\> <span class="prop-def-symbol" title="one or both must be specified">\|\|</span> \<transform-origin-y\>\] \<transform-origin-z\>?
+Initial: | 50% 50% 0px
+Applies to: | all elements
+Inherited: | no
+Percentages: | Relative to the size of the element's border-box.
+
+Describes the origin point around which the transformation occurs, given as the distance from the top-left corner of the element's border-box. This is a shorthand property, the underlying properties are specified along each dimension as follows.
+
+`transform-origin-x`{:.prop}: \[left \| center \| right \| \<length-percentage\>\]
+
+`transform-origin-y`{:.prop}: \[top \| center \| right \| \<length-percentage\>\]
+
+`transform-origin-z`{:.prop}: \<length\>
+
+
+#### Transform functions
+{:#transform-functions}
+
+All transform functions and their argument types are listed in the following. 
+
+**`<transform-function>`{:.value}**
+
+`matrix`{:.value}( `<number>#{6}`{:.value} )            |  `rotateZ`{:.value}( `<angle>`{:.value} )       |  `skewX`{:.value}( `<angle>`{:.value} )
+`matrix3d`{:.value}( `<number>#{16}`{:.value} )         |  `scale`{:.value}( `<number>#{1,2}`{:.value} )  |  `skewY`{:.value}( `<angle>`{:.value} )
+`perspective`{:.value}( `<length>`{:.value} )           |  `scale3d`{:.value}( `<number>#{3}`{:.value} )  |  `translate`{:.value}( `<length-percentage>#{2}`{:.value} )
+`rotate`{:.value}( `<angle>`{:.value} )                 |  `scaleX`{:.value}( `<number>`{:.value} )       |  `translate3d`{:.value}( `<length-percentage>#{2}, <length>`{:.value} )
+`rotate3d`{:.value}( `<number>#{3}, <angle>`{:.value})  |  `scaleY`{:.value}( `<number>`{:.value} )       |  `translateX`{:.value}( `<length-percentage>`{:.value} )
+`rotateX`{:.value}( `<angle>`{:.value} )                |  `scaleZ`{:.value}( `<number>`{:.value} )       |  `translateY`{:.value}( `<length-percentage>`{:.value} )
+`rotateY`{:.value}( `<angle>`{:.value} )                |  `skew`{:.value}( `<angle>#{2}`{:.value} )      |  `translateZ`{:.value}( `<length>`{:.value} )
+
+See a detailed description for each function in the [CSS Transforms specification](https://drafts.csswg.org/css-transforms-2/#transform-functions). Angles take units of 'deg' or 'rad'. See also the `transform` and `animation` samples for more examples.
+
+
+#### Perspective
+{:#perspective}
+
+`perspective`{:.prop}
+
+Value: | none \| \<length ≥ 0px\>
+Initial: | none
+Applies to: | all elements
+Inherited: | no
+Percentages: | N/A
+
+Perspective can make objects that are farther away appear smaller, when combined with 3d transformations.
+
+`none`{:.value}
+: No perspective applied, equivalent to an infinite distance.
+
+`<length ≥ 0px>`{:.value}
+: Distance to the center of projection.
+
+
+`perspective-origin`{:.prop}
+{:#perspective-origin}
+
+Value: | \<perspective-origin-x\> <span class="prop-def-symbol" title="one or both must be specified">\|\|</span> \<perspective-origin-y\>
+Initial: | 50% 50%
+Applies to: | all elements
+Inherited: | no
+Percentages: | Relative to the size of the element's border-box.
+
+Describes the origin point for the `perspective`{:.prop} property. This is a shorthand property, the underlying properties are specified along each dimension as follows.
+
+`perspective-origin-x`{:.prop}: \[left \| center \| right \| \<length-percentage\>\]
+
+`perspective-origin-y`{:.prop}: \[top \| center \| right \| \<length-percentage\>\]
+
+
+#### Interpolation
 
 RmlUi has full interpolation support for transforms, making them very attractive to use in combination with animations and transitions.
 

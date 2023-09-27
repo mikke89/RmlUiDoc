@@ -69,7 +69,8 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`overscroll-behavior`{:.prop}][overscroll-behavior] | auto \| contain | auto | scroll containers | no | | 
 [`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
 [`padding-top`{:.prop}][padding] [`padding-right`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
-[`perspective`{:.prop}][perspective] | none \| \<length\> | none | all | no | | See [transforms](animations_transitions_transforms.html#transform).
+[`perspective`{:.prop}][perspective] | none \| \<length ≥ 0px\> | none | all | no | |
+[`perspective-origin`{:.prop}][perspective-origin] | \<perspective-origin-x\> \|\| \<perspective-origin-y\> | 50% 50% | all | no | |
 [`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
 [`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
 [`right`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
@@ -81,7 +82,8 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | | 
 [`top`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block | 
 [`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | | 
-[`transform`{:.prop}][transform] | See [transforms](animations_transitions_transforms.html#transform) | none | all | no | | 
+[`transform`{:.prop}][transform] | none \| \<transform-function\>+ | none | all | no | | 
+[`transform-origin`{:.prop}][transform-origin] | \[\<transform-origin-x\> \|\| \<transform-origin-y\>\] \<transform-origin-z\>? | 50% 50% 0px | all | no | | 
 [`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
 [`visibility`{:.prop}][visibility] | visible \| hidden | visible | all | no | | 
 [`white-space`{:.prop}][white-space] | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
@@ -139,7 +141,8 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [overflow]: visual_effects.html#overflow
 [overscroll-behavior]: user_interface.html#overscroll-behavior
 [padding]: box_model.html#padding
-[perspective]: animations_transitions_transforms.html#transform
+[perspective]: animations_transitions_transforms.html#perspective
+[perspective-origin]: animations_transitions_transforms.html#perspective-origin
 [pointer-events]: user_interface.html#pointer-events
 [position]: visual_formatting_model.html#position
 [scrollbar-margin]: ../style_guide.html#scrollbar-margin
@@ -150,6 +153,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [top_right_bottom_left]: visual_formatting_model.html#top_right_bottom_left
 [transition]: animations_transitions_transforms.html#transition
 [transform]: animations_transitions_transforms.html#transform
+[transform-origin]: animations_transitions_transforms.html#transform-origin
 [vertical-align]: tables.html#vertical-align
 [vertical-align]: visual_formatting_model_details.html#vertical-align
 [visibility]: visual_effects.html#visibility

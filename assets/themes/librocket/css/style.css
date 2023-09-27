@@ -340,3 +340,8 @@ a[href^="http"]:after {
 #search-results p strong {
 	color: #b7731e;
 }
+
+.prop-def-symbol {
+	text-decoration: underline dotted #666;
+	text-decoration-skip-ink: none;
+}
