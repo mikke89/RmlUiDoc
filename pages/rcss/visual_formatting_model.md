@@ -10,8 +10,7 @@ The visual formatting model used in RCSS is almost identical to that of [CSS](ht
 The differences between CSS and RCSS are:
 
 * The dimensions of the viewport are defined as the dimensions of the context the document is being rendered in.
-* The document element (the root) is always positioned (as absolute), and can be positioned within its context using `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop}.
-* Compact and run-in boxes are not yet supported.
+* The document element (the root) is always absolutely positioned, and can be positioned within its context using `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop}.
 * Generated content is not yet supported. 
 
 ### Introduction to the visual formatting model
@@ -34,9 +33,9 @@ The containing block of the root document element is set by the dimensions of th
 
 #### Block level elements and block boxes
 
-Block-level elements are those that are formatted as blocks, flowing visually down the document from top to bottom (such as paragraphs). Elements with a `display`{:.prop} of `block`{:.value} generate block boxes, as do any `absolute`{:.value} or `fixed`{:.value} positioned elements and floating elements.
+Block-level elements are those that are formatted as blocks, flowing visually down the document from top to bottom (such as paragraphs). Elements with a `display`{:.prop} of `block`{:.value} acts as a block container for its children, as do any `absolute`{:.value} or `fixed`{:.value} positioned elements and floating elements.
 
-Block-level elements generate exactly one block box that itself contains only block boxes. If any inline elements are inside this block box, an anonymous block box is created (one not representing any specific element) to hold and position the inline content. The anonymous block box is positioned with the original block box just like any other block box.
+Block-level elements generate exactly one block box that itself contains only block boxes. If any inline elements are inside this block box, an anonymous block box is created (one not representing any specific element) to hold and place the inline content. The anonymous block box is positioned with the original block box just like any other block box.
 
 So, while processing the following RML fragment (assuming `div`{:.tag} and `p`{:.tag} elements are block, and `img`{:.tag} elements are inline):
 
@@ -63,7 +62,7 @@ Loose text within elements also generates inline boxes.
 
 `display`{:.prop}
 
-Value: | inline \| block \| inline-block \| flex \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none
+Value: | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none
 Initial: | inline
 Applies to: | all elements
 Inherited: | no
@@ -78,18 +77,21 @@ The values have the following meanings:
 : This element generates one or more inline boxes. 
 
 `inline-block`{:.value}
-: This element generates a block box, which its descendants are positioned within, but is positioned itself as a single inline box. This is similar to the behaviour of replaced elements (those with intrinsic widths). 
+: This element generates a block container for its descendants, but participates in inline layout itself. This is similar to the behavior of replaced elements (those with intrinsic widths). 
 
-`flex`{:.value}
+`flow-root`{:.value}
+: This element generates a block box, and always establishes a new block formatting context. This is useful for example to ensure floated children are completely contained within this element.
+
+`flex, inline-flex`{:.value}
 : This element generates a flex container, and all its children are formatted as flex items, see [flexbox layout](flexboxes.html) for details.
 
-`table, table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
+`table, inline-table table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
 : These values are used for defining and structuring [tables](tables.html).
 
 `none`{:.value}
-: This element (and all of its descendants) generate no boxes, and are not displayed. Note this will mean the element will not affect layout. The 'visibility' property can be used to make an element affect layout but not be rendered. 
+: This element (including all descendants) generates no boxes, and is not displayed. This implies that the element will not affect layout. The `visibility`{:.prop} property can be used to make an element affect layout but not be rendered. 
 
-The only difference between this and the CSS display property is the reduced range of allowed values.
+These values all correspond to the ones available for the [CSS display property](https://developer.mozilla.org/en-US/docs/Web/CSS/display).
 
 ### Positioning schemes
 
@@ -116,7 +118,7 @@ The values have the following meanings:
 : The element generates boxes that are positioned according to normal flow. 
 
 `relative`{:.value}
-: The element generates boxes that are positioned according to normal flow, but then offset according to the values of the 'top', 'right', 'bottom' and 'left' properties. Other elements are positioned as though the box was in its original location. 
+: The element generates boxes that are positioned according to normal flow, but then offset according to the values of the `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties. Other elements are positioned as though the box was in its original location. 
 
 `absolute`{:.value}
 : The element generates a block box that is removed from normal flow. The `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties will position the box relative to the edges of its containing block. 
@@ -158,15 +160,17 @@ The values have the following meanings:
 
 #### Block formatting
 
-When formatting block boxes, boxes are laid out vertically one after the other. The bottom edge of a block box will touch the top edge of the block box following it. The left edge of a block box will touch the left edge of its containing block. Block elements do not themselves flow around floating elements, but their inline content will.
+Certain elements establish a new block formatting context for their content, including the document element, floats, absolutely positioned elements, scroll containers, and elements with `display: flow-root`{:.value}.
+
+In a block formatting context, boxes are laid out vertically one after the other. The bottom edge of a block box will touch the top edge of the block box following it. The left edge of a block box will touch the left edge of its containing block. Block elements do not themselves flow around floating elements, but their inline content will.
 
 #### Inline formatting
 
 Inline boxes are positioned horizontally on a line, one after the other, from the top of the containing block. Horizontal padding, borders and margins are respected when positioning the boxes. Inline boxes on a single line are said to be laid out in a line box.
 
-Each line box is generally the same width as its containing block, with its left edge touching the left edge of the containing block and its right edge touching the right edge of the containing block. However, floating elements may force a line box to be shorter along one or both of its edges. The height of a line box is governed by the height of the box's inline content. Inline boxes are positioned vertically through the line box using the `vertical-align`{:.prop} property.
+Each line box is generally the same width as its containing block, with its left edge touching the left edge of the containing block and its right edge touching the right edge of the containing block. However, floating elements may force a line box to be shorter along one or both of its edges. The height of a line box is governed by the height of the box's inline content. Inline boxes are positioned vertically within the line box using the `vertical-align`{:.prop} property.
 
-If several inline boxes cannot fit horizontally onto a single line box, they are flowed into several vertically-stacked line boxes.
+If inline boxes cannot fit horizontally onto a single line box, they are flowed into new vertically-stacked line boxes.
 
 The `text-align`{:.prop} property governs how the excess horizontal space between the widths of the inline boxes and the width of the line box is distributed.
 
@@ -179,6 +183,8 @@ Once a block or inline box has been positioned, it can be moved from its locatio
 ### Floats
 
 A float is a box that is shifted horizontally to the left or right edge of its containing block. They do not affect placement of further block boxes, however line boxes will be shortened to avoid running over them. In this way, inline content will be flowed around them. Block boxes can be forced vertically past floating boxes using the `clear`{:.prop} property.
+
+Floated elements only affect the placement of other elements within the same block formatting context.
 
 See the [CSS2 documentation](http://www.w3.org/TR/REC-CSS2/visuren.html#floats) on floating elements for a description on the full float model, and interesting uses of floats.
 
@@ -230,8 +236,6 @@ The values of this property have the following meanings:
 : The box's position is placed irrespective of floating elements. 
 
 Floating boxes themselves can be cleared.
-
-Note that RCSS ignores floating elements placed within a sibling's containing block.
 
 ### Absolute positioning
 

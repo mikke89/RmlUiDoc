@@ -5,7 +5,7 @@ parent: rcss
 next: user_interface
 ---
 
-Table support in RCSS is similar to that of the [CSS tables specifiation](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some enhancements and differences, the main ones being as follows.
+Table support in RCSS is similar to that of the [CSS tables specification](https://www.w3.org/TR/2011/REC-CSS2-20110607/tables.html). There are some enhancements and differences, the main ones being as follows.
 
 ##### Enhancements
 
@@ -30,13 +30,14 @@ The `display`{:.prop} property is used to define the formatting of tables, with 
 `display`{:.prop} value       | Description | Attributes | Valid children
 ----------------------------- | ----------- | ---------- | --------------
 `table`{:.value}              | Specifies a block-level table.         | | `table-row`{:.value}, `table-row-group`{:.value},<br>`table-column`{:.value}, `table-column-group`{:.value},<br>`table-cell`{:.value}
+`inline-table`{:.value}       | Specifies an inline-level table.       | | *same as above*
 `table-row`{:.value}          | Specifies a table row.                 | | `table-cell`{:.value}
 `table-row-group`{:.value}    | Specifies a grouping of table rows.    | | `table-row`{:.value}
 `table-column`{:.value}       | Specifies a table column.              | `span`{:.value} | 
 `table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
 `table-cell`{:.value}         | Specifies a table cell.                | `colspan`{:.value}, `rowspan`{:.value} |
 
-In particular, the following CSS `display`{:.prop} modes are *not* supported: `inline-table`{:.value}, `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}.
+In particular, the following CSS `display`{:.prop} modes are *not* supported: `inline-table`{:.value}, `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}. In RCSS, `inline-table`{:.value}s are required to have their widths set to a definite (non-auto) value.
 
 
 #### Example

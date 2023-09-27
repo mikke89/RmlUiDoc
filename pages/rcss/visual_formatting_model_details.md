@@ -10,8 +10,8 @@ next: visual_effects
 During layout, the containing block of an element is fixed when the element is encountered in the document tree. It is sized as follows:
 
 1. For the root element of the document (the `body`{:.tag} element), the containing block is the size of the document's context.
-2. For other elements (other than absolutely positioned elements), the containing block is the size of the nearest block ancestor's content area. If the block ancestor does not have a fixed height (ie, its `height`{:.prop} property is set to `auto`{:.value}), the height of the containing block is given by the height of the nearest block ancestor's fixed content area. This may end up as the height of the context.
-3. If the element is positioned `fixed`{:.value} or `absolute`{:.value}, its containing block is given by the padded size of the nearest block element with a `position`{:.prop} other than `static`{:.value}, or the root if no such element exists. Like other elements, they will look further back in order to get a fixed height. 
+2. For other elements (other than absolutely positioned elements), the containing block is the size of the nearest block container's content area.
+3. If the element is absolutely positioned (`position`{:.prop} value set to `absolute`{:.value} or `fixed`{:.value}), its containing block is given by the padding area of the nearest positioned element (`position`{:.prop} value other than `static`{:.value}), or the root if no such element exists.
 
 ### Content width: the 'width' property
 {:#width}
@@ -45,18 +45,22 @@ input.text
 }
 ```
 
-### Computing widths and margins
+### Calculating widths and margins
 
 If any of a box's `width`{:.prop}, `margin-left`{:.prop} or `margin-right`{:.prop} are set to `auto`{:.value}, then they are evaluated when the box is sized. Depending on the box type, they are set as follows:
 
-* For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `width`{:.prop} is ignored.
-* For an inline replaced box, `auto`{:.value} margins are set to '0'. A `width`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
-* For a block box, the formula `margin-left + border-left-width + padding-left + 'content width' + padding-right + border-right-width + margin-right = containing block width` must hold true. If `width`{:.prop} is `auto`{:.value}, then any `auto`{:.value} margins are set to '0' and the box width is set to the appropriate value. Otherwise, the inequality in the equation is split evenly between the auto-margins. 
-
-This is different from the CSS equation in the following ways:
-
-* The `left`{:.prop} and `right`{:.prop} properties cannot be set to `auto`{:.value}.
-* Floating and positioned boxes are evaluated like normal boxes. 
+- For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `width`{:.prop} is ignored.
+- For an inline replaced box, `auto`{:.value} margins are set to '0'. A `width`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
+- For a block box, the equation
+  
+  ```
+  margin-left + border-left-width + padding-left + width + padding-right + border-right-width + margin-right
+  = containing block width
+  ```
+  
+  must hold true. If `width`{:.prop} is `auto`{:.value}, then any `auto`{:.value} margins are set to '0' and the box width is set to the appropriate value. Otherwise, the inequality in the equation is split evenly between the auto-margins.
+- For absolutely positioned boxes, `left`{:.prop} and `right`{:.prop} are additionally added to the left-hand-side of the above equation.
+- Inline-block boxes, absolutely positioned boxes, and floated boxes will have any `auto`{:.value} width determined by their 'shrink-to-fit' width, if the above equation is under-constrained.
 
 ### Minimum and maximum widths: 'min-width' and 'max-width'
 {:#min-width}
@@ -89,7 +93,7 @@ Values have the following meaning:
 `none`{:.value}
 : Specifies that there is no maximum width.
 
-When evaluating `width`{:.prop}, if the computed width is greater than `max-width`{:.prop}, then the width is computed again, this time substituting `max-width`{:.prop} for `width`{:.prop}. If the computed value is less than `min-width`{:.prop}, the the width is computed again, this time substituting `min-width`{:.prop} for `width`{:.prop}.
+When evaluating `width`{:.prop}, if the calculated width is greater than `max-width`{:.prop}, then the width is calculated again, this time substituting `max-width`{:.prop} for `width`{:.prop}. If the calculated value is less than `min-width`{:.prop}, the the width is calculated again, this time substituting `min-width`{:.prop} for `width`{:.prop}.
 
 ### Content height: the 'height' property
 {:#height}
@@ -113,7 +117,7 @@ Values have the following meaning:
 : Specifies a height relative to the height of the box's containing block. 
 
 `auto`{:.value}
-: The width depends on the values of other properties. See below. 
+: The height depends on the values of other properties. See below. 
 
 ```css
 /* Fixes the height of the background div to 100% of its containing block. */
@@ -123,20 +127,24 @@ div#background
 }
 ```
 
-### Computing heights and margins
+### Calculating heights and margins
 
 If any of a box's `height`{:.prop}, `margin-top`{:.prop} or `margin-bottom`{:.prop} are set to `auto`{:.value}, then they are evaluated when the box is sized. Depending on the box type, they are set as follows:
 
-* For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `height`{:.prop} is ignored.
-* For an inline replaced box, `auto`{:.value} margins are set to '0'. A `height`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
-* For a block box with a fixed height, the formula `margin-top + border-top-width + padding-top + 'content height' + padding-bottom + border-bottom-width + margin-bottom = containing block height` must hold true. The inequality in the equation is split evenly between the auto-margins.
-* For a block box with an `auto`{:.value} height, any `auto`{:.value} margins are set to '0', and the height will stretch to fit the box's content exactly. 
+- For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `height`{:.prop} is ignored.
+- For an inline replaced box, `auto`{:.value} margins are set to '0'. A `height`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
+- For a block box with a fixed height, the equation
+  
+  ```
+  margin-top + border-top-width + padding-top + height + padding-bottom + border-bottom-width + margin-bottom
+  = containing block height
+  ```
+  
+  must hold true. The inequality in the equation is split evenly between the auto-margins.
+- For a block box with an `auto`{:.value} height, any `auto`{:.value} margins are set to '0', and the height will be set to fit its contents exactly.
+- For absolutely positioned boxes, `top`{:.prop} and `bottom`{:.prop} are additionally added to the left-hand-side of the above equation.
 
-This is different from the CSS equation in the following ways:
-
-* The `top`{:.prop} and `bottom`{:.prop} properties cannot be set to `auto`{:.value}.
-* Floating and positioned boxes are evaluated like normal boxes.
-* Block boxes with a fixed height will resolve `auto`{:.value} vertical margins similarly to horizontal margins. 
+In RCSS, block boxes with a fixed height will resolve `auto`{:.value} vertical margins similarly to horizontal margins. 
 
 ### Minimum and maximum heights: 'min-height' and 'max-height'
 {:#min-height}
@@ -169,7 +177,7 @@ Values have the following meaning:
 `none`{:.value}
 : Specifies that there is no maximum height.
 
-When evaluating `height`{:.prop}, if the computed width is greater than `max-height`{:.prop}, then the height is computed again, this time substituting `max-height`{:.prop} for `height`{:.prop}. If the computed value is less than `min-height`{:.prop}, the the width is computed again, this time substituting `min-height`{:.prop} for `height`{:.prop}. A block box with a `height`{:.prop} of `auto`{:.value} will never set its height below `min-height`{:.prop} or above `max-height`{:.prop}; this may result in overflow.
+When evaluating `height`{:.prop}, if the calculated height is greater than `max-height`{:.prop}, then the height is calculated again, this time substituting `max-height`{:.prop} for `height`{:.prop}. If the calculated value is less than `min-height`{:.prop}, then the height is calculated again, this time substituting `min-height`{:.prop} for `height`{:.prop}. A block box with a `height`{:.prop} of `auto`{:.value} will never set its height below `min-height`{:.prop} or above `max-height`{:.prop}; this may result in overflow.
 
 ### Line height calculations: the 'line-height' and 'vertical-align' properties
 {:#line-height}
@@ -177,7 +185,7 @@ When evaluating `height`{:.prop}, if the computed width is greater than `max-hei
 The height of a line box is determined as follows:
 
 1. The height of each inline element is calculated.
-2. The inline boxes are aligned vertically (by their `vertical-align`{:.prop} property)
+2. The inline boxes are aligned vertically (by their `vertical-align`{:.prop} property).
 3. The line box height is given by distance between the top edge of the highest box and the bottom edge of the lowest box. 
 
 Note that vertical padding, margins and borders of inline boxes are not taken into account when determining line box height, although they are rendered.
@@ -190,7 +198,7 @@ Applies to: | all elements
 Inherited: | yes
 Percentages: | relative to the the font size of the element itself
 
-This property determines the minimal height of the element's inline boxes.
+This property determines the *minimal* height of line boxes within the element.
 
 Values for this property have the following meanings:
 
@@ -216,7 +224,7 @@ div
 `vertical-align`{:.prop}
 {:#vertical-align}
 
-Value: | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\>
+Value: | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| center \| bottom \| \<percentage\> \| \<length\>
 Initial: | baseline
 Applies to: | inline-level elements
 Inherited: | no
@@ -227,7 +235,7 @@ This property affects the vertical positioning of an inline box within the line 
 The values have the following meanings:
 
 `baseline`{:.value}
-: Align the baseline of the inline box with the baseline of the line box. 
+: Align the baseline of the inline box with the baseline of its parent box. 
 
 `sub`{:.value}
 : Set the baseline of the inline box to an appropriate height for rendering subscript. 
@@ -239,10 +247,16 @@ The values have the following meanings:
 : Align the top of the inline box with the top of the parent box's font. 
 
 `text-bottom`{:.value}
-: Align the bottom of the inline box with the bottom of the parent box's font. middle: Align the midpoint of the box with the bottom of the parent box's font plus half the ex height. 
+: Align the bottom of the inline box with the bottom of the parent box's font.
+
+`middle`{:.value}
+: Align the midpoint of the box with the baseline of the parent box plus half its ex height. 
 
 `top`{:.value}
 : Align the top of the inline box with the top of the line box. 
+
+`center`{:.value}
+: Align the center of the inline box with the center of the line box.
 
 `bottom`{:.value}
 : Align the bottom of the inline box with the bottom of the line box. 
@@ -262,7 +276,7 @@ super
 ```
 
 ```html
-/* Sample RML demonstrating rendering a superscript. */
+<!-- Sample RML demonstrating rendering a superscript. -->
 <p>
 	Better than ever before!<super>*</super>
 </p>

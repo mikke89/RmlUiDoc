@@ -9,7 +9,7 @@ Flexible box (flexbox) layout is made for placing items along a single direction
 
 RmlUi generally follows the [CSS Flexible Box specification](https://www.w3.org/TR/css-flexbox-1/), although there are some smaller differences. There are many resources on how to write flexbox layout in CSS on the web, see eg. a [flexbox introduction at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) and an illustrated overview of the [flexbox properties at CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
-Flexbox layout is initialized by setting an element's [`display`{:.prop} property](visual_formatting_model.html#display) to `display: flex`{:.value}. This generates a flex container for the element, and all its children are formatted as flex items within this container.
+Flexbox layout is initialized by setting an element's [`display`{:.prop} property](visual_formatting_model.html#display) to `display: flex`{:.value} or `display: inline-flex`{:.value}. This generates a flex container for the element, and all its children are formatted as flex items within this container. In RCSS, `inline-flex`{:.value} boxes are required to have their widths set to a definite (non-auto) value.
 
 
 ### Basic example

@@ -32,7 +32,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
 [`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
-[`display`{:.prop}][display] | inline \| block \| inline-block \| flex \| table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
+[`display`{:.prop}][display] | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
 [`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
 [`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progress]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
 [`flex`{:.prop}][flex] | auto \| none \| \<flex-grow\> \<flex-shrink\>? \<flex-basis\>? \| \<flex-basis\> | 0 1 auto | flex items | no | | 
@@ -84,7 +84,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | | 
 [`transform`{:.prop}][transform] | none \| \<transform-function\>+ | none | all | no | | 
 [`transform-origin`{:.prop}][transform-origin] | \[\<transform-origin-x\> \|\| \<transform-origin-y\>\] \<transform-origin-z\>? | 50% 50% 0px | all | no | | 
-[`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
+[`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| center \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
 [`visibility`{:.prop}][visibility] | visible \| hidden | visible | all | no | | 
 [`white-space`{:.prop}][white-space] | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
 [`word-break`{:.prop}][word-break] | normal \| break-all \| break-word | normal | all elements | yes | | 
