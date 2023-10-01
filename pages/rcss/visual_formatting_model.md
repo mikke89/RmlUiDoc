@@ -85,7 +85,7 @@ The values have the following meanings:
 `flex, inline-flex`{:.value}
 : This element generates a flex container, and all its children are formatted as flex items, see [flexbox layout](flexboxes.html) for details.
 
-`table, inline-table table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
+`table, inline-table, table-row-group, table-row, table-column-group, table-column, table-cell`{:.value}
 : These values are used for defining and structuring [tables](tables.html).
 
 `none`{:.value}

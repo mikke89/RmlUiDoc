@@ -92,7 +92,7 @@ Transitions apply an animation between two property values on an element when it
 
 `transition`{:.prop}
 
-Value: | none \| \[ \[\<property-name\><span class="prop-def-symbol" title="one or more space-separated occurrences">+</span> \| all \| none\] \<duration\> \<delay\>? \<tweening-function\>?\]<span class="prop-def-symbol" title="one or more comma-separated occurrences">#</span>
+Value: | none \| \[\[\<property-name\><span class="prop-def-symbol" title="one or more space-separated occurrences">+</span> \| all \| none\] \<duration\> \<delay\>? \<tweening-function\>?\]<span class="prop-def-symbol" title="one or more comma-separated occurrences">#</span>
 Initial: | none
 Applies to: | all elements
 Inherited: | no
@@ -201,7 +201,7 @@ Describes the origin point around which the transformation occurs, given as the 
 
 `transform-origin-x`{:.prop}: \[left \| center \| right \| \<length-percentage\>\]
 
-`transform-origin-y`{:.prop}: \[top \| center \| right \| \<length-percentage\>\]
+`transform-origin-y`{:.prop}: \[top \| center \| bottom \| \<length-percentage\>\]
 
 `transform-origin-z`{:.prop}: \<length\>
 
@@ -257,7 +257,7 @@ Describes the origin point for the `perspective`{:.prop} property. This is a sho
 
 `perspective-origin-x`{:.prop}: \[left \| center \| right \| \<length-percentage\>\]
 
-`perspective-origin-y`{:.prop}: \[top \| center \| right \| \<length-percentage\>\]
+`perspective-origin-y`{:.prop}: \[top \| center \| bottom \| \<length-percentage\>\]
 
 
 #### Interpolation
