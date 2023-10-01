@@ -88,7 +88,7 @@ If the version of RmlUi provided with vcpkg is out of date or somehow does not m
 ### Building using Conan
 {:#conan}
 
-[Conan](https://conan.io) is a C/C++ package manager which can be used for integrating and building the library, and managing its dependencies in an effortless way. If you are new to Conan, then there is a relatively short [Getting Started](https://docs.conan.io/en/latest/getting_started.html) guide worth going through. Information on the RmlUi package itself is available at [ConanCenter: RmlUi](https://conan.io/center/rmlui).
+[Conan](https://conan.io) is a C/C++ package manager which can be used for integrating and building the library, and managing its dependencies in an effortless way. If you are new to Conan, then it might be worth looking through the [Conan Tutorial](https://docs.conan.io/2/tutorial.html). Information on the RmlUi package itself is available at [ConanCenter: RmlUi](https://conan.io/center/recipes/rmlui).
 
 The Conan recipe that environment-specific packages are generated from supports certain options derived from the [CMake options](#cmake-options) below. The following table explains options exclusive to RmlUi available in the recipe. Please bear in mind that in general the Conan community discourages double negation that would arise from naming options with one negation included (e.g. `NO_THIRDPARTY_CONTAINERS`); this is why certain recipe options have the opposite meaning of their CMake counterpart.
 
@@ -100,14 +100,14 @@ The Conan recipe that environment-specific packages are generated from supports 
  with_lua_bindings          | [True, False]                 | False          | `BUILD_LUA_BINDINGS`          | --
  with_thirdparty_containers | [True, False]                 | True           | `NO_THIRDPARTY_CONTAINERS`    | --
 
-The options outlined above can be set in one's [conanfile.py](https://docs.conan.io/en/latest/reference/conanfile.html) or [conanfile.txt](https://docs.conan.io/en/latest/reference/conanfile_txt.html), depending on preference.
+The options outlined above can be set in one's [conanfile.py](https://docs.conan.io/2/reference/conanfile.html) or [conanfile.txt](https://docs.conan.io/2/reference/conanfile_txt.html), depending on preference.
 
 The CMake options that are not supported along with a bit of reasoning are as follows:
 - `BUILD_SAMPLES` builds example uses of the library, which would significantly increase the size of pre-built binary packages that Conan generates. In order to avoid this, the option is not offered and is always disabled. However, the recipe can always be edited locally to try them out.
 - `ENABLE_PRECOMPILED_HEADERS` requires a minimum CMake version that Conan can always provide and results in build time reduction with no apparent drawbacks, so it is sensible for it to be always enabled.
 - `ENABLE_TRACY_PROFILING` requires a dependency that is not available from Conan's central repository as of writing this, so it cannot be supported.
 
-The `CUSTOM_CONFIGURATION` CMake option and others related to it (`CUSTOM_CONFIGURATION_FILE`, `CUSTOM_INCLUDE_DIRS` and `CUSTOM_LINK_LIBRARIES`) make it possible for the embedded [robin-hood-hashing](https://github.com/martinus/robin-hood-hashing) library to be upgradable. It is now currently configured to use version [3.9.1](https://conan.io/center/robin-hood-hashing?version=3.9.1).
+The `CUSTOM_CONFIGURATION` CMake option and others related to it (`CUSTOM_CONFIGURATION_FILE`, `CUSTOM_INCLUDE_DIRS` and `CUSTOM_LINK_LIBRARIES`) make it possible for the embedded [robin-hood-hashing](https://conan.io/center/recipes/robin-hood-hashing) library to be upgradable.
 
 If the recipe is out of date or somehow does not meet certain needs, then contributions would be welcome at [conan-center-index](https://github.com/conan-io/conan-center-index).
 
