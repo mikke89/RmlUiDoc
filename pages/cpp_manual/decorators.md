@@ -138,13 +138,14 @@ If you ever change the geometry or its texture, be sure to call the `Release()` 
 
 The instancer for a decorator is a bit more sophisticated than the element; it is responsible for defining and processing the properties that can be used to configure the decorator. While you can create a custom decorator with no properties, we recommend you expose all variables to RCSS; it's quick, easy and you'll have much more flexible decorators.
 
-A decorator instancer needs to derive from `Rml::DecoratorInstancer`. The following pure virtual function need to be overridden:
+A decorator instancer needs to derive from `Rml::DecoratorInstancer`. The following pure virtual function needs to be overridden:
 
 ```cpp
 // Instances a decorator given the property tag and attributes from the RCSS file.
-// @param[in] name The type of decorator desired.
+// @param[in] name The type of decorator desired. For example, "decorator: simple(...);" is declared as type "simple".
 // @param[in] properties All RCSS properties associated with the decorator.
-// @return The decorator if it was instanced successful, NULL if an error occured.
+// @param[in] instancer_interface An interface for querying the active style sheet.
+// @return A shared_ptr to the decorator if it was instanced successfully.
 virtual Rml::SharedPtr<Rml::Decorator> InstanceDecorator(const Rml::String& name,
                                                    const Rml::PropertyDictionary& properties,
                                                    const Rml::DecoratorInstancerInterface& interface) = 0;
@@ -156,17 +157,18 @@ The property dictionary will contain an entry for every property in the decorato
 
 #### Defining the decorator's properties
 
-Each decorator instancer holds a complete property specification for the decorators it creates. The specification object (stored as a `Rml::PropertySpecification` type) is a protected member variable on the `Rml::DecoratorInstancer` class, so derived instancers can access it. A custom instancer has the opportunity in its constructor to add properties and shorthands to its specification. Use the `RegisterProperty()` and `RegisterShorthand()` functions on the property specification object itself to do this; for detailed documentation on defining properties, see the documentation on registering custom properties. Note that custom property parsers registered with `Rml::StyleSheetSpecification` can be used in decorator property specifications.
+Each decorator instancer holds a complete property specification for the decorators it creates. In its constructor, the custom instancer has the opportunity to add properties and shorthands to its specification by using the protected functions `RegisterProperty()` and `RegisterShorthand()`. For detailed documentation on defining properties, see the documentation on [registering custom properties](rcss.html#defining-custom-properties). Note that [custom property parsers](rcss.html#defining-custom-value-parsers) registered with `Rml::StyleSheetSpecification` can be used in decorator property specifications.
 
 The following is an example decorator defining a simple property specification:
 
 ```cpp
 CustomDecoratorInstancer::CustomDecoratorInstancer() : Rml::DecoratorInstancer()
 {
-	properties.RegisterProperty("custom-property-1", "1").AddParser("number");
-	properties.RegisterProperty("custom-property-2", "auto").AddParser("number")
-	                                                        .AddParser("keyword", "auto, none");
-	properties.RegisterShorthand("decorator", "custom-property-1, custom-property-2");
+	property_id1 = RegisterProperty("custom-property-1", "1").AddParser("number").GetId();
+	property_id2 = RegisterProperty("custom-property-2", "auto").AddParser("number")
+	                                                            .AddParser("keyword", "auto, none")
+	                                                            .GetId();
+	RegisterShorthand("decorator", "custom-property-1, custom-property-2");
 }
 ```
 
@@ -177,6 +179,12 @@ Note that the shorthand `decorator` is special. This shorthand will be used to p
 decorator: custom-decorator( 15 auto );
 ```
 Now this will be parsed by the above rules such that 'custom-property-1' contains 15, and 'custom-property-2' contains the keyword 'auto'.
+
+The property IDs are stored on the instancer object, so they can easily retrieve the parsed value during the call to `InstanceDecorator()`,
+```cpp
+int value1 = properties.GetProperty(property_id1)->Get<int>();
+```
+The `value1` variable will now contain the value specified in the style sheet, e.g. '15' in the above example.
 
 #### Registering an instancer
 

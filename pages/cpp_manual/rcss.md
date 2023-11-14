@@ -157,15 +157,16 @@ Rml::StyleSheetSpecification::RegisterProperty("click-sound", "none", false);
 
 This wouldn't be much use to us though, as we haven't said what values the new property can take. For this, we need to add a property parser to the new property. A property parser attempts to parse the value of a property from a raw string into a format where it can be used by the application.
 
-Each property can have multiple parsers attached to it. There are four default property parsers in RmlUi, although custom parsers [can be added](#defining-custom-value-parsers). Some of these include:
+Each property can have multiple parsers attached to it. There are several default property parsers in RmlUi, in addition custom parsers [can be added](#defining-custom-value-parsers). Some of these include:
 
-* _number_, for numerical values without units ('15').
-* _length_, for numerical values with units representing a length ('0px', '0.5em').
-* _length_percent_, for numerical values with units representing a length, or percentage ('80%').
-* _number_length_percent_, for numerical values with no units, or with units representing a length or percentage.
-* _keyword_, for keyword values (such as the `font-weight`{:.prop} property, which can be either 'normal' or 'bold').
-* _string_, for values that can be set to any string (such as `font-family`{:.prop}).
-* _color_, for values that are stored as a color. 
+- `number` for numerical values without units ('15').
+- `length` for numerical values with units representing a length ('0px', '0.5em').
+- `length_percent` for numerical values with units representing a length, or percentage ('80%').
+- `number_length_percent` for numerical values with no units, or with units representing a length or percentage.
+- `angle` for angle values ('30deg', '1.5rad').
+- `string` for values that can be set to any string (such as `font-family`{:.prop}).
+- `keyword` for keyword values (such as the `font-weight`{:.prop} property, which can be either 'normal' or 'bold').
+- `color` for values that are stored as a color.
 
 To attach a parser to a property, call the `AddParser()` function on the returned value from the `RegisterProperty()` function. To attach a second or third parser, call `AddParser()` again on the value returned from the previous call to `AddParser()`. If multiple parsers are added, values will be run through the parsers in the order that they are specified until one successfully parses the value. Beware of this if you are registering the 'string' parser - make sure you register it last, as it will happily parse any value you give it!
 
