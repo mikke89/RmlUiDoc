@@ -30,6 +30,7 @@ Details and combinations of the listed selectors are described below.
 
 
 #### Pseudo selectors
+{:#pseudo-selectors}
 
 The following table lists the built-in pseudo class selectors, in addition to the negation selector and all of the tree-structural selectors from CSS3. 
 
@@ -37,6 +38,7 @@ The following table lists the built-in pseudo class selectors, in addition to th
 `:hover`{:.cls}                     | Matches an element that is currently under the mouse cursor.
 `:active`{:.cls}                    | Matches an element that has been clicked on, only until the button is released.
 `:focus`{:.cls}                     | Matches an element that has input focus.
+`:focus-visible`{:.cls}             | Matches an element that has input focus, and whose focus should be visibly indicated. This can be particularly useful to style the focused element when using keyboard or spatial navigation.
 `:checked`{:.cls}                   | Matches a checked checkbox and radio button. Matches a [select element]({{"pages/cpp_manual/element_packages/form.html#drop-down-select-box"|relative_url}}) when it is open, as well as the selected option in its drop-down list.
 **Logical**                         |
 `:not(s1, s2, …)`{:.cls}            | Matches an element that does not match any of its selectors s1, s2, ….

@@ -127,6 +127,7 @@ Values have the following meanings:
 `clone`{:.value}
 :  Like `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `:drag`{:.cls} set on it to allow it to be differentiated from the original element.
 
+
 ### Tab index: the 'tab-index' property
 {:#tab-index}
 
@@ -147,6 +148,61 @@ Values have the following meanings:
 
 `auto`{:.value}
 : The element inserts itself into the tabbing order in a location relative to its order in the element hierarchy.
+
+Tabbing can also be enabled on the body element, so that it possible to tab back to the body such that no elements within the document has focus.
+
+
+### Spatial navigation: the navigation properties
+{:#nav}
+
+The navigation properties are used to determine how the focus is moved when pressing one of the keyboard navigation buttons (arrow keys): up, right, down, and left.
+
+`nav-up`{:.prop}, `nav-right`{:.prop}, `nav-down`{:.prop}, `nav-left`{:.prop}
+
+Value: | none \| auto \| \<id\>
+Initial: | none
+Applies to: | all tabbable elements
+Inherited: | no
+Percentages: | N/A
+
+Values have the following meanings:
+
+`none`{:.value}
+: The focus is not automatically moved when pressing the navigation button in the given direction.
+
+`auto`{:.value}
+: The focus is moved to the nearest tabbable element is the direction of the pressed navigation button.
+
+`<id>`{:.value}
+: The focus is moved to the element with the given id. The element is written with `#`{:.value} prefix, e.g. `#my_element`{:.value}.
+
+Only <span class="prop-def-symbol" title="elements with 'tab-index: auto'">tabbable elements</span> are considered as navigation sources and targets. Further, automatic navigation is restricted to the same <span class="prop-def-symbol" title="elements whose 'overflow' property is set to anything other than 'visible' establish a new scroll container">scroll container</span>. Navigation can also be set on the body element, in which case `auto`{:.value} means navigating in tabbing-order when the body has focus.
+
+When a navigation action is performed, the newly focused element has its `:focus-visible`{:.cls} [pseudo class](selectors.html#pseudo-selectors) set. This can be used to style the currently focused element.
+
+There is also a shorthand property to set all of the above properties simultaneously.
+
+`nav`{:.prop}
+
+Value: | none \| auto \| horizontal \| vertical
+Initial: | none
+Applies to: | all tabbable elements
+Inherited: | no
+Percentages: | N/A
+
+Values have the following meanings:
+
+`none`{:.value}
+: Disable navigation in all directions. Equivalent to setting `none`{:.value} to all the navigation properties.
+
+`auto`{:.value}
+: Enable automatic navigation in all directions. Equivalent to setting `auto`{:.value} to all the navigation properties.
+
+`horizontal`{:.value}
+: Enable automatic navigation in the horizontal directions. Equivalent to setting `auto`{:.value} to the horizontal navigation properties, and `none`{:.value} to the vertical navigation properties.
+
+`vertical`{:.value}
+: Enable automatic navigation in the vertical directions. Equivalent to setting `none`{:.value} to the horizontal navigation properties, and `auto`{:.value} to the vertical navigation properties.
 
 
 ### Focus: the 'focus' property

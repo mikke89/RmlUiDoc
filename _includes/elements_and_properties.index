@@ -544,6 +544,46 @@
 	"content": ""
 },
 {
+	"property": "nav",
+	"element": "",
+	"url": '<a href="/pages/rcss/user_interface.html#nav">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "nav-up",
+	"element": "",
+	"url": '<a href="/pages/rcss/user_interface.html#nav">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "nav-right",
+	"element": "",
+	"url": '<a href="/pages/rcss/user_interface.html#nav">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "nav-down",
+	"element": "",
+	"url": '<a href="/pages/rcss/user_interface.html#nav">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"property": "nav-left",
+	"element": "",
+	"url": '<a href="/pages/rcss/user_interface.html#nav">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
 	"property": "opacity",
 	"element": "",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#opacity">',

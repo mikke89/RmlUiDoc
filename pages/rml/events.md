@@ -49,6 +49,7 @@ A number of input events send through key modifiers. In this case the following 
 
 `focus`{:.evt}
 : Sent to an element when it becomes the main focus.
+* `focus_visible`: Set to true if focus should be visually indicated.
 
 `blur`{:.evt}
 : Sent to an element when it has focus removed.
