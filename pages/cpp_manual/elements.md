@@ -147,6 +147,7 @@ Supported methods have simply had their initial letter capitalised to match the 
 | `InsertBefore()` | Inserts the first node before the second, child, node in the DOM. The newly parented node must first be detached from its existing parent. | insertBefore()
 | `QuerySelector()` | Retrieve the first descendant element matching the provided RCSS selector(s). | querySelector()
 | `QuerySelectorAll()` | Retrieve a set of all descendant elements matching the provided RCSS selector(s). | querySelectorAll()
+| `Matches()` | Check if the current element matches the given RCSS selector(s). | matches()
 | `RemoveAttribute()` | Remove the named attribute from the current node. | removeAttribute()
 | `RemoveChild()` | Removes a child node from the current element, returning it as a unique pointer. | removeChild()
 | `RemoveEventListener()` | Removes an event listener from the element. | removeEventListener()

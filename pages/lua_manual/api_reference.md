@@ -550,8 +550,9 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [HasChildNodes](#Element-HasChildNodes){: .lua-function }() | `boolean`{: .lua-type }<br> |
 | [InsertBefore](#Element-InsertBefore){: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element) | `nil, Element`{: .lua-type } |
 | [IsClassSet](#Element-IsClassSet){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
-| [QuerySelector](#Element-QuerySelector){: .lua-function }(`string`{: .lua-type } name) | `Element`{: .lua-type }<br> |
-| [QuerySelectorAll](#Element-QuerySelectorAll){: .lua-function }(`string`{: .lua-type } name) | `table`{: .lua-type }<br> |
+| [QuerySelector](#Element-QuerySelector){: .lua-function }(`string`{: .lua-type } selectors) | `Element`{: .lua-type }<br> |
+| [QuerySelectorAll](#Element-QuerySelectorAll){: .lua-function }(`string`{: .lua-type } selectors) | `table`{: .lua-type }<br> |
+| [Matches](#Element-Matches){: .lua-function }(`string`{: .lua-type } selectors) | `boolean`{: .lua-type }<br> |
 | [RemoveAttribute](#Element-RemoveAttribute){: .lua-function }(`string`{: .lua-type } name) | `nil`{: .lua-type } |
 | [RemoveChild](#Element-RemoveChild){: .lua-function }(`Element`{: .lua-type } element) | `boolean`{: .lua-type }<br> |
 | [ReplaceChild](#Element-ReplaceChild){: .lua-function }(`ElementPtr`{: .lua-type } inserted_element, `Element`{: .lua-type } replaced_element) | `boolean`{: .lua-type }<br> |
@@ -686,11 +687,14 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-IsClassSet' name='Element-IsClassSet'>IsClassSet</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `boolean`{: .lua-type }
 : Returns true if the class name is set on the element, false if not.
 
-<a href='#Element-QuerySelector' name='Element-QuerySelector'>QuerySelector</a>{: .lua-function }(`string`{: .lua-type } id)  &rarr; `Element`{: .lua-type }
+<a href='#Element-QuerySelector' name='Element-QuerySelector'>QuerySelector</a>{: .lua-function }(`string`{: .lua-type } selectors)  &rarr; `Element`{: .lua-type }
 : Returns the first descendant element matching the provided RCSS selector(s).
 
-<a href='#Element-QuerySelectorAll' name='Element-QuerySelectorAll'>QuerySelectorAll</a>{: .lua-function }(`string`{: .lua-type } tag_name)  &rarr; `table`{: .lua-type }
+<a href='#Element-QuerySelectorAll' name='Element-QuerySelectorAll'>QuerySelectorAll</a>{: .lua-function }(`string`{: .lua-type } selectors)  &rarr; `table`{: .lua-type }
 : Returns a set of all descendant elements matching the provided RCSS selector(s). Returned table is indexable with integers.
+
+<a href='#Element-Matches' name='Element-Matches'>Matches</a>{: .lua-function }(`string`{: .lua-type } selectors)  &rarr; `boolean`{: .lua-type }
+: Returns true if the element matches the provided RCSS selector(s), false if not.
 
 <a href='#Element-RemoveAttribute' name='Element-RemoveAttribute'>RemoveAttribute</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `nil`{: .lua-type}
 : Removes the attribute named name from the element.
