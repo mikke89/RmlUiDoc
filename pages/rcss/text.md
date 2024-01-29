@@ -122,6 +122,27 @@ This property defines how text is broken into new lines where they otherwise wou
 
 These properties will only take effect if the `white-space`{:.prop} property allows wrapping.
 
+
+### Spacing between characters; the 'letter-spacing' property
+{:#letter-spacing}
+
+`letter-spacing`{:.prop}
+
+Value: | normal \| \<length\>
+Initial: | normal
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+Allows adjustment of the horizontal spacing between text characters.
+
+`normal`{:.value}
+: Use normal letter spacing according to the current font.
+
+`<length>`{:.value}
+: Use *additional* spacing between characters, can be negative to make spacing narrower.
+
+
 ### Text transform: the 'text-transform' property
 {:#text-transform}
 

@@ -55,6 +55,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
 [`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around | flex-start | flex containers | no | | 
 [`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
+[`letter-spacing`{:.prop}][letter-spacing] | normal \| \<length\> | normal | all elements | yes | | 
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 [`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
 [`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
@@ -133,6 +134,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [height]: visual_formatting_model_details.html#height
 [image-color]: colours_backgrounds.html#image-color
 [justify-content]: flexboxes.html#justify-content
+[letter-spacing]: text.html#letter-spacing
 [line-height]: visual_formatting_model_details.html#line-height
 [margin]: box_model.html#margin
 [max-height]: visual_formatting_model_details.html#max-height

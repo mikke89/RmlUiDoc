@@ -464,6 +464,14 @@
 	"content": ""
 },
 {
+	"property": "letter-spacing",
+	"element": "",
+	"url": '<a href="/pages/rcss/text.html#letter-spacing">',
+	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
 	"property": "line-height",
 	"element": "",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#line-height">',

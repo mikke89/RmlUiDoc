@@ -55,7 +55,7 @@ h2 {
 ```
 ##### Output
 
-The rendered output is shown below. Notice that all columns are the same height. This is easy to accomplish in flexible layout, but difficult in any other layout mode when the height depends on the content. Furthermore, the width of the last column will always be exactly twice the width of each of first two columns.
+The rendered output is shown below. Notice that all columns are the same height. This is easy to accomplish in flexible layout, but difficult in any other layout mode when the height depends on the content. Furthermore, the width of the last column will always be exactly twice the width of each of the first two columns.
 
 <img alt="flexbox example" src="../../assets/images/flexbox-example.png" style="margin: 0 auto; display: block;">
 
