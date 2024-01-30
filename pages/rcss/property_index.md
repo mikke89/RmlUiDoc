@@ -9,7 +9,7 @@ The following table lists all properties recognised by RCSS. The **Notes** colum
 
 Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----
-[`align-content`{:.prop}][align-content] |flex-start \| flex-end \| center \| space-between \| space-around \| stretch | stretch | multi-line flex containers | no | | 
+[`align-content`{:.prop}][align-content] |flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly \| stretch | stretch | multi-line flex containers | no | | 
 [`align-items`{:.prop}][align-items] | flex-start \| flex-end \| center \| baseline \| space-around \| stretch | stretch | flex containers | no | | 
 [`align-self`{:.prop}][align-self] | auto \| flex-start \| flex-end \| center \| baseline \| space-around \| stretch | auto | flex containers | no | | 
 [`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | | 
@@ -53,7 +53,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
-[`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around | flex-start | flex containers | no | | 
+[`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly | flex-start | flex containers | no | | 
 [`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
 [`letter-spacing`{:.prop}][letter-spacing] | normal \| \<length\> | normal | all elements | yes | | 
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.

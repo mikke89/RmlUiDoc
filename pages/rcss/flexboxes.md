@@ -207,7 +207,7 @@ Note that any free space filled by auto-margins will thereby leave no more space
 `justify-content`{:.prop}
 {:#justify-content}
 
-Value: | flex-start \| flex-end \| center \| space-between \| space-around
+Value: | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly
 Initial: | flex-start
 Applies to: | flex containers
 Inherited: | no
@@ -244,7 +244,7 @@ Override the cross-axis alignment specified on the parent container for this ite
 `align-content`{:.prop}
 {:#align-content}
 
-Value: | flex-start \| flex-end \| center \| space-between \| space-around \| stretch
+Value: | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly \| stretch
 Initial: | stretch
 Applies to: | multi-line flex containers
 Inherited: | no
