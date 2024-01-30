@@ -94,6 +94,15 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`width`{:.prop}][width] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
 [`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
 
+### Internal Properties
+
+The following properties are internal to RmlUi. Ideally, they are set automatically by their respective global attribute, but can be set manually by the user if desired.
+
+Name | Values | Initial value | Applies to | Inherited | Global attribute | Notes
+---- | ------ | ------------- | ---------- | --------- | ---------------- | -----
+[`--rmlui-direction`{:.prop}][--rmlui-direction] | ltr \| rtl \| auto | auto | all | yes | `dir`{:.attr} | Unlike `direction`{:.prop} from CSS, this property does not affect document layout. 
+[`--rmlui-language`{:.prop}][--rmlui-language] | \<string\> | | all | yes | `lang`{:.attr} | 
+
 
 [align-content]: flexboxes.html#align-content
 [align-items]: flexboxes.html#align-items
@@ -166,3 +175,6 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [width]: visual_formatting_model_details.html#width
 [word-break]: text.html#word-break
 [z-index]: visual_formatting_model.html#z-index
+
+[--rmlui-direction]: {{"pages/rml/elements.html#global-attributes"|relative_url}}
+[--rmlui-language]: {{"pages/rml/elements.html#global-attributes"|relative_url}}
