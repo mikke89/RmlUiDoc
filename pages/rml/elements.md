@@ -24,6 +24,12 @@ Elements have a base set of attributes that are common to all types, which are:
 `style`{:.attr} = cdata (CS)
 : Specifies inline style information for the element. See [RCSS](../rcss.html).
 
+`lang`{:.attr} = language-code (CI)
+: Specifies the language of the element's text. Value is passed to the font engine to assist with text shaping. Inherited by child elements.
+
+`dir`{:.attr} = ltr | rtl | auto (CS)
+: Specifies the flow direction of the element's text. Value is passed to the font engine to assist with text shaping. Inherited by child elements. Unlike HTML, this attribute is case-sensitive and does not affect document layout.
+
 `on*`{:.attr} events = cdata (CS)
 : Event bindings. See [Events](events.html).
 
