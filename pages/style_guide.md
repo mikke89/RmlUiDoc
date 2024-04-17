@@ -3,7 +3,9 @@ layout: page
 title: Style guide for the core elements
 ---
 
-RmlUi features several functional elements that need to be sized and decorated with RCSS properties, such as scrollbars, sliders and drop-down boxes. This document will go over all these elements and give recommendations on how you should style them.
+RmlUi does not provide any built-in styles. Instead it gives full power, and responsibility, for styling to the user. This gives a lot of flexibility, but also requires the user to style all elements, including built-in ones such as `<input>`{:.tag} and `<select>`{:.tag}, and also generated elements such as scrollbars. It is recommended to include the [HTML Style Sheet](rml/html4_style_sheet.html) so that common tag names are layed out as in HTML.
+
+Elements in RmlUi, including built-in ones, can be styled using normal RCSS properties. In addition, RmlUi features several functional elements that generate additional *hidden* elements that themselves can be styled. This document will go over some of these elements, such as scrollbars, sliders and drop-down boxes, and give recommendations on how to style them.
 
 ### Scrollbars
 
