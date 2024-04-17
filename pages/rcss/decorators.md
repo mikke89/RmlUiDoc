@@ -7,6 +7,18 @@ next: font_effects
 
 Decorators are an extension to CSS for RCSS. A decorator can be declared and named in a style sheet like a property, and then configured with decorator-specific properties. Custom decorator types can be developed to suit the needs of the user, and in this manner any kind of decoration can be applied to an element.
 
+### RmlUi decorators
+
+RmlUi comes with several built-in decorators for displaying images and tiled images behind elements.
+
+1. [image decorator](decorators/image.html), for displaying a single stretched image.
+2. [tiled-horizontal decorator](decorators/tiled_horizontal.html), for tiling images horizontally. 
+3. [tiled-vertical decorator](decorators/tiled_vertical.html), for tiling images vertically.
+4. [tiled-box decorator](decorators/tiled_box.html), for tiling images across a box.
+5. [ninepatch decorator](decorators/ninepatch.html), for efficiently tiling images across a box.
+6. [gradient decorator](decorators/gradient.html), for adding a color gradient.
+
+
 ### Declaring decorators
 {:#decorator}
 
@@ -100,15 +112,3 @@ Multiple decorators can be specified on any element by a comma-separated list of
 decorator: image( icon-invader ), tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
 ```
 Multiple decorators will be rendered such that the first declared decorator appears on top, and the subsequent decorators appear below the previous one.
-
-
-### RmlUi decorators
-
-RmlUi comes with several built-in decorators for displaying images and tiled images behind elements.
-
-1. [image decorator](decorators/image.html), for displaying a single stretched image.
-2. [tiled-horizontal decorator](decorators/tiled_horizontal.html), for tiling images horizontally. 
-3. [tiled-vertical decorator](decorators/tiled_vertical.html), for tiling images vertically.
-4. [tiled-box decorator](decorators/tiled_box.html), for tiling images across a box.
-5. [ninepatch decorator](decorators/ninepatch.html), for efficiently tiling images across a box.
-6. [gradient decorator](decorators/gradient.html), for adding a color gradient.
