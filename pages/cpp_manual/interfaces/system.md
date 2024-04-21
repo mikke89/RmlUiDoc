@@ -6,17 +6,17 @@ grandparent: cpp_manual
 next: render
 ---
 
-The system interface is needed for RmlUi to tell the time, and allows the application to perform common tasks such as logging messages from RmlUi, translating strings, and setting the mouse cursor. A system interface is necessary, however the only function you need to define is `GetElapsedTime()`.
+The system interface is needed for RmlUi to tell the time, and allows the application to perform common tasks such as logging messages from RmlUi, translating strings, and setting the mouse cursor. The system interface provides default implementation for all functions, however, users may want to override the default behavior with their own customizations.
 
-The system interface is given in `<RmlUi/Core/SystemInterface.h>`{:.incl}. To develop a custom system interface, create a class derived from `Rml::SystemInterface` and provide function definitions for the one pure virtual function and optionally the other virtual functions.
+The system interface is given in `<RmlUi/Core/SystemInterface.h>`{:.incl}. To develop a custom system interface, create a class derived from `Rml::SystemInterface` and provide function definitions for the virtual functions you wish to override.
 
-#### Elapsed time (required)
+#### Elapsed time
 
 ```cpp
 // Get the number of seconds elapsed since the start of the application.
-virtual double GetElapsedTime() = 0;
+virtual double GetElapsedTime();
 ```
-The `GetElapsedTime()` function should simply return the number of seconds that have elapsed since the start of the application.
+The `GetElapsedTime()` function should simply return the number of seconds that have elapsed since the start of the application. The default implementation uses the standard C++ chrono utilities.
 
 #### String translation
 
