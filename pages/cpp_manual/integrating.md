@@ -50,27 +50,23 @@ If you used Conan or vcpkg to acquire RmlUi, then libraries and include paths sh
 
 ### Initialising RmlUi
 
-Before you can initialise RmlUi, you'll need to set the [interfaces](interfaces.html) that the library uses to interact with your application. There are two compulsory interfaces, the system interface and the render interface.
-
-#### The system interface
-
-The system interface is defined in `<RmlUi/Core/SystemInterface.h>`{:.incl}. In order to create a valid system interface, you'll need to create a class that inherits from `Rml::SystemInterface` and provides the function:
-
-```cpp
-virtual double GetElapsedTime();
-```
-
-The function should return the time (in seconds) since the start of the application. Install your system interface by calling `Rml::SetSystemInterface()` with a pointer to the interface. Note that you must keep the system interface alive until after the call to `Rml::Shutdown()` and destroy it afterwards. RmlUi won't release your interfaces.
-
-For more uses of the system interface, see the [documentation](interfaces/system.html).
+Before you can initialise RmlUi, you'll need to set the [interfaces](interfaces.html) that the library uses to interact with your application. There is one compulsory interface, the render interface. Additionally, some applications may want to define a custom system interface for additional functionality.
 
 #### The render interface
 
 The render interface is defined in `<RmlUi/Core/RenderInterface.h>`{:.incl}. It provides a way for RmlUi to send its geometry into your application's rendering pipeline. If you want to get RmlUi up and running as quickly as possible, take a look at the included backends described below.
 
-Once you have a render interface for your application, install it into RmlUi by calling `Rml::SetRenderInterface()`.
+Once you have a render interface for your application, install it into RmlUi by calling `Rml::SetRenderInterface()`. Note that you must keep the render interface alive until after the call to `Rml::Shutdown()` and destroy it afterward. RmlUi won't release your interfaces.
 
 If you'd like to take an in-depth look at setting up your own render interface, please see the [render interface documentation](interfaces/render.html).
+
+#### The system interface
+
+The system interface is defined in `<RmlUi/Core/SystemInterface.h>`{:.incl}. This provides utilities to perform common tasks such as logging messages, translating strings, or setting the mouse cursor.
+
+In order to create a system interface, you'll need to create a class that inherits from `Rml::SystemInterface`. Override any desired functions based on the requirements of your application. Install the system interface by calling `Rml::SetSystemInterface()` with a pointer to the interface. Note that you must keep the system interface alive until after the call to `Rml::Shutdown()` and destroy it afterward. RmlUi won't release your interfaces.
+
+For more uses of the system interface, please see the [documentation](interfaces/system.html).
 
 #### Backend integration
 {:#backends}
