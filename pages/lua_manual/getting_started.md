@@ -22,13 +22,13 @@ Perform the following steps to integrate the Lua plugin with RmlUi.
 1. Download and build the Lua 5.x library, or install it with your package manager.
 
 2. Build RmlUi with the Lua plugin enabled. See [Building with CMake](../cpp_manual/building_with_cmake.html) in the C++ manual for details.
-    - Enable the option `BUILD_LUA_BINDINGS` during the CMake configuration.
+    - Enable the option `RMLUI_LUA_BINDINGS` during the CMake configuration.
 	- You may also need to guide CMake to find the Lua libraries by providing `LUA_DIR` set to the Lua directory.
-	- We encourage you to also enable the samples, `BUILD_SAMPLES` options, and try to build the `luainvaders` sample application to test that everything is working.
+	- We encourage you to also enable the samples by enabling the `RMLUI_SAMPLES` option, and try to build the `rmlui_sample_luainvaders` target to test that everything is working.
 
-3. Within your application, setup and initialize RmlUi as you normally would, see [integrating RmlUi](../cpp_manual/integrating.html) in the C++ manual.
+3. Link with the `rmlui_lua` library or the `RmlUi::Lua` CMake imported target, the same way you link to the core RmlUi library.
 
-4. Link with the `RmlLua` library just as you would link to `RmlCore`.
+4. Within your application, setup and initialize RmlUi as you normally would, see [integrating RmlUi](../cpp_manual/integrating.html) in the C++ manual.
 
 5. Include the Lua plugin headers in your C++ source files: `#include <RmlUi/Lua.h>`.
 

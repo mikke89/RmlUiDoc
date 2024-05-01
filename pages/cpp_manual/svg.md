@@ -35,26 +35,26 @@ The SVG plugin is integrated and built with the Core RmlUi library once it is en
 First, we demonstrate how to download and build the required [LunaSVG](https://github.com/sammycage/lunasvg) dependency. Open up a terminal and navigate to `RmlUi/Dependencies`{:.path}. Then execute the following commands.
 
 ```cmd
-git clone --branch v2.3.0 https://github.com/sammycage/lunasvg
+git clone --branch v2.3.2 https://github.com/sammycage/lunasvg
 cd lunasvg
 cmake -B build -S . -DBUILD_SHARED_LIBS=OFF -DLUNASVG_BUILD_EXAMPLES=OFF
 cmake --build build --target lunasvg --config Debug
 cmake --build build --target lunasvg --config Release
 ```
 
-You may want to adjust the commands and CMake arguments to your preferences. The plugin is tested at the given version of LunaSVG, but newer versions may work.
+You may need to adjust the CMake arguments to your generator and environment. The plugin is tested at the given version of LunaSVG, but newer versions may work.
 
-Then, during [CMake configuration](building_with_cmake.html) of RmlUi, set the option `ENABLE_SVG_PLUGIN=ON`. This will ensure that the SVG plugin is integrated and built together with `RmlCore`. For example, in the `RmlUi/Build`{:.path} directory execute the following:
+Then, during [CMake configuration](building_with_cmake.html) of RmlUi, set the option `RMLUI_SVG_PLUGIN=ON`. This will ensure that the SVG plugin is integrated and built together with the RmlUi core library. For example, in the `RmlUi`{:.path} directory execute the following:
 
 ```cmd
-cmake -DBUILD_SHARED_LIBS=OFF -DENABLE_SVG_PLUGIN=ON -DBUILD_SAMPLES=ON ..
+cmake -B Build -S . -DBUILD_SHARED_LIBS=OFF -DRMLUI_SAMPLES=ON -DRMLUI_SVG_PLUGIN=ON
 ```
 
-This should automatically locate the `lunasvg` library. You can now build and run the included `svg` sample as you would any other sample to try out the plugin.
+This should automatically locate the `lunasvg` library. You can now build and run the included `rmlui_sample_svg` target the same way you would with any other sample to try out the plugin.
 
 
 ### Including the SVG plugin
 
-To include the SVG plugin in your own project, make sure you build RmlUi with the CMake option `ENABLE_SVG_PLUGIN` enabled as described above, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `lunasvg` library.
+To include the SVG plugin in your own project, make sure you build RmlUi with the CMake option `RMLUI_SVG_PLUGIN` enabled as described above, and [integrate RmlUi into your project](integrating.html) as normal. In addition, you will need to link with the `lunasvg` library. For CMake projects, RmlUi should automatically declare the dependency to LunaSVG and link to it. Make sure that LunaSVG can be found by CMake, for example by setting the `lunasvg_ROOT` variable to its build folder.
 
 The plugin is then automatically loaded during the call to `Rml::Initialise()`. If everything has worked out properly, the log will output a short message about the SVG plugin being initialised. The `<svg>`{:.tag} element should then be available for displaying vector images.

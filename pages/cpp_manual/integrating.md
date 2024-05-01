@@ -5,7 +5,7 @@ parent: cpp_manual
 next: core_overview
 ---
 
-This guide will help you get started when you are ready to integrate RmlUi into your own application.
+This guide will help you get started when you are ready to integrate RmlUi into your own application. This assumes that you have already [built or installed the library](building_with_cmake.html) from the previous step, or have downloaded the prebuilt package binaries.
 
 If you haven't already done so, take a look at the sample applications in [`/Samples/`{:.path}](https://github.com/mikke89/RmlUi/tree/master/Samples). There you can find a whole heap of useful examples of how to use and abuse RmlUi. Also, be sure to take a look at one or more of the included backends (in [`/Backends/`{:.path}](https://github.com/mikke89/RmlUi/tree/master/Backends)), as they provide a good starting point for getting a basic application up and running together with RmlUi.
 
@@ -24,27 +24,49 @@ If you used Conan or vcpkg to acquire RmlUi, then libraries and include paths sh
 
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
+#### CMake client project
+{:#cmake-project}
+
+Add the following to your project's `CMakeLists.txt`:
+
+```cmake
+find_package(RmlUi REQUIRED)
+target_link_libraries(my_application PRIVATE RmlUi::RmlUi)
+```
+
+You can pass in the RmlUi build or install path on the command line, or in a CMake preset, by defining the CMake variable `RmlUi_ROOT`. For example, run the following in the directory of your application:
+
+```cmd
+cmake -B Build -S . -DRmlUi_ROOT="<path-to-rmlui>"
+```
+
+RmlUi generates CMake configure files for both in-source builds and for installs, so this should hopefully just work in either case. When using the prebuilt package binaries, please unpack the files and point the RmlUi path to one of the `Bin-Dynamic` or `Bin-Static` folders, according to the desired linkage type for your project.
+
+It is also possible to target individual components of the library, such as `RmlUi::Core` or `RmlUi::Debugger`. The `RmlUi::RmlUi` target links to all available components. 
+
+Then, add `#include <RmlUi/Core.h>` in a source or header file in your application to start using RmlUi.
+
 #### Visual Studio
 
 - Add the RmlUi include path `RmlUi/Include/`{:.path} to your project's include paths.
   - See `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
-- Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build/`{:.path} directory as appropriate) and the FreeType library path to your library paths.
+- Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build`{:.path} directory as appropriate) and the FreeType library path to your library paths.
   - See `Project → Properties → Linker → General → Additional Library Directories`{:.path}.
-- Link with `RmlCore.lib`{:.path} and `freetype.lib`{:.path}.
+- Link with `rmlui.lib`{:.path} and `freetype.lib`{:.path}.
   - See `Project → Properties → Linker → Input → Additional Dependencies`{:.path}.
 - If you have RmlUi built as a static library, add the following preprocessor definition: `RMLUI_STATIC_LIB`.
   - See `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}.
 - If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs into the directory your executable will run from..
-  - That is, `Debug/RmlCore.dll`{:.path} for debug builds and `Release/RmlCore.dll`{:.path} for release builds from the `RmlUi/Build/`{:.path} folder.
+  - That is, `Debug/rmlui.dll`{:.path} for debug builds and `Release/rmlui.dll`{:.path} for release builds from the `RmlUi/Build`{:.path} folder, or from the `Bin-Dynamic`{:.path} folder in the release package.
 - If you have FreeType built as a shared/dynamic library, copy the `freetype.dll` file into the directory your executable will run from.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
-#### MacOS and Linux
+#### Linux and MacOS 
 
-- Add the RmlUi include path `RmlUi/Include/`{:.path} and library path `RmlUi/Build/`{:.path} to the paths in your build system.
-- Link with `RmlCore` and `freetype`.
+- Add the RmlUi include path `RmlUi/Include/`{:.path} and library path `RmlUi/Build`{:.path} to the paths in your build system.
+- Link with `rmlui` and `freetype`.
 - Either copy the RmlUi libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for MacOS) environment variable. 
-- When the library is built as a static library, add `#define RMLUI_STATIC_LIB` before including the RmlUi headers.
+- When the library is built as a static library, add `RMLUI_STATIC_LIB` as a preprocessor definition in your project.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
 

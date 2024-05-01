@@ -44,7 +44,7 @@ As these tools are all open source, we encourage you to add more features if you
 
 ### Initialisation
 
-To use RmlDebugger, include `<RmlUi/Debugger.h>`{:.incl} in your application and link with `RmlDebugger`{:.incl}.
+To integrate the debugger into your application, link with `rmlui_debugger`{:.incl} or the imported CMake target `RmlUi::Debugger`{:.incl}. Then, include `<RmlUi/Debugger.h>`{:.incl} in a source file.
 
 To start the debugger, call `Rml::Debugger::Initialise()` with the context you want the debugger menu rendered into.
 
