@@ -18,7 +18,7 @@ _Attributes_
 
 #### \<form\> Children
 
-There are four elements that function as children to a `<form>`{:.tag} element: the `<input>`{:.tag}, `<textarea>`{:.tag}, `<select>`{:.tag} and `<dataselect>`{:.tag} elements. These have many common attributes which are listed below. Any specific attributes are listed afterwards under their own headings.
+There following elements function as children to a `<form>`{:.tag} element: the `<input>`{:.tag}, `<textarea>`{:.tag} and `<select>`{:.tag} elements. These have many common attributes which are listed below. Any specific attributes are listed afterward under their own headings.
 
 _Attributes_
 

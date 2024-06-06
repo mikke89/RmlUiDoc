@@ -9,7 +9,6 @@ title: Glossary
 * **ID** tokens must begin with a letter ([A-Za-z]) and may be followed by any number of letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
 * **IDREF** and IDREFS are references to ID tokens defined by other attributes. **IDREF** is a single token and **IDREFS** is a space-separated list of tokens.
 * **NUMBER** tokens must contain at least one digit ([0-9]).
-* **DATASOURCE** is the address of a data source and table. Is in the format "source.table". 
 
 ### URI
 

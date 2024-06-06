@@ -11,7 +11,7 @@ This sample style sheet is based on the recommended CSS 2 style sheet found [her
 body, div,
 h1, h2, h3, h4,
 h5, h6, p,
-hr, pre, datagrid,
+hr, pre,
 tabset tabs
 {
 	display: block;

@@ -998,28 +998,4 @@
 	"title": "",
 	"parent_title": "",
 	"content": ""
-},
-{
-	"property": "",
-	"element": "datagrid",
-	"url": '<a href="/pages/rml/deprecated.html#datagrid">',
-	"title": "",
-	"parent_title": "",
-	"content": ""
-},
-{
-	"property": "",
-	"element": "col",
-	"url": '<a href="/pages/rml/deprecated.html#col">',
-	"title": "",
-	"parent_title": "",
-	"content": ""
-},
-{
-	"property": "",
-	"element": "dataselect",
-	"url": '<a href="/pages/rml/deprecated.html#dataselect">',
-	"title": "",
-	"parent_title": "",
-	"content": ""
 }

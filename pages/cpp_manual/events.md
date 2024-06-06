@@ -285,14 +285,7 @@ The following lists the specifications of all built-in events. Also see the para
 | Scroll       | scroll        | false | true  | None            |
 | Animationend | animationend  | false | true  | None            |
 | Transitionend| transitionend | false | true  | None            |
-|              |		       |       |                           |
+|              |		       |       |                         |
 | Change       | change        | false | true  | None            |
 | Submit       | submit        | true  | true  | None            |
 | Tabchange    | tabchange     | false | true  | None            |
-| Columnadd    | columnadd     | false | true  | None            |
-| Rowadd       | rowadd        | false | true  | None            |
-| Rowchange    | rowchange     | false | true  | None            |
-| Rowremove    | rowremove     | false | true  | None            |
-| Rowupdate    | rowupdate     | false | true  | None            |
-
-

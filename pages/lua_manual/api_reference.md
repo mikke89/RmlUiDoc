@@ -19,8 +19,6 @@ All instantiable classes define a `new()` function which returns an object of th
 
 - [Colourb](#Colourb)
 - [Colourf](#Colourf)
-- [DataFormatter](#DataFormatter)
-- [DataSource](#DataSource)
 - [ElementInstancer](#ElementInstancer)
 - [ElementPtr](#ElementPtr)
 - [GlobalLuaFunctions](#GlobalLuaFunctions)
@@ -30,11 +28,8 @@ All instantiable classes define a `new()` function which returns an object of th
 
 #### Special Elements
 
-- [ElementDataGrid](#ElementDataGrid)
-- [ElementDataGridRow](#ElementDataGridRow)
 - [ElementForm](#ElementForm)
 - [ElementFormControl](#ElementFormControl)
-- [ElementFormControlDataSelect](#ElementFormControlDataSelect)
 - [ElementFormControlInput](#ElementFormControlInput)
 - [ElementFormControlSelect](#ElementFormControlSelect)
 - [ElementFormControlTextArea](#ElementFormControlTextArea)
@@ -299,76 +294,6 @@ Table of documents with the ability to be iterated over or indexed by an integer
 | __index |
 | __pairs |
 
-
----
-
-### <a href='#DataFormatter' name='DataFormatter'>DataFormatter</a>
-
-Inherits: `nil`{: .lua-type }
-
-Lua data formatting helper.
-
-#### Properties
-
-| Name | Type |
-| ------------ | ---- |
-| [FormatData](#DataFormatter-FormatData){: .lua-function } | `function`{: .lua-type } |
-
-#### Functions
-
-| Name | Return Type |
-| ------------ | ---- |
-| [new](#DataFormatter-new){: .lua-function }(`nil, function`{: .lua-type } format_data) | `DataFormatter`{: .lua-type} |
-
-#### Property Descriptions
-
-<a href='#DataFormatter-FormatData' name='DataFormatter-FormatData'>FormatData</a>{: .lua-type }  :: `function`{: .lua-type }
-: Formatting function which returns a `string`
-
-#### Function Descriptions
-
-<a href='#DataFormatter-new' name='DataFormatter-new'>new</a>{: .lua-function }(`nil, function`{: .lua-type } format_data)  &rarr; `DataFormatter`{: .lua-type}
-: Construct a new `DataFormatter` object. Optional `format_data` argument which is a function which returns a `string`.
-
----
-
-### <a href='#DataSource' name='DataSource'>DataSource</a>
-
-Inherits: `nil`{: .lua-type }
-
-Abstract DataSource Interface.
-
-#### Functions
-
-| Name | Return Type |
-| ------------ | ---- |
-| [new](#DataSource-new){: .lua-function }(`string`{: .lua-type } name) | `DataSource`{: .lua-type }<br> |
-| [GetNumRows](#DataSource-GetNumRows){: .lua-function }(`DataSource`{: .lua-type } table_name) | `integer`{: .lua-type }<br> |
-| [GetRow](#DataSource-GetRow){: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index) | `string`{: .lua-type }<br> |
-| [NotifyRowAdd](#DataSource-NotifyRowAdd){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_added, `integer`{: .lua-type } num_rows_added) | `nil`{: .lua-type } |
-| [NotifyRowChange](#DataSource-NotifyRowChange){: .lua-function }(`string`{: .lua-type } table_name, `nil, integer`{: .lua-type } first_row_changed, `nil, integer`{: .lua-type } num_rows_changed) | `nil`{: .lua-type } |
-| [NotifyRowRemove](#DataSource-NotifyRowRemove){: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_removed, `integer`{: .lua-type } num_rows_removed) | `nil`{: .lua-type } |
-
-
-#### Function Descriptions
-
-<a href='#DataSource-new' name='DataSource-new'>new</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `DataSource`{: .lua-type }
-: Construct a new `DataSource` object.
-
-<a href='#DataSource-GetNumRows' name='DataSource-GetNumRows'>GetNumRows</a>{: .lua-function }(`DataSource`{: .lua-type } table_name)  &rarr; `integer`{: .lua-type }
-: Return the number of rows in the given table
-
-<a href='#DataSource-GetRow' name='DataSource-GetRow'>GetRow</a>{: .lua-function }(`DataSource`{: .lua-type } table_name, `lua_type`{: .lua-type } index)  &rarr; `string`{: .lua-type }
-: Return a list of the column values in string form
-
-<a href='#DataSource-NotifyRowAdd' name='DataSource-NotifyRowAdd'>NotifyRowAdd</a>{: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_added, `integer`{: .lua-type } num_rows_added)  &rarr; `nil`{: .lua-type}
-: Notify listeners that rows have been added to the data source.
-
-<a href='#DataSource-NotifyRowChange' name='DataSource-NotifyRowChange'>NotifyRowChange</a>{: .lua-function }(`string`{: .lua-type } table_name, `nil, integer`{: .lua-type } first_row_changed, `nil, integer`{: .lua-type } num_rows_changed)  &rarr; `nil`{: .lua-type}
-: Notify listeners that all rows on the data source have changed. Optional arguments `first_row_changed` for specifying the first row number which changed and `num_rows_changed` for specifying how many rows changed after the first row.
-
-<a href='#DataSource-NotifyRowRemove' name='DataSource-NotifyRowRemove'>NotifyRowRemove</a>{: .lua-function }(`string`{: .lua-type } table_name, `integer`{: .lua-type } first_row_removed, `integer`{: .lua-type } num_rows_removed)  &rarr; `nil`{: .lua-type}
-: Notify listeners that rows have been removed from the data source.
 
 ---
 
@@ -751,84 +676,6 @@ Inherits: `nil`{: .lua-type }
 
 ---
 
-### <a href='#ElementDataGrid' name='ElementDataGrid'>ElementDataGrid</a>
-
-Inherits: `Element`{: .lua-type }
-
-ElementDataGrid derives from Element. The data grid has the following functions and properties:
-
-#### Properties
-
-| Name | Type |
-| ------------ | ---- |
-| [rows](#ElementDataGrid-rows){: .lua-function } | `table`{: .lua-type } |
-
-
-#### Functions
-
-| Name | Return Type |
-| ------------ | ---- |
-| [AddColumn](#ElementDataGrid-AddColumn){: .lua-function }(`string`{: .lua-type } fields, `string`{: .lua-type } formatter, `number`{: .lua-type } initial_width, `string`{: .lua-type } header_rml) | `nil`{: .lua-type } |
-| [SetDataSource](#ElementDataGrid-SetDataSource){: .lua-function }(`string`{: .lua-type } data_source_name) | `nil`{: .lua-type } |
-
-
-#### Property Descriptions
-
-<a href='#ElementDataGrid-rows' name='ElementDataGrid-rows'>rows</a>{: .lua-function }  :: `table`{: .lua-type }
-: Returns an array containing all the rows in the data grid.
-
-
-
-#### Function Descriptions
-
-<a href='#ElementDataGrid-AddColumn' name='ElementDataGrid-AddColumn'>AddColumn</a>{: .lua-function }(`string`{: .lua-type } fields, `string`{: .lua-type } formatter, `number`{: .lua-type } initial_width, `string`{: .lua-type } header_rml)  &rarr; `nil`{: .lua-type}
-: Adds a new column to the data grid. The column will read the columns fields (in CSV format) from the grid's data source, processing it through the data formatter named formatter. `header_rml` specifies the RML content of the column's header.
-
-<a href='#ElementDataGrid-SetDataSource' name='ElementDataGrid-SetDataSource'>SetDataSource</a>{: .lua-function }(`string`{: .lua-type } data_source_name)  &rarr; `nil`{: .lua-type}
-: Sets the name and table of the new data source to be used by the data grid.
-
-
-
----
-
-### <a href='#ElementDataGridRow' name='ElementDataGridRow'>ElementDataGridRow</a>
-
-Inherits: `Element`{: .lua-type }
-
-ElementDataGridRow derives from Element. The data grid row has the following properties:
-
-#### Properties
-
-| Name | Type |
-| ------------ | ---- |
-| [parent_grid](#ElementDataGridRow-parent_grid){: .lua-function } | `ElementDataGrid`{: .lua-type } |
-| [parent_relative_index](#ElementDataGridRow-parent_relative_index){: .lua-function } | `integer`{: .lua-type } |
-| [parent_row](#ElementDataGridRow-parent_row){: .lua-function } | `ElementDataGridRow`{: .lua-type } |
-| [row_expanded](#ElementDataGridRow-row_expanded){: .lua-function } | `boolean`{: .lua-type } |
-| [table_relative_index](#ElementDataGridRow-table_relative_index){: .lua-function } | `integer`{: .lua-type } |
-
-
-#### Property Descriptions
-
-<a href='#ElementDataGridRow-parent_grid' name='ElementDataGridRow-parent_grid'>parent_grid</a>{: .lua-function }  :: `ElementDataGrid`{: .lua-type }
-: The data grid that this row belongs to.
-
-<a href='#ElementDataGridRow-parent_relative_index' name='ElementDataGridRow-parent_relative_index'>parent_relative_index</a>{: .lua-function }  :: `integer`{: .lua-type }
-: The index of the row, relative to its parent row. So if you are the third row in your parent, then it will be 3.
-
-<a href='#ElementDataGridRow-parent_row' name='ElementDataGridRow-parent_row'>parent_row</a>{: .lua-function }  :: `ElementDataGridRow`{: .lua-type }
-: The parent row of this row. None if it at the top level.
-
-<a href='#ElementDataGridRow-row_expanded' name='ElementDataGridRow-row_expanded'>row_expanded</a>{: .lua-function }  :: `boolean`{: .lua-type }
-: The expanded state of the row, either true or false.
-
-<a href='#ElementDataGridRow-table_relative_index' name='ElementDataGridRow-table_relative_index'>table_relative_index</a>{: .lua-function }  :: `integer`{: .lua-type }
-: The index of the row, relative to the data grid it is in. This takes into account all previous rows and their children.
-
-
-
----
-
 ### <a href='#ElementForm' name='ElementForm'>ElementForm</a>
 
 Inherits: `Element`{: .lua-type }
@@ -875,28 +722,6 @@ Inherits: `Element`{: .lua-type }
 
 
 <a href='#ElementFormControl-value' name='ElementFormControl-value'>value</a>{: .lua-function }  :: `string`{: .lua-type }
-
-
----
-
-### <a href='#ElementFormControlDataSelect' name='ElementFormControlDataSelect'>ElementFormControlDataSelect</a>
-
-Inherits: `ElementFormControlSelect`{: .lua-type }
-
-ElementFormControlDataSelect derives from ElementFormControlSelect. It has the following additional function:
-
-#### Functions
-
-| Name | Return Type |
-| ------------ | ---- |
-| [SetDataSource](#ElementFormControlDataSelect-SetDataSource){: .lua-function }(`string`{: .lua-type } data_source_name) | `nil`{: .lua-type } |
-
-
-#### Function Descriptions
-
-<a href='#ElementFormControlDataSelect-SetDataSource' name='ElementFormControlDataSelect-SetDataSource'>SetDataSource</a>{: .lua-function }(`string`{: .lua-type } data_source_name)  &rarr; `nil`{: .lua-type}
-: Sets the name and table of the new data source to be used by the select box.
-
 
 
 ---

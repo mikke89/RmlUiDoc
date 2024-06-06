@@ -32,9 +32,7 @@ include_in_search_results: false
 ### Tutorials
 
 1. [Window templating](pages/tutorials/window_template.html) in the _Rocket Invaders from Mars_ demo.
-2. [Datagrid](pages/tutorials/datagrid.html), setting up _Rocket Invaders_ high scores.
-3. [Datagrid Tree](pages/tutorials/datagrid_tree.html), adding subtrees to _Rocket Invaders_ high scores.
-4. [Drag & Drop](pages/tutorials/dragging.html)
+2. [Drag & Drop](pages/tutorials/dragging.html)
 
 ### Other
 

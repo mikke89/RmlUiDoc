@@ -36,13 +36,3 @@ The following elements are additionally enabled when including their respective 
 
 - [`<lottie>`{:.tag}](../cpp_manual/lottie.html)
 - [`<svg>`{:.tag}](../cpp_manual/svg.html)
-
----
-
-Deprecated elements:
-
-- [`<datagrid>`{:.tag}](deprecated.html#datagrid)
-- [`<col>`{:.tag}](deprecated.html#col)
-- [`<dataselect>`{:.tag}](deprecated.html#dataselect)
-
-Users are encouraged to replace these elements with [data bindings](../data_bindings.html) possibly combined with [RCSS tables](../rcss/tables.html).

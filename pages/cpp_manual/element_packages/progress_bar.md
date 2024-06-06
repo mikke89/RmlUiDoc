@@ -3,7 +3,6 @@ layout: page
 title: Progress
 parent: cpp_manual/element_packages
 grandparent: cpp_manual
-next: data_grid
 ---
 
 The `<progress>`{:.tag} element can display progress bars and gauges. The bar or gauge will be filled according to the provided value.

@@ -238,7 +238,7 @@ The only requirement on the element type that it is templated to is that the con
 
 ### Custom XML node handling
 
-For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, columns in a data grid element are specified by `<col>`{:.tag} tags immediately beneath the `<datagrid>`{:.tag} tag. If the standard XML parsing was being executed, an element would be instanced and parented to the data grid for each column tag - but this isn't what is wanted. So a custom XML node handler is used for data grids that processes the column tag differently.
+For some complex custom elements, the RML required to generate the element is not indicative of the actual internal hierarchy. For example, tabs in a tabset are specified by `<tab>`{:.tag} tags immediately beneath the `<tabset>`{:.tag} tag. If the standard XML parsing was being executed, an element would be instanced and parented to the tabset tag. But this isn't what is wanted, instead, we want to place all the tabs together under a single `<tabs>`{:.tag} tag. So a custom XML node handler is used for tabsets to process tabs (and equivalently for panels) differently.
 
 Node handlers are registered against RML tag names. When an RML file is being parsed, the XML parser maintains a stack of node handlers. Whenever a new tag is encountered, the parser checks if a specific node handler is registered against that tag; if so, that handler is pushed onto the stack and takes over the parsing until its associated tag is closed. If no handler is associated with a particular element, the current node handler continues parsing.
 
@@ -320,4 +320,4 @@ static Rml::XMLNodeHandler* RegisterNodeHandler(const Rml::String& tag,
 
 #### Samples
 
-Custom XML node handlers are used extensively by the included [element packages](element_packages.html); consult the source for the `XMLNodeHandlerDataGrid`, `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 
+Custom XML node handlers are used extensively by the included [element packages](element_packages.html); consult the source for the `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 

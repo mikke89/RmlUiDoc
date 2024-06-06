@@ -208,28 +208,8 @@ The following events are only sent if the dragged element has a drag property of
 * `handle_x`: Handle x position.
 * `handle_y`: Handle y position. 
 
-#### DataGrid Events
-
-`columnadd`{:.evt}
-: Sent to the data grid when a column is added.
-* `index`: Index of the column that was added. 
-
-`rowupdate`{:.evt}
-: Sent to the data grid when any rows in the table are loaded. 
-
-`rowadd`{:.evt}
-: Sent to the data grid when rows are added to the table.
-* `first_row_added`: Index of the first row added.
-* `num_rows_added`: The number of rows added after the first row. 
-
-`rowremove`{:.evt}
-: Sent to the data grid when rows are removed from the table.
-* `first_row_removed`: Index of the first row removed.
-* `num_rows_removed`: The number of rows removed after the first row. 
-
 #### TabSet Events
 
 `tabchange`{:.evt}
 : Sent to the tab set when the active tab is changed.
 * `tab_index`: The new tab index. 
-
