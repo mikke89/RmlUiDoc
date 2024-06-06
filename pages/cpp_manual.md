@@ -47,7 +47,3 @@ title: C++ Manual
 - [Debugger](cpp_manual/debugger.html)
 - [Lottie](cpp_manual/lottie.html)
 - [SVG](cpp_manual/svg.html)
-
-### Appendix
-
-- [Building FreeType for iOS](cpp_manual/building_freetype_for_ios.html)
