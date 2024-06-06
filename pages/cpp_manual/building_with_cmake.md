@@ -15,6 +15,7 @@ The following will guide you through the process of building RmlUi. This is nece
 - [Building on Windows](#windows)
 - [Building on macOS and Linux](#macos-and-linux)
 - [Building using Emscripten](#emscripten)
+- [CMake presets](#cmake-presets)
 - [CMake options](#cmake-options)
 
 
@@ -129,32 +130,40 @@ Open up the generated Visual Studio solution file. Now there should be several s
 ### Building on macOS and Linux
 {:#macos-and-linux}
 
-Before generating your build files you need to configure CMake. Open a terminal window, navigate to the RmlUi folder and create a `Build` folder:
+Open a terminal window, navigate to the RmlUi folder, and run the following commands:
 
 ```
-buildbox:RmlUi$ mkdir Build
-buildbox:RmlUi$ cd Build
+cmake -B Build -S . -DRMLUI_SAMPLES=ON
+cmake --build Build -j
 ```
 
-Then execute the following command:
+This will build RmlUi together with all the samples, please see below for a list of all available [CMake options](#cmake-options). Assuming everything went well, the samples will be located under the `Build`{:.path} folder. For example, to check out the `invaders` sample, run the following command:
 
 ```
-buildbox:RmlUi/Build$ ccmake ..
+Build/rmlui_sample_invaders
 ```
 
-*NOTE*: You need the `..` to denote the directory where the `CMakeLists.txt`{:.path} is located.
+And enjoy!
 
-This will open a text mode application that lets you choose which parts of RmlUi you want to build and how you want to build it. Before you can alter any options you'll need to press `C` so that CMake can scan your system configuration. Once it's complete you will see a list of options. See the CMake options below for what the most relevant options do. If you'd like to take a look at the included samples, enable the `RMLUI_SAMPLES` option.
+Alternatively, a more interactive experience is available with the `ccmake` tool, which allows you to list and set all available CMake options. Again, navigate to the RmlUi folder in your terminal window, and execute the following command:
+
+```
+ccmake -B Build -S .
+```
+
+*NOTE*: The `-B` parameter sets the target build directory, while `-S` denotes the source directory where the `CMakeLists.txt`{:.path} is located.
+
+This will open a text mode application that lets you choose which parts of RmlUi you want to build and how you want to build it. Before you can alter any options you'll need to press `C` so that CMake can scan your system configuration. Once it's complete you will see a list of options. If you'd like to take a look at the included samples, enable the `RMLUI_SAMPLES` option.
 
 Make your selection and press `C` again so that CMake can recalculate build settings based on your selection. Once CMake is happy you'll be able to press `G` to generate the build configuration and then exit.
 
 At this point you should be back at the terminal and your `Makefile`{:.path} will have been created. You can now build RmlUi by executing make.
 
 ```
-buildbox:RmlUi/Build$ make -j 8
+cmake --build Build -j
 ```
 
-*NOTE*: The -j parameter specifies how many jobs to execute in parallel: you should normally set this to the number of threads supported by your CPU.
+*NOTE*: The `-j` parameter tells the build tool to use parallel build.
 
 Once the build is complete, you may want to have a look at the samples.
 
@@ -185,6 +194,20 @@ After that, you can open your web browser and navigate to any of the samples. Fo
 The samples all use the [`SDL_GL3`](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Backend_SDL_GL3.cpp) backend to target Emscripten. Feel free to take a look at its source code to understand how you can do the same for your application.
 
 
+### CMake presets
+{:#cmake-presets}
+
+RmlUi provides [CMake presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) for some common workflows:
+
+- `samples` Enable samples but only those without extra dependencies.
+- `samples-all` Enable all samples, also those with extra dependencies.
+- `standalone` Build the library without any dependencies, featuring the `bitmap_font` sample.
+- `dev` Enable testing in addition to samples.
+- `dev-all` Enable testing in addition to samples, including those that require extra dependencies.
+
+These can be used during CMake configure, e.g. `cmake -B Build --preset <preset> ...`. The presets should be combined with any options needed by your toolchain, such as `CMAKE_BUILD_TYPE` to select the desired build type when using single-configuration generators. You can also specify your own presets, possibly inheriting the provided ones, in a `CMakeUserPresets.json` file.
+
+
 ### CMake options
 {:#cmake-options}
 
@@ -195,6 +218,7 @@ cmake -B Build -S . -DRMLUI_SAMPLES=ON -DRMLUI_BACKEND=GLFW_GL3 -DCMAKE_BUILD_TY
 ```
 
 The following also lists any exported macros, which must be defined in the consuming project when changing certain default options. When using the generated CMake targets, these are normally handled automatically when importing the library, otherwise, they need to be defined manually.
+
 
 #### CMake standard options
 
