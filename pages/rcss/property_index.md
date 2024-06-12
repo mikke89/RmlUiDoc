@@ -29,7 +29,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
 [`clip`{:.prop}][clip] | auto \| none \| always \| \<number\> | auto | all | no | | Controls interaction with ancestor element's clipping regions.
 [`color`{:.prop}][color] | \<colour\> | black | all | yes | | 
-[`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial width of table | 
+[`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial width of flex container or table | 
 [`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
 [`display`{:.prop}][display] | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
@@ -50,7 +50,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`font-size`{:.prop}][font-size] | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
 [`font-style`{:.prop}][font-style] | normal \| italic | normal | all | yes | | 'oblique' not supported.
 [`font-weight`{:.prop}][font-weight] | normal \| bold \| \<number \[1,1000\]\> | normal | all | yes | | Relative weights not supported.
-[`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | table elements | | | Replaces the CSS `border-spacing`{:.prop} property.
+[`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | flex containers and table elements | | | Also supports tables, replacing the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
 [`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly | flex-start | flex containers | no | | 
@@ -77,7 +77,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
 [`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
 [`right`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
-[`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | table elements | no | initial height of table | 
+[`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial height of flex container or table | 
 [`scrollbar-margin`{:.prop}][scrollbar-margin] | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
 [`tab-index`{:.prop}][tab-index] | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
 [`text-align`{:.prop}][text-align] | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
@@ -130,7 +130,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [font-size]: fonts.html#font-size
 [font-style]: fonts.html#font-style
 [font-weight]: fonts.html#font-weight
-[gap]: tables.html#gap
+[gap]: flexboxes.html#gap
 [height]: visual_formatting_model_details.html#height
 [image-color]: colours_backgrounds.html#image-color
 [justify-content]: flexboxes.html#justify-content

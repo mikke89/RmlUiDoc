@@ -251,3 +251,20 @@ Inherited: | no
 Percentages: | N/A
 
 Determines how any available space in the flex container is distributed between multiple flex lines.
+
+#### Gaps between flex items
+{:#gap}
+
+`row-gap`{:.prop}, `column-gap`{:.prop}
+
+Value: | \<length\> \| \<percentage\>
+Initial: | 0px
+Applies to: | flex containers and `table`{:.value} elements
+Inherited: | no
+Percentages: | relative to the height and width, respectively, of the initial flex container or table block size
+
+Specifies the gap *between* flex items, as if adding a fixed-size margin between adjacent flex items. In RCSS, these properties can also be used on [tables](tables.html#gap).
+
+`gap`{:.prop}
+
+A shorthand property for setting both `row-gap`{:.prop} and `column-gap`{:.prop} properties, in that order. If only a single value is specified, it sets both gap properties to the given value.

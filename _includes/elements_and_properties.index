@@ -258,7 +258,7 @@
 {
 	"property": "column-gap",
 	"element": "",
-	"url": '<a href="/pages/rcss/tables.html#gap">',
+	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
 	"title": "",
 	"parent_title": "",
 	"content": ""
@@ -426,7 +426,7 @@
 {
 	"property": "gap",
 	"element": "",
-	"url": '<a href="/pages/rcss/tables.html#gap">',
+	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
 	"title": "",
 	"parent_title": "",
 	"content": ""
@@ -714,7 +714,7 @@
 {
 	"property": "row-gap",
 	"element": "",
-	"url": '<a href="/pages/rcss/tables.html#gap">',
+	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
 	"title": "",
 	"parent_title": "",
 	"content": ""

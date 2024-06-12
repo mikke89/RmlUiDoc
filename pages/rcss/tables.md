@@ -123,7 +123,7 @@ Column groups and column elements are sized to cover the table columns they are 
 
 #### Table width algorithm
 
-The table width is the sum of all table columns and the horizontal table spacing, such as `column-gap`{:.prop}, column margins, and table padding.
+The table width is the sum of all table columns and the horizontal table spacing, including `column-gap`{:.prop}, column margins, and table padding.
 
 The width of table columns are defined entirely by the width specified on column elements and/or the cells of the first row. In the following, *columns* mean any of the aforementioned elements.
 
@@ -137,7 +137,7 @@ Unlike in CSS, column groups and columns can use horizontal `padding`{:.prop}, `
 
 #### Table height algorithm
 
-The table height is determined by the sum of the height of all its rows, in addition to vertical spacing such as `row-gap`{:.prop}, row margins, and table padding.
+The table height is determined by the sum of the height of all its rows, in addition to vertical spacing, including `row-gap`{:.prop}, row margins, and table padding.
 
 Each row has their height determined as follows:
 
@@ -173,11 +173,7 @@ The alignment is done by adding top or bottom padding to the cell element. Unlik
 
 ### Borders
 
-The model for setting borders on tables in RCSS is similar to the separated borders model in CSS (`border-collapse: separate`{:.value}).
-
-That is, each cell element control their own borders separately.
-
-However, unlike CSS, borders can still be added to rows, row groups, columns, and column groups. They will be separated from the cell borders, as if extending the borders of their inner elements.
+The model for setting borders on tables in RCSS is similar to the separated borders model in CSS (`border-collapse: separate`{:.value}). That is, each cell element control their own borders separately. However, unlike CSS, borders can still be added to rows, row groups, columns, and column groups. They will be separated from the cell borders, as if extending the borders of their inner elements.
 
 
 #### Cell spacing
@@ -189,9 +185,9 @@ Value: | \<length\> \| \<percentage\>
 Initial: | 0px
 Applies to: | `table`{:.value} elements
 Inherited: | no
-Percentages: | relative to the height and width, respectively, of the initial table block size
+Percentages: | relative to the height and width, respectively, of the initial flex container or table block size
 
-Specifies the gap *between* table cells. Like the CSS property `border-spacing`{:.prop}, except that spacing is not applied before and after the first and last cell, respectively. Instead, use `padding`{:.prop} on the table element to add spacing between the table border and its cells.
+In RCSS, these properties also apply to tables, in addition to [flexboxes](flexboxes.html#gap). For tables, they specify the gap *between* table cells. Like the CSS property `border-spacing`{:.prop}, except that spacing is not applied before and after the first and last cell, respectively. Instead, use `padding`{:.prop} on the table element to add spacing between the table border and its cells.
 
 `gap`{:.prop}
 
