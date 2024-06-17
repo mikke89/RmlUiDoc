@@ -20,9 +20,9 @@ Tested with Lua 5.3 which is the recommended version, but we aim for compatibili
 Perform the following steps to integrate the Lua plugin with RmlUi.
 
 1. Install or build a Lua library. You may use the official lua.org implementation or LuaJIT. With the official implementation, you should prefer to build it as C++ rather than C
-   so that the stack can be unwound properly in case of an error. When built as C, the Lua interpreter calls setjmp when an error occurs, which causes the destructors
+   so that the stack can be unwound properly in case of an error. When built as C, the Lua interpreter calls longjmp when an error occurs, which causes the destructors
    for local variables in any currently executing C++ extension functions to be skipped. Package managers often provide liblua in C mode only, so you will likely
-   have to build it as C++ yourself
+   have to build it as C++ yourself.
 
 2. Build RmlUi with the Lua plugin enabled. See [Building with CMake](../cpp_manual/building_with_cmake.html) in the C++ manual for details.
     - Enable the option `RMLUI_LUA_BINDINGS` during the CMake configuration.
