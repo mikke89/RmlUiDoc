@@ -19,12 +19,14 @@ Tested with Lua 5.3 which is the recommended version, but we aim for compatibili
 
 Perform the following steps to integrate the Lua plugin with RmlUi.
 
-1. Download and build the Lua 5.x library, or install it with your package manager.
+1. Install or build the Lua library, you may use the official [Lua.org](https://www.lua.org) implementation or [LuaJIT](http://luajit.org/luajit.html).
+    - With the official implementation, we recommend to build the library as C++ rather than C so that the stack can be unwound properly in case of an error. When built as C, the Lua interpreter calls longjmp when an error occurs, which causes the destructors for local variables in any currently executing C++ extension functions to be skipped. Package managers typically provide Lua compiled as C only, so for this functionality you will have to build it as C++ yourself.
 
 2. Build RmlUi with the Lua plugin enabled. See [Building with CMake](../cpp_manual/building_with_cmake.html) in the C++ manual for details.
     - Enable the option `RMLUI_LUA_BINDINGS` during the CMake configuration.
-	- You may also need to guide CMake to find the Lua libraries by providing `LUA_DIR` set to the Lua directory.
-	- We encourage you to also enable the samples by enabling the `RMLUI_SAMPLES` option, and try to build the `rmlui_sample_luainvaders` target to test that everything is working.
+    - Set the option `RML_LUA_BINDINGS_LIBRARY` to the appropriate interpreter type: `lua_as_cxx`, `lua` \[as C], or `luajit`.
+    - You may also need to guide CMake to find the Lua libraries by providing `LUA_DIR` set to the Lua directory.
+    - We encourage you to also enable the samples by enabling the `RMLUI_SAMPLES` option, and try to build the `rmlui_sample_luainvaders` target to test that everything is working.
 
 3. Link with the `rmlui_lua` library or the `RmlUi::Lua` CMake imported target, the same way you link to the core RmlUi library.
 
