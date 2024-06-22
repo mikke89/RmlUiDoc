@@ -1,1001 +1,995 @@
 // Generated from '_tools/generate_elements_and_properties_index.py'. Please do not edit manually.
 {
-	"property": "align-content",
-	"element": "",
+	"type": "property",
+	"title": "align-content",
 	"url": '<a href="/pages/rcss/flexboxes.html#align-content">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "align-items",
-	"element": "",
+	"type": "property",
+	"title": "align-items",
 	"url": '<a href="/pages/rcss/flexboxes.html#align-items">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "align-self",
-	"element": "",
+	"type": "property",
+	"title": "align-self",
 	"url": '<a href="/pages/rcss/flexboxes.html#align-self">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "animation",
-	"element": "",
+	"type": "property",
+	"title": "animation",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#animation">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "background",
-	"element": "",
+	"type": "property",
+	"title": "background",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#background-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "background-color",
-	"element": "",
+	"type": "property",
+	"title": "background-color",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#background-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border",
-	"element": "",
+	"type": "property",
+	"title": "border",
 	"url": '<a href="/pages/rcss/box_model.html#border">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-color",
-	"element": "",
+	"type": "property",
+	"title": "border-color",
 	"url": '<a href="/pages/rcss/box_model.html#border-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-top",
-	"element": "",
+	"type": "property",
+	"title": "border-top",
 	"url": '<a href="/pages/rcss/box_model.html#border">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-right",
-	"element": "",
+	"type": "property",
+	"title": "border-right",
 	"url": '<a href="/pages/rcss/box_model.html#border">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-bottom",
-	"element": "",
+	"type": "property",
+	"title": "border-bottom",
 	"url": '<a href="/pages/rcss/box_model.html#border">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-left",
-	"element": "",
+	"type": "property",
+	"title": "border-left",
 	"url": '<a href="/pages/rcss/box_model.html#border">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-top-color",
-	"element": "",
+	"type": "property",
+	"title": "border-top-color",
 	"url": '<a href="/pages/rcss/box_model.html#border-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-right-color",
-	"element": "",
+	"type": "property",
+	"title": "border-right-color",
 	"url": '<a href="/pages/rcss/box_model.html#border-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-bottom-color",
-	"element": "",
+	"type": "property",
+	"title": "border-bottom-color",
 	"url": '<a href="/pages/rcss/box_model.html#border-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-left-color",
-	"element": "",
+	"type": "property",
+	"title": "border-left-color",
 	"url": '<a href="/pages/rcss/box_model.html#border-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-top-width",
-	"element": "",
+	"type": "property",
+	"title": "border-top-width",
 	"url": '<a href="/pages/rcss/box_model.html#border-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-right-width",
-	"element": "",
+	"type": "property",
+	"title": "border-right-width",
 	"url": '<a href="/pages/rcss/box_model.html#border-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-bottom-width",
-	"element": "",
+	"type": "property",
+	"title": "border-bottom-width",
 	"url": '<a href="/pages/rcss/box_model.html#border-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-left-width",
-	"element": "",
+	"type": "property",
+	"title": "border-left-width",
 	"url": '<a href="/pages/rcss/box_model.html#border-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-width",
-	"element": "",
+	"type": "property",
+	"title": "border-width",
 	"url": '<a href="/pages/rcss/box_model.html#border-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-top-left-radius",
-	"element": "",
+	"type": "property",
+	"title": "border-top-left-radius",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#border-radius">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-top-right-radius",
-	"element": "",
+	"type": "property",
+	"title": "border-top-right-radius",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#border-radius">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-bottom-right-radius",
-	"element": "",
+	"type": "property",
+	"title": "border-bottom-right-radius",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#border-radius">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-bottom-left-radius",
-	"element": "",
+	"type": "property",
+	"title": "border-bottom-left-radius",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#border-radius">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "border-radius",
-	"element": "",
+	"type": "property",
+	"title": "border-radius",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#border-radius">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "bottom",
-	"element": "",
+	"type": "property",
+	"title": "bottom",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#top_right_bottom_left">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "box-sizing",
-	"element": "",
+	"type": "property",
+	"title": "box-sizing",
 	"url": '<a href="/pages/rcss/user_interface.html#box-sizing">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "caret-color",
-	"element": "",
+	"type": "property",
+	"title": "caret-color",
 	"url": '<a href="/pages/rcss/user_interface.html#caret-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "clear",
-	"element": "",
+	"type": "property",
+	"title": "clear",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#clear">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "clip",
-	"element": "",
+	"type": "property",
+	"title": "clip",
 	"url": '<a href="/pages/rcss/visual_effects.html#clip">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "color",
-	"element": "",
+	"type": "property",
+	"title": "color",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "column-gap",
-	"element": "",
+	"type": "property",
+	"title": "column-gap",
 	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "cursor",
-	"element": "",
+	"type": "property",
+	"title": "cursor",
 	"url": '<a href="/pages/rcss/user_interface.html#cursor">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "decorator",
-	"element": "",
+	"type": "property",
+	"title": "decorator",
 	"url": '<a href="/pages/rcss/decorators.html#decorator">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "display",
-	"element": "",
+	"type": "property",
+	"title": "display",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#display">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "drag",
-	"element": "",
+	"type": "property",
+	"title": "drag",
 	"url": '<a href="/pages/rcss/user_interface.html#drag">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "fill-image",
-	"element": "",
+	"type": "property",
+	"title": "fill-image",
 	"url": '<a href="/pages/cpp_manual/element_packages/progress_bar.html#fill-image">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex",
-	"element": "",
+	"type": "property",
+	"title": "flex",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-basis",
-	"element": "",
+	"type": "property",
+	"title": "flex-basis",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-basis">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-direction",
-	"element": "",
+	"type": "property",
+	"title": "flex-direction",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-direction">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-flow",
-	"element": "",
+	"type": "property",
+	"title": "flex-flow",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-flow">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-grow",
-	"element": "",
+	"type": "property",
+	"title": "flex-grow",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-grow">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-shrink",
-	"element": "",
+	"type": "property",
+	"title": "flex-shrink",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-shrink">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "flex-wrap",
-	"element": "",
+	"type": "property",
+	"title": "flex-wrap",
 	"url": '<a href="/pages/rcss/flexboxes.html#flex-wrap">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "float",
-	"element": "",
+	"type": "property",
+	"title": "float",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#float">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "focus",
-	"element": "",
+	"type": "property",
+	"title": "focus",
 	"url": '<a href="/pages/rcss/user_interface.html#focus">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font",
-	"element": "",
+	"type": "property",
+	"title": "font",
 	"url": '<a href="/pages/rcss/fonts.html#font">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font-effect",
-	"element": "",
+	"type": "property",
+	"title": "font-effect",
 	"url": '<a href="/pages/rcss/font_effects.html#font-effect">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font-family",
-	"element": "",
+	"type": "property",
+	"title": "font-family",
 	"url": '<a href="/pages/rcss/fonts.html#font-family">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font-size",
-	"element": "",
+	"type": "property",
+	"title": "font-size",
 	"url": '<a href="/pages/rcss/fonts.html#font-size">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font-style",
-	"element": "",
+	"type": "property",
+	"title": "font-style",
 	"url": '<a href="/pages/rcss/fonts.html#font-style">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "font-weight",
-	"element": "",
+	"type": "property",
+	"title": "font-weight",
 	"url": '<a href="/pages/rcss/fonts.html#font-weight">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "gap",
-	"element": "",
+	"type": "property",
+	"title": "gap",
 	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "height",
-	"element": "",
+	"type": "property",
+	"title": "height",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#height">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "image-color",
-	"element": "",
+	"type": "property",
+	"title": "image-color",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#image-color">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "justify-content",
-	"element": "",
+	"type": "property",
+	"title": "justify-content",
 	"url": '<a href="/pages/rcss/flexboxes.html#justify-content">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "left",
-	"element": "",
+	"type": "property",
+	"title": "left",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#top_right_bottom_left">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "letter-spacing",
-	"element": "",
+	"type": "property",
+	"title": "letter-spacing",
 	"url": '<a href="/pages/rcss/text.html#letter-spacing">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "line-height",
-	"element": "",
+	"type": "property",
+	"title": "line-height",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#line-height">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "margin",
-	"element": "",
+	"type": "property",
+	"title": "margin",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "margin-top",
-	"element": "",
+	"type": "property",
+	"title": "margin-top",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "margin-right",
-	"element": "",
+	"type": "property",
+	"title": "margin-right",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "margin-bottom",
-	"element": "",
+	"type": "property",
+	"title": "margin-bottom",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "margin-left",
-	"element": "",
+	"type": "property",
+	"title": "margin-left",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "max-height",
-	"element": "",
+	"type": "property",
+	"title": "max-height",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#max-height">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "min-height",
-	"element": "",
+	"type": "property",
+	"title": "min-height",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#min-height">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "max-width",
-	"element": "",
+	"type": "property",
+	"title": "max-width",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#max-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "min-width",
-	"element": "",
+	"type": "property",
+	"title": "min-width",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#min-width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "nav",
-	"element": "",
+	"type": "property",
+	"title": "nav",
 	"url": '<a href="/pages/rcss/user_interface.html#nav">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "nav-up",
-	"element": "",
+	"type": "property",
+	"title": "nav-up",
 	"url": '<a href="/pages/rcss/user_interface.html#nav">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "nav-right",
-	"element": "",
+	"type": "property",
+	"title": "nav-right",
 	"url": '<a href="/pages/rcss/user_interface.html#nav">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "nav-down",
-	"element": "",
+	"type": "property",
+	"title": "nav-down",
 	"url": '<a href="/pages/rcss/user_interface.html#nav">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "nav-left",
-	"element": "",
+	"type": "property",
+	"title": "nav-left",
 	"url": '<a href="/pages/rcss/user_interface.html#nav">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "opacity",
-	"element": "",
+	"type": "property",
+	"title": "opacity",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#opacity">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "overflow",
-	"element": "",
+	"type": "property",
+	"title": "overflow",
 	"url": '<a href="/pages/rcss/visual_effects.html#overflow">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "overflow-x",
-	"element": "",
+	"type": "property",
+	"title": "overflow-x",
 	"url": '<a href="/pages/rcss/visual_effects.html#overflow">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "overflow-y",
-	"element": "",
+	"type": "property",
+	"title": "overflow-y",
 	"url": '<a href="/pages/rcss/visual_effects.html#overflow">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "overscroll-behavior",
-	"element": "",
+	"type": "property",
+	"title": "overscroll-behavior",
 	"url": '<a href="/pages/rcss/user_interface.html#overscroll-behavior">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "padding",
-	"element": "",
+	"type": "property",
+	"title": "padding",
 	"url": '<a href="/pages/rcss/box_model.html#padding">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "padding-top",
-	"element": "",
+	"type": "property",
+	"title": "padding-top",
 	"url": '<a href="/pages/rcss/box_model.html#padding">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "padding-right",
-	"element": "",
+	"type": "property",
+	"title": "padding-right",
 	"url": '<a href="/pages/rcss/box_model.html#padding">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "padding-bottom",
-	"element": "",
+	"type": "property",
+	"title": "padding-bottom",
 	"url": '<a href="/pages/rcss/box_model.html#padding">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "padding-left",
-	"element": "",
+	"type": "property",
+	"title": "padding-left",
 	"url": '<a href="/pages/rcss/box_model.html#padding">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "perspective",
-	"element": "",
+	"type": "property",
+	"title": "perspective",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#perspective">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "perspective-origin",
-	"element": "",
+	"type": "property",
+	"title": "perspective-origin",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#perspective-origin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "pointer-events",
-	"element": "",
+	"type": "property",
+	"title": "pointer-events",
 	"url": '<a href="/pages/rcss/user_interface.html#pointer-events">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "position",
-	"element": "",
+	"type": "property",
+	"title": "position",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#position">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "right",
-	"element": "",
+	"type": "property",
+	"title": "right",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#top_right_bottom_left">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "row-gap",
-	"element": "",
+	"type": "property",
+	"title": "row-gap",
 	"url": '<a href="/pages/rcss/flexboxes.html#gap">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "scrollbar-margin",
-	"element": "",
+	"type": "property",
+	"title": "scrollbar-margin",
 	"url": '<a href="/pages/rcss/../style_guide.html#scrollbar-margin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "tab-index",
-	"element": "",
+	"type": "property",
+	"title": "tab-index",
 	"url": '<a href="/pages/rcss/user_interface.html#tab-index">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "text-align",
-	"element": "",
+	"type": "property",
+	"title": "text-align",
 	"url": '<a href="/pages/rcss/text.html#text-align">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "text-decoration",
-	"element": "",
+	"type": "property",
+	"title": "text-decoration",
 	"url": '<a href="/pages/rcss/text.html#text-decoration">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "text-transform",
-	"element": "",
+	"type": "property",
+	"title": "text-transform",
 	"url": '<a href="/pages/rcss/text.html#text-transform">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "top",
-	"element": "",
+	"type": "property",
+	"title": "top",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#top_right_bottom_left">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "transition",
-	"element": "",
+	"type": "property",
+	"title": "transition",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transition">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "transform",
-	"element": "",
+	"type": "property",
+	"title": "transform",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transform">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "transform-origin",
-	"element": "",
+	"type": "property",
+	"title": "transform-origin",
 	"url": '<a href="/pages/rcss/animations_transitions_transforms.html#transform-origin">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "vertical-align",
-	"element": "",
+	"type": "property",
+	"title": "vertical-align",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#vertical-align">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "visibility",
-	"element": "",
+	"type": "property",
+	"title": "visibility",
 	"url": '<a href="/pages/rcss/visual_effects.html#visibility">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "white-space",
-	"element": "",
+	"type": "property",
+	"title": "white-space",
 	"url": '<a href="/pages/rcss/text.html#white-space">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "word-break",
-	"element": "",
+	"type": "property",
+	"title": "word-break",
 	"url": '<a href="/pages/rcss/text.html#word-break">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "width",
-	"element": "",
+	"type": "property",
+	"title": "width",
 	"url": '<a href="/pages/rcss/visual_formatting_model_details.html#width">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "z-index",
-	"element": "",
+	"type": "property",
+	"title": "z-index",
 	"url": '<a href="/pages/rcss/visual_formatting_model.html#z-index">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "rml",
+	"type": "element",
+	"title": "rml",
 	"url": '<a href="/pages/rml/documents.html#rml">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "head",
+	"type": "element",
+	"title": "head",
 	"url": '<a href="/pages/rml/documents.html#head">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "title",
+	"type": "element",
+	"title": "title",
 	"url": '<a href="/pages/rml/documents.html#title">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "link",
+	"type": "element",
+	"title": "link",
 	"url": '<a href="/pages/rml/documents.html#link">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "style",
+	"type": "element",
+	"title": "style",
 	"url": '<a href="/pages/rml/style_sheets.html#style">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "body",
+	"type": "element",
+	"title": "body",
 	"url": '<a href="/pages/rml/documents.html#body">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "handle",
+	"type": "element",
+	"title": "handle",
 	"url": '<a href="/pages/rml/controls.html#handle">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "img",
+	"type": "element",
+	"title": "img",
 	"url": '<a href="/pages/rml/images.html#img">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "form",
+	"type": "element",
+	"title": "form",
 	"url": '<a href="/pages/rml/forms.html#form">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "input",
+	"type": "element",
+	"title": "input",
 	"url": '<a href="/pages/rml/forms.html#input">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "textarea",
+	"type": "element",
+	"title": "textarea",
 	"url": '<a href="/pages/rml/forms.html#textarea">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "select",
+	"type": "element",
+	"title": "select",
 	"url": '<a href="/pages/rml/forms.html#select">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "option",
+	"type": "element",
+	"title": "option",
 	"url": '<a href="/pages/rml/forms.html#option">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "label",
+	"type": "element",
+	"title": "label",
 	"url": '<a href="/pages/rml/forms.html#label">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "tabset",
+	"type": "element",
+	"title": "tabset",
 	"url": '<a href="/pages/rml/controls.html#tabset">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "tab",
+	"type": "element",
+	"title": "tab",
 	"url": '<a href="/pages/rml/controls.html#tab">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "panel",
+	"type": "element",
+	"title": "panel",
 	"url": '<a href="/pages/rml/controls.html#panel">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "progress",
+	"type": "element",
+	"title": "progress",
 	"url": '<a href="/pages/rml/data_display.html#progress">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "lottie",
+	"type": "element",
+	"title": "lottie",
 	"url": '<a href="/pages/rml/../cpp_manual/lottie.html">',
-	"title": "",
 	"parent_title": "",
 	"content": ""
 },
 {
-	"property": "",
-	"element": "svg",
+	"type": "element",
+	"title": "svg",
 	"url": '<a href="/pages/rml/../cpp_manual/svg.html">',
-	"title": "",
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "hover",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "active",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "focus",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "focus-visible",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "checked",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "not",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "nth-child",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "nth-last-child",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "nth-of-type",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "nth-last-of-type",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "first-child",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "last-child",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "first-of-type",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "last-of-type",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "only-child",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "only-of-type",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "empty",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
 	"parent_title": "",
 	"content": ""
 }

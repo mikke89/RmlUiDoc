@@ -63,11 +63,10 @@ var pages = [
 		{% if grandparent_title != "" %}
 			{% capture parent_title %}{{ grandparent_title }} / {{ parent_title }}{% endcapture %}
 		{% endif %}
-		
+
 		{
+		"type": "page",
 		"title": "{{ page.title }}",
-		"property": "",
-		"element": "",
 		"url": '<a href="{{ page.url }}.html">', {% comment %} Url is placed within an <a href> tag so that the offline documentation generator can understand the link and rewrite it when necessary. {% endcomment %}
 		"parent_title": "{{ parent_title }}",
 		"content": "{{ page.content | markdownify | strip_html | replace: '"', " " | replace: "\", " " | normalize_whitespace }}"
@@ -78,22 +77,18 @@ var pages = [
 ];
 
 var idx = lunr(function () {
-	this.ref('id')
-	this.field('title', {
-		boost: 10
-	})
-	this.field('property', {
-		boost: 100
-	})
-	this.field('element', {
-		boost: 100
-	})
-	this.field('content')
-	this.metadataWhitelist = ['position']
+	this.ref('id');
+	this.field('title', { boost: 10	});
+	this.field('content');
+	this.metadataWhitelist = ['position'];
 
 	pages.forEach(function (doc, index) {
 		doc['id'] = index;
-		this.add(doc)
+		let type = doc['type'];
+		if (type == 'element' || type == 'property' || type == 'pseudo')
+		    this.add(doc, { boost: 10 });
+		else
+		    this.add(doc);
 	}, this)
 });
 
@@ -120,7 +115,7 @@ function displaySearchResults(has_search_text, results, pages) {
 	}
 
 	var el_search_results = document.getElementById('search-results');
-	
+
 	function insert(str, index, value) {
 		return str.substr(0, index) + value + str.substr(index);
 	}
@@ -137,21 +132,18 @@ function displaySearchResults(has_search_text, results, pages) {
 			var title = item.title;
 			const summary_length = 200;
 			var content = item.content;
-			var property = item.property;
-			var element = item.element;
+			var type = item.type;
 			var a_href = '<a href="';
 			var url = a_href + '{{ "" | relative_url }}' + item.url.substr(a_href.length);
 
-			if (element.length || property.length) {
+			if (type != "page") {
 				num_elements_and_properties++;
 				if (num_elements_and_properties > max_elements_and_properties)
 					continue;
 			}
-			
+
 			var content_positions = [];
 			var title_positions = [];
-			var property_positions = [];
-			var element_positions = [];
 
 			for (var query in results[i].matchData.metadata) {
 				var match_objects = results[i].matchData.metadata[query];
@@ -160,12 +152,6 @@ function displaySearchResults(has_search_text, results, pages) {
 				}
 				if ('title' in match_objects) {
 					title_positions = mergePositions(title_positions, match_objects['title'].position);
-				}
-				if ('property' in match_objects) {
-					property_positions = mergePositions(property_positions, match_objects['property'].position);
-				}
-				if ('element' in match_objects) {
-					element_positions = mergePositions(element_positions, match_objects['element'].position);
 				}
 			}
 
@@ -204,17 +190,13 @@ function displaySearchResults(has_search_text, results, pages) {
 			if (title_positions.length) {
 				title = highlightMatches(title, title_positions, false);
 			}
-			if (property_positions.length) {
-				property = highlightMatches(property, property_positions, false);
-			}
-			if (element_positions.length) {
-				element = highlightMatches(element, element_positions, false);
-			}
-			
-			if (property.length) {
-				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span>' + url + '‘' + property + '’ property</a></h4>';
-			} else if (element.length) {
-				results_string += '<h4 title="RML element"><span class="fas">&#xf84c;</span>' + url + '&lt;' + element + '&gt; element</a></h4>';
+
+			if (type == "property") {
+				results_string += '<h4 title="RCSS property"><span class="fas">&#xf121;</span>' + url + '‘' + title + '’ property</a></h4>';
+			} else if (type == "element") {
+				results_string += '<h4 title="RML element"><span class="fas">&#xf0ce;</span>' + url + '&lt;' + title + '&gt; element</a></h4>';
+			} else if (type == "pseudo") {
+				results_string += '<h4 title="Pseudo selector"><span class="far">&#xf192;</span>' + url + ' ‘:' + title + '’ pseudo selector</a></h4>';
 			} else {
 				results_string += '<h4>' + url + title + (item.parent_title ? ' (' + item.parent_title + ')' : '') + '</a></h4>';
 				results_string += '<p>' + content + '...</p>';

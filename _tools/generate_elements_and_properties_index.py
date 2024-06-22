@@ -1,19 +1,19 @@
 # This source file is part of RmlUi, the HTML/CSS Interface Middleware
-# 
+#
 # For the latest information, see http://github.com/mikke89/RmlUi
-# 
+#
 # Copyright (c) 2021 The RmlUi Team, and contributors
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
 # to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 # copies of the Software, and to permit persons to whom the Software is
 # furnished to do so, subject to the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be included in all
 # copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -37,16 +37,21 @@ are changed.
 
 Before running this script, make sure the documentation site is compiled and 
 located in the '_site' subdirectory of the RmlUiDoc root. The output is
-saved to the file '_includes/elements_and_properties.index'.''')
+saved to the file '_includes/elements_and_properties.index'.''',
+formatter_class=argparse.RawTextHelpFormatter)
 
-parser.add_argument('dir',
-                    help="RmlUi Documentation root directory.")
+parser.add_argument('--dir',
+                    help="RmlUi Documentation root directory, defaults to the parent of this file's directory.")
 
 args = parser.parse_args()
 
 dir = args.dir
+if not dir:
+	dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
 element_index_path = os.path.join(dir, r'_site/pages/rml/element_index.html')
 property_index_path = os.path.join(dir, r'_site/pages/rcss/property_index.html')
+selectors_path = os.path.join(dir, r'pages/rcss/selectors.md')
 
 out_dir = os.path.join(dir, r'_includes')
 out_path = os.path.join(out_dir, r'elements_and_properties.index')
@@ -60,7 +65,7 @@ if not os.path.isdir(out_dir):
 if not os.path.isfile(element_index_path) or not os.path.isfile(property_index_path):
 	print("Error: The compiled site files '{}' and '{}' could not be located.".format(element_index_path, property_index_path))
 	exit()
-for path in [element_index_path, property_index_path]:
+for path in [element_index_path, property_index_path, selectors_path]:
 	if not os.path.isfile(path):
 		print("Error: The compiled site file '{}' could not be located.".format(path))
 		exit()
@@ -80,15 +85,14 @@ for match in matches:
 	url = match[0] if match[0].startswith("/") else '/pages/rcss/' + match[0]
 	property = match[1]
 
-	output = output + r'''
+	output = output + rf'''
 {{
-	"property": "{}",
-	"element": "",
-	"url": '<a href="{}">',
-	"title": "",
+	"type": "property",
+	"title": "{property}",
+	"url": '<a href="{url}">',
 	"parent_title": "",
 	"content": ""
-}},'''.format(property, url)
+}},'''
 
 
 # Parse element index
@@ -103,25 +107,51 @@ for match in matches:
 	url = match[0] if match[0].startswith("/") else '/pages/rml/' + match[0]
 	property = match[1]
 
-	output = output + r'''
+	output = output + rf'''
 {{
-	"property": "",
-	"element": "{}",
-	"url": '<a href="{}">',
-	"title": "",
+	"type": "element",
+	"title": "{property}",
+	"url": '<a href="{url}">',
 	"parent_title": "",
 	"content": ""
-}},'''.format(property, url)
+}},'''
+
+
+# Parse pseudo selectors
+f = open(selectors_path, 'r', encoding="utf8")
+content = f.read()
+f.close()
+
+matches = re.findall(
+	r'''^`:([a-z\-]+)[^`]*`\{:\.cls pseudo-def}''', content, re.MULTILINE)
+num_pseudo = len(matches)
+
+for match in matches:
+	url = '/pages/rcss/selectors.html#pseudo-selectors'
+	pseudo = match
+
+	output = output + rf'''
+{{
+	"type": "pseudo",
+	"title": "{pseudo}",
+	"url": '<a href="{url}">',
+	"parent_title": "",
+	"content": ""
+}},'''
 
 # Output file
 output = output.strip(',') + '\n'
 
-if num_properties == 0 or num_elements == 0:
-	print("Error: Could not parse any properties or elements from the html sources. Regular expressions may need an update?")
+if num_properties == 0 or num_elements == 0 or num_pseudo == 0:
+	print("Error: Could not parse properties, elements, or pseudo classes from the html and markdown sources.")
 	exit()
 
 f = open(out_path, 'w', encoding="utf8")
 f.write(output)
 f.close()
 
-print(r"Succesfully generated index with {} properties and {} elements to file '{}'.".format(num_properties, num_elements, out_path))
+print(f"""Successfully generated index with:
+  {num_properties} properties
+  {num_elements} elements
+  {num_pseudo} pseudo classes
+to file '{out_path}'""")

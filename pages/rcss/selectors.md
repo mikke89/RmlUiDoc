@@ -34,26 +34,26 @@ Details and combinations of the listed selectors are described below.
 
 The following table lists the built-in pseudo class selectors, in addition to the negation selector and all of the tree-structural selectors from CSS3. 
 
-**Pseudo-class**                    |
-`:hover`{:.cls}                     | Matches an element that is currently under the mouse cursor.
-`:active`{:.cls}                    | Matches an element that has been clicked on, only until the button is released.
-`:focus`{:.cls}                     | Matches an element that has input focus. Unlike CSS, this pseudo-class propagates backwards through its parents, making it closer in functionality to [focus-within](https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo).
-`:focus-visible`{:.cls}             | Matches an element that has input focus, and whose focus should be visibly indicated. This can be particularly useful to style the focused element when using keyboard or spatial navigation.
-`:checked`{:.cls}                   | Matches a checked checkbox and radio button. Matches a [select element]({{"pages/cpp_manual/element_packages/form.html#drop-down-select-box"|relative_url}}) when it is open, as well as the selected option in its drop-down list.
-**Logical**                         |
-`:not(s1, s2, …)`{:.cls}            | Matches an element that does not match any of its selectors s1, s2, ….
-**Tree-structural**                 |
-`:nth-child(an + b)`{:.cls}         | Matches an element that has an + b - 1 siblings before it.
-`:nth-last-child(an + b)`{:.cls}    | Similar to nth-child, but counts backwards.
-`:nth-of-type(an + b)`{:.cls}       | Similar to nth-child, but only counts sibling elements of the same type.
-`:nth-last-of-type(an + b)`{:.cls}  | Similar to nth-of-type, but counts backwards.
-`:first-child`{:.cls}               | Matches an element that is the first child of its parent.
-`:last-child`{:.cls}                | Matches an element that is the last child of its parent.
-`:first-of-type`{:.cls}             | Matches an element that is the first child of its type.
-`:last-of-type`{:.cls}              | Matches an element that is the last child of its type.
-`:only-child`{:.cls}                | Matches an element that has no sibling elements.
-`:only-of-type`{:.cls}              | Matches an element that has no sibling elements of its type.
-`:empty`{:.cls}                     | Matches an element that has no child nodes.
+**Pseudo-class**                               |
+`:hover`{:.cls pseudo-def}                     | Matches an element that is currently under the mouse cursor.
+`:active`{:.cls pseudo-def}                    | Matches an element that has been clicked on, only until the button is released.
+`:focus`{:.cls pseudo-def}                     | Matches an element that has input focus. Unlike CSS, this pseudo-class propagates backwards through its parents, making it closer in functionality to [focus-within](https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo).
+`:focus-visible`{:.cls pseudo-def}             | Matches an element that has input focus, and whose focus should be visibly indicated. This can be particularly useful to style the focused element when using keyboard or spatial navigation.
+`:checked`{:.cls pseudo-def}                   | Matches a checked checkbox and radio button. Matches a [select element]({{"pages/cpp_manual/element_packages/form.html#drop-down-select-box"|relative_url}}) when it is open, as well as the selected option in its drop-down list.
+**Logical**                                    |
+`:not(s1, s2, …)`{:.cls pseudo-def}            | Matches an element that does not match any of its selectors s1, s2, ….
+**Tree-structural**                            |
+`:nth-child(an + b)`{:.cls pseudo-def}         | Matches an element that has an + b - 1 siblings before it.
+`:nth-last-child(an + b)`{:.cls pseudo-def}    | Similar to nth-child, but counts backwards.
+`:nth-of-type(an + b)`{:.cls pseudo-def}       | Similar to nth-child, but only counts sibling elements of the same type.
+`:nth-last-of-type(an + b)`{:.cls pseudo-def}  | Similar to nth-of-type, but counts backwards.
+`:first-child`{:.cls pseudo-def}               | Matches an element that is the first child of its parent.
+`:last-child`{:.cls pseudo-def}                | Matches an element that is the last child of its parent.
+`:first-of-type`{:.cls pseudo-def}             | Matches an element that is the first child of its type.
+`:last-of-type`{:.cls pseudo-def}              | Matches an element that is the last child of its type.
+`:only-child`{:.cls pseudo-def}                | Matches an element that has no sibling elements.
+`:only-of-type`{:.cls pseudo-def}              | Matches an element that has no sibling elements of its type.
+`:empty`{:.cls pseudo-def}                     | Matches an element that has no child nodes.
 
 See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for more thorough documentation and examples on the use of selectors. Please note that pseudo-elements such as `::first-letter`{:.cls} and `::before`{:.cls} are not yet supported in RCSS. 
 
