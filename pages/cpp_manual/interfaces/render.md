@@ -4,6 +4,7 @@ title: Render interface
 parent: cpp_manual/interfaces
 grandparent: cpp_manual
 next: file
+status: major
 ---
 
 

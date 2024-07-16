@@ -105,6 +105,20 @@ void GetSelection(int* selection_start, int* selection_end, String* selected_tex
 
 These methods are also available on `<textarea>`{:.tag} elements through the `Rml::ElementFormControlTextArea` class.
 
+#### IME composition range
+
+Similarly, `Rml::ElementFormControlInput` and `Rml::ElementFormControlTextArea` contain the following [IME](../../ime.html) composition interface:
+
+```cpp
+/// Sets visual feedback used for the IME composition in the range.
+/// @param[in] range_start The first character to be selected.
+/// @param[in] range_end The first character *after* the selection.
+/// @note Only applies to text and password input types.
+void SetCompositionRange(int range_start, int range_end);
+```
+
+Note that a value change resets the composition range to zero. The visual feedback is in a form of a solid line.
+
 ### Text area
 
 The text area, or multi-line text field, is specified in RML with the `<textarea>`{:.tag} tag. Any loose text between the text area's opening and closing tag will become the initial value of the control. The interface to the text area is the `Rml::ElementFormControlTextArea` class.
