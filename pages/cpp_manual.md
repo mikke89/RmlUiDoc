@@ -19,6 +19,7 @@ title: C++ Manual
     - [Render interface](cpp_manual/interfaces/render.html)
     - [File interface](cpp_manual/interfaces/file.html)
     - [Font engine interface](cpp_manual/interfaces/font_engine.html)
+    - [Text input handler interface](cpp_manual/interfaces/text_input_handler.html)
 5. [Plugins](cpp_manual/plugins.html)
 6. [Troubleshooting](cpp_manual/troubleshooting.html)
 

@@ -3,6 +3,7 @@ layout: page
 title: Font engine interface
 parent: cpp_manual/interfaces
 grandparent: cpp_manual
+next: text_input_handler
 ---
 
 The default font engine used in RmlUi provides an implementation based on the FreeType library. For users who want to render text using their own font system, a custom font engine interface can be constructed to replace the default implementation. In this case, the FreeType dependency can be removed entirely, see the [CMake option](../building_with_cmake.html#cmake-options) `RMLUI_FONT_ENGINE` for details.
