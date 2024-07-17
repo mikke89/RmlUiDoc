@@ -5,7 +5,7 @@ parent: cpp_manual/interfaces
 grandparent: cpp_manual
 ---
 
-The text input handler interface, unlike other interfaces, does not hinder the application's functionality without implementation. It listens to events of all editable text areas, such as text field activation, and provides a proxy object to manipulate the text input in question. It is the best entry point for a custom implementation of the [Input Method Editor (IME)](../../ime.html).
+The text input handler interface, unlike other interfaces, does not hinder the application's functionality without implementation. It listens to events of all editable text areas, such as text field activation, and provides a proxy object to manipulate the text input in question. It is the best entry point for a custom implementation of the [input method editor (IME)](../ime.html).
 
 To handle these events, create a class derived from `Rml::TextInputHandler` (defined in `<RmlUi/Core/TextInputHandler.h>`{:.incl}) and override the abstract methods you are interested in:
 
@@ -22,7 +22,9 @@ virtual void OnDestroy(TextInputContext* input_context) {}
 
 Once you complete your implementation, install it globally with `Rml::SetTextInputHandler()` or pass it during context construction to have an instance specific to the created context. Remember that overriding the global handler will not affect already existing contexts.
 
-### Text Input Context
+The class implementing the input handler can then communicate with the input context handed to it. Typically, the implementation of the input context is provided by the library, allowing the user to focus on the IME or other input-related functionality.
+
+### Text input context
 
 A text input context is a proxy class for managing an editable text area. {{ page.lib_name }} implements the `Rml::TextInputContext` interface (defined in `<RmlUi/Core/TextInputContext.h>`{:.incl}) for text field elements, but users of the library may decide to provide a custom implementation with definitions for the pure virtual methods:
 
@@ -64,7 +66,7 @@ virtual void SetCompositionRange(int start, int end) = 0;
 virtual void CommitComposition(String composition) = 0;
 ```
 
-This interface provides means to connect {{ page.lib_name }} with existing game engines for the IME or any other user input-related functionality. The lifetime of an instance is ended with the call of `OnDestroy()` in `Rml::TextInputHandler`, which is guaranteed by the implementation's destructor.
+This interface provides means to connect {{ page.lib_name }} with existing game engines for the IME or any other user input-related functionality. The lifetime of an input context instance is ended with the call to `OnDestroy()` in `Rml::TextInputHandler`, the text input handler must ensure not to interact with the same instance after this point.
 
 #### IME Composition
 

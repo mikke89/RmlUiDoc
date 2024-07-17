@@ -28,7 +28,6 @@ include_in_search_results: false
 
 1. [Data binding (model-view-controller)](pages/data_bindings.html)
 2. [Localisation](pages/localisation.html)
-3. [Input Method Editor (IME)](pages/ime.html)
 
 ### Tutorials
 

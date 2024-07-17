@@ -107,7 +107,7 @@ These methods are also available on `<textarea>`{:.tag} elements through the `Rm
 
 #### IME composition range
 
-Similarly, `Rml::ElementFormControlInput` and `Rml::ElementFormControlTextArea` contain the following [IME](../../ime.html) composition interface:
+Similarly, `Rml::ElementFormControlInput` and `Rml::ElementFormControlTextArea` contain the following [IME](../ime.html) composition interface:
 
 ```cpp
 /// Sets visual feedback used for the IME composition in the range.
@@ -117,7 +117,7 @@ Similarly, `Rml::ElementFormControlInput` and `Rml::ElementFormControlTextArea` 
 void SetCompositionRange(int range_start, int range_end);
 ```
 
-Note that a value change resets the composition range to zero. The visual feedback is in a form of a solid line.
+Note that a value change resets the composition range to zero. The visual feedback is in the form of a solid line.
 
 ### Text area
 

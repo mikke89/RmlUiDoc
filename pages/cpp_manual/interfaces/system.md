@@ -3,7 +3,7 @@ layout: page
 title: System interface
 parent: cpp_manual/interfaces
 grandparent: cpp_manual
-next: render
+next: file
 ---
 
 The system interface is needed for RmlUi to tell the time, and allows the application to perform common tasks such as logging messages from RmlUi, translating strings, and setting the mouse cursor. The system interface provides default implementation for all functions, however, users may want to override the default behavior with their own customizations.

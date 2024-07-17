@@ -15,13 +15,14 @@ title: C++ Manual
 2. [Loading fonts](cpp_manual/fonts.html)
 3. [User input](cpp_manual/input.html)
 4. [Custom interfaces](cpp_manual/interfaces.html)
-    - [System interface](cpp_manual/interfaces/system.html)
     - [Render interface](cpp_manual/interfaces/render.html)
+    - [System interface](cpp_manual/interfaces/system.html)
     - [File interface](cpp_manual/interfaces/file.html)
     - [Font engine interface](cpp_manual/interfaces/font_engine.html)
     - [Text input handler interface](cpp_manual/interfaces/text_input_handler.html)
-5. [Plugins](cpp_manual/plugins.html)
-6. [Troubleshooting](cpp_manual/troubleshooting.html)
+5. [Input method editor](cpp_manual/ime.html)
+6. [Plugins](cpp_manual/plugins.html)
+7. [Troubleshooting](cpp_manual/troubleshooting.html)
 
 
 ### Elements
