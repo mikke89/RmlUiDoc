@@ -43,7 +43,7 @@ Clients are themselves responsible for querying the platform for the desired sca
 
 For sure, this is one of the great advantages of having UI document declarations separate from your main application logic.
 
-It is always possible to do a full reload of the document. 
+It is always possible to do a full reload of the document.
 
 ```cpp
 Rml::ElementDocument* my_document = context->LoadDocument("main_menu.rml");
@@ -93,7 +93,7 @@ void main() {
 ```
 See the documentation on [event listeners](cpp_manual/events.html#event-listeners) for details.
 
-Finally, it is also possible to respond to inline events such as 
+Finally, it is also possible to respond to inline events such as
 
 ```html
 <button onclick="game.start()">Start Game</button>

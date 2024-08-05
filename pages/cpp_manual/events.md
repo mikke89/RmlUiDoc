@@ -48,7 +48,7 @@ public:
 	const Rml::String& GetType() const;
 	// Get the event id.
 	EventId GetId() const;
-	
+
 	// Stops propagation of the event if it is interruptible, but finish all listeners on the current element.
 	void StopPropagation();
 	// Stops propagation of the event if it is interruptible, including to any other listeners on the current element.
@@ -101,7 +101,7 @@ The function takes the following parameters:
 
 * `event`: The string name of the event the listener wants to attach to, for example "keydown", "focus", etc.
 * `listener`: The event listener object to attach.
-* `in_capture_phase`: If true, the event listener will receive the event in the capture phase, otherwise, in the bubbling phase. See the RML event documentation for more information. 
+* `in_capture_phase`: If true, the event listener will receive the event in the capture phase, otherwise, in the bubbling phase. See the RML event documentation for more information.
 
 Note that the event listener must be kept alive until the listener is removed or the element is destroyed.
 Be aware that documents closed with `ElementDocument::Close()` are not actually destroyed until the next call to `Context::Update()` or `Rml::Shutdown()`.
@@ -176,7 +176,7 @@ virtual void ReleaseEvent(Event* event) = 0;
 * `id`: The EventId of the event (EventId::Keydown, EventId::Focus, etc).
 * `name`: The name of the event ("keydown", "focus", etc).
 * `parameters`: The parameters to the event as a dictionary.
-* `interruptible`: True if the event can be interrupted (ie, prevented from propagating throughout the entire event cycle), false if not. 
+* `interruptible`: True if the event can be interrupted (ie, prevented from propagating throughout the entire event cycle), false if not.
 
 If `InstanceEvent()` is successful, return the new event wrapped in an `EventPtr` which is a unique pointer with a custom deleter. Otherwise, return nullptr to indicate an instancing error.
 
@@ -241,7 +241,7 @@ Then all encountered inline event declarations will be passed to the instancer. 
 
 ### Custom event types
 
-Custom events can be dispatched without any particular setup. They will then automatically be assigned a unique `EventId` and given the default specification: `interruptible: true, bubbles: true, default_action_phase: None`. 
+Custom events can be dispatched without any particular setup. They will then automatically be assigned a unique `EventId` and given the default specification: `interruptible: true, bubbles: true, default_action_phase: None`.
 
 To provide a custom specification for a new event, first call the method:
 ```cpp

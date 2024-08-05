@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Font Effects
+title: Font effects
 parent: rcss
 next: property_index
 ---

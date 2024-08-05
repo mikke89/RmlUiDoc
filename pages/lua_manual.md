@@ -14,7 +14,7 @@ A good place to get started is the `luainvaders` sample included with the librar
 1. [Getting started](lua_manual/getting_started.html)
 2. [Embedding script](lua_manual/embedding_script.html)
 3. [Loading fonts](lua_manual/fonts.html)
-4. [Attaching to Events](lua_manual/attaching_to_events.html) 
+4. [Attaching to Events](lua_manual/attaching_to_events.html)
 
 ### Interfaces
 

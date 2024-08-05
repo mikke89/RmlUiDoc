@@ -273,7 +273,7 @@ The following also lists any exported macros, which must be defined in the consu
     The CMake setup will try to add a new configuration called 'Tracy' which can be selected in e.g. Visual Studio next to the 'Debug' and 'Release' configurations, otherwise the profiler will be enabled on the entire project.
   - `RMLUI_TRACY_MEMORY_PROFILING` `ON`{:.value}<br>
     By default, RmlUi will override the global new and delete operators in C++ when Tracy profiling is enabled, to make allocation statistics available. Turn this `OFF`{:.value} to disable overriding the global operators.
-  
+
   *Exports macro:* `RMLUI_TRACY_PROFILING` for enabled configurations when `ON`{:.value}.
 
 #### Build and install options

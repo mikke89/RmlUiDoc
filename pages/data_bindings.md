@@ -3,8 +3,8 @@ layout: page
 title: Data binding
 ---
 
-{% comment %} 
-	The open and close brackets { { ... } } used in RmlUi's data binding syntax interferes with the Liquid templating language in Jekyll. We turn off Liquid processing by enabling raw mode for the entire document.
+{% comment %}
+The open and close brackets { { ... } } used in RmlUi's data binding syntax interferes with the Liquid templating language in Jekyll. We turn off Liquid processing by enabling raw mode for the entire document.
 {% endcomment %}
 
 {% raw %}

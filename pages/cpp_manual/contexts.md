@@ -231,7 +231,7 @@ See the section on [input](input.html) for detail on sending user input from you
 ### On-demand rendering (power saving mode)
 {:#on-demand-rendering}
 
-In the graphics world we can roughly divide applications into two groups. 
+In the graphics world we can roughly divide applications into two groups.
 
 1. Applications that aim to pump out as many frames as possible, as fast as possible, such as games.
 2. Other applications that only redraw their window when their contents change, to reduce CPU usage and power consumption.
@@ -268,7 +268,7 @@ The rendering loop can then use the following function to retrieve the value in 
 double GetNextUpdateDelay() const;
 ```
 
-A returned value of zero means the rendering loop should not block for events, that is, render the next frame as soon as possible. This happens for example if an animation is playing. A non-zero, finite value means a delay in seconds until the update and render loop should be invoked again. Infinity means there is no reason to redraw the content at all unless a platform event is received. This is the usual case if there are no custom elements or running animations. 
+A returned value of zero means the rendering loop should not block for events, that is, render the next frame as soon as possible. This happens for example if an animation is playing. A non-zero, finite value means a delay in seconds until the update and render loop should be invoked again. Infinity means there is no reason to redraw the content at all unless a platform event is received. This is the usual case if there are no custom elements or running animations.
 
 You can see this in action by tweaking the `power_save` flag passed to `Backend::Process()` function in the [provided samples](https://github.com/mikke89/RmlUi/blob/master/Samples/basic/loaddocument/src/main.cpp). This is implemented in most of the [included backends](https://github.com/mikke89/RmlUi/tree/master/Backends), take a look at the `RmlUi_Backend_….cpp`{:.path} files to see how this functionality is integrated there.
 
@@ -318,4 +318,4 @@ Like for other instancers, it is the user's responsibility to manage the lifetim
 
 #### Enumerating Contexts
 
-All active contexts can be enumerated via the `Rml::GetNumContexts()` and `Rml::GetContext(int index)` function calls. 
+All active contexts can be enumerated via the `Rml::GetNumContexts()` and `Rml::GetContext(int index)` function calls.

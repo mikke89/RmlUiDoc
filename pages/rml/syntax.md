@@ -16,8 +16,8 @@ RML supports character references in attributes and in data (text) encountered i
 
 #### Named character references
 
-| Escape string |  Character           |
-|---------------|--------------------  |
+| Escape string | Character            |
+|---------------|----------------------|
 | `&lt;`        | `<`                  |
 | `&gt;`        | `>`                  |
 | `&quot;`      | `"`                  |
@@ -28,9 +28,9 @@ RML supports character references in attributes and in data (text) encountered i
 
 Characters can be specified numerically based on their Unicode code points, just like in HTML.
 
-| Escape format |  Description |
-| ------------- |  ----------- |
-| `&#nnnn;`     | Unicode code point specified in decimal form `nnnn`. |
+| Escape format | Description                                              |
+|---------------|----------------------------------------------------------|
+| `&#nnnn;`     | Unicode code point specified in decimal form `nnnn`.     |
 | `&#xhhhh;`    | Unicode code point specified in hexadecimal form `hhhh`. |
 
 For example, the euro sign € can be written using decimal form `&#8364;` or equivalently in hexadecimal form `&#x20ac;`.
@@ -55,7 +55,7 @@ CData sections can be used to include text that should not be parsed as RML. The
 ```html
 <p>A strange face appeared:
 <![CDATA[
-	'</"O"--"O"\>' 
+	'</"O"--"O"\>'
 ]]></p>
 ```
 
@@ -64,19 +64,19 @@ CData sections can be used to include text that should not be parsed as RML. The
 
 When a CData tag is encountered in a document, all subsequent text is considered raw data until its end tag is encountered.
 
-|   CData tags  |
-| ------------- |
-| `<style>`{:.tag}     |
-| `<script>`{:.tag}    |
+| CData tags        |
+|-------------------|
+| `<style>`{:.tag}  |
+| `<script>`{:.tag} |
 
 
 ### Structural data attributes
 
 When a node with a structural data attribute is encountered, then all descendant RML nodes and data will be treated as a single data child of the structural node.
 
-| Structural data attributes  |
-| --------------------------  |
-| `data-for`{:.attr}          |
+| Structural data attributes |
+|----------------------------|
+| `data-for`{:.attr}         |
 
 Note that a valid subtree is still required, and that the subtree will be considered when finding the node's end tag.
 
@@ -90,7 +90,7 @@ In the following, [data bindings](../data_bindings.html) are used to dynamically
 <div data-for="invader : invaders">
 	<h1>{{ invader.name }}</h1>
 	<p>Invader {{it_index + 1}} of {{ invaders.size }}.</p>
-</div> 
+</div>
 ```
 
 This allows the `data-for` view to store its inner contents without generating them immediately, so that it can later dynamically create a list of the provided elements as needed.

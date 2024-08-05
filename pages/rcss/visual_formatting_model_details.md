@@ -29,13 +29,13 @@ This property only applies to block boxes and inline boxes with an intrinsic wid
 Values have the following meaning:
 
 `<length>`{:.value}
-: Specifies a fixed width. 
+: Specifies a fixed width.
 
 `<percentage>`{:.value}
-: Specifies a width relative to the width of the box's containing block. 
+: Specifies a width relative to the width of the box's containing block.
 
 `auto`{:.value}
-: The width depends on the values of other properties. See below. 
+: The width depends on the values of other properties. See below.
 
 ```css
 /* Fixes the width of input elements of class 'text' to 12 times their line height. */
@@ -52,12 +52,12 @@ If any of a box's `width`{:.prop}, `margin-left`{:.prop} or `margin-right`{:.pro
 - For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `width`{:.prop} is ignored.
 - For an inline replaced box, `auto`{:.value} margins are set to '0'. A `width`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
 - For a block box, the equation
-  
+
   ```
   margin-left + border-left-width + padding-left + width + padding-right + border-right-width + margin-right
   = containing block width
   ```
-  
+
   must hold true. If `width`{:.prop} is `auto`{:.value}, then any `auto`{:.value} margins are set to '0' and the box width is set to the appropriate value. Otherwise, the inequality in the equation is split evenly between the auto-margins.
 - For absolutely positioned boxes, `left`{:.prop} and `right`{:.prop} are additionally added to the left-hand-side of the above equation.
 - Inline-block boxes, absolutely positioned boxes, and floated boxes will have any `auto`{:.value} width determined by their 'shrink-to-fit' width, if the above equation is under-constrained.
@@ -85,10 +85,10 @@ Percentages: | relative to the width of the containing block
 Values have the following meaning:
 
 `<length>`{:.value}
-: Specifies a fixed minimum or maximum width. 
+: Specifies a fixed minimum or maximum width.
 
 `<percentage>`{:.value}
-: Specifies a minimum or maximum width relative to the width of the containing block. 
+: Specifies a minimum or maximum width relative to the width of the containing block.
 
 `none`{:.value}
 : Specifies that there is no maximum width.
@@ -111,13 +111,13 @@ This property only applies to block boxes and inline boxes with an intrinsic hei
 Values have the following meaning:
 
 `<length>`{:.value}
-: Specifies a fixed height. 
+: Specifies a fixed height.
 
 `<percentage>`{:.value}
-: Specifies a height relative to the height of the box's containing block. 
+: Specifies a height relative to the height of the box's containing block.
 
 `auto`{:.value}
-: The height depends on the values of other properties. See below. 
+: The height depends on the values of other properties. See below.
 
 ```css
 /* Fixes the height of the background div to 100% of its containing block. */
@@ -134,17 +134,17 @@ If any of a box's `height`{:.prop}, `margin-top`{:.prop} or `margin-bottom`{:.pr
 - For an inline non-replaced box, any `auto`{:.value} margins are set to '0'. `height`{:.prop} is ignored.
 - For an inline replaced box, `auto`{:.value} margins are set to '0'. A `height`{:.prop} of `auto`{:.value} is set to the element's intrinsic width.
 - For a block box with a fixed height, the equation
-  
+
   ```
   margin-top + border-top-width + padding-top + height + padding-bottom + border-bottom-width + margin-bottom
   = containing block height
   ```
-  
+
   must hold true. The inequality in the equation is split evenly between the auto-margins.
 - For a block box with an `auto`{:.value} height, any `auto`{:.value} margins are set to '0', and the height will be set to fit its contents exactly.
 - For absolutely positioned boxes, `top`{:.prop} and `bottom`{:.prop} are additionally added to the left-hand-side of the above equation.
 
-In RCSS, block boxes with a fixed height will resolve `auto`{:.value} vertical margins similarly to horizontal margins. 
+In RCSS, block boxes with a fixed height will resolve `auto`{:.value} vertical margins similarly to horizontal margins.
 
 ### Minimum and maximum heights: 'min-height' and 'max-height'
 {:#min-height}
@@ -169,10 +169,10 @@ Percentages: | relative to the height of the containing block
 Values have the following meaning:
 
 `<length>`{:.value}
-: Specifies a fixed minimum or maximum height. 
+: Specifies a fixed minimum or maximum height.
 
 `<percentage>`{:.value}
-: Specifies a minimum or maximum height relative to the height of the containing block. 
+: Specifies a minimum or maximum height relative to the height of the containing block.
 
 `none`{:.value}
 : Specifies that there is no maximum height.
@@ -186,7 +186,7 @@ The height of a line box is determined as follows:
 
 1. The height of each inline element is calculated.
 2. The inline boxes are aligned vertically (by their `vertical-align`{:.prop} property).
-3. The line box height is given by distance between the top edge of the highest box and the bottom edge of the lowest box. 
+3. The line box height is given by distance between the top edge of the highest box and the bottom edge of the lowest box.
 
 Note that vertical padding, margins and borders of inline boxes are not taken into account when determining line box height, although they are rendered.
 
@@ -203,13 +203,13 @@ This property determines the *minimal* height of line boxes within the element.
 Values for this property have the following meanings:
 
 `<number>`{:.value}
-: The line height is set to the element's font height scaled by this number. 
+: The line height is set to the element's font height scaled by this number.
 
 `<length>`{:.value}
-: The line height is set to this fixed value. 
+: The line height is set to this fixed value.
 
 `<percentage>`{:.value}
-: The line height is set to the element's font height scaled by the percentage. 
+: The line height is set to the element's font height scaled by the percentage.
 
 ```css
 /* Three ways of setting the same line-height. */
@@ -235,37 +235,37 @@ This property affects the vertical positioning of an inline box within the line 
 The values have the following meanings:
 
 `baseline`{:.value}
-: Align the baseline of the inline box with the baseline of its parent box. 
+: Align the baseline of the inline box with the baseline of its parent box.
 
 `sub`{:.value}
-: Set the baseline of the inline box to an appropriate height for rendering subscript. 
+: Set the baseline of the inline box to an appropriate height for rendering subscript.
 
 `super`{:.value}
-: Set the baseline of the inline box to an appropriate height for rendering superscript. 
+: Set the baseline of the inline box to an appropriate height for rendering superscript.
 
 `text-top`{:.value}
-: Align the top of the inline box with the top of the parent box's font. 
+: Align the top of the inline box with the top of the parent box's font.
 
 `text-bottom`{:.value}
 : Align the bottom of the inline box with the bottom of the parent box's font.
 
 `middle`{:.value}
-: Align the midpoint of the box with the baseline of the parent box plus half its ex height. 
+: Align the midpoint of the box with the baseline of the parent box plus half its ex height.
 
 `top`{:.value}
-: Align the top of the inline box with the top of the line box. 
+: Align the top of the inline box with the top of the line box.
 
 `center`{:.value}
 : Align the center of the inline box with the center of the line box.
 
 `bottom`{:.value}
-: Align the bottom of the inline box with the bottom of the line box. 
+: Align the bottom of the inline box with the bottom of the line box.
 
 `<percentage>`{:.value}
-: Raise or lower the element from the baseline by the line-height scaled by this percentage. 
+: Raise or lower the element from the baseline by the line-height scaled by this percentage.
 
 `<length>`{:.value}
-: Raise or lower the element from the baseline by a fixed amount. 
+: Raise or lower the element from the baseline by a fixed amount.
 
 ```css
 /* Sample RCSS for defining a superscript tag. */

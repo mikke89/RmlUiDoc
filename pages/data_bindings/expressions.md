@@ -26,7 +26,7 @@ invaders.size
 a.very[5].long.data[99].address
 ```
 
-Arithmetic types (eg. `int`, `float`), as well as `Rml::String` are supported without the need to register them. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation. 
+Arithmetic types (eg. `int`, `float`), as well as `Rml::String` are supported without the need to register them. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation.
 
 
 ### Data expressions
@@ -46,14 +46,14 @@ The syntax resembles C++, and should be familiar for most programmers. The follo
 |   5       | \|              | Transform.                        |
 |   5       | a?b:c           | Ternary conditional.              |
 
-Parenthesis `( )` always take precedence over operators. The addition operator will do string concatenation if either of its arguments is a string, otherwise it uses numeric addition. 
+Parenthesis `( )` always take precedence over operators. The addition operator will do string concatenation if either of its arguments is a string, otherwise it uses numeric addition.
 
 The following types can be used in the expressions.
 
 1. Data address, pointing to a scalar data variable.
-2. Literal. 
-   - Numeric. Eg. `42` or `-3.2`. Integers or fractional.
-   - String. Eg. `'Play!'`. Always written using single quotes.
+2. Literal.
+  - Numeric. Eg. `42` or `-3.2`. Integers or fractional.
+  - String. Eg. `'Play!'`. Always written using single quotes.
 3. Keyword. `true` or `false`.
 
 Operators read their arguments either as a `bool`, a `double`, or a `String`. Conversions are done implicitly when needed using the type conversion facilities in RmlUi.
@@ -71,7 +71,7 @@ Alternatively, the pipe operator `|` can equivalently be used which uses the val
 If the transform function takes a single argument the parenthesis can be omited.
 ```
 [data_expression] | transform_name
-```  
+```
 
 There are several built-in transform functions.
 
@@ -99,7 +99,6 @@ make_lines('It takes', num_trolls*3 + ' goats', 'to outsmart', num_trolls | numb
 Data views never assign values to data variables, they only read from them. On the other hand, data controllers can assign values to data variables. For this purpose, there is also support for *assignment expressions*.
 
 For now, assignment expressions can only be used in the [`data-event` controller](views_and_controllers.html#data-event). Syntax and details are located in the documentation for this controller.
-
 
 
 #### Expression examples

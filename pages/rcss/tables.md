@@ -33,7 +33,7 @@ The `display`{:.prop} property is used to define the formatting of tables, with 
 `inline-table`{:.value}       | Specifies an inline-level table.       | | *same as above*
 `table-row`{:.value}          | Specifies a table row.                 | | `table-cell`{:.value}
 `table-row-group`{:.value}    | Specifies a grouping of table rows.    | | `table-row`{:.value}
-`table-column`{:.value}       | Specifies a table column.              | `span`{:.value} | 
+`table-column`{:.value}       | Specifies a table column.              | `span`{:.value} |
 `table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
 `table-cell`{:.value}         | Specifies a table cell.                | `colspan`{:.value}, `rowspan`{:.value} |
 

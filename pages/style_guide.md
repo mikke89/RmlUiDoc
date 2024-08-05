@@ -18,7 +18,7 @@ The scrollbar elements are tagged `scrollbarhorizontal`{:.tag} or `scrollbarvert
 * `sliderarrowdec`{:.tag}: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
 * `sliderarrowinc`{:.tag}: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
 * `slidertrack`{:.tag}: The track that runs between the two arrow buttons.
-* `sliderbar`{:.tag}: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
+* `sliderbar`{:.tag}: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around.
 
 ![style_guide_1.gif](style_guide_1.gif)
 
@@ -32,11 +32,12 @@ All of these elements can be styled through RCSS to be sized, positioned and ren
 2. Set the `width`{:.prop} and `height`{:.prop} properties of the `sliderarrowdec`{:.tag} and `sliderarrowinc`{:.tag} elements as appropriate. Set them to `0`{:.value} if you don't want buttons.
 3. Set the `width`{:.prop} property of the `slidertrack`{:.tag} as appropriate. The `height`{:.prop} value will be ignored for the track and will always be set internally. Use `margin-left`{:.prop} to position the track within the scrollbar.
 4. Set the `width`{:.prop} property of the `sliderbar`{:.tag} as appropriate. The height of the bar will be generated internally, but you can override this with the `height`{:.prop} property, or use the `min-height`{:.prop} and `max-height`{:.prop} properties to influence it.
-5. Apply decorators to the elements as appropriate. 
+5. Apply decorators to the elements as appropriate.
 
 See the _Rocket Invaders from Mars_ demo style sheet and the [templating tutorial](tutorials/window_template.html) for more pointers.
 
 #### The 'scrollbar-margin' property
+
 {:#scrollbar-margin}
 
 `scrollbar-margin`{:.prop}
@@ -54,16 +55,16 @@ As described above, the scrollbar elements (`scrollbarvertical`{:.tag} and `scro
 The following is the section of the style sheet for _Rocket Invaders from Mars_ relevant for scrollbars.
 
 ```css
-@spritesheet theme 
+@spritesheet theme
 {
 	src: invader.tga;
-	
+
 	/* ... */
-	
+
 	slidertrack-t: 70px 199px 27px 2px;
 	slidertrack-c: 70px 201px 27px 1px;
 	slidertrack-b: 70px 202px 27px 2px;
-	
+
 	sliderbar-t:         56px 152px 23px 23px;
 	sliderbar-c:         56px 175px 23px 1px;
 	sliderbar-b:         56px 176px 23px 22px;
@@ -73,11 +74,11 @@ The following is the section of the style sheet for _Rocket Invaders from Mars_ 
 	sliderbar-active-t: 104px 152px 23px 23px;
 	sliderbar-active-c: 104px 175px 23px 1px;
 	sliderbar-active-b: 104px 176px 23px 22px;
-	 
+
 	sliderarrowdec: 0px 152px 27px 24px;
 	sliderarrowdec-hover: 0px 177px 27px 24px;
 	sliderarrowdec-active: 0px 202px 27px 24px;
-	
+
 	sliderarrowinc: 28px 152px 27px 24px;
 	sliderarrowinc-hover: 28px 177px 27px 24px;
 	sliderarrowinc-active: 28px 202px 27px 24px;
@@ -132,7 +133,7 @@ scrollbarvertical sliderarrowdec
 {
 	width: 27px;
 	height: 24px;
-	
+
 	decorator: image( sliderarrowdec );
 }
 /* Animate the arrows on hover. */
@@ -152,7 +153,7 @@ scrollbarvertical sliderarrowinc
 {
 	width: 27px;
 	height: 24px;
-	
+
 	decorator: image( sliderarrowinc )
 }
 /* Animate the arrows on hover. */
@@ -194,7 +195,7 @@ Drop-down boxes can be instanced through the RML tag `<select>`{:.tag}, with ind
 The select element generates three hidden elements:
 
 * `selectvalue`{:.tag}: The container element for the selected option.
-* `selectarrow`{:.tag}: The button rendered to the right of the value element. 
+* `selectarrow`{:.tag}: The button rendered to the right of the value element.
 * `selectbox`{:.tag}: The box containing the options. The visibility of this element is toggled when the arrow or value elements are clicked on, or when an option is selected.
 
 The pseudo-class `:checked`{:.cls} is set on the select element while the selection box is visible. Additionally, the selected option inside its drop-down list also has the `:checked`{:.cls} pseudo-class set.
@@ -206,12 +207,12 @@ The pseudo-class `:checked`{:.cls} is set on the select element while the select
 The following are the select element's RCSS rules and properties from the _Rocket Invaders from Mars_ style sheet:
 
 ```css
-@spritesheet theme 
+@spritesheet theme
 {
 	src: invader.tga;
-	
+
 	/* ... */
-	
+
 	selectbox-tl: 281px 275px 11px 9px;
 	selectbox-t:  292px 275px 1px 9px;
 	selectbox-tr: 294px 275px 11px 9px;
@@ -220,13 +221,13 @@ The following are the select element's RCSS rules and properties from the _Rocke
 	selectbox-bl: 281px 285px 11px 11px;
 	selectbox-b:  292px 285px 1px 11px;
 	selectbox-br: 294px 285px 11px 11px;
-	
+
 	selectvalue: 162px 192px 145px 37px;
 	selectvalue-hover: 162px 230px 145px 37px;
 	selectarrow: 307px 192px 30px 37px;
 	selectarrow-hover: 307px 230px 30px 37px;
 	selectarrow-active: 307px 268px 30px 37px;
-	
+
 	/* ... */
 }
 
@@ -243,7 +244,7 @@ select selectvalue
 {
 	width: auto;
 	margin-right: 30px;
-	
+
 	height: 28px;
 	padding: 9px 10px 0px 10px;
 
@@ -261,7 +262,7 @@ select selectarrow
 {
 	width: 30px;
 	height: 37px;
-	
+
 	decorator: image( selectarrow );
 }
 
@@ -287,7 +288,7 @@ select selectbox
 	padding: 1px 4px 4px 4px;
 
 	decorator: tiled-box(
-		selectbox-tl, selectbox-t, selectbox-tr, 
+		selectbox-tl, selectbox-t, selectbox-tr,
 		selectbox-l, selectbox-c, auto,  /* auto mirrors left */
 		selectbox-bl, selectbox-b, selectbox-br
 	);

@@ -57,7 +57,7 @@ The decorator can be specified by two sprites, defining an outer and inner recta
 	button-inner: 259px 19px 135px  1px;
 }
 ```
-The inner rectangle defines the parts of the sprite that will be stretched when the element is resized. 
+The inner rectangle defines the parts of the sprite that will be stretched when the element is resized.
 
 The `ninepatch`{:.prop} decorator is applied as follows:
 ```css

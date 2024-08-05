@@ -33,9 +33,9 @@ The following table lists all built-in data views and controllers in RmlUi, alon
 | [Checked](#data-checked)     | Two-way    | data-checked                 | [data_address]                                  | [3]   |
 | [Event](#data-event)         | Controller | data-event-[event_type]      | [assignment_expression]                         |       |
 
-  [1] `iterator_name` and `index_name` are optional. Defaults to `it` and `it_index`, respectively.  
-  [2] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.  
-  [3] These attributes enable two-way bindings, and will attach both a view and controller to the element.  
+[1] `iterator_name` and `index_name` are optional. Defaults to `it` and `it_index`, respectively.\
+[2] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.\
+[3] These attributes enable two-way bindings, and will attach both a view and controller to the element.
 
 
 #### Attribute
@@ -134,7 +134,7 @@ Repeats the element and its children *n* times for each item in the data variabl
 	<p>Invader {{it_index + 1}} of {{ invaders.size }}.</p>
 	<img data-attr-sprite="invader.sprite" data-style-image-color="invader.color"/>
 	<p>Scores: <span data-for="invader.scores"> {{it}} </span></p>
-</div> 
+</div>
 ```
 
 An iterator can be used to retrieve values from the current item in the data array.
@@ -161,7 +161,7 @@ with three entries in `subjects` is turned into
 ```
 where `i` and `subject` become aliases to the array index and entry, respectively. Additionally, an element is added after all the entries so that the location of the for loop within the document tree is well defined even when there are no entries. This will become hidden by the `display: none` inline style added by the data view.
 
-*Note.* For performance reasons the names of global data variables shadow iterator names. Thus, do not use an iterator name which is used for a data binding.  
+*Note.* For performance reasons the names of global data variables shadow iterator names. Thus, do not use an iterator name which is used for a data binding.\
 *Implementation note.* Internally, the XML parser uses a special parsing rule whenever the `data-for` attribute is encountered, providing all the children of the current element as raw RML text to the data view, which is later used for creation of each item in the data array.
 
 
@@ -236,7 +236,7 @@ Synchronizes the element's `value`{:.attr} attribute to the value of the data va
 ```
 
 A new value is assigned to the specified data variable whenever a `change`{:.evt} event occurs on the current element. The element's `value`{:.attr} attribute is updated whenever the data variable changes on the client side.
- 
+
 *Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attr-value` view and `data-event-change` controller for more flexibility.
 
 
@@ -256,7 +256,7 @@ Binds a checkbox or radio button's `checked` state to the variable located at `d
 For checkboxes, the underlying data type should be a `bool`, where `true` means checked and `false` means unchecked. For radio buttons, the underlying type should be an `Rml::String` type where its value corresponds to the `value` attribute of the currently selected radio button.
 
 A new value is assigned to the specified data variable whenever a `change`{:.evt} event occurs on the current element. The element's `checked`{:.attr} attribute is added or removed whenever the data variable changes on the client side.
- 
+
 *Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attrif-checked` view and `data-event-change` controller for more flexibility.
 
 
@@ -269,8 +269,8 @@ The event controller is triggered whenever the `[event_type]` event occurs on th
 
 An assignment expression is specified as one of the following two statements.
 
-  (1) `[data_address] = [data_expression]`  
-  (2) `[event_callback_name]([data_expression], [data_expression], ...)`
+(1) `[data_address] = [data_expression]`\
+(2) `[event_callback_name]([data_expression], [data_expression], ...)`
 
 Furthermore, a single assignment expression can take multiple such statements by semicolon-separating them.
 

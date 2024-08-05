@@ -17,7 +17,7 @@ RML maintains the core components of HTML5, including CSS. It provides a number 
 3. [Style sheets](rml/style_sheets.html) - Adding style to RML documents.
 4. [Templates](rml/templates.html) - Making all your windows look consistent.
 5. [Syntax](rml/syntax.html) - Parsing details and character references.
-6. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry. 
+6. [Events](rml/events.html) - Mouse clicks, movement, key presses, text entry.
 
 ##### Part II -- Images and forms
 
@@ -30,4 +30,4 @@ RML maintains the core components of HTML5, including CSS. It provides a number 
 ### Appendix
 
 1. [Element index](rml/element_index.html)
-2. [HTML style sheet](rml/html4_style_sheet.html) 
+2. [HTML style sheet](rml/html4_style_sheet.html)

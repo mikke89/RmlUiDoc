@@ -60,7 +60,6 @@ The rendered output is shown below. Notice that all columns are the same height.
 <img alt="flexbox example" src="../../assets/images/flexbox-example.png" style="margin: 0 auto; display: block;">
 
 
-
 ### Differences from CSS
 
 ##### Behavior
@@ -85,7 +84,7 @@ To achieve the best performance, avoid content based sizing to prevent formattin
 
 - Use the `flex: <number ≥ 1> `{:.value} shorthand.
 - Set a definite height (length or percentage) on the flex items – or width in column layout.
-  
+
 This is increasingly important when the flex items are complicated to format, such as when using flexbox for larger layout structures.
 
 
@@ -140,7 +139,7 @@ A shorthand property for setting the flexible sizing behavior of flex items. Gen
 : Equivalent to `flex: 0 1 auto`{:.value}. Items will be sized according to their content size, but allow shrinking proportionally if the container is too small in order to avoid overflow.
 
 `flex: auto`{:.value}
-: Equivalent to `flex: 1 1 auto`{:.value}. Items will initially be sized according to their content size and then proportionally shrink or grow to fill the container. 
+: Equivalent to `flex: 1 1 auto`{:.value}. Items will initially be sized according to their content size and then proportionally shrink or grow to fill the container.
 
 `flex: none`{:.value}
 : Equivalent to `flex: 0 0 auto`{:.value}. Items will be sized according to their content size, and neither shrink nor grow.
@@ -189,7 +188,6 @@ Inherited: | no
 Percentages: | relative to the flex container’s inner main size
 
 Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrinked using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width).
-
 
 
 ### Alignment

@@ -5,7 +5,7 @@ parent: cpp_manual
 next: ime
 ---
 
-There are five interfaces that RmlUi provides to control how it interacts with your application. 
+There are five interfaces that RmlUi provides to control how it interacts with your application.
 
 * [Render interface](interfaces/render.html)
 * [System interface](interfaces/system.html)

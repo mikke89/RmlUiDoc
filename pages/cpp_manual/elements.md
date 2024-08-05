@@ -236,7 +236,7 @@ The function's parameters are:
 * `parent`: The element you intend to parent the element to once it has been created. This is only used by custom instancers; if you're instancing a generic element you can leave this out. Note that the new element will not be automatically parented to this element, you still need to do that yourself once the element has been created.
 * `instancer`: The tag name the instancer you want to create the element was registered against. For creating generic elements, this can be the same as the third parameter, `tag`. For more information, see the the documentation for [custom element instancers](custom_elements.html#creating-a-custom-element-instancer).
 * `tag`: The tag the new element should have.
-* `attributes`: Any attributes you want the new element to be constructed with. This is a dictionary type. The attributes will be passed into the instancer and set on the element if instancing was successful. 
+* `attributes`: Any attributes you want the new element to be constructed with. This is a dictionary type. The attributes will be passed into the instancer and set on the element if instancing was successful.
 
 For example, the following will instance a `<div>`{:.tag} element:
 

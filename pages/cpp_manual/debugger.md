@@ -28,7 +28,7 @@ If you click on the `Element Info` button the menu, the visual debugger will ope
 * The element's properties, and where they were declared.
 * The position and size of the element's primary box.
 * The ancestors of the element.
-* The children of the element. 
+* The children of the element.
 
 If the debugger picks up another click on the active element, the click will fall through to the element itself.
 

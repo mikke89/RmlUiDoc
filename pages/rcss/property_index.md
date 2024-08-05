@@ -9,90 +9,90 @@ The following table lists all properties recognised by RCSS. The **Notes** colum
 
 Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 ---- | ------ | ------------- | ---------- | ---------- | ----------- | -----
-[`align-content`{:.prop}][align-content] |flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly \| stretch | stretch | multi-line flex containers | no | | 
-[`align-items`{:.prop}][align-items] | flex-start \| flex-end \| center \| baseline \| space-around \| stretch | stretch | flex containers | no | | 
-[`align-self`{:.prop}][align-self] | auto \| flex-start \| flex-end \| center \| baseline \| space-around \| stretch | auto | flex containers | no | | 
-[`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | | 
+[`align-content`{:.prop}][align-content] |flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly \| stretch | stretch | multi-line flex containers | no | |
+[`align-items`{:.prop}][align-items] | flex-start \| flex-end \| center \| baseline \| space-around \| stretch | stretch | flex containers | no | |
+[`align-self`{:.prop}][align-self] | auto \| flex-start \| flex-end \| center \| baseline \| space-around \| stretch | auto | flex containers | no | |
+[`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | |
 [`background`{:.prop}][background] | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
-[`background-color`{:.prop}][background-color] | \<colour\> | transparent | all | no | | 
+[`background-color`{:.prop}][background-color] | \<colour\> | transparent | all | no | |
 [`border`{:.prop}][border] | `border-width`{:.prop} `border-color`{:.prop} | | | | | Excludes border style.
-[`border-color`{:.prop}][border-color] | `border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | | | | | 
+[`border-color`{:.prop}][border-color] | `border-top-color`{:.prop} `border-right-color`{:.prop} `border-bottom-color`{:.prop} `border-left-color`{:.prop} | | | | |
 [`border-top`{:.prop}][border] [`border-right`{:.prop}][border] [`border-bottom`{:.prop}][border] [`border-left`{:.prop}][border] | `border-<edge>-width`{:.prop} `border-<edge>-color`{:.prop} | | | | | Excludes border style.
-[`border-top-color`{:.prop}][border-color] [`border-right-color`{:.prop}][border-color] [`border-bottom-color`{:.prop}][border-color] [`border-left-color`{:.prop}][border-color] | \<color\> | black | all | no | | 
-[`border-top-width`{:.prop}][border-width] [`border-right-width`{:.prop}][border-width] [`border-bottom-width`{:.prop}][border-width] [`border-left-width`{:.prop}][border-width] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
-[`border-width`{:.prop}][border-width] | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | | 
+[`border-top-color`{:.prop}][border-color] [`border-right-color`{:.prop}][border-color] [`border-bottom-color`{:.prop}][border-color] [`border-left-color`{:.prop}][border-color] | \<color\> | black | all | no | |
+[`border-top-width`{:.prop}][border-width] [`border-right-width`{:.prop}][border-width] [`border-bottom-width`{:.prop}][border-width] [`border-left-width`{:.prop}][border-width] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block |
+[`border-width`{:.prop}][border-width] | `border-top-width`{:.prop} `border-right-width`{:.prop} `border-bottom-width`{:.prop} `border-left-width`{:.prop} | | all | | |
 [`border-top-left-radius`{:.prop}][border-radius] [`border-top-right-radius`{:.prop}][border-radius] [`border-bottom-right-radius`{:.prop}][border-radius] [`border-bottom-left-radius`{:.prop}][border-radius] | \<length\> | 0px | all | no | | Percentages and two-axis radii not supported. |
-[`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | | 
-[`bottom`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block | 
-[`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | | 
-[`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | | 
-[`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | | 
+[`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | |
+[`bottom`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block |
+[`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | |
+[`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | |
+[`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | |
 [`clip`{:.prop}][clip] | auto \| none \| always \| \<number\> | auto | all | no | | Controls interaction with ancestor element's clipping regions.
-[`color`{:.prop}][color] | \<colour\> | black | all | yes | | 
-[`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial width of flex container or table | 
+[`color`{:.prop}][color] | \<colour\> | black | all | yes | |
+[`column-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial width of flex container or table |
 [`cursor`{:.prop}][cursor] | \<string\> | _empty_ | all | yes | | \<string\> refers an application specific cursor name.
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
-[`display`{:.prop}][display] | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | | 
+[`display`{:.prop}][display] | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | |
 [`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
 [`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progress]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
-[`flex`{:.prop}][flex] | auto \| none \| \<flex-grow\> \<flex-shrink\>? \<flex-basis\>? \| \<flex-basis\> | 0 1 auto | flex items | no | | 
-[`flex-basis`{:.prop}][flex-basis] | \<length\> \| \<percentage\> \| auto | auto | flex items | no | | 
-[`flex-direction`{:.prop}][flex-direction] | row \| row-reverse \| column \| column-reverse | row | flex containers | no | | 
-[`flex-flow`{:.prop}][flex-flow] |  \<flex-direction\> \<flex-wrap\> | | | | | 
-[`flex-grow`{:.prop}][flex-grow] | \<number\> | 0 | flex items | no | | 
-[`flex-shrink`{:.prop}][flex-shrink] | \<number\> | 1 | flex items | no | | 
-[`flex-wrap`{:.prop}][flex-wrap] | nowrap \| wrap \| wrap-reverse | nowrap | flex containers | no | | 
-[`float`{:.prop}][float] | left \| right \| none | none | all | no | | 
+[`flex`{:.prop}][flex] | auto \| none \| \<flex-grow\> \<flex-shrink\>? \<flex-basis\>? \| \<flex-basis\> | 0 1 auto | flex items | no | |
+[`flex-basis`{:.prop}][flex-basis] | \<length\> \| \<percentage\> \| auto | auto | flex items | no | |
+[`flex-direction`{:.prop}][flex-direction] | row \| row-reverse \| column \| column-reverse | row | flex containers | no | |
+[`flex-flow`{:.prop}][flex-flow] |  \<flex-direction\> \<flex-wrap\> | | | | |
+[`flex-grow`{:.prop}][flex-grow] | \<number\> | 0 | flex items | no | |
+[`flex-shrink`{:.prop}][flex-shrink] | \<number\> | 1 | flex items | no | |
+[`flex-wrap`{:.prop}][flex-wrap] | nowrap \| wrap \| wrap-reverse | nowrap | flex containers | no | |
+[`float`{:.prop}][float] | left \| right \| none | none | all | no | |
 [`focus`{:.prop}][focus] | none \| auto | auto | all | yes | | Introduced for RCSS.
-[`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | | 
+[`font`{:.prop}][font] | `font-style`{:.prop} `font-weight`{:.prop} `font-size`{:.prop} `font-family`{:.prop} | | | | |
 [`font-effect`{:.prop}][font-effect] | none \| \<type\>( \<properties\> ) | none | all | yes | | See [font effects](font_effects.html) for details.
 [`font-family`{:.prop}][font-family] | \<string\> | | all | yes | | Only single family supported.
-[`font-size`{:.prop}][font-size] | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font | 
+[`font-size`{:.prop}][font-size] | \<length\> \| \<percentage\> | 12px | all | yes | size of parent font |
 [`font-style`{:.prop}][font-style] | normal \| italic | normal | all | yes | | 'oblique' not supported.
 [`font-weight`{:.prop}][font-weight] | normal \| bold \| \<number \[1,1000\]\> | normal | all | yes | | Relative weights not supported.
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | flex containers and table elements | | | Also supports tables, replacing the CSS `border-spacing`{:.prop} property.
-[`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block | 
+[`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block |
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
-[`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly | flex-start | flex containers | no | | 
-[`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
-[`letter-spacing`{:.prop}][letter-spacing] | normal \| \<length\> | normal | all elements | yes | | 
+[`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly | flex-start | flex containers | no | |
+[`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block |
+[`letter-spacing`{:.prop}][letter-spacing] | normal \| \<length\> | normal | all elements | yes | |
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
-[`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | | 
-[`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block | 
-[`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | height of containing block | 
-[`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block | 
-[`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | width of containing block | 
-[`min-width`{:.prop}][min-width] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block | 
+[`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | |
+[`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block |
+[`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | height of containing block |
+[`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block |
+[`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | width of containing block |
+[`min-width`{:.prop}][min-width] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block |
 [`nav`{:.prop}][nav] | none \| auto \| horizontal \| vertical | none | tabbable elements | no | | Shorthand for navigation properties.
 [`nav-up`{:.prop}][nav] [`nav-right`{:.prop}][nav] [`nav-down`{:.prop}][nav] [`nav-left`{:.prop}][nav] | none \| auto \| \<id\> | none | tabbable elements | no | | Controls spatial navigation.
-[`opacity`{:.prop}][opacity] | \<number\> | 1 | all | yes | | 
-[`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | | 
+[`opacity`{:.prop}][opacity] | \<number\> | 1 | all | yes | |
+[`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | |
 [`overflow-x`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
 [`overflow-y`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
-[`overscroll-behavior`{:.prop}][overscroll-behavior] | auto \| contain | auto | scroll containers | no | | 
-[`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | | 
-[`padding-top`{:.prop}][padding] [`padding-right`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block | 
+[`overscroll-behavior`{:.prop}][overscroll-behavior] | auto \| contain | auto | scroll containers | no | |
+[`padding`{:.prop}][padding] | `padding-top`{:.prop} `padding-right`{:.prop} `padding-bottom`{:.prop} `padding-left`{:.prop} | | | | |
+[`padding-top`{:.prop}][padding] [`padding-right`{:.prop}][padding] [`padding-bottom`{:.prop}][padding] [`padding-left`{:.prop}][padding] | \<length\> \| \<percentage\> | 0px | all | no | width of containing block |
 [`perspective`{:.prop}][perspective] | none \| \<length ≥ 0px\> | none | all | no | |
 [`perspective-origin`{:.prop}][perspective-origin] | \<perspective-origin-x\> \|\| \<perspective-origin-y\> | 50% 50% | all | no | |
-[`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | | 
+[`pointer-events`{:.prop}][pointer-events] | auto \| none | auto | all | yes | |
 [`position`{:.prop}][position] | static \| relative \| absolute \| fixed | static | all | no | | 'fixed' is positioned like 'absolute' but ignores scrolling.
-[`right`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block | 
-[`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial height of flex container or table | 
+[`right`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block |
+[`row-gap`{:.prop}][gap] | \<length\> \| \<percentage\> | 0px | flex containers and table elements | no | initial height of flex container or table |
 [`scrollbar-margin`{:.prop}][scrollbar-margin] | \<length\> | 0px | scrollbar-horizontal and scrollbar-vertical elements | no | | Introduced for RCSS. Specifies a bottom / right margin (depending on orientation) that will collapse with the scrollbar on the complementary axis.
 [`tab-index`{:.prop}][tab-index] | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
 [`text-align`{:.prop}][text-align] | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
-[`text-decoration`{:.prop}][text-decoration] | none \| underline \| overline \| line-through | none | all | yes | | 
-[`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | | 
-[`top`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block | 
-[`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | | 
-[`transform`{:.prop}][transform] | none \| \<transform-function\>+ | none | all | no | | 
-[`transform-origin`{:.prop}][transform-origin] | \[\<transform-origin-x\> \|\| \<transform-origin-y\>\] \<transform-origin-z\>? | 50% 50% 0px | all | no | | 
-[`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| center \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height | 
-[`visibility`{:.prop}][visibility] | visible \| hidden | visible | all | no | | 
-[`white-space`{:.prop}][white-space] | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | | 
-[`word-break`{:.prop}][word-break] | normal \| break-all \| break-word | normal | all elements | yes | | 
-[`width`{:.prop}][width] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block | 
-[`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom. 
+[`text-decoration`{:.prop}][text-decoration] | none \| underline \| overline \| line-through | none | all | yes | |
+[`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | |
+[`top`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block |
+[`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | |
+[`transform`{:.prop}][transform] | none \| \<transform-function\>+ | none | all | no | |
+[`transform-origin`{:.prop}][transform-origin] | \[\<transform-origin-x\> \|\| \<transform-origin-y\>\] \<transform-origin-z\>? | 50% 50% 0px | all | no | |
+[`vertical-align`{:.prop}][vertical-align] | baseline \| sub \| super \| text-top \| text-bottom \| middle \| top \| center \| bottom \| \<percentage\> \| \<length\> | baseline | inline-level elements | no | line-height |
+[`visibility`{:.prop}][visibility] | visible \| hidden | visible | all | no | |
+[`white-space`{:.prop}][white-space] | normal \| pre \| nowrap \| pre-wrap \| pre-line | normal | all elements | yes | |
+[`word-break`{:.prop}][word-break] | normal \| break-all \| break-word | normal | all elements | yes | |
+[`width`{:.prop}][width] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | width of containing block |
+[`z-index`{:.prop}][z-index] | \<number\> \| auto | auto | all | no | | Applies to all elements. For documents, 'auto' allows pulling to front, otherwise remains at top or bottom.
 
 
 [align-content]: flexboxes.html#align-content

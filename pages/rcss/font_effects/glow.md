@@ -6,7 +6,7 @@ grandparent: rcss
 next: outline
 ---
 
-The glow font effect renders a blurred outline around the text. 
+The glow font effect renders a blurred outline around the text.
 
 ![Glow effect sample](glow.png)
 
@@ -35,7 +35,7 @@ Value: | \<length\>
 Initial: | -1px
 Percentages: | N/A
 
-Determines the blur width of the effect. For negative specified values, the used value will be copied from `width-outline`{:.prop}. 
+Determines the blur width of the effect. For negative specified values, the used value will be copied from `width-outline`{:.prop}.
 
 `offset-x`{:.prop}
 

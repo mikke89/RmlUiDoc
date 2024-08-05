@@ -37,7 +37,7 @@ Properties can be requested from an element with the `GetProperty()` function.
 const Rml::Property* GetProperty(const Rml::String& name);
 // Returns one of this element's properties by id.
 const Rml::Property* GetProperty(Rml::PropertyId id);
-// Returns the values of one of this element's properties.		
+// Returns the values of one of this element's properties.
 template < typename T >
 T Rml::GetProperty(const Rml::String& name);
 ```
@@ -82,7 +82,7 @@ Each property stores the unit of its value and the value itself as a variant typ
 
 * `UNKNOWN` and `STRING` values should be requested as `Rml::String` types.
 * `KEYWORD` values should be requested as int types. Keyword values are stored as integers for speed; to check what the value means, you can compare it to the constant values defined in `<RmlUi/Core/StyleSheetKeywords.h>`{:.incl}. For custom keyword properties, see below.
-* `NUMBER`, `PX`, `EM` and `PERCENT` values should be requested as float types. The exact meaning of the value depends on the unit. 
+* `NUMBER`, `PX`, `EM` and `PERCENT` values should be requested as float types. The exact meaning of the value depends on the unit.
 
 If you call `Get<>()` with the wrong type, the variant will do the best it can to convert between the types. For example, if you request a string type on a floating-point value, you will get the value converted to string.
 
@@ -203,7 +203,7 @@ Each of the parsers stores their values as a particular unit and type in the pro
 * _length_ stores values as `PX`,`EM` and related. Use `Get< float >()` to request the value.
 * _keyword_ stores values as `KEYWORD`. The value is the integer index of the specified keyword in the CSV list of allowed keywords; so, in the previous example, a value of 'none' would be 0, 'beep' would be 1, and so on. Use `Get< int >()` to request the value.
 * _string_ stores values as `STRING`. Use `Get< Rml::String >()` to request the value.
-* _colour_ stores values as `COLOUR`. Use `Get< Rml::Colourb >` to request the value. 
+* _colour_ stores values as `COLOUR`. Use `Get< Rml::Colourb >` to request the value.
 
 #### Defining custom shorthands
 

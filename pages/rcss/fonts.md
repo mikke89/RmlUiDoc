@@ -8,7 +8,7 @@ next: text
 RCSS implements a simpler version of the [CSS2 font model](http://www.w3.org/TR/REC-CSS2/fonts.html) when dealing with text rendering. This is for two reasons:
 
 * The document renderer is fully under the control of the author, so (for example) a specific font can be assumed to exist.
-* Improved performance. 
+* Improved performance.
 
 Fonts are specified in a similar fashion.
 NOTE: You will need to load all ttf files via the C++ interfaces before they can be used in RCSS.
@@ -65,11 +65,11 @@ Percentages: | Font size of parent element
 
 Values have the following meanings:
 
-`<length>`{:.value} 
+`<length>`{:.value}
 : The font size is generated at the point size requested. For font-relative units (such as `em`{:.value} ), the font size is relative to the parent element's font size.
 
-`<percentage>`{:.value} 
-: The font size is generated at the point size of the element's parent's font, scaled by the percentage. 
+`<percentage>`{:.value}
+: The font size is generated at the point size of the element's parent's font, scaled by the percentage.
 
 
 #### Font shorthand

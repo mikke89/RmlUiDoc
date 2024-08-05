@@ -24,7 +24,7 @@ We're going to look at adding the title bar first. What we need for this is:
 * an element in the top-left of the window
 * a horizontal tiling decorator on the element to render the title bar
 * a way to set the text on the element so we can procedurally change the title
-* a handle on the element so we can drag the window 
+* a handle on the element so we can drag the window
 
 #### Defining the title elements
 
@@ -59,12 +59,12 @@ That looks a bit better, but still no decorator.
 If you open up the file `/Samples/assets/invader.tga`{:.path}., you'll see it contains sprites for the title bar among other things. We'll now define the sprite sheet used in the decorators in this tutorial. First, find the sprite sheet `theme`{:.value} at the top of the file. The sprites for the window has already been declared, but add the sprites for the title bar.
 
 ```css
-@spritesheet theme 
+@spritesheet theme
 {
 	src: ../../../assets/invader.tga;
 
 	/* ... */
-	
+
 	title-bar-l: 147px 0px 82px 85px;
 	title-bar-c: 229px 0px  1px 85px;
 	title-bar-r: 231px 0px 15px 85px;
@@ -82,7 +82,7 @@ With decorators we can give a nice look to any element. We'll begin by defining 
 div#title-bar span
 {
 	/* ... */
-	
+
 	decorator: tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
 }
 ```
@@ -188,7 +188,7 @@ Now you should be able to drag the window around by holding onto the title. The 
 Now we've got a title bar, we need somewhere to place the actual page content. What we're after is:
 
 * an empty block element we can put our page content into
-* a vertical scrollbar in case the contents of the page overflow 
+* a vertical scrollbar in case the contents of the page overflow
 
 Add the block content element now; within the `<body>`{:.tag} tag, just below the `title-bar`{:.value} element. Give it an ID of `content`{:.value} so we can identify it.
 
@@ -211,7 +211,7 @@ Put some dummy content text into the new element and see what we've got.
 So we've got a couple of issues already:
 
 * the title bar's reflection is displaying over the content
-* the content is rendering outside of the window's border 
+* the content is rendering outside of the window's border
 
 #### Using z-index
 
@@ -238,11 +238,11 @@ Add some padding to the `<body>`{:.tag} rule and take a look at the result. We f
 body.window
 {
 	decorator: tiled-box(
-		window-tl, window-t, window-tr, 
+		window-tl, window-t, window-tr,
 		window-l, window-c, window-r,
 		window-bl, window-b, window-br
 	);
-	
+
 	padding: 10px 15px;
 }
 ```
@@ -301,16 +301,16 @@ That's looking a bit better; of course, we can actually see the scrollbar yet, b
 Next up, we will add the rest of the sprites used in this tutorial to the sprite sheet. As previously, locate the `theme`{:.value} sprite sheet, and add the following sprites to it.
 
 ```css
-@spritesheet theme 
+@spritesheet theme
 {
 	src: /assets/invader.tga;
 
 	/* ... */
-	
+
 	slidertrack-t: 70px 199px 27px 2px;
 	slidertrack-c: 70px 201px 27px 1px;
 	slidertrack-b: 70px 202px 27px 2px;
-	
+
 	sliderbar-t:         56px 152px 23px 23px;
 	sliderbar-c:         56px 175px 23px 1px;
 	sliderbar-b:         56px 176px 23px 22px;
@@ -320,11 +320,11 @@ Next up, we will add the rest of the sprites used in this tutorial to the sprite
 	sliderbar-active-t: 104px 152px 23px 23px;
 	sliderbar-active-c: 104px 175px 23px 1px;
 	sliderbar-active-b: 104px 176px 23px 22px;
-	 
+
 	sliderarrowdec: 0px 152px 27px 24px;
 	sliderarrowdec-hover: 0px 177px 27px 24px;
 	sliderarrowdec-active: 0px 202px 27px 24px;
-	
+
 	sliderarrowinc: 28px 152px 27px 24px;
 	sliderarrowinc-hover: 28px 177px 27px 24px;
 	sliderarrowinc-active: 28px 202px 27px 24px;
@@ -338,7 +338,7 @@ The scrollbar itself has four child elements that can be individually sized and 
 
 * `slidertrack`{:.tag}, the track that runs from the top to the bottom of the scrollbar underneath the bar.
 * `sliderbar`{:.tag}, the bar (or knob, thumb, etc) that lies on top of the track and can be dragged up and down.
-* `sliderarrowinc`{:.tag}, `sliderarrowdec`{:.tag}, the buttons you can click to move the bar up or down the track. 
+* `sliderarrowinc`{:.tag}, `sliderarrowdec`{:.tag}, the buttons you can click to move the bar up or down the track.
 
 We'll start by decorating the track. We use a `tiled-vertical`{:.value} decorator to let it stretch properly in the vertical direction. We already defined the sprites, so we can simply declare the decorator.
 
@@ -507,4 +507,4 @@ The document is loaded on line 68 of main.cpp. Before the document is rendered, 
 	}
 ```
 
-In a real-world application, you can automate this by putting a `load`{:.evt} event into the document template and setting the title in the event handler. 
+In a real-world application, you can automate this by putting a `load`{:.evt} event into the document template and setting the title in the event handler.

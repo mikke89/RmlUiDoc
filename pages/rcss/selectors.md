@@ -32,7 +32,7 @@ Details and combinations of the listed selectors are described below.
 #### Pseudo selectors
 {:#pseudo-selectors}
 
-The following table lists the built-in pseudo class selectors, in addition to the negation selector and all of the tree-structural selectors from CSS3. 
+The following table lists the built-in pseudo class selectors, in addition to the negation selector and all of the tree-structural selectors from CSS3.
 
 **Pseudo-class**                               |
 `:hover`{:.cls pseudo-def}                     | Matches an element that is currently under the mouse cursor.
@@ -55,7 +55,7 @@ The following table lists the built-in pseudo class selectors, in addition to th
 `:only-of-type`{:.cls pseudo-def}              | Matches an element that has no sibling elements of its type.
 `:empty`{:.cls pseudo-def}                     | Matches an element that has no child nodes.
 
-See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for more thorough documentation and examples on the use of selectors. Please note that pseudo-elements such as `::first-letter`{:.cls} and `::before`{:.cls} are not yet supported in RCSS. 
+See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for more thorough documentation and examples on the use of selectors. Please note that pseudo-elements such as `::first-letter`{:.cls} and `::before`{:.cls} are not yet supported in RCSS.
 
 
 #### Compound selectors
@@ -71,7 +71,7 @@ will match any element of type `div`{:.tag} with an ID of `level_list`{:.value} 
 
 #### Complex selectors
 
-A *complex selector* is made up of potentially multiple compound selectors, each separated by a combinator. 
+A *complex selector* is made up of potentially multiple compound selectors, each separated by a combinator.
 
 ```css
 div.content p {}

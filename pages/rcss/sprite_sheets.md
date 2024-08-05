@@ -10,15 +10,15 @@ The RCSS at-rule `@spritesheet` can be used to declare a sprite sheet. A sprite 
 A sprite sheet can be declared in RCSS as in the following example.
 
 ```css
-@spritesheet theme 
+@spritesheet theme
 {
 	src: invader.tga;
 	resolution: 1x;
-	
+
 	title-bar-l: 147px 0px 82px 85px;
 	title-bar-c: 229px 0px  1px 85px;
 	title-bar-r: 231px 0px 15px 85px;
-	
+
 	icon-invader: 179px 152px 51px 39px;
 	icon-game:    230px 152px 51px 39px;
 	icon-score:   434px 152px 51px 39px;
@@ -41,7 +41,7 @@ Percentages: | N/A
 
 Provides the filename of the source image for the sprite sheet.
 
- 
+
 `resolution`{:.prop#resolution}
 
 Value: | \<resolution\>
@@ -58,7 +58,7 @@ For example, if we set the `resolution`{:.prop} property to `2x`{:.value} and th
 
 #### Sprites
 
-`[sprite-name]`{:.prop}  
+`[sprite-name]`{:.prop}
 (any name other than `src`{:.prop} and `resolution`{:.prop})
 
 Value: | \<rectangle\>
@@ -99,11 +99,11 @@ To override the above `theme` sprite sheet, define one for high resolution just 
 	{
 		src: invader2x.tga;
 		resolution: 2x;
-		
+
 		title-bar-l: 147px 0px 164px 170px;
 		title-bar-c: 429px 0px   1px 170px;
 		title-bar-r: 631px 0px  30px 170px;
-		
+
 		icon-invader: 179px 152px 102px 78px;
 		icon-game:    330px 152px 102px 78px;
 		icon-score:   534px 152px 102px 78px;

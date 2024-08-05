@@ -14,7 +14,7 @@ Scrollbar elements are tagged `scrollbarvertical`{:.tag} or `scrollbarhorizontal
 * `sliderarrowdec`{:.tag}: The button at the top (or left) of the scrollbar which can be clicked to scroll further up (or to the left) the element.
 * `sliderarrowinc`{:.tag}: The button at the bottom (or right) of the scrollbar which can be clicked to scroll further down (or to the right) the element.
 * `slidertrack`{:.tag}: The track that runs between the two arrow buttons.
-* `sliderbar`{:.tag}: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around. 
+* `sliderbar`{:.tag}: The bar that runs on the track. It represents the size and position of the visible segment of the element's content. It can be dragged to scroll the visible window around.
 
 ![scrollbars_1.gif](scrollbars_1.gif)
 

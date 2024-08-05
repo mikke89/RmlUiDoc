@@ -70,7 +70,7 @@ Most of the form controls are instanced through the `<input>`{:.tag} tag, with t
 * _checkbox_: A checkbox button.
 * _range_: A slider.
 * _button_: A button.
-* _submit_: An element with button-like behaviour for submitting its parent form. 
+* _submit_: An element with button-like behaviour for submitting its parent form.
 
 One interface is used to represent all such form controls regardless of their type. Their type can be changed even after they've been instanced.
 
@@ -274,7 +274,7 @@ The value of the submit_value parameter will become the value of the submit para
 
 ### Form submit button
 
-The form submit button is specified in RML with the `<input type="submit" />`{:.tag} tag. The submit button will trigger a submit on its ancestor form when it is clicked, with a submit value equal to its `value`{:.attr} attribute. Its interface is the class `Rml::ElementFormControlInput`. 
+The form submit button is specified in RML with the `<input type="submit" />`{:.tag} tag. The submit button will trigger a submit on its ancestor form when it is clicked, with a submit value equal to its `value`{:.attr} attribute. Its interface is the class `Rml::ElementFormControlInput`.
 
 
 #### Applying properties

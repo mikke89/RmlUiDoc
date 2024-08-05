@@ -11,7 +11,7 @@ The differences between CSS and RCSS are:
 
 * The dimensions of the viewport are defined as the dimensions of the context the document is being rendered in.
 * The document element (the root) is always absolutely positioned, and can be positioned within its context using `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop}.
-* Generated content is not yet supported. 
+* Generated content is not yet supported.
 
 ### Introduction to the visual formatting model
 
@@ -19,7 +19,7 @@ During document layout, each element generates zero or more boxes. How these box
 
 * The box type (either block, for boxes generally laid out top-to-bottom, or inline, for boxes laid out along a line).
 * The box size; this could either be derived from intrinsic dimensions for elements such as images and form controls, or specified directly through RCSS properties, or determined by the contents of the box.
-* Relationships of the box to other boxes in the document tree, such as floating boxes. 
+* Relationships of the box to other boxes in the document tree, such as floating boxes.
 
 #### Containing blocks
 
@@ -71,13 +71,13 @@ Percentages: | N/A
 The values have the following meanings:
 
 `block`{:.value}
-: This element generates a block box. 
+: This element generates a block box.
 
 `inline`{:.value}
-: This element generates one or more inline boxes. 
+: This element generates one or more inline boxes.
 
 `inline-block`{:.value}
-: This element generates a block container for its descendants, but participates in inline layout itself. This is similar to the behavior of replaced elements (those with intrinsic widths). 
+: This element generates a block container for its descendants, but participates in inline layout itself. This is similar to the behavior of replaced elements (those with intrinsic widths).
 
 `flow-root`{:.value}
 : This element generates a block box, and always establishes a new block formatting context. This is useful for example to ensure floated children are completely contained within this element.
@@ -89,7 +89,7 @@ The values have the following meanings:
 : These values are used for defining and structuring [tables](tables.html).
 
 `none`{:.value}
-: This element (including all descendants) generates no boxes, and is not displayed. This implies that the element will not affect layout. The `visibility`{:.prop} property can be used to make an element affect layout but not be rendered. 
+: This element (including all descendants) generates no boxes, and is not displayed. This implies that the element will not affect layout. The `visibility`{:.prop} property can be used to make an element affect layout but not be rendered.
 
 These values all correspond to the ones available for the [CSS display property](https://developer.mozilla.org/en-US/docs/Web/CSS/display).
 
@@ -99,7 +99,7 @@ RCSS can position elements according to three schemes:
 
 1. Normal flow, which includes placement of block boxes, the flowing of inline boxes and relative positioning of either.
 2. Floats. Floating elements are placed as normal, then shifted as far to the left or right as possible within their containing block. Inline content is then flowed around floating boxes.
-3. Absolute positioning. Elements that are positioned with `absolute`{:.value} or `fixed`{:.value} are removed from the normal flow (therefore having no impact on the layout of other elements) and placed at an explicit location relative to their containing block. 
+3. Absolute positioning. Elements that are positioned with `absolute`{:.value} or `fixed`{:.value} are removed from the normal flow (therefore having no impact on the layout of other elements) and placed at an explicit location relative to their containing block.
 
 #### Choosing a positioning scheme: 'position' property
 {:#position}
@@ -115,16 +115,16 @@ Percentages: | N/A
 The values have the following meanings:
 
 `static`{:.value}
-: The element generates boxes that are positioned according to normal flow. 
+: The element generates boxes that are positioned according to normal flow.
 
 `relative`{:.value}
-: The element generates boxes that are positioned according to normal flow, but then offset according to the values of the `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties. Other elements are positioned as though the box was in its original location. 
+: The element generates boxes that are positioned according to normal flow, but then offset according to the values of the `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties. Other elements are positioned as though the box was in its original location.
 
 `absolute`{:.value}
-: The element generates a block box that is removed from normal flow. The `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties will position the box relative to the edges of its containing block. 
+: The element generates a block box that is removed from normal flow. The `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop} properties will position the box relative to the edges of its containing block.
 
 `fixed`{:.value}
-: The element is positioned like an `absolute`{:.value} box, but will not scroll along with other content if it is within an overflowing box. 
+: The element is positioned like an `absolute`{:.value} box, but will not scroll along with other content if it is within an overflowing box.
 
 #### Box offsets: 'top', 'right', 'bottom', 'left'
 {:#top_right_bottom_left}
@@ -151,10 +151,10 @@ The values have the following meanings:
 : Behavior depends on other related properties. For absolutely positioned elements, may adjust position or size to align the box with the containing block.
 
 `<length>`{:.value}
-: The edge is offset a fixed distance from the reference edge. 
+: The edge is offset a fixed distance from the reference edge.
 
 `<percentage>`{:.value}
-: The edge is offset from the reference edge a distance relative to the dimensions of the containing block. 
+: The edge is offset from the reference edge a distance relative to the dimensions of the containing block.
 
 ### Normal flow
 
@@ -202,13 +202,13 @@ Percentages: | N/A
 The values of this property have the following meanings:
 
 `left`{:.value}
-: The element generates a block box that is floated to the left. 
+: The element generates a block box that is floated to the left.
 
 `right`{:.value}
-: The element generates a block box that is floated to the right. 
+: The element generates a block box that is floated to the right.
 
 `none`{:.value}
-: The element's boxes are not floated. 
+: The element's boxes are not floated.
 
 #### Controlling flow next to floats: the 'clear' property
 {:#clear}
@@ -224,16 +224,16 @@ Percentages: | N/A
 The values of this property have the following meanings:
 
 `left`{:.value}
-: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed left-floating elements. 
+: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed left-floating elements.
 
 `right`{:.value}
-: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed right-floating elements. 
+: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed right-floating elements.
 
 `both`{:.value}
-: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed floating elements. 
+: The box's position is pushed far enough vertically so its top edge is below the bottom edge of all previously placed floating elements.
 
 `none`{:.value}
-: The box's position is placed irrespective of floating elements. 
+: The box's position is placed irrespective of floating elements.
 
 Floating boxes themselves can be cleared.
 
@@ -263,9 +263,9 @@ Percentages: | N/A
 Values have the following meanings:
 
 `<number>`{:.value}
-: The number is the stack level within the current stacking context. It also establishes a local stacking context in which its own stack level is '0'. 
+: The number is the stack level within the current stacking context. It also establishes a local stacking context in which its own stack level is '0'.
 
 `auto`{:.value}
-: The stack level of the box is the same as its parent's. It does not establish a local stacking context. 
+: The stack level of the box is the same as its parent's. It does not establish a local stacking context.
 
-Note that in RCSS any element can have the z-index property, not just positioned elements. 
+Note that in RCSS any element can have the z-index property, not just positioned elements.

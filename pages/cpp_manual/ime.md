@@ -37,7 +37,7 @@ The state of the IME support on different platforms is the following:
 
 If you do not use the provided backends but include the platform files and wish to have the IME handled by {{ page.lib_name }}, you may use the platform's implementation of a text input handler, available in its header file. You may also have to pass this instance to the system message handler. See the [initialization](#initialization) section for an example with the implementation provided by the Win32 platform.
 
-#### Initialization 
+#### Initialization
 
 The text input handler can be installed globally with `Rml::SetTextInputHandler()` or passed during context construction. As an example, the following shows how to install the default implementation provided by the Win32 platform:
 
@@ -154,7 +154,7 @@ public:
     void OnActivate(Rml::TextInputContext* input_context) override;
     void OnDeactivate(Rml::TextInputContext* input_context) override;
     void OnDestroy(Rml::TextInputContext* input_context) override;
-    
+
     // Add user methods for interacting with the text input context based on platform input here.
 
 private:

@@ -31,7 +31,7 @@ A number of input events send through key modifiers. In this case the following 
 * alt_key
 * caps_lock_key
 * num_lock_key
-* scroll_lock_key 
+* scroll_lock_key
 
 #### General Events
 
@@ -60,12 +60,12 @@ A number of input events send through key modifiers. In this case the following 
 `keydown`{:.evt}
 : Sent to the focus element when a key is pressed.
 * `key_identifier`: A value from the `Rml::Input::KeyIdentifier` enumeration (found in `<RmlUi/Core/Input.h>`{:.incl}).
-* Key modifiers. 
+* Key modifiers.
 
 `keyup`{:.evt}
 : Sent to the focus element when a key is released.
 * `key_identifier`: A value from the `Rml::Input::KeyIdentifier` enumeration.
-* Key modifiers. 
+* Key modifiers.
 
 `textinput`{:.evt}
 : Sent to the focus element when one or more text characters are entered.
@@ -79,40 +79,40 @@ All mouse events send through key modifiers.
 : Sent to the element under the mouse cursor when a mouse button is clicked. A click is defined as a button press followed by a button release over the same element.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The mouse button number that was clicked. 
+* `button`: The mouse button number that was clicked.
 
 `dblclick`{:.evt}
 : Sent to the element under the mouse cursor when a mouse button is double clicked. Note that the `click`{:.attr} event will always be sent before `dblclick`{:.evt}.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The mouse button number that was clicked. 
+* `button`: The mouse button number that was clicked.
 
 `mouseover`{:.evt}
 : Sent to an element as the mouse cursor moves onto it.
 * `mouse_x`: The mouse x position within the context.
-* `mouse_y`: The mouse y position within the context. 
+* `mouse_y`: The mouse y position within the context.
 
 `mouseout`{:.evt}
 : Sent to an element as the mouse cursor moves off it.
 * `mouse_x`: The mouse x position within the context.
-* `mouse_y`: The mouse y position within the context. 
+* `mouse_y`: The mouse y position within the context.
 
 `mousemove`{:.evt}
 : Sent to the element under the mouse cursor when the mouse is moved.
 * `mouse_x`: The mouse x position within the context.
-* `mouse_y`: The mouse y position within the context. 
+* `mouse_y`: The mouse y position within the context.
 
 `mouseup`{:.evt}
 : Sent to the element under the mouse cursor when a mouse button is released.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The mouse button number that was released. 
+* `button`: The mouse button number that was released.
 
 `mousedown`{:.evt}
 : Sent to the element under the mouse cursor when a mouse button is pressed down.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `button`: The mouse button number that was pressed. 
+* `button`: The mouse button number that was pressed.
 
 `mousescroll`{:.evt}
 : Sent to the focus element when the mouse's scroll wheel is scrolled, or [autoscroll mode](../cpp_manual/contexts.html#autoscroll) is being initiated. The scroll can be cancelled by stopping the event's propagation.
@@ -130,19 +130,19 @@ All mouse drag events send through key modifiers.
 : Sent to an element when it is first dragged, before the first drag event.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 `dragend`{:.evt}
 : Sent to the dragged element when the mouse button is released.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 `drag`{:.evt}
 : Sent to the dragged element when the mouse is moved.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 The following events are only sent if the dragged element has a drag property of **drag-drop**. They are sent to elements other than the dragged element, usually as the mouse moves across them.
 
@@ -150,25 +150,25 @@ The following events are only sent if the dragged element has a drag property of
 : Sent during a drag operation to an element when the mouse cursor is moved onto the element (similarly to the mouseover event).
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 `dragout`{:.evt}
 : Sent during a drag operation to an element when the mouse cursor is moved off the element (similarly to the mouseout event).
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 `dragmove`{:.evt}
 : Sent during a drag operation to the top-most element being hovered over (excluding the dragged element) when the mouse is moved.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 `dragdrop`{:.evt}
 : Sent at the end of a drag operation to the element the cursor is hovering over.
 * `mouse_x`: The mouse x position within the context.
 * `mouse_y`: The mouse y position within the context.
-* `drag_element`: The element that is being dragged. 
+* `drag_element`: The element that is being dragged.
 
 
 #### Animation events
@@ -185,31 +185,31 @@ The following events are only sent if the dragged element has a drag property of
 
 `submit`{:.evt}
 : Sent to the form when it is submitted.
-* `parameters`: The event object will have an attribute for each named value in the form. 
+* `parameters`: The event object will have an attribute for each named value in the form.
 
 #### Form Control Events
 
 `change`{:.evt}
 : Sent to a form control when its value is changed.
-* `value`: The new value. 
+* `value`: The new value.
 
 #### Document Events
 
 `load`{:.evt}
-: Sent to a document when it is initially loaded. 
+: Sent to a document when it is initially loaded.
 
 `unload`{:.evt}
-: Sent to a document when it is unloaded. 
+: Sent to a document when it is unloaded.
 
 #### Handle Events
 
 `handledrag`{:.evt}
 : Sent to the handle when it is moved.
 * `handle_x`: Handle x position.
-* `handle_y`: Handle y position. 
+* `handle_y`: Handle y position.
 
 #### TabSet Events
 
 `tabchange`{:.evt}
 : Sent to the tab set when the active tab is changed.
-* `tab_index`: The new tab index. 
+* `tab_index`: The new tab index.

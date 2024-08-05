@@ -17,12 +17,12 @@ include_in_search_results: false
 1. [C++ Manual](pages/cpp_manual.html)
 2. [Lua Manual](pages/lua_manual.html)
 
-### Authoring Documentation 
+### Authoring Documentation
 
 1. [RML Markup Language](pages/rml.html)
 2. [RCSS Cascading Style Sheets](pages/rcss.html)
-3. [Style guide for core elements](pages/style_guide.html) 
-4. [Glossary](pages/glossary.html) 
+3. [Style guide for core elements](pages/style_guide.html)
+4. [Glossary](pages/glossary.html)
 
 ### Features Documentation
 

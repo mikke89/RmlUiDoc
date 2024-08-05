@@ -11,7 +11,7 @@ The contents of a block box may extend beyond the content area of the box itself
 
 * The contents of an inline box wider than its containing block box cannot be broken.
 * A block box has a width greater than its containing block box.
-* A block box has an explicit height set, and its contents exceed that height. 
+* A block box has an explicit height set, and its contents exceed that height.
 
 When overflow occurs, the overflow-x' and 'overflow-y' properties dictate how the overflow is handled.
 
@@ -35,10 +35,10 @@ The values have the following meanings:
 : Overflowing content is hidden along this axis.
 
 `auto`{:.value}
-: If overflow occurs along this axis, overflowing content is hidden and a scrollbar is generated and positioned along the axis so the hidden content can be scrolled into view. 
+: If overflow occurs along this axis, overflowing content is hidden and a scrollbar is generated and positioned along the axis so the hidden content can be scrolled into view.
 
 `scroll`{:.value}
-: A scrollbar is always visible along the axis, allowing hidden content to be scrolled into view. This will eliminate 'popping' if content suddenly overflows and a scrollbar appears. 
+: A scrollbar is always visible along the axis, allowing hidden content to be scrolled into view. This will eliminate 'popping' if content suddenly overflows and a scrollbar appears.
 
 Note that, unlike CSS, if either of `overflow-x`{:.prop} or `overflow-y`{:.prop} is set to a value other that 'visible', clipping will occur on both axes.
 
@@ -72,10 +72,10 @@ Percentages: | N/A
 The values have the following meanings:
 
 `auto`{:.value}
-: The element is subjected to all the clipping regions put in place by its ancestors. 
+: The element is subjected to all the clipping regions put in place by its ancestors.
 
 `none`{:.value}
-: The element is never clipped (except by the context). 
+: The element is never clipped (except by the context).
 
 `always`{:.value}
 : The element always clips, forcing all descendant elements to clip to this element's client area. This can be useful in some cases where elements are not automatically clipped even when set to eg. `overflow: hidden`{:.prop}, such as with absolutely positioned or transformed child elements.
@@ -97,7 +97,7 @@ Percentages: | N/A
 Values have the following meanings:
 
 `visible`{:.value}
-: The generated box is visible. 
+: The generated box is visible.
 
 `hidden`{:.value}
-: The generated box, and all of its descendants, is hidden. Note that the box still has an impact on layout, it is just not rendered. 
+: The generated box, and all of its descendants, is hidden. Note that the box still has an impact on layout, it is just not rendered.

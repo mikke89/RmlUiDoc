@@ -18,7 +18,7 @@ Some of the most important functions for the font engine interface are given in 
 // @return True if the face was loaded successfully, false otherwise.
 virtual bool LoadFontFace(const String& file_name, bool fallback_face, Style::FontWeight weight);
 
-// Called by RmlUi when a font configuration is resolved for an element. Should return a handle that 
+// Called by RmlUi when a font configuration is resolved for an element. Should return a handle that
 // can later be used to resolve properties of the face, and generate string geometry to be rendered.
 // @param[in] family The family of the desired font handle.
 // @param[in] style The style of the desired font handle.
@@ -58,7 +58,7 @@ The `LoadFontFace()` function is called when the user wants to load a font face.
 
 If any font effects are applied to a given element, a list of such effects are submitted through `PrepareFontEffects()`. It is up to the font engine interface to decide how to handle them. A handle should be returned for the given list of font effects, this handle will later be used during the call to `GenerateString()`. If font effects are not used, there is no need to implement this function.
 
-`GetSize()` is among several functions that should be implemented to allow RmlUi to query properties of the given font face. 
+`GetSize()` is among several functions that should be implemented to allow RmlUi to query properties of the given font face.
 
 During layouting, it is necessary to know the width of a given string without actually rendering it. Then, `GetStringWidth()` is called by RmlUi, expecting the interface to return the pixel width of the provided string for the given handle. Note that the string is encoded in UTF-8, there are some helper functions in `RmlUi/Core/StringUtilities.h`{:.incl} to iterate over such strings, if desired.
 

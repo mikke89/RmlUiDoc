@@ -42,7 +42,7 @@ cmake -B Build -S . -DRmlUi_ROOT="<path-to-rmlui>"
 
 RmlUi generates CMake configure files for both in-source builds and for installs, so this should hopefully just work in either case. When using the prebuilt package binaries, please unpack the files and point the RmlUi path to one of the `Bin-Dynamic` or `Bin-Static` folders, according to the desired linkage type for your project.
 
-It is also possible to target individual components of the library, such as `RmlUi::Core` or `RmlUi::Debugger`. The `RmlUi::RmlUi` target links to all available components. 
+It is also possible to target individual components of the library, such as `RmlUi::Core` or `RmlUi::Debugger`. The `RmlUi::RmlUi` target links to all available components.
 
 Then, add `#include <RmlUi/Core.h>` in a source or header file in your application to start using RmlUi.
 
@@ -61,11 +61,11 @@ Then, add `#include <RmlUi/Core.h>` in a source or header file in your applicati
 - If you have FreeType built as a shared/dynamic library, copy the `freetype.dll` file into the directory your executable will run from.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
-#### Linux and MacOS 
+#### Linux and MacOS
 
 - Add the RmlUi include path `RmlUi/Include/`{:.path} and library path `RmlUi/Build`{:.path} to the paths in your build system.
 - Link with `rmlui` and `freetype`.
-- Either copy the RmlUi libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for MacOS) environment variable. 
+- Either copy the RmlUi libraries into your application's working directory, or set a `LD_LIBRARY_PATH` (`DYLD_LIBRARY_PATH` for MacOS) environment variable.
 - When the library is built as a static library, add `RMLUI_STATIC_LIB` as a preprocessor definition in your project.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 
@@ -123,7 +123,7 @@ All elements within RmlUi are part of a context. You must have at least one cont
 Rml::Context* context = Rml::CreateContext("default", Rml::Vector2i(myScreenWidth, myScreenHeight));
 ```
 
-You can release the context when you're done with it by calling `Rml::RemoveContext(context->GetName())`.  All contexts will automatically be destroyed on shutdown.
+You can release the context when you're done with it by calling `Rml::RemoveContext(context->GetName())`. All contexts will automatically be destroyed on shutdown.
 
 #### Updating and rendering
 
@@ -183,7 +183,7 @@ bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
 bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
 ```
 
-Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. Make sure to take a look at the included backends, as they provide key conversion to RmlUi and event handling for different platforms. For more information on each function, see the [user input manual](input.html). 
+Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. Make sure to take a look at the included backends, as they provide key conversion to RmlUi and event handling for different platforms. For more information on each function, see the [user input manual](input.html).
 
 
 ### Debugger
@@ -195,4 +195,4 @@ To use RmlDebugger, include `<RmlUi/Debugger.h>`{:.incl} in your application and
 
 ### Where next?
 
-Now that you've had a (very!) brief introduction to RmlUi, it is recommended you read the [core overview](core_overview.html) to get an understanding of the composition of RmlUi. From there, either work your way through the documentation, or dive on into the code and consult it as necessary. 
+Now that you've had a (very!) brief introduction to RmlUi, it is recommended you read the [core overview](core_overview.html) to get an understanding of the composition of RmlUi. From there, either work your way through the documentation, or dive on into the code and consult it as necessary.

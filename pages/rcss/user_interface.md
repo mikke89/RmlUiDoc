@@ -48,11 +48,11 @@ Determines how widths and heights are calculated.
 : This is the normal behavior. The `width`{:.prop} and `height`{:.prop} properties set the size of the *content box*.
 
 `border-box`{:.value}
-: The `width`{:.prop} and `height`{:.prop} properties set the size of the *border box*. This includes the content, padding and border, but not the margins. The sizes of the content box is calculated by subtracting the padding and border size, and is then floored at zero. 
+: The `width`{:.prop} and `height`{:.prop} properties set the size of the *border box*. This includes the content, padding and border, but not the margins. The sizes of the content box is calculated by subtracting the padding and border size, and is then floored at zero.
 
 Setting the value to `border-box`{:.value} can be valuable for laying out elements to fit on a line, especially when combining percentages and lengths for widths or heights, paddings, and borders. For example, if you have two elements of `width: 50%`{:.value} and some positive length for the border, they will not normally fit on a line. However, by applying `box-sizing: border-box`{:.value} to the elements they will be able to fit next to each other.
 
-This property takes no effect for `auto`{:.value} values of `width`{:.prop} or `height`{:.prop}. 
+This property takes no effect for `auto`{:.value} values of `width`{:.prop} or `height`{:.prop}.
 
 ### Pointer events: the 'pointer-events' property
 {:#pointer-events}
@@ -113,16 +113,16 @@ Percentages: | N/A
 Values have the following meanings:
 
 `none`{:.value}
-: If the mouse begins a drag over this element, the element is not dragged and does not generate any drag messages. However, it does not prevent an ancestor element from being dragged. 
+: If the mouse begins a drag over this element, the element is not dragged and does not generate any drag messages. However, it does not prevent an ancestor element from being dragged.
 
 `drag`{:.value}
-: If the mouse begins a drag over this element, the element will begin spawning drag messages. However, no messages will be directed to other elements relating to the drag or the eventual drop. 
+: If the mouse begins a drag over this element, the element will begin spawning drag messages. However, no messages will be directed to other elements relating to the drag or the eventual drop.
 
 `drag-drop`{:.value}
-: If the mouse begins a drag over this element, the element will begin spawning drag messages. Messages will also be directed to over elements if the dragged element is dragged over them. 
+: If the mouse begins a drag over this element, the element will begin spawning drag messages. Messages will also be directed to over elements if the dragged element is dragged over them.
 
 `block`{:.value}
-: If the mouse begins a drag over this element, the element is not dragged and neither is any ancestor element. 
+: If the mouse begins a drag over this element, the element is not dragged and neither is any ancestor element.
 
 `clone`{:.value}
 :  Like `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `:drag`{:.cls} set on it to allow it to be differentiated from the original element.
@@ -144,7 +144,7 @@ Percentages: | N/A
 Values have the following meanings:
 
 `none`{:.value}
-: The element is not part of the tabbing order. 
+: The element is not part of the tabbing order.
 
 `auto`{:.value}
 : The element inserts itself into the tabbing order in a location relative to its order in the element hierarchy.

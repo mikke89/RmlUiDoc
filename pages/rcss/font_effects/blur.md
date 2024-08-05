@@ -36,7 +36,6 @@ Percentages: | N/A
 The color is applied multiplicatively over the entire effect.
 
 
-
 ```css
 /* Renders a blurred version of the text, hides the original text. */
 h1

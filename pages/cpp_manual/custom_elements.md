@@ -11,7 +11,7 @@ If you need special functionality on an element that you can't easily manage thr
 * Manage the layout of hidden internal elements.
 * Execute custom update or rendering code.
 * Respond to events inline.
-* Respond to descendant add / remove events. 
+* Respond to descendant add / remove events.
 
 ### Creating a custom element
 
@@ -116,7 +116,7 @@ The `OnRender()` function is called from the base element's render loop after th
 
 * Descendant elements in the element's stacking context with a z-index of lower than 0 have been rendered.
 * The clipping region has been set for the element (if appropriate).
-* The elements background, border and all appropriate decorators have been rendered. 
+* The elements background, border and all appropriate decorators have been rendered.
 
 There is no need to call the base element's `OnRender()` function if you do not wish to. Note that most custom rendering can be accomplished through the use of custom decorators; this is recommended rather than overriding `OnRender()` for reusability.
 
@@ -204,7 +204,7 @@ virtual void ReleaseElement(Rml::Element* element) = 0;
 
 * `parent`: The element that the new element will be parented to if it is created successfully; you do not need to actually do the parenting! This will only be non-null if the element is instanced from RML.
 * `tag`: The string that whoever is creating the element wants the element's tag to be; due to the way elements are constructed through the factory, this may not be one of the tags the instancer was registered against. It is recommended you pass this through to the element to be its tag name, but this is not required.
-* `attributes`: The attributes defined on the element's tag in RML or passed into the factory. You do not need to set these attributes on the element yourself; that will be done automatically if the instancing is successful. You only need to use these if element instancing is dependent on the values (for example, the instancer for `input`{:.tag} elements instances different types depending on the value of the `type`{:.attr} attribute). 
+* `attributes`: The attributes defined on the element's tag in RML or passed into the factory. You do not need to set these attributes on the element yourself; that will be done automatically if the instancing is successful. You only need to use these if element instancing is dependent on the values (for example, the instancer for `input`{:.tag} elements instances different types depending on the value of the `type`{:.attr} attribute).
 
 If `InstanceElement()` is successful, return the new element wrapped in an `ElementPtr` (unique element). Otherwise, return nullptr to indicate an instancing error.
 
@@ -320,4 +320,4 @@ static Rml::XMLNodeHandler* RegisterNodeHandler(const Rml::String& tag,
 
 #### Samples
 
-Custom XML node handlers are used extensively by the included [element packages](element_packages.html); consult the source for the `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use. 
+Custom XML node handlers are used extensively by the included [element packages](element_packages.html); consult the source for the `XMLNodeHandlerTabSet` and `XMLNodeHandlerTextArea` classes for demonstrations of their use.

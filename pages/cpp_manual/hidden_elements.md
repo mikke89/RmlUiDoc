@@ -12,13 +12,13 @@ RmlUi distinguishes between normal elements that are part of the DOM and visible
 The subsystems of RmlUi that ignore hidden elements are:
 
 * Automatic layout.
-* RML serialisation; ie, `GetInnerRML()` will not generate RML for hidden elements. 
+* RML serialisation; ie, `GetInnerRML()` will not generate RML for hidden elements.
 
 important subsystems that still recognise hidden elements are:
 
 * Input events.
 * Update and rendering.
-* RCSS properties. 
+* RCSS properties.
 
 Custom elements that make use of hidden elements can therefore control their size and positioning exactly, while still getting all the flexibility of the RCSS property system. Helper methods are made available for layout.
 
@@ -85,7 +85,7 @@ static void BuildBox(Box& box, Rml::Vector2f containing_block, Element* element,
 * `box`: The box to be generated.
 * `containing_block`: The element's containing block. This is typically the size of the content area of the containing element, but does not have to be.
 * `element`: The element to generate the box for.
-* `inline_element`: True if the element is inline, false if not. Generally you want to leave this as false. 
+* `inline_element`: True if the element is inline, false if not. Generally you want to leave this as false.
 
 The following code will generate and set the box on a hidden element from within its parent:
 
@@ -194,7 +194,7 @@ The parameters to this function are:
 * `line_begin`: The index of the first character in the source string to begin generating the line from.
 * `maximum_line_width`: The maximum length (in pixels) the line can be.
 * `right_spacing_width`: If the generated line is the last line required by the text node, then this space (in pixels) must be available to the right of the line. This is not generally required by custom text layouts.
-* `trim_whitespace_prefix`: If this is set to true, collapsed whitespace will be trimmed from the front of the line. This is usually set to false for the first line, true for the second and subsequent line. 
+* `trim_whitespace_prefix`: If this is set to true, collapsed whitespace will be trimmed from the front of the line. This is usually set to false for the first line, true for the second and subsequent line.
 
 The function will return true if the generated line is the last line required to render the content of the element, false if further lines are required.
 

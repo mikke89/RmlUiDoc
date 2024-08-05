@@ -7,7 +7,7 @@ title: C++ Manual
 
 1. [Building RmlUi with CMake](cpp_manual/building_with_cmake.html)
 2. [Integrating RmlUi into your application](cpp_manual/integrating.html)
-3. [Core overview](cpp_manual/core_overview.html) 
+3. [Core overview](cpp_manual/core_overview.html)
 
 ### Application integration
 

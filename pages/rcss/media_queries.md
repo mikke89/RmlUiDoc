@@ -17,12 +17,12 @@ The RCSS at-rule `@media` can be used to dynamically activate and deactive style
 }
 
 @media (min-resolution: 2x)
-{	
+{
 	@spritesheet theme2x
 	{
 		src: invader2x.tga;
 		resolution: 2x;
-		
+
 		icon-invader: 179px 152px 102px 78px;
 		icon-game:    330px 152px 102px 78px;
 		icon-score:   534px 152px 102px 78px;
@@ -54,7 +54,7 @@ Name | Range | Value | Description
 `orientation`{:.prop}   | No  | landscape \| portrait | Orientation based on the context width and height.
 `theme`{:.prop}         | No  | \<string\>            | Custom RCSS feature. Can be [activated and deactivated](../cpp_manual/contexts.html#themes) on the context.
 
-Since RmlUi is designed to be displayed on screens and in a controlled environment, it doesn't make sense to implement all [CSS media features](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features). 
+Since RmlUi is designed to be displayed on screens and in a controlled environment, it doesn't make sense to implement all [CSS media features](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features).
 
 All range media features can be prefixed with `min-` and `max-` to specificy minimum and maximum constraints, respectively. All other constraints are compared for equality.
 
@@ -66,5 +66,5 @@ Currently, RCSS has some limitations compared to CSS.
 - Conditions cannot be nested within a media query, eg. using parenthesis.
 - Only the `and` logical operator is supported.
 - Only a single occurrence of a given feature can be specified in a single media query.
-    - Except that both `min-` and `max-` of the same range feature can be specified.
+  - Except that both `min-` and `max-` of the same range feature can be specified.
 - The CSS Level 4 syntax using `<=` operators and similar is not supported.

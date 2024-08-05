@@ -35,7 +35,7 @@ The `drag`{:.prop} property can take several different values depending on how y
 * `block`{:.value}: The element does not send any drag messages, and prevents any elements 'underneath' the element from being dragged as well. This is useful for buttons on a window's title bar, for example.
 * `drag`{:.value}: If the left mouse button is pressed while over the element and dragged, the element will trigger a `dragstart`{:.evt} event. Every subsequent time the mouse is moved, the element will trigger a `drag`{:.evt} event. When the button is released, the element will trigger a `dragend`{:.evt} event.
 * `drag-drop`{:.value}: As drag, but as the mouse moves over other elements `dragover`{:.evt} and `dragout`{:.evt} events will be triggered (similarly to the `mouseover`{:.evt} and `mouseout`{:.evt} events). When the button is released, the element the mouse is hovering over will trigger the `dragdrop`{:.evt} message.
-* `clone`{:.value}: As `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `drag`{:.cls} set on it to allow it to be differentiated from the original element. 
+* `clone`{:.value}: As `drag-drop`{:.value}, but a clone of the element is attached to the mouse cursor during dragging. The clone has the pseudo-class `drag`{:.cls} set on it to allow it to be differentiated from the original element.
 
 So both `drag`{:.value} and `drag-drop`{:.value} only send messages; they don't actually drag any elements anywhere automatically. Very useful for complicated dragging operations or dragging multiple elements.
 
@@ -164,4 +164,4 @@ Otherwise, we want to insert the item into its new container before the item it 
 
 Run the app again and try it out. All good, except try dragging an item onto another item within the same window; in this case, it should be inserted after the element it is dragged onto, not before. So, just fix that up in the event handler and you're done!
 
-You can find the fully-completed source in the drag sample. 
+You can find the fully-completed source in the drag sample.

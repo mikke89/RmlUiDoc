@@ -18,7 +18,7 @@ RmlUi text nodes support a subset of the full HTML-encoding for special characte
 * `&lt;`{:.value} The less-than symbol, '<'.
 * `&gt;`{:.value} The greater-than symbol, '>'.
 * `&amp;`{:.value} The ampersand symbol, '&'.
-* `&nbsp;`{:.value} A non-breaking space. 
+* `&nbsp;`{:.value} A non-breaking space.
 
 You should use these symbols instead of their literal equivalents when putting them into RML. For example, the following RML fragment will most likely generate a parse error:
 

@@ -19,7 +19,7 @@ All raw pointers are non-owning, never call `delete` on objects returned by the 
 
 Interfaces created by the user are typically submitted to the library and stored through a non-owning raw-pointer. This means that it is the responsibility of the user to handle the lifetime of the interface. Typically, the interface must stay alive until after the call to `Rml::Shutdown` and then cleaned up afterwards. All relevant functions are commented with their lifetime requirements.
 
-In most cases, non-owning raw pointers are returned by the library. In a few cases however, a unique or shared pointer is returned, thereby giving ownership to the user. The objects can then be moved or copied into the library again. Otherwise their destructors will clean up the object when they go out of scope. 
+In most cases, non-owning raw pointers are returned by the library. In a few cases however, a unique or shared pointer is returned, thereby giving ownership to the user. The objects can then be moved or copied into the library again. Otherwise their destructors will clean up the object when they go out of scope.
 
 Since raw pointers are non-owning, their underlying resource may in principle be released at any time. Thus, care must be taken to avoid interacting with a released resource, as this results in undefined behavior. For example, when releasing an element from its parent, all its descendents will be released as well. In turn, all raw pointers to the removed elements are invalidated. Read more about [ownership of elements here](elements.html#ownership-of-elements).
 
@@ -30,7 +30,7 @@ Rml::ObserverPtr<Rml::Element> observer = element->GetObserverPtr();
 // ...
 if (observer) {
 	// Will only enter if object is still alive.
-	observer->SetClass("celebrate", true); 
+	observer->SetClass("celebrate", true);
 }
 ```
 
@@ -86,4 +86,4 @@ All of RmlUi's objects that are able to be customised (elements, documents, cont
 
 ![core_overview_2.gif](core_overview_2.gif)
 
-Instancers are abstract types that are capable of creating and destroying concrete RmlUi objects. They are described throughout their documentation alongside their respective types. 
+Instancers are abstract types that are capable of creating and destroying concrete RmlUi objects. They are described throughout their documentation alongside their respective types.

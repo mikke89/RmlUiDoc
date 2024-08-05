@@ -24,7 +24,7 @@ Three global variables are accessible to inline event handlers. These are:
 
 * `event`: The event currently being processed (ie, the event that triggered the handler).
 * `element`: The element currently responding to the event.
-* `document`: The owner document of the current element. 
+* `document`: The owner document of the current element.
 
 ```html
 <button onclick="print(element.tag_name)" />

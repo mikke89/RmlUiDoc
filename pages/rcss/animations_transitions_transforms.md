@@ -58,7 +58,7 @@ Example usage:
 	50% {
 		background-color: #9d9;
 	}
-	to { 
+	to {
 		background-color: #f9f;
 		width: 100%;
 	}
@@ -69,7 +69,7 @@ Example usage:
 }
 ```
 
-Multiple animations can be specified on the same element by using a comma-separated list. 
+Multiple animations can be specified on the same element by using a comma-separated list.
 
 ```css
 @keyframes my-progress-bar { ... }
@@ -127,10 +127,10 @@ Example usage:
 	padding-left: 60px;
 	transform: scale(1.5);
 	background-color: #ddb700;
-} 
+}
 ```
 
-See the `animation` sample for more examples and details. 
+See the `animation` sample for more examples and details.
 
 
 ### Tweening functions
@@ -156,7 +156,7 @@ See the animation and transition documentation above for usage examples there. E
 
 <div style="text-align: center">
 	<img alt="Tweening functions" src="../../assets/images/tweening_functions.svg" style="width: 100%; max-width: 700px">
-</div> 
+</div>
 
 See also the `demo` sample, where users can play with different tweening functions and durations, and see the resulting animation. It is also possible to provide a custom tweening function in the [C++ animation API](../cpp_manual/animations_transforms.html).
 
@@ -209,7 +209,7 @@ Describes the origin point around which the transformation occurs, given as the 
 #### Transform functions
 {:#transform-functions}
 
-All transform functions and their argument types are listed in the following. 
+All transform functions and their argument types are listed in the following.
 
 **`<transform-function>`{:.value}**
 

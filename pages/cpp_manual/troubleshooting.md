@@ -59,7 +59,7 @@ The following very simple document can serve as a test to see that you get some 
 	{
 		display: block;
 		height: 150px;
-		width: 200px; 
+		width: 200px;
 		background-color: #f00;
 	}
 </style>
