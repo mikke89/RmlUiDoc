@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Outline Effect
+title: Outline font effect
 parent: rcss/font_effects
 grandparent: rcss
 next: shadow

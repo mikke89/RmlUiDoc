@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Glow Effect
+title: Glow font effect
 parent: rcss/font_effects
 grandparent: rcss
 next: outline

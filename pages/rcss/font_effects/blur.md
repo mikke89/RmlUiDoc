@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Blur Effect
+title: Blur font effect
 parent: rcss/font_effects
 grandparent: rcss
 ---

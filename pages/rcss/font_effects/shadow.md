@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Shadow Effect
+title: Shadow font effect
 parent: rcss/font_effects
 grandparent: rcss
 next: blur
