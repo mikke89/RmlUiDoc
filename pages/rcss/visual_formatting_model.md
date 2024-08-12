@@ -126,6 +126,8 @@ The values have the following meanings:
 `fixed`{:.value}
 : The element is positioned like an `absolute`{:.value} box, but will not scroll along with other content if it is within an overflowing box.
 
+Note that, a limitation in RmlUi is that positioned elements (i.e. any value other than `static`{:.value}) do not affect when clipping is applied to the element. For example, an element with `overflow: hidden`{:.value} will not clip an absolutely positioned child, unless its in-flow content overflows. Instead, one can use the [`clip: always`{:.value} property](visual_effects.html#clip) together with `overflow: hidden`{:.value} to force clipping to occur.
+
 #### Box offsets: 'top', 'right', 'bottom', 'left'
 {:#top_right_bottom_left}
 

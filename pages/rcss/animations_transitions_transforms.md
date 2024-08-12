@@ -173,6 +173,10 @@ perspective: 1000px;
 perspective-origin: 20px 50%;
 ```
 
+Note that, a limitation in RmlUi is that transforms do not affect when clipping is applied to the element. For example, an element with `overflow: hidden`{:.value} will not clip its transformed content, unless the content overflows without the transform. Instead, one can use the [`clip: always`{:.value} property](visual_effects.html#clip) together with `overflow: hidden`{:.value} to force clipping to occur.
+
+The properties controlling transforms are defined as follows.
+
 `transform`{:.prop}
 
 Value: | none \| \<transform-function\><span class="prop-def-symbol" title="one or more space-separated occurrences">+</span>
