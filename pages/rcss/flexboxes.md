@@ -2,7 +2,7 @@
 layout: page
 title: Flexible boxes
 parent: rcss
-next: user_interface
+next: animations_transitions_transforms
 ---
 
 Flexible box (flexbox) layout is made for placing items along a single direction. It allows flexible sizing of items, both shrinking to avoid overflow as well as growing to fill the container. Both horizontal and vertical alignment can be controlled. Together, these properties make this layout scheme powerful for many types of user interfaces.

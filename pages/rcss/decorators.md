@@ -2,53 +2,74 @@
 layout: page
 title: Decorators
 parent: rcss
-next: font_effects
+next: masking
 ---
 
-Decorators are an extension to CSS for RCSS. A decorator can be declared and named in a style sheet like a property, and then configured with decorator-specific properties. Custom decorator types can be developed to suit the needs of the user, and in this manner any kind of decoration can be applied to an element.
+Decorators are an extension to CSS for RCSS. A decorator can be declared in a style sheet and configured with decorator-specific properties. Custom decorator types can be developed to suit the needs of the user, and in this manner any kind of decoration can be applied to an element.
+
+See also the [C++ documentation](../cpp_manual/decorators.html) on decorators for more details and how to define your own decorators.
 
 ### RmlUi decorators
+{:#decorators}
 
 RmlUi comes with several built-in decorators for displaying images and tiled images behind elements.
 
-1. [image decorator](decorators/image.html), for displaying a single stretched image.
-2. [tiled-horizontal decorator](decorators/tiled_horizontal.html), for tiling images horizontally. 
-3. [tiled-vertical decorator](decorators/tiled_vertical.html), for tiling images vertically.
-4. [tiled-box decorator](decorators/tiled_box.html), for tiling images across a box.
-5. [ninepatch decorator](decorators/ninepatch.html), for efficiently tiling images across a box.
-6. [gradient decorator](decorators/gradient.html), for adding a color gradient.
+| Decorator                                            | Types                                                          | Description                              | Requires shader support |
+|------------------------------------------------------|----------------------------------------------------------------|------------------------------------------|:-----------------------:|
+| [Image](decorators/image.html)                       | `image`{:.prop}                                                | A single image.                          |                         |
+| [Tiled horizontal](decorators/tiled_horizontal.html) | `tiled-horizontal`{:.prop}                                     | Tiled images horizontally.               |                         |
+| [Tiled vertical](decorators/tiled_vertical.html)     | `tiled-vertical`{:.prop}                                       | Tiled images vertically.                 |                         |
+| [Tiled box](decorators/tiled_box.html)               | `tiled-box`{:.prop}                                            | Tiled images across a box.               |                         |
+| [Ninepatch](decorators/ninepatch.html)               | `ninepatch`{:.prop}                                            | Efficiently tiled images across a box.   |                         |
+| [Straight gradients](decorators/gradient.html)       | `horizontal-gradient`{:.prop}, `vertical-gradient`{:.prop}     | Horizontal and vertical color gradients. |                         |
+| [Linear gradients](decorators/linear_gradient.html)  | `linear-gradient`{:.prop}, `repeating-linear-gradient`{:.prop} | Linear color gradients.                  |           ✔️            |
+| [Radial gradients](decorators/radial_gradient.html)  | `radial-gradient`{:.prop}, `repeating-radial-gradient`{:.prop} | Radial color gradients.                  |           ✔️            |
+| [Conic gradients](decorators/conic_gradient.html)    | `conic-gradient`{:.prop}, `repeating-conic-gradient`{:.prop}   | Conic color gradients.                   |           ✔️            |
+| [Shader](decorators/shader.html)                     | `shader`{:.prop}                                               | Custom shaders.                          |           ✔️            |
 
+Some decorators require the backend renderer to support advanced rendering features, see the [render interface feature table](../cpp_manual/interfaces/render.html#feature-table) for details.
 
-### Declaring decorators
+### Decoration: The 'decorator' property
 {:#decorator}
 
 The decorator property is specified as follows.
 
 `decorator`{:.prop}
 
-Value: | none \| \<name\> \| \<type\>( \<properties\> )
+Value: | none \| \[ \<type\>( \<properties\> ) \<paint-area\>? \| \<name\> \<paint-area\>? \]<span class="prop-def-symbol" title="One or more comma-separated occurrences">#+</span>
 Initial: | none
 Inherited: | no
 Percentages: | N/A
 
-where `<name>`{:.prop} is a decorator name declared by an [@decorator rule](#decorator-at-rule), `<type>`{:.prop} is a decorator type, and `<properties>`{:.prop} specify the properties of the given decorator type.
+\<type\>
+: Declares the decorator type, see the list of [built-in decorators](#decorators) above.
 
-Multiple decorators can also be specified, eg.
+\<properties\>
+: Declares the properties specific to the given decorator type.
+
+\<name\>
+: Declares a decorator name defined by an [@decorator rule](#decorator-at-rule).
+
+\<paint-area\>
+: Optionally, specifies the area of the element the decorator should be applied to, i.e. one of `border-box`{:.value}, `padding-box`{:.value}, or `content-box`{:.value}. This value defaults to `padding-box`{:.value} when omitted.
+
+For illustration, a single decorator can be used as in the following.
+
+```css
+decorator: <type>( <properties> );
+```
+
+While multiple decorators can be used as follows. They will be rendered in the declared order from top to bottom.
+
 ```css
 decorator: <type>( <properties> ), <type>( <properties> ), ... ;
 ```
-**Note**: For performance reasons, it is recommended to declare decorators in style sheets, not in the style defined inline to an element.
 
-RmlUi ships with the following decorator types:
+For performance reasons, it is recommended to declare decorators in style sheets, not in the style defined inline to an element.
 
-* [`image`{:.value}](decorators/image.html)
-* [`tiled-horizontal`{:.value}](decorators/tiled_horizontal.html)
-* [`tiled-vertical`{:.value}](decorators/tiled_vertical.html)
-* [`tiled-box`{:.value}](decorators/tiled_box.html)
-* [`ninepatch`{:.value}](decorators/ninepatch.html)
-* [`gradient`{:.value}](decorators/gradient.html)
+When creating a [custom decorator](../cpp_manual/decorators.html#custom-decorators), you can provide a shorthand property named `decorator` which will be used to parse the text inside the parenthesis of the property declaration. This allows specifying the decorator with inline properties as in the provided examples.
 
-A decorator is typically declared by the decorator type and its properties in parenthesis. Some examples follow.
+#### Examples
 
 ```css
 /* declares an image decorater by a sprite name */
@@ -56,13 +77,14 @@ decorator: image( icon-invader );
 
 /* declares a tiled-box decorater by several sprites */
 decorator: tiled-box(
-	window-tl, window-t, window-tr, 
+	window-tl, window-t, window-tr,
 	window-l, window-c, window-r,
 	window-bl, window-b, window-br
 );
 
- /* declares an image decorator by the url of an image */
-decorator: image( invader.tga );
+/* declares an image decorator by the url of an image,
+   displayed across the content box of the element */
+decorator: image( invader.tga ) content-box;
 ```
 
 For the built-in decorators with support for images and sprites, the specified 'src' looks for a [sprite](sprite_sheets.html) with the same name first. If none exists, then it treats it as a file name for an image.
@@ -80,7 +102,6 @@ h1:hover {
 ```
 all `h1`{:.tag} tags will have an image decorator attached, except when they are being hovered, then they will not be rendered.
 
-When creating a [custom decorator](../cpp_manual/decorators.html#custom-decorators), you can provide a shorthand property named `decorator` which will be used to parse the text inside the parenthesis of the property declaration. This allows specifying the decorator with inline properties as in the above examples.
 
 ### Decorator at-rule
 
@@ -102,13 +123,3 @@ And then use it in a decorator.
 decorator: stars;
 ```
 Note the lack of parenthesis which means it is a decorator name and not a type with shorthand properties declared.
-
-
-### Specifying render order
-
-Multiple decorators can be specified on any element by a comma-separated list of decorators as in the following example.
-```css
-/* declares two decorators on the same element, the first will be rendered on top of the latter */
-decorator: image( icon-invader ), tiled-horizontal( title-bar-l, title-bar-c, title-bar-r );
-```
-Multiple decorators will be rendered such that the first declared decorator appears on top, and the subsequent decorators appear below the previous one.

@@ -7,6 +7,18 @@ next: property_index
 
 Font effects are an extension to CSS for RCSS for applying effects, such as outlining or shadowing, to text. Similarly to [decorators](decorators.html), font effects are declared and named in a style sheet like a property, and configured with font-effect-specific properties. Custom font effects can be developed to apply arbitrary effects onto text.
 
+### RmlUi font effects
+
+RmlUi comes with the following built-in font effects:
+
+| Font effect                          | Types             | Description                    |
+|--------------------------------------|-------------------|--------------------------------|
+| [Glow](font_effects/glow.html)       | `glow`{:.prop}    | Glowing text and drop shadows. |
+| [Outline](font_effects/outline.html) | `outline`{:.prop} | Outlining text.                |
+| [Shadow](font_effects/shadow.html)   | `shadow`{:.prop}  | Rendering shadows.             |
+| [Blur](font_effects/blur.html)       | `blur`{:.prop}    | Blurring text.                 |
+
+
 ### Properties
 {:#font-effect}
 
@@ -14,7 +26,7 @@ Font effects are declared and configured within style sheets similar to how deco
 
 `font-effect`{:.prop}
 
-Value: | none \| \<type\>( \<properties\> )
+Value: | none \| \[\<type\>( \<properties\> )\]<span class="prop-def-symbol" title="One or more comma-separated occurrences">#+</span>
 Initial: | none
 Inherited: | yes
 Percentages: | N/A
@@ -48,12 +60,3 @@ h1 span
 	font-effect: none;
 }
 ```
-
-### Effects
-
-RmlUi comes with the following built-in font effects:
-
-1. [glow effect](font_effects/glow.html), for glowing text.
-2. [outline effect](font_effects/outline.html), for outlining text.
-3. [shadow effect](font_effects/shadow.html), for rendering shadows.
-4. [blur effect](font_effects/blur.html), for blurring text.

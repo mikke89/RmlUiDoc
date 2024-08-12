@@ -12,7 +12,19 @@ See also the [C++ documentation](../cpp_manual/animations_transforms.html) on an
 ### Animations
 {:#animation}
 
-Most RCSS properties can be animated, this includes properties representing numbers, lengths, percentages, angles, colors, transforms, and keywords. Animations can be specified entirely in RCSS, with keyframes.
+Most properties in RCSS can be animated. This includes in particular properties representing:
+
+- Numbers, lengths, and percentages
+- Angles
+- Colors
+- Keywords
+- Transforms
+- Decorators
+- Filters
+
+Notably, box shadows do not currently support being animated.
+
+Animations can be specified entirely in RCSS, using the following property together with keyframes.
 
 `animation`{:.prop}
 

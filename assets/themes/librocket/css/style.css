@@ -344,4 +344,9 @@ a[href^="http"]:after {
 .prop-def-symbol {
 	text-decoration: underline dotted #666;
 	text-decoration-skip-ink: none;
+	text-underline-position: under;
+}
+
+.center {
+	text-align: center;
 }

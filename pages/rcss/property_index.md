@@ -13,6 +13,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`align-items`{:.prop}][align-items] | flex-start \| flex-end \| center \| baseline \| space-around \| stretch | stretch | flex containers | no | |
 [`align-self`{:.prop}][align-self] | auto \| flex-start \| flex-end \| center \| baseline \| space-around \| stretch | auto | flex containers | no | |
 [`animation`{:.prop}][animation] | See [animations](animations_transitions_transforms.html#animation) | none | all | no | |
+[`backdrop-filter`{:.prop}][backdrop-filter] | none \| \<filter-function\>( \<properties\> ) | none | all | no | |
 [`background`{:.prop}][background] | `background-color`{:.prop} | | | | | Excludes images, use decorators instead.
 [`background-color`{:.prop}][background-color] | \<colour\> | transparent | all | no | |
 [`border`{:.prop}][border] | `border-width`{:.prop} `border-color`{:.prop} | | | | | Excludes border style.
@@ -25,6 +26,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`border-radius`{:.prop}][border-radius] | `border-top-left-radius`{:.prop} `border-top-right-radius`{:.prop} `border-bottom-right-radius`{:.prop} `border-bottom-left-radius`{:.prop} | | all | | |
 [`bottom`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block |
 [`box-sizing`{:.prop}][box-sizing] | content-box \| border-box | content-box | block and replaced inline elements | no | |
+[`box-shadow`{:.prop}][box-shadow] | none \| \<color\>? \<offset-x\> \<offset-y\> \<blur-radius\>? \<spread-radius\>? inset? | none | all elements | no | |
 [`caret-color`{:.prop}][caret-color] | auto \| \<colour\> | auto | all elements | yes | |
 [`clear`{:.prop}][clear] | left \| right \| both \| none | none | block-level elements | no | |
 [`clip`{:.prop}][clip] | auto \| none \| always \| \<number\> | auto | all | no | | Controls interaction with ancestor element's clipping regions.
@@ -34,6 +36,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`decorator`{:.prop}][decorator] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | See [decorators](decorators.html) for details.
 [`display`{:.prop}][display] | inline \| block \| inline-block \| flow-root \| flex \| inline-flex \| table \| inline-table \| table-row-group \| table-row \| table-column-group \| table-column \| table-cell \| none | inline | all | no | |
 [`drag`{:.prop}][drag] | none \| drag \| drag-drop \| block \| clone | none | all | no | | Introduced for RCSS. Controls generation of drag messages.
+[`filter`{:.prop}][filter] | none \| \<filter-function\>( \<properties\> ) | none | all | no | |
 [`fill-image`{:.prop}][fill-image] | \<string\> | _empty_ | [progress]({{"pages/cpp_manual/element_packages/progress_bar.html"|relative_url}}) element | no | | \<string\> refers to a sprite name or an image url.
 [`flex`{:.prop}][flex] | auto \| none \| \<flex-grow\> \<flex-shrink\>? \<flex-basis\>? \| \<flex-basis\> | 0 1 auto | flex items | no | |
 [`flex-basis`{:.prop}][flex-basis] | \<length\> \| \<percentage\> \| auto | auto | flex items | no | |
@@ -59,6 +62,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`line-height`{:.prop}][line-height] | \<number\> \| \<length\> \| \<percentage\> | 1.2 | all | yes | font size | 'normal' not supported.
 [`margin`{:.prop}][margin] | `margin-top`{:.prop} `margin-right`{:.prop} `margin-bottom`{:.prop} `margin-left`{:.prop} | | | | |
 [`margin-top`{:.prop}][margin] [`margin-right`{:.prop}][margin] [`margin-bottom`{:.prop}][margin] [`margin-left`{:.prop}][margin] | \<length\> \| \<percentage\> \| auto | 0px | all | no | width of containing block |
+[`mask-image`{:.prop}][mask-image] | none \| \<name\> \| \<type\>( \<properties\> ) | none | all | no | | Mask image is rendered using [decorators](decorators.html).
 [`max-height`{:.prop}][max-height] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | height of containing block |
 [`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block |
 [`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | width of containing block |
@@ -99,12 +103,14 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [align-items]: flexboxes.html#align-items
 [align-self]: flexboxes.html#align-self
 [animation]: animations_transitions_transforms.html#animation
+[backdrop-filter]: filters.html#backdrop-filter
 [background-color]: colours_backgrounds.html#background-color
 [background]: colours_backgrounds.html#background-color
 [border]: box_model.html#border
 [border-color]: box_model.html#border-color
 [border-radius]: colours_backgrounds.html#border-radius
 [border-width]: box_model.html#border-width
+[box-shadow]: colours_backgrounds.html#box-shadow
 [box-sizing]: user_interface.html#box-sizing
 [caret-color]: user_interface.html#caret-color
 [clear]: visual_formatting_model.html#clear
@@ -114,6 +120,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [decorator]: decorators.html#decorator
 [display]: visual_formatting_model.html#display
 [drag]: user_interface.html#drag
+[filter]: filters.html#filter
 [fill-image]: {{"pages/cpp_manual/element_packages/progress_bar.html#fill-image"|relative_url}}
 [flex]: flexboxes.html#flex
 [flex-basis]: flexboxes.html#flex-basis
@@ -137,6 +144,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [letter-spacing]: text.html#letter-spacing
 [line-height]: visual_formatting_model_details.html#line-height
 [margin]: box_model.html#margin
+[mask-image]: masking.html#mask-image
 [max-height]: visual_formatting_model_details.html#max-height
 [max-width]: visual_formatting_model_details.html#max-width
 [min-height]: visual_formatting_model_details.html#min-height

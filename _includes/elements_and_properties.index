@@ -29,6 +29,13 @@
 },
 {
 	"type": "property",
+	"title": "backdrop-filter",
+	"url": '<a href="/pages/rcss/filters.html#backdrop-filter">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
 	"title": "background",
 	"url": '<a href="/pages/rcss/colours_backgrounds.html#background-color">',
 	"parent_title": "",
@@ -197,6 +204,13 @@
 },
 {
 	"type": "property",
+	"title": "box-shadow",
+	"url": '<a href="/pages/rcss/colours_backgrounds.html#box-shadow">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
 	"title": "caret-color",
 	"url": '<a href="/pages/rcss/user_interface.html#caret-color">',
 	"parent_title": "",
@@ -255,6 +269,13 @@
 	"type": "property",
 	"title": "drag",
 	"url": '<a href="/pages/rcss/user_interface.html#drag">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
+	"title": "filter",
+	"url": '<a href="/pages/rcss/filters.html#filter">',
 	"parent_title": "",
 	"content": ""
 },
@@ -451,6 +472,13 @@
 	"type": "property",
 	"title": "margin-left",
 	"url": '<a href="/pages/rcss/box_model.html#margin">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
+	"title": "mask-image",
+	"url": '<a href="/pages/rcss/masking.html#mask-image">',
 	"parent_title": "",
 	"content": ""
 },

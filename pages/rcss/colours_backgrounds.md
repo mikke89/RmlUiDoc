@@ -37,6 +37,63 @@ This property sets the color of the element's generated boxes. The background co
 
 An alias for `background-color`{:.prop}.
 
+### Box shadows
+{:#box-shadow}
+
+Box shadows produce a shadow effect around or inside the element's box. The shadow is placed on the background of the element.
+
+To use box shadows, the backend renderer must support advanced rendering features, see the [render interface feature table](../cpp_manual/interfaces/render.html#feature-table) for details.
+
+`box-shadow`{:.prop}
+
+Value: | none \| \[ \<color\>? \<offset-x\> \<offset-y\> \<blur-radius\>? \<spread-radius\>? inset? \]<span class="prop-def-symbol" title="One or more comma-separated occurrences">#+</span>
+Initial: | none
+Applies to: | all elements
+Inherited: | no
+Percentages: | N/A
+
+The values have the following meaning.
+
+\<color\>
+: The color of the shadow.
+
+\<offset-x\> \<offset-y\> = \<length\> \<length\>
+: These two values set the offset of the shadow from the element. Positive values will place the shadow to the right and
+down from the element.
+
+\<blur-radius\> = \<length\>
+: Determines how large the blur effect is. It defaults to zero, which means no blur effect.
+
+*Note:* The blur and drop shadow [filters](filters.html) use the *standard deviation* rather than the blur radius to specify the amount of blur to apply. The standard deviation is equivalent to half the blur radius. This difference originates in the CSS specification.
+
+\<spread-radius\> = \<length\>
+: Determines how large the *spread* of the shadow is. Essentially, this makes the shadow larger in all directions. Negative values are allowed to make it smaller. It defaults to zero, making the shadow the same size as the element itself.
+
+inset
+: By specifying this keyword, the shadow will be placed inside the box instead of outside it.
+
+<img alt="border-radius" src="../../assets/images/box-shadow.png" style="max-width: 70%">
+
+The following shows some box shadow examples.
+
+```css
+/* Single shadow */
+box-shadow: #000a 5px 5px 5px;
+
+/* Multiple shadows */
+box-shadow: red 3px 3px, olive -1em 0 0.4em;
+
+/* Inset shadow */
+box-shadow: #000a 5px 5px 5px inset;
+
+/* Layered shadows */
+box-shadow:
+    #f00f  40px  30px 25px 0px,
+    #00ff -40px -30px 45px 0px,
+    #0f08 -60px  70px 60px 0px,
+    #333a  0px  0px 30px 15px inset;
+```
+
 ### Rounded corners
 {:#border-radius}
 

@@ -42,6 +42,7 @@ title: C++ Manual
 10. [Style sheets and properties](cpp_manual/rcss.html)
 11. [Animations and transforms](cpp_manual/animations_transforms.html)
 12. [Decorators](cpp_manual/decorators.html)
+13. [Filters](cpp_manual/filters.html)
 
 
 ### Plugins
