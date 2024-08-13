@@ -52,8 +52,8 @@ The following types can be used in the expressions.
 
 1. Data address, pointing to a scalar data variable.
 2. Literal.
-  - Numeric. Eg. `42` or `-3.2`. Integers or fractional.
-  - String. Eg. `'Play!'`. Always written using single quotes.
+    - Numeric. Eg. `42` or `-3.2`. Integers or fractional.
+    - String. Eg. `'Play!'`. Always written using single quotes.
 3. Keyword. `true` or `false`.
 
 Operators read their arguments either as a `bool`, a `double`, or a `String`. Conversions are done implicitly when needed using the type conversion facilities in RmlUi.

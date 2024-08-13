@@ -11,7 +11,7 @@ Sometimes challenges arise when integrating a new library. The most common integ
 
 - Check the log output for any warnings or errors.
 - Make sure you are actually getting the log output.
-  - Try calling `Rml::Log::Message(Rml::Log::LT_WARNING, "Test warning.")` just after installing the system interface or initializing the library to make sure.
+    - Try calling `Rml::Log::Message(Rml::Log::LT_WARNING, "Test warning.")` just after installing the system interface or initializing the library to make sure.
 
 #### Application crash
 

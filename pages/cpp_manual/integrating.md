@@ -49,15 +49,15 @@ Then, add `#include <RmlUi/Core.h>` in a source or header file in your applicati
 #### Visual Studio
 
 - Add the RmlUi include path `RmlUi/Include/`{:.path} to your project's include paths.
-  - See `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
+    - See `Project → Properties → C/C++ → General → Additional Include Directories`{:.path}.
 - Add the RmlUi library path (`Debug/`{:.path} and `Release/`{:.path} under the `RmlUi/Build`{:.path} directory as appropriate) and the FreeType library path to your library paths.
-  - See `Project → Properties → Linker → General → Additional Library Directories`{:.path}.
+    - See `Project → Properties → Linker → General → Additional Library Directories`{:.path}.
 - Link with `rmlui.lib`{:.path} and `freetype.lib`{:.path}.
-  - See `Project → Properties → Linker → Input → Additional Dependencies`{:.path}.
+    - See `Project → Properties → Linker → Input → Additional Dependencies`{:.path}.
 - If you have RmlUi built as a static library, add the following preprocessor definition: `RMLUI_STATIC_LIB`.
-  - See `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}.
+    - See `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}.
 - If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs into the directory your executable will run from..
-  - That is, `Debug/rmlui.dll`{:.path} for debug builds and `Release/rmlui.dll`{:.path} for release builds from the `RmlUi/Build`{:.path} folder, or from the `Bin-Dynamic`{:.path} folder in the release package.
+    - That is, `Debug/rmlui.dll`{:.path} for debug builds and `Release/rmlui.dll`{:.path} for release builds from the `RmlUi/Build`{:.path} folder, or from the `Bin-Dynamic`{:.path} folder in the release package.
 - If you have FreeType built as a shared/dynamic library, copy the `freetype.dll` file into the directory your executable will run from.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
 

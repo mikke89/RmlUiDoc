@@ -17,8 +17,8 @@ Table support in RCSS is similar to that of the [CSS tables specification](https
 
 - The width of columns are computed as if setting the CSS property `table-layout: fixed`{:.prop}, with the above enhancements.
 - RmlUi does not generate anonymous elements or attempt to clean up invalid tables.
-  - Table row elements must be present for borders to be generated as specified for the row.
-  - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
+    - Table row elements must be present for borders to be generated as specified for the row.
+    - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
 - Percentage-relative values are calculated based on the initial block-size of the table element, and are not re-adjusted if the table size is changed during formatting.
 
 ### The RCSS table model

@@ -224,13 +224,13 @@ The following also lists any exported macros, which must be defined in the consu
 
 `BUILD_SHARED_LIBS` `ON`{:.value}
 : Build shared libraries (dynamic libraries, .dll/.so/.dylib) as opposed to static libraries (.lib/.a).<br>
-  *Exports macro:* `RMLUI_STATIC_LIB` when `OFF`{:.value}
+    *Exports macro:* `RMLUI_STATIC_LIB` when `OFF`{:.value}
 
 `BUILD_TESTING` `OFF`{:.value}
 : Build the included tests and benchmarks. This enables three separate executables, see the [Test Suite readme](https://github.com/mikke89/RmlUi/tree/master/Tests) for details.
-  - `rmlui_benchmarks`{:.value}. Benchmarks various components of the library to find performance hotspots and keep track of any regressions.
-  - `rmlui_unit_tests`{:.value}. Tests smaller units of the library to ensure correctness.
-  - `rmlui_visual_tests`{:.value}. A comprehensive test suite for visually testing the layout engine in particular, with automated screenshots and comparisons.
+    - `rmlui_benchmarks`{:.value}. Benchmarks various components of the library to find performance hotspots and keep track of any regressions.
+    - `rmlui_unit_tests`{:.value}. Tests smaller units of the library to ensure correctness.
+    - `rmlui_visual_tests`{:.value}. A comprehensive test suite for visually testing the layout engine in particular, with automated screenshots and comparisons.
 
 `CMAKE_BUILD_TYPE`
 : CMake standard option to choose the build type for single configuration generators. One of the options: Debug, Release, RelWithDebInfo, MinSizeRel.
@@ -247,8 +247,8 @@ The following also lists any exported macros, which must be defined in the consu
 
 `RMLUI_FONT_ENGINE` `freetype`{:.value}
 : Select the default font engine from the following options:
-  - `freetype`. Use FreeType for generating text.
-  - `none`. Use no default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
+    - `freetype`. Use FreeType for generating text.
+    - `none`. Use no default font engine, thereby allowing users to completely remove the FreeType dependency. If set, a custom font engine must be created and set through `Rml::SetFontEngineInterface` before initialization. See the `bitmapfont` sample for an example implementation of a custom font engine.
 
 `RMLUI_HARFBUZZ_SAMPLE` `OFF`{:.value}
 : Enables the `harfbuzz` sample. Requires the [HarfBuzz](https://github.com/harfbuzz/harfbuzz) dependency.
@@ -258,8 +258,8 @@ The following also lists any exported macros, which must be defined in the consu
 
 `RMLUI_LUA_BINDINGS` `OFF`{:.value}
 : Build the required bindings for Lua support. You'll need Lua installed. Enables the following option:
-  - `RMLUI_LUA_BINDINGS_LIBRARY` `lua`{:.value}<br>
-  Select the Lua library to use for the Lua bindings, one of the options:
+    - `RMLUI_LUA_BINDINGS_LIBRARY` `lua`{:.value}<br>
+    Select the Lua library to use for the Lua bindings, one of the options:
     - `lua`. Link to Lua.
     - `lua_as_cxx`. Link to Lua compiled as C++, disables the `extern C` header wrappers. *Exports macro:* `RMLUI_LUA_AS_CXX`.
     - `luajit`. Link to LuaJIT.
@@ -269,12 +269,12 @@ The following also lists any exported macros, which must be defined in the consu
 
 `RMLUI_TRACY_PROFILING` `OFF`{:.value}
 : RmlUi has parts of the library tagged with markers for profiling with [Tracy Profiler](https://github.com/wolfpld/tracy). This enables a visual inspection of bottlenecks and slowdowns on individual frames. To compile the library with profiling support, ensure that Tracy Profiler is made available to CMake, such as by installing the library in your package manager, or by adding it to `/Dependencies/tracy/`{:.path} within the RmlUi directory. Then, enable this option and compile. Follow the Tracy Profiler instructions to build and connect the separate viewer. Enables the following options:
-  - `RMLUI_TRACY_CONFIGURATION` `ON`{:.value}<br>
+    - `RMLUI_TRACY_CONFIGURATION` `ON`{:.value}<br>
     The CMake setup will try to add a new configuration called 'Tracy' which can be selected in e.g. Visual Studio next to the 'Debug' and 'Release' configurations, otherwise the profiler will be enabled on the entire project.
-  - `RMLUI_TRACY_MEMORY_PROFILING` `ON`{:.value}<br>
+    - `RMLUI_TRACY_MEMORY_PROFILING` `ON`{:.value}<br>
     By default, RmlUi will override the global new and delete operators in C++ when Tracy profiling is enabled, to make allocation statistics available. Turn this `OFF`{:.value} to disable overriding the global operators.
 
-  *Exports macro:* `RMLUI_TRACY_PROFILING` for enabled configurations when `ON`{:.value}.
+    *Exports macro:* `RMLUI_TRACY_PROFILING` for enabled configurations when `ON`{:.value}.
 
 #### Build and install options
 
@@ -291,22 +291,22 @@ The following also lists any exported macros, which must be defined in the consu
 
 `RMLUI_CUSTOM_CONFIGURATION` `OFF`{:.value}
 : RmlUi's default configuration `<RmlUi/Config/Config.h>`{:.incl} can be overridden by enabling this option. In this way it is possible to replace several types including containers to other STL-compatible containers (such as [EASTL](https://github.com/electronicarts/EASTL)), or to STL containers with custom allocators. After enabling this option, three new variables can be set:
-  - `RMLUI_CUSTOM_CONFIGURATION_FILE`<br>
-    Set the path to the new configuration file, the default configuration can be used as a template to create this file. E.g. `MyRmlUiConfig.h`{:.path}.<br>
-    *Exports macro:* `RMLUI_CUSTOM_CONFIGURATION_FILE`.
-  - `RMLUI_CUSTOM_INCLUDE_DIRS`<br>
-    Optionally set additional include directories that may be required by the new configuration file. E.g. `C:\MyProject\`{:.path}.
-  - `RMLUI_CUSTOM_LINK_LIBRARIES`<br>
-    Optionally set additional libraries to link with.
+    - `RMLUI_CUSTOM_CONFIGURATION_FILE`<br>
+        Set the path to the new configuration file, the default configuration can be used as a template to create this file. E.g. `MyRmlUiConfig.h`{:.path}.<br>
+        *Exports macro:* `RMLUI_CUSTOM_CONFIGURATION_FILE`.
+    - `RMLUI_CUSTOM_INCLUDE_DIRS`<br>
+        Optionally set additional include directories that may be required by the new configuration file. E.g. `C:\MyProject\`{:.path}.
+    - `RMLUI_CUSTOM_LINK_LIBRARIES`<br>
+        Optionally set additional libraries to link with.
 
 `RMLUI_CUSTOM_RTTI` `OFF`{:.value}
 : When enabled, will configure RmlUi to disable all use of RTTI (e.g. dynamic_cast) and replace them by a custom solution. Does not set any compiler flags to disable RTTI or exceptions, if desired, users can do so manually for their compiler toolchain.<br>
-  *Exports macro:* `RMLUI_CUSTOM_RTTI` when `ON`{:.value}.
+    *Exports macro:* `RMLUI_CUSTOM_RTTI` when `ON`{:.value}.
 
 `RMLUI_MATRIX_ROW_MAJOR` `OFF`{:.value}
 : By default, RmlUi uses a column-major matrix implementation. By enabling this option, the matrix type is changed to a row-major representation.<br>
-  *Exports macro:* `RMLUI_MATRIX_ROW_MAJOR` when `ON`{:.value}.
+    *Exports macro:* `RMLUI_MATRIX_ROW_MAJOR` when `ON`{:.value}.
 
 `RMLUI_THIRDPARTY_CONTAINERS` `ON`{:.value}
 : RmlUi comes bundled with some third-party container libraries for improved performance. For users that would rather use the `std` counter-parts, this option can be turned off. Selected containers are included using a preprocessor definition.<br>
-  *Exports macro:* `RMLUI_NO_THIRDPARTY_CONTAINERS` when `OFF`{:.value}.
+    *Exports macro:* `RMLUI_NO_THIRDPARTY_CONTAINERS` when `OFF`{:.value}.

@@ -66,5 +66,5 @@ Currently, RCSS has some limitations compared to CSS.
 - Conditions cannot be nested within a media query, eg. using parenthesis.
 - Only the `and` logical operator is supported.
 - Only a single occurrence of a given feature can be specified in a single media query.
-  - Except that both `min-` and `max-` of the same range feature can be specified.
+    - Except that both `min-` and `max-` of the same range feature can be specified.
 - The CSS Level 4 syntax using `<=` operators and similar is not supported.
