@@ -73,7 +73,6 @@ The rendered output is shown below. Notice that all columns are the same height.
 ##### Properties and values
 
 - Property `order`{:.prop} is not supported.
-- Property `gap`{:.prop} is not currently supported for flexbox.
 - Property value `flex-basis: content`{:.value} is not supported.
 - Property value `visibility: collapse`{:.value} is not supported.
 
