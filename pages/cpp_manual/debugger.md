@@ -23,10 +23,13 @@ If you click on the `Outlines` button on the menu, the debugger will render red 
 
 If you click on the `Element Info` button the menu, the visual debugger will open. When this is open, mouse clicks on the target context will be intercepted; any element clicked on will become the debugger's active element. The debugger will show the following about the active element:
 
-* The content area (in blue), padding (in purple), border (in grey) and margin (in yellow) of the element on the debugged context.
+* The element's debug area painted directly on top of it: The content area (blue), padding (purple), border (grey), margin (yellow), and bounding box for the paint area (white outline).
 * The element's attributes.
 * The element's properties, and where they were declared.
 * The position and size of the element's primary box.
+* The full box model sizes, listed as:
+  * `box-x (px): margin-left|border-left|padding-left <content> padding-right|border-right|margin-right`
+  * `box-y (px): margin-top|border-top|padding-top <content> padding-bottom|border-bottom|margin-bottom`
 * The ancestors of the element.
 * The children of the element.
 
@@ -41,6 +44,10 @@ The element info dialog has some settings that can be toggled:
 All settings are enabled by default.
 
 As these tools are all open source, we encourage you to add more features if you find the debugger doesn't give you the information you need. You can find the source for the debugger plugin in the `Source/Debugger/`{:.path} directory within your RmlUi installation.
+
+The following image shows the debugger in action. An element is selected, its debug area is painted on top of it, and its properties and other useful information are listed to the right.
+
+![Debugger screenshot](../../assets/images/debugger.png)
 
 ### Initialisation
 
