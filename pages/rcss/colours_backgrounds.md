@@ -77,16 +77,22 @@ inset
 The following shows some box shadow examples.
 
 ```css
-/* Single shadow */
+/* Single box shadow */
 box-shadow: #000a 5px 5px 5px;
 
-/* Multiple shadows */
-box-shadow: red 3px 3px, olive -1em 0 0.4em;
+/* Multiple box shadows */
+box-shadow: #f008 40px 30px 0px 0px, #00f8 -40px -30px 0px 0px;
 
-/* Inset shadow */
+/* Inset box shadow */
 box-shadow: #000a 5px 5px 5px inset;
 
-/* Layered shadows */
+/* Stacked box shadows */
+box-shadow:
+    #f66 30px 30px 0 0,
+    #c88 60px 60px 0 0,
+    #baa 90px 90px 0 0;
+
+/* Colorful box shadows */
 box-shadow:
     #f00f  40px  30px 25px 0px,
     #00ff -40px -30px 45px 0px,
