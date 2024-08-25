@@ -24,7 +24,7 @@
     <link rel="manifest" href="{{ ASSETS_PATH }}icons/site.webmanifest">
     <link rel="mask-icon" href="{{ ASSETS_PATH }}icons/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="{{ ASSETS_PATH }}icons/favicon.ico">
-  
+
     <!-- atom & rss feed -->
 
   </head>
@@ -39,7 +39,7 @@
             {% capture grandparent_url %}/pages/{{ page.grandparent }}{% endcapture %}
             {% assign base_url = page.url | split: "/" | pop | join: "/" | append: "/" %}
             {% assign next_url = base_url | append: page.next %}
-            
+
             {% for it_page in site.pages %}
               {% assign it_next_url = it_page.url | split: "/" | pop | join: "/" | append: "/" | append: it_page.next %}
               {% if it_page.url == parent_url %}
@@ -80,7 +80,7 @@
       <div class="content">
         {{ content }}
       </div>
-    
+
       {% if parent_page %}
       <hr>
       <div class="row-fluid">
@@ -122,14 +122,14 @@
       </div>
       </div>
       {% endif %}
-    
+
       <hr>
       <footer>
         <p><small>
-          {{ page.lib_name }} is licensed under the terms and conditions of the 
+          {{ page.lib_name }} is licensed under the terms and conditions of the
           <a href="{{ "pages/license.html" | relative_url }}">MIT license</a>.<br />
           Copyright (c) 2008-2014 CodePoint Ltd, Shift Technology Ltd, and contributors<br />
-          Copyright (c) 2019-2023 The RmlUi Team, and contributors<br />
+          Copyright (c) 2019-2024 The RmlUi Team, and contributors<br />
           <a href="{{ page.lib_site }}">{{ page.lib_name }} source code and release packages</a>
         </small></p>
       </footer>
