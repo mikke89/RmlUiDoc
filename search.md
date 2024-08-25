@@ -133,7 +133,9 @@ function displaySearchResults(has_search_text, results, pages) {
 			const summary_length = 200;
 			var content = item.content;
 			var type = item.type;
-			var a_href = '<a href="';
+
+			// Split up the href string so that the offline documentation generator does not rewrite the link.
+			var a_href = '<a href' + '="';
 			var url = a_href + '{{ "" | relative_url }}' + item.url.substr(a_href.length);
 
 			if (type != "page") {
