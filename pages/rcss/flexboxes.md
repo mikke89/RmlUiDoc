@@ -65,9 +65,8 @@ The rendered output is shown below. Notice that all columns are the same height.
 ##### Behavior
 
 - Anonymous flex items will not be constructed from non-wrapped text.
-- No automatic minimum-sizing of flex items. Generally, RmlUi does not have the 'min-content' size concept.
+- [Automatic minimum size](https://drafts.csswg.org/css-flexbox/#min-size-auto) of flex items is only applied when they have no definite size, and only in column mode.
 - Baseline alignment is only approximate.
-- Aspect ratio of elements are never used to determine their size.
 - Stretched items are not [reformatted](https://www.w3.org/TR/css-flexbox-1/#algo-stretch).
 
 ##### Properties and values
@@ -84,7 +83,7 @@ To achieve the best performance, avoid content based sizing to prevent formattin
 - Use the `flex: <number ≥ 1> `{:.value} shorthand.
 - Set a definite height (length or percentage) on the flex items – or width in column layout.
 
-This is increasingly important when the flex items are complicated to format, such as when using flexbox for larger layout structures.
+This is increasingly important to consider when the flex items are complicated to format, and essential when using flexbox for larger layout structures. The above rules can also be used only on the most demanding flex items in a given flex container, while using content-based sizing for any other items as suitable.
 
 
 ### Orientation
