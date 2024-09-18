@@ -10,7 +10,7 @@ The `conic-gradient`{:.prop} and `repeating-conic-gradient`{:.prop} decorators r
 
 ```css
 decorator: conic-gradient( <conic-geometry>?, <color-stop-list> ) <paint-area>?;
-decorator: repeating-conic-gradient( <conic-shape>?, <color-stop-list> ) <paint-area>?;
+decorator: repeating-conic-gradient( <conic-geometry>?, <color-stop-list> ) <paint-area>?;
 ```
 
 Each conic gradient is defined by a *gradient line*, which is a virtual line along which color stops are placed. Colors are interpolated between color stops. For conic gradients, the gradient line is an ellipsis around a center point. The colors vary along this ellipsis, while the rays going from the center to the ellipsis have constant color.

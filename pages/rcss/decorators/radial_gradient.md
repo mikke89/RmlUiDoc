@@ -10,7 +10,7 @@ The `radial-gradient`{:.prop} and `repeating-radial-gradient`{:.prop} decorators
 
 ```css
 decorator: radial-gradient( <radial-geometry>?, <color-stop-list> ) <paint-area>?;
-decorator: repeating-radial-gradient( <radial-shape>?, <color-stop-list> ) <paint-area>?;
+decorator: repeating-radial-gradient( <radial-geometry>?, <color-stop-list> ) <paint-area>?;
 ```
 
 Each radial gradient is defined by a *gradient line*, which is a virtual line along which color stops are placed. Colors are interpolated between color stops. For radial gradients, the gradient line starts at a center point and moves out toward an ellipsis around the center. Thus, the color varies going out from the center, but are constant along the virtual ellipses surrounding the center.
