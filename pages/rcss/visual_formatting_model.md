@@ -18,7 +18,7 @@ The differences between CSS and RCSS are:
 During document layout, each element generates zero or more boxes. How these boxes are sized and laid out within their document is governed by:
 
 * The box type (either block, for boxes generally laid out top-to-bottom, or inline, for boxes laid out along a line).
-* The box size; this could either be derived from intrinsic dimensions for elements such as images and form controls, or specified directly through RCSS properties, or determined by the contents of the box. Note that unlike in a full-fledged browser, elements like `select`{:.tag} have a fixed intrinsic size, which is not determined by their content, so their size have to be specified by other means, see [here](visual_formatting_model_details.html#calculating-widths-and-margins) and [here](visual_formatting_model_details.html#calculating-heights-and-margins) to know how is the width and height determined. A [flexbox](flexboxes.html) with stretched align properties can also be used to stretch the size of a box that's not a inline non-replaced box.
+* The box size; this could either be derived from intrinsic dimensions for elements such as images and form controls, or specified directly through RCSS properties, or determined by the contents of the box.
 * Relationships of the box to other boxes in the document tree, such as floating boxes.
 
 #### Containing blocks
