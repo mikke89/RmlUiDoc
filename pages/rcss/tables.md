@@ -37,7 +37,7 @@ The `display`{:.prop} property is used to define the formatting of tables, with 
 `table-column-group`{:.value} | Specifies a grouping of table columns. | `span`{:.value} (when no children present) | `table-column`{:.value}
 `table-cell`{:.value}         | Specifies a table cell.                | `colspan`{:.value}, `rowspan`{:.value} |
 
-In particular, the following CSS `display`{:.prop} modes are *not* supported: `inline-table`{:.value}, `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}. In RCSS, `inline-table`{:.value}s are required to have their widths set to a definite (non-auto) value.
+In particular, the following CSS `display`{:.prop} modes are *not* supported: `table-header-group`{:.value}, `table-footer-group`{:.value}, `table-caption`{:.value}. In RCSS, `inline-table`{:.value}s are required to have their widths set to a definite (non-auto) value.
 
 
 #### Example
