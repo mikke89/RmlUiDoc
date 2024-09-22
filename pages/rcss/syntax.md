@@ -98,6 +98,7 @@ Specified as `<colour>`{:.value} in the property's Values list. Colours represen
 * Prefixed with the '#' character, followed by 3, 4, 6 or 8 hexadecimal digits. 3 or 6 digits represent an RGB triplet, and will have 255 attached as the opacity. If only 3 are specified, each digit will be replicated before being read; for example, #FE0 is equivalent to #FFEE00. 4 or 8 digits allow the specification of a translucent colour.
 * In the format `rgb(r, g, b)`{:.value} or `rgba(r, g, b, a)`{:.value}, where each of red, green, blue (and optionally alpha) is specified as a value from 0 to 255. An rgb value has an alpha of 255 attached.
 * In the format `rgb(r%, g%, b%)`{:.value} or `rgba(r%, g%, b%, a%)`{:.value}, where each of red, green, blue (and optionally alpha) is specified as a percentage value from 0 to 100. An rgb value will have full opacity.
+* In the format `hsl(h, s%, l%)`{:.value} or `hsla(h, s%, l%, a)`{:.value}, where `h` is the hue in degrees (typed without units), `s` and `l` are the saturation and lightness as percentage values from 0 to 100, and `a` is the alpha value from 0.0 to 1.0.
 
 **Important**: Note that the declaration of the alpha channel when using the rgba keyword differs from the HTML5 specification.
 
@@ -110,6 +111,8 @@ color: #FF0000FF;
 color: rgb(100%, 0%, 0%);
 color: rgba(100%, 0%, 0%, 100%);
 color: rgba(255, 0, 0, 255);
+color: hsl(0, 100%, 50%);
+color: hsla(0, 100%, 50%, 1.0);
 ```
 
 #### Resolution
