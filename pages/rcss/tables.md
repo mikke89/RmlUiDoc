@@ -9,7 +9,7 @@ Table support in RCSS is similar to that of the [CSS tables specification](https
 
 ##### Enhancements
 
-- The width of columns and height of rows support flexible sizing (like using the CSS `fr` unit for grid layout).
+- The width of columns and height of rows support flexible sizing by using `<percentage ≥ 100%>`{:.value} for width or height respectively (like using the CSS `fr` unit for grid layout).
 - Minimum and maximum size constraints are respected for column widths and row heights.
 - Spacing between rows and between columns can be controlled individually using margin, border and padding.
 
@@ -20,6 +20,7 @@ Table support in RCSS is similar to that of the [CSS tables specification](https
     - Table row elements must be present for borders to be generated as specified for the row.
     - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
 - Percentage-relative values are calculated based on the initial block-size of the table element, and are not re-adjusted if the table size is changed during formatting.
+- Tables do not support shrink-to-fit width, such as when used inside an inline-block or floating element with auto width, or inside flexbox layout with automatic width sizing. Please set a definite (non-auto) table width in such cases, otherwise the table will be sized to zero width.
 
 ### The RCSS table model
 
@@ -130,7 +131,7 @@ The width of table columns are defined entirely by the width specified on column
 - Columns with `width: auto`{:.prop} are distributed equally to fill the table width.
 - Columns with `width: <length> | <percentage < 100%>`{:.prop} will use the specified value.
 - Columns with `width: <percentage ≥ 100%>`{:.prop} adjusts the flexible width of the column relative to other flexible columns (like the CSS `fr` unit for grid layout).
-- Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constraint their sizing.
+- Columns can specify `min-width`{:.prop} and `max-width`{:.prop} to constrain their size.
 
 Unlike in CSS, column groups and columns can use horizontal `padding`{:.prop}, `border`{:.prop} and `margin`{:.prop}. This will be added to the horizontal spacing of the table. Column groups and columns can also use vertical `border`{:.prop} and `margin`{:.prop} to add borders and offset them from the table edges, but will not affect the position of the cells.
 
@@ -144,7 +145,7 @@ Each row has their height determined as follows:
 - Rows with `height: auto`{:.prop} determine their height by the tallest formatted cell in the row.
 - Rows with `height: <length> | <percentage < 100%>`{:.prop} will use the specified value.
 - Rows with `height: <percentage ≥ 100%>`{:.prop} adjusts the flexible height of the row relative to other flexible rows (like the CSS `fr` unit for grid layout).
-- Rows can specify `min-height`{:.prop} and `max-height`{:.prop} to constraint their sizing.
+- Rows can specify `min-height`{:.prop} and `max-height`{:.prop} to constrain their size.
 
 If the rows do not fill the height specified on the table, all rows will be scaled up proportionally while respecting any `max-height`{:.prop} constraints. If there is still space available, empty space will be left at the bottom of the table.
 

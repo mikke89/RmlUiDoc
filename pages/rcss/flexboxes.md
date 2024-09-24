@@ -5,9 +5,9 @@ parent: rcss
 next: animations_transitions_transforms
 ---
 
-Flexible box (flexbox) layout is made for placing items along a single direction. It allows flexible sizing of items, both shrinking to avoid overflow as well as growing to fill the container. Both horizontal and vertical alignment can be controlled. Together, these properties make this layout scheme powerful for many types of user interfaces.
+Flexible box (flexbox) layout is made for placing items along a single direction. It allows flexible sizing of items, both shrinking to avoid overflow and growing to fill the container. Both horizontal and vertical alignment can be controlled. Together, these properties make this layout scheme powerful for many types of user interfaces.
 
-RmlUi generally follows the [CSS Flexible Box specification](https://www.w3.org/TR/css-flexbox-1/), although there are some smaller differences. There are many resources on how to write flexbox layout in CSS on the web, see eg. a [flexbox introduction at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) and an illustrated overview of the [flexbox properties at CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+RmlUi generally follows the [CSS Flexible Box specification](https://www.w3.org/TR/css-flexbox-1/), although there are some smaller differences. There are many resources on how to write flexbox layout in CSS on the web, see e.g. a [flexbox introduction at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout) and an illustrated overview of the [flexbox properties at CSS-Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
 
 Flexbox layout is initialized by setting an element's [`display`{:.prop} property](visual_formatting_model.html#display) to `display: flex`{:.value} or `display: inline-flex`{:.value}. This generates a flex container for the element, and all its children are formatted as flex items within this container. In RCSS, `inline-flex`{:.value} boxes are required to have their widths set to a definite (non-auto) value.
 
@@ -174,7 +174,7 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | N/A
 
-Sets the shrink factor, allowing items to be shrinked from their initial size to match the container size, thereby avoiding overflow. The flex items will shrink proportionally to their given factor.
+Sets the shrink factor, allowing items to shrink from their initial size to match the container size, thereby avoiding overflow. The flex items will shrink proportionally to their given factor.
 
 `flex-basis`{:.prop}
 {:#flex-basis}
@@ -185,7 +185,7 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | relative to the flex container’s inner main size
 
-Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrinked using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width). Note that shrink-to-fit width is not implemented for tables, so they will be treated as a zero-width box when `flex-basis`{:.prop} is `auto`{:.value}, which usually leads to unsatisfactory layouting results.
+Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrunk using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width). Note that shrink-to-fit width is not implemented for tables, so they will be treated as a zero-width box when `flex-basis`{:.prop} is `auto`{:.value}, instead, set a definite (non-auto) width or flex basis to ensure proper sizing.
 
 
 ### Alignment
