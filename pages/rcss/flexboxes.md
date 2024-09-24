@@ -185,7 +185,7 @@ Applies to: | flex items
 Inherited: | no
 Percentages: | relative to the flex container’s inner main size
 
-Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrinked using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width).
+Sets the flex item's basis size. That is, this gives the initial size before the item is grown or shrinked using the above factors. When specified as `auto`{:.value}, the item's shrink-to-fit width will be used – or automatic block height in column layout. Otherwise, units are resolved the same way as for the [`width`{:.prop} property](visual_formatting_model_details.html#width). Note that shrink-to-fit width is not implemented for tables, so they will be treated as a zero-width box when `flex-basis`{:.prop} is `auto`{:.value}, which usually leads to unsatisfactory layouting results.
 
 
 ### Alignment

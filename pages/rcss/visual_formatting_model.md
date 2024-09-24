@@ -11,6 +11,7 @@ The differences between CSS and RCSS are:
 
 * The dimensions of the viewport are defined as the dimensions of the context the document is being rendered in.
 * The document element (the root) is always absolutely positioned, and can be positioned within its context using `top`{:.prop}, `right`{:.prop}, `bottom`{:.prop} and `left`{:.prop}.
+* There are no default styles in RCSS, including for built-in elements such as scrollbars and form controls. Please see the [style guide](../style_guide.html) for how to style and size these elements.
 * Generated content is not yet supported.
 
 ### Introduction to the visual formatting model

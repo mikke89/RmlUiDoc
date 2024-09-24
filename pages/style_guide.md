@@ -190,6 +190,10 @@ input.range slidertrack
 
 Drop-down boxes can be instanced through the RML tag `<select>`{:.tag}, with individual options specified within the selection element with `<option>`{:.tag} tags.
 
+#### Intrinsic size
+
+Drop-down boxes in RmlUi have a fixed intrinsic size rather than adapting the size to their contents, as is common behavior in web browsers. Instead, the `width`{:.prop} and `height`{:.prop} properties should be specified explicitly to achieve the desired size.
+
 #### Generated elements
 
 The select element generates three hidden elements:
