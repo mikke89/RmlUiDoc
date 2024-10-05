@@ -37,6 +37,13 @@ The following table lists all built-in data views and controllers in RmlUi, alon
 [2] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.\
 [3] These attributes enable two-way bindings, and will attach both a view and controller to the element.
 
+When updating data views including attribute, style, rml and text, the value is converted to a string. Consult `Source/Core/DataViewDefault.cpp` to know how each data view converts the value, and the specializations of templated class `TypeConverter` to know how exactly the conversion is done. A case to keep in mind is boolean value is converted to strings `"0"` or `"1"`, so if you have an element like
+
+```html
+<div data-attr-foo="user_data"></div>
+```
+
+where the value `user_data` is bind to a boolean value, the RCSS selector on it should compare the value to `"0"` or `"1"`, for example `div[foo=1]`.
 
 #### Attribute
 {:#data-attr.data-desc}
