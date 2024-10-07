@@ -37,13 +37,20 @@ The following table lists all built-in data views and controllers in RmlUi, alon
 [2] The text view is automatically added whenever double curly brackets {{ }} are encountered in the element's text.\
 [3] These attributes enable two-way bindings, and will attach both a view and controller to the element.
 
+When data views are updated, their data expressions are evaluated and applied to the document using any necessary type conversion, which is specified by the kind of the data view. Type conversion is done using RmlUi's built-in `TypeConverter` utilities. One aspect of this conversion is that booleans are converted to strings `"0"` or `"1"`. Consider an element
+
+```html
+<div data-attr-foo="user_data"></div>
+```
+
+where the value `user_data` is bound to a C++ variable `bool user_data = true`. The element's attribute will be set to `foo="1"`{:.attr}.  Any associated RCSS attribute selector should use the same representation of the value, i.e. `div[foo=1]`.
 
 #### Attribute
 {:#data-attr.data-desc}
 `data-attr-[attribute_name]="[data_expression]"`
 {:.data-attr}
 
-Sets the element's attribute `[attribute_name]` to the evaluated expression.
+Sets the element's attribute `[attribute_name]` to the evaluated expression (converted to `Rml::String`).
 
 ```html
 <img data-attr-sprite="item.icon"/>
@@ -80,7 +87,7 @@ Enables the class `[class_name]` on the element if the expression evaluates to `
 `data-style-[property_name]="[data_expression]"`
 {:.data-attr}
 
-Sets the property `[property_name]` of the element's style to the evaluated expression.
+Sets the property `[property_name]` of the element's style to the evaluated expression (converted to `Rml::String`).
 
 ```html
 <img sprite="invader" data-style-image-color="invader.color"/>
@@ -170,7 +177,7 @@ where `i` and `subject` become aliases to the array index and entry, respectivel
 `data-rml="[data_expression]"`
 {:.data-attr}
 
-Sets the element's inner RML to the evaluated expression.
+Sets the element's inner RML to the evaluated expression (converted to `Rml::String`).
 
 ```html
 <div data-rml="incoming_invaders ? '<em>Send help!</em>' : 'Clear skies.'">
@@ -183,7 +190,7 @@ Sets the element's inner RML to the evaluated expression.
 `N/A`
 {:.data-attr}
 
-Evaluates any data expression inside double curly brackets {{ }} encountered in the element's text.
+Evaluates any data expression inside double curly brackets {{ }} encountered in the element's text, and converts it to `Rml::String`.
 
 ```html
 <span class="position"> x: {{ position.x }}, y: {{ position.y }}</span>
@@ -229,7 +236,7 @@ This template can then be used with different variables as follows:
 `data-value="[data_address]"`
 {:.data-attr}
 
-Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address`. This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
+Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address` (converted to `Rml::String`). This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
 
 ```html
 <input type="range" min="0" max="100" step="1" data-value="rating"/>
