@@ -16,9 +16,10 @@ Table support in RCSS is similar to that of the [CSS tables specification](https
 ##### Differences
 
 - The width of columns are computed as if setting the CSS property `table-layout: fixed`{:.prop}, with the above enhancements.
-- RmlUi does not generate anonymous elements or attempt to clean up invalid tables.
+- Borders and backgrounds are applied separately for each individual element present in the table.
     - Table row elements must be present for borders to be generated as specified for the row.
     - Table cells will not inherit any properties from the column elements they belong to, except for adjusting the width.
+- RmlUi does not generate anonymous elements or attempt to clean up invalid tables.
 - Percentage-relative values are calculated based on the initial block-size of the table element, and are not re-adjusted if the table size is changed during formatting.
 - Tables do not support shrink-to-fit width, such as when used inside an inline-block or floating element with auto width, or inside flexbox layout with automatic width sizing. Please set a definite (non-auto) table width in such cases, otherwise the table will be sized to zero width.
 
