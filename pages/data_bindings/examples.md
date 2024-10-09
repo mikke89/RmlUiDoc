@@ -68,7 +68,7 @@ void Update(DataModelHandle my_model)
 	}
 }
 ```
-Now the title is updated as well whenever the input text is changed. Note that we have to tell the model that the data has changed on the C++ side. This example is slightly contrived, as this behavior could easily be done purely with data bindings in RML. However, it is easy to envision the power here. Let us do a somewhat more involved example next to demonstrate.
+Now the title is updated as well whenever the input text is changed. Note that we have to tell the model that the data has changed on the C++ side. This example is slightly contrived, as this behavior could easily be achieved without data bindings. However, it is easy to envision the power here, let us do a somewhat more involved example next to illustrate.
 
 
 ### Extended example
@@ -158,7 +158,7 @@ bool SetupDataBinding(Context* context, DataModelHandle& invaders_model)
 		invader_handle.RegisterMember("damage", &Invader::damage);
 		invader_handle.RegisterMember("danger_rating", &Invader::danger_rating);
 
-		// Getter and setter functions can also be used. Alternatively, register 
+		// Getter and setter functions can also be used. Alternatively, register
 		// the Colourb type as a new Scalar type instead.
 		invader_handle.RegisterMember("color", &Invader::GetColor);
 	}
