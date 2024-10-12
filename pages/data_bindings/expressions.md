@@ -26,7 +26,7 @@ invaders.size
 a.very[5].long.data[99].address
 ```
 
-Arithmetic types (eg. `int`, `float`), as well as `Rml::String` are supported without the need to register them. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation.
+Arithmetic types (eg. `int`, `float`), enums, as well as `Rml::String` are supported without the need to register them. Enums are treated as its underlying type, and can also be registered manually. Other types need to be registered first. It is also possible to bind a variable using getter and setter functions, then the data variable acts as a scalar type. See details for registering types in the data model documentation.
 
 
 ### Data expressions
