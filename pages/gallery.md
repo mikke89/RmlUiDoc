@@ -16,8 +16,9 @@ Game menu
 Installer software by [@xland](https://github.com/xland)
 
 {: .gallery-item }
-![TruckersMP](../assets/gallery/truckers_mp.webp)\
-[TruckersMP](https://truckersmp.com/) A multiplayer mod for truck simulators - Chat box in RmlUi
+![TruckersMP chat box](../assets/gallery/truckers_mp.webp)\
+![TruckersMP player list](../assets/gallery/truckers_mp_player_list.webp)\
+[TruckersMP](https://truckersmp.com/) A multiplayer mod for truck simulators - Chat box and player panel in RmlUi
 
 {: .gallery-item }
 ![Covellite++](../assets/gallery/covellitepp_1.jpg)
