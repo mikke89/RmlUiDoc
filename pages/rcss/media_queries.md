@@ -5,7 +5,7 @@ parent: rcss
 next: sprite_sheets
 ---
 
-The RCSS at-rule `@media` can be used to dynamically activate and deactive style rules based on a given set of conditions. The RCSS media queries follow the [CSS syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) with some extensions and [limitations](#limitations).
+The RCSS at-rule `@media` can be used to dynamically activate and deactivate style rules based on a given set of conditions. The RCSS media queries follow the [CSS syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) with some extensions and [limitations](#limitations).
 
 ```css
 @media (orientation: landscape) and (min-width: 640px)
@@ -39,6 +39,16 @@ The RCSS at-rule `@media` can be used to dynamically activate and deactive style
 		background-color: #33e;
 	}
 }
+
+@media not (theme: blue)
+{
+	body {
+		color: red;
+	}
+	#header {
+		background-color: #e33;
+	}
+}
 ```
 
 ### Media features
@@ -56,15 +66,25 @@ Name | Range | Value | Description
 
 Since RmlUi is designed to be displayed on screens and in a controlled environment, it doesn't make sense to implement all [CSS media features](https://developer.mozilla.org/en-US/docs/Web/CSS/@media#media_features).
 
-All range media features can be prefixed with `min-` and `max-` to specificy minimum and maximum constraints, respectively. All other constraints are compared for equality.
+All range media features can be prefixed with `min-` and `max-` to specify minimum and maximum constraints, respectively. All other constraints are compared for equality.
+
+### Logical operators
+
+The following logical operators can be used to combine media features.
+
+Operator | Description
+-------- | -----------
+`and`     | Matches if all conditions are true.
+`not`     | Matches the inverse of the condition.
+
+Other operators found in CSS are currently not supported.
 
 ### Limitations
 
 Currently, RCSS has some limitations compared to CSS.
 
 - `@media` rules cannot be nested.
-- Conditions cannot be nested within a media query, eg. using parenthesis.
-- Only the `and` logical operator is supported.
+- Conditions cannot be nested within a media query, e.g. by using parenthesis.
 - Only a single occurrence of a given feature can be specified in a single media query.
     - Except that both `min-` and `max-` of the same range feature can be specified.
 - The CSS Level 4 syntax using `<=` operators and similar is not supported.
