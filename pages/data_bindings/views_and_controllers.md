@@ -50,7 +50,7 @@ where the value `user_data` is bound to a C++ variable `bool user_data = true`. 
 `data-attr-[attribute_name]="[data_expression]"`
 {:.data-attr}
 
-Sets the element's attribute `[attribute_name]` to the evaluated expression (converted to `Rml::String`).
+Sets the element's attribute `[attribute_name]` to the evaluated expression.
 
 ```html
 <img data-attr-sprite="item.icon"/>
@@ -87,7 +87,7 @@ Enables the class `[class_name]` on the element if the expression evaluates to `
 `data-style-[property_name]="[data_expression]"`
 {:.data-attr}
 
-Sets the property `[property_name]` of the element's style to the evaluated expression (converted to `Rml::String`).
+Sets the property `[property_name]` of the element's style to the evaluated expression.
 
 ```html
 <img sprite="invader" data-style-image-color="invader.color"/>
@@ -177,7 +177,7 @@ where `i` and `subject` become aliases to the array index and entry, respectivel
 `data-rml="[data_expression]"`
 {:.data-attr}
 
-Sets the element's inner RML to the evaluated expression (converted to `Rml::String`).
+Sets the element's inner RML to the evaluated expression.
 
 ```html
 <div data-rml="incoming_invaders ? '<em>Send help!</em>' : 'Clear skies.'">
@@ -190,7 +190,7 @@ Sets the element's inner RML to the evaluated expression (converted to `Rml::Str
 `N/A`
 {:.data-attr}
 
-Evaluates any data expression inside double curly brackets {{ }} encountered in the element's text, and converts it to `Rml::String`.
+Evaluates any data expression inside double curly brackets {{ }} encountered in the element's text.
 
 ```html
 <span class="position"> x: {{ position.x }}, y: {{ position.y }}</span>
@@ -236,7 +236,7 @@ This template can then be used with different variables as follows:
 `data-value="[data_address]"`
 {:.data-attr}
 
-Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address` (converted to `Rml::String`). This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
+Synchronizes the element's `value`{:.attr} attribute to the value of the data variable located at `data_address`. This variable must be a scalar type. This is generally useful for `input`{:.tag} elements.
 
 ```html
 <input type="range" min="0" max="100" step="1" data-value="rating"/>
