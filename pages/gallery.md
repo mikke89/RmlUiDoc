@@ -12,6 +12,10 @@ Game interface from the 'invader' sample
 Game menu
 
 {: .gallery-item }
+![Killing Time: Resurrected collage](../assets/gallery/killing_time_resurrected_collage.webp)\
+[Killing Time: Resurrected](https://www.nightdivestudios.com/) by [Nightdive Studios](https://www.nightdivestudios.com/) and [Ziggurat Interactive](https://www.ziggurat.games/game/killing-time-resurrected). Remastered version of the classic shooter game. User interface made with RmlUi.
+
+{: .gallery-item }
 ![Installer](../assets/gallery/xland_installer.png)\
 Installer software by [@xland](https://github.com/xland)
 
