@@ -38,8 +38,8 @@ The following table lists various rendering features, together with the properti
 | Feature | Description | Required by properties |
 | -- | -- | -- |
 | [Basic rendering](#basic-rendering) | Rendering box geometry, images, text, and basic decorators. | Always required |
-| [Clip mask](#clip-mask) | Proper clipping of transformed elements and elements with rounded borders. | `transform`{:.prop}, `border-radius`{:.prop} combined with `overflow: none`{:.value} |
-| [Transforms](#transforms) | Apply arbitrary matrix transformations to rotate, scale, skew, or translate elements. | `transform`{:.prop} |
+| [Clip mask](#clip-mask) | Proper clipping of transformed elements and elements with rounded borders. | `transform`{:.prop} and `perspective`{:.prop}, `border-radius`{:.prop} combined with `overflow: none`{:.value} |
+| [Transforms](#transforms) | Apply arbitrary matrix transformations to rotate, scale, skew, or translate elements. | `transform`{:.prop} and `perspective`{:.prop} |
 | [Layers](#layers) | Rendering to layers, and compositing, so that render effects can be applied in isolation. | `filter`{:.prop}, `backdrop-filter`{:.prop}, `mask-image`{:.prop}, `box-shadow`{:.prop} |
 | [Render textures](#render-textures) | Allow a layer to be stored as a texture for later rendering. | `box-shadow`{:.prop} |
 | [Mask images](#mask-images) | Allow a layer to be stored and later used as a mask. | `mask-image`{:.prop} |
@@ -173,6 +173,8 @@ virtual void SetScissorRegion(Rml::Rectanglei region) = 0;
 `EnableScissorRegion()` is called to enable and disable scissoring of rendered geometry.
 
 `SetScissorRegion()` is called when RmlUi wants to define the current scissor region. The scissor region is given as a rectangle in pixel units whose origin is located in the top-left corner of the rendering context. The scissor region is always given in window coordinates, which implies that it is not affected by any active transforms. Until the scissor region is changed, all RmlUi geometry should be clipped to fall within this region.
+
+When [properties that require](#feature-table) clip masks are used in the document, the scissor region alone will not be sufficient to clip content correctly. The render interface must implement the [clip mask](#clip-mask) feature to support such layouts.
 
 
 ### Advanced rendering
