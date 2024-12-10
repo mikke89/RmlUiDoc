@@ -225,7 +225,8 @@ Options can be procedurally added and removed with the `Add()`, `Remove()` and `
 // Adds a new option to the select control.
 // @param[in] rml The RML content used to represent the option.
 // @param[in] value The value of the option.
-// @param[in] before The index of the element to insert the new option before. If out of bounds the new option will be added at the end of the list.
+// @param[in] before The index of the element to insert the new option before. If out of bounds the new option will be
+//   added at the end of the list.
 // @param[in] selectable If true this option can be selected. If false, this option is not selectable.
 // @return The index of the new option.
 int Add(const Rml::String& rml,
@@ -234,12 +235,30 @@ int Add(const Rml::String& rml,
         bool selectable = true);
 
 // Removes an option from the select control.
-// @param[in] index The index of the option to remove. If this is outside of the bounds of the control's option list, no option will be removed.
+// @param[in] index The index of the option to remove. If this is outside of the bounds of the control's option list, no
+//   option will be removed.
 void Remove(int index);
 
 // Removes all options from the select control.
 void RemoveAll();
 ```
+
+The visibility of the select box can be controlled and retrieved with the following functions.
+
+```cpp
+// Shows the selection box.
+void ShowSelectBox();
+
+// Hides the selection box.
+void HideSelectBox();
+
+// Revert to the value selected when the selection box was opened, then hide the box.
+void CancelSelectBox();
+
+// Check whether the select box is visible or not.
+bool IsSelectBoxVisible();
+```
+
 
 #### Applying properties
 

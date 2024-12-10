@@ -96,12 +96,34 @@ To hide a document, call `Hide()`.
 void Hide();
 ```
 
+To check if the document is modal, use `IsModal()`.
+
+```cpp
+// Does the document have modal display set.
+// @return True if the document is hogging focus.
+bool IsModal() const;
+```
+
+### Tab elements
+
+Generally, the `tab` key can be used to navigate between *tabbable* elements. This mainly applies to input elements, but can be enabled on any other element as desired by using the [`tab-index`{:.prop} property](../rcss/user_interface.html#tab-index).
+
+While the tabbing behavior is performed automatically in the document, based on received key events, sometimes it can be useful to control aspects of this behavior manually. A useful tool in this regard is the `FindNextTabElement()` method, which can be used to find the next tabbable element from any other element in the document tree.
+
+```cpp
+// Finds the next tabbable element in the document tree, starting at the given element, possibly wrapping around the document.
+// @param[in] current_element The element to start from.
+// @param[in] forward True to search forward, false to search backward.
+// @return The next tabbable element, or nullptr if none could be found.
+Element* FindNextTabElement(Element* current_element, bool forward);
+```
+
 ### Manually updating the document
 
 The document is [always updated](contexts.html#update-and-rendering) during the call to `Context::Update()`. However, sometimes it may in addition be necessary to update the document manually so that elements can be queried for their layed out size or position, in particular after elements have been modified or added to the document.
 
 ```cpp
-// Updates the document, including its layout. Users must call this manually before requesting information such as 
+// Updates the document, including its layout. Users must call this manually before requesting information such as
 // size or position of an element if any element in the document was recently changed, unless Context::Update has
 // already been called after the change. This has a perfomance penalty, only call when necessary.
 void ElementDocument::UpdateDocument();
@@ -150,13 +172,20 @@ All documents are instanced like normal elements from the 'body' tag. The proces
 
 If you register an instancer for the `<body>`{:.tag} tag that returns an element not derived from `Rml::ElementDocument`, documents will fail to load.
 
-There is one virtual function that is particular to `Rml::ElementDocument`:
+There are two related virtual functions in `Rml::ElementDocument`:
 
 ```cpp
-// Load a script into the document.
-// @param[in] stream Stream of code to process.
-// @param[in] source_name Name of the the script the source comes from, useful for debug information.
-virtual void LoadScript(Rml::Stream* stream, const Rml::String& source_name);
+// Loads an inline script into the document. Note that the base implementation does nothing, scripting language addons
+// hook this method.
+// @param[in] content The script content.
+// @param[in] source_path Path of the script the source comes from, useful for debug information.
+// @param[in] source_line Line of the script the source comes from, useful for debug information.
+virtual void LoadInlineScript(const String& content, const String& source_path, int source_line);
+
+// Loads an external script into the document. Note that the base implementation does nothing, scripting language addons
+// hook this method.
+// @param[in] source_path The script file path.
+virtual void LoadExternalScript(const String& source_path);
 ```
 
-`LoadScript()` is generally only used to integrate a scripting language into RmlUi. It is called on a document for every `<script>`{:.tag} tag with the script content. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements. 
+`LoadInlineScript()` and `LoadExternalScript()` are generally only used to integrate a scripting language into RmlUi. They are called on a document for every `<script>`{:.tag} tag with the script content or `src`{:.attr} attribute, respectively. The default implementation does nothing; custom documents can do whatever they need to here to load, compile and bind the scripts for their elements.
