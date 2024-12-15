@@ -3,6 +3,7 @@ layout: page
 title: Shader decorator
 grandparent: rcss
 parent: rcss/decorators
+next: text
 ---
 
 The `shader`{:.prop} decorator serves as a customization point in RCSS style sheets for users to render their own effects. The decorator passes its specified value through to the render interface, so that it can be interpreted by users and rendered how they like.

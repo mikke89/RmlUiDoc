@@ -26,6 +26,7 @@ RmlUi comes with several built-in decorators for displaying images and tiled ima
 | [Radial gradients](decorators/radial_gradient.html)  | `radial-gradient`{:.prop}, `repeating-radial-gradient`{:.prop} | Radial color gradients.                  |           ✔️            |
 | [Conic gradients](decorators/conic_gradient.html)    | `conic-gradient`{:.prop}, `repeating-conic-gradient`{:.prop}   | Conic color gradients.                   |           ✔️            |
 | [Shader](decorators/shader.html)                     | `shader`{:.prop}                                               | Custom shaders.                          |           ✔️            |
+| [Text](decorators/text.html)                         | `text`{:.prop}                                                 | Background text and font icons.          |                         |
 
 Some decorators require the backend renderer to support advanced rendering features, see the [render interface feature table](../cpp_manual/interfaces/render.html#feature-table) for details.
 

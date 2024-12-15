@@ -41,6 +41,7 @@ If you are not, read through this documentation while consulting the CSS2 specif
     * [Radial gradient](rcss/decorators/radial_gradient.html)
     * [Conic gradient](rcss/decorators/conic_gradient.html)
     * [Shader](rcss/decorators/shader.html)
+    * [Text](rcss/decorators/text.html)
 18. [Masking](rcss/masking.html)
 19. [Filters](rcss/filters.html)
 20. [Font effects](rcss/font_effects.html)
