@@ -28,7 +28,7 @@ class MySystemInterface : public Rml::SystemInterface
 int main(int argc, char** argv)
 {
 	// Initialize the window and graphics API being used, along with your game or application.
-	
+
 	/* ... */
 
 	// Instantiate the interfaces to RmlUi.
@@ -41,7 +41,7 @@ int main(int argc, char** argv)
 
 	// Now we can initialize RmlUi.
 	Rml::Initialise();
-	
+
 	// Create a context next.
 	Rml::Context* context = Rml::CreateContext("main", Rml::Vector2i(window_width, window_height));
 	if (!context)
@@ -101,14 +101,14 @@ int main(int argc, char** argv)
 		// Render your game or application.
 		my_application->Render();
 
-		// Set up any rendering states necessary before the render.
-		my_renderer->PrepareRenderBuffer();
+		// Set up rendering states for RmlUi, use `Backend::BeginFrame` for the built-in backends.
+		my_renderer->BeginUserInterface();
 
 		// Render the user interface on top of the application.
 		context->Render();
 
-		// Present the rendered frame.
-		my_renderer->PresentRenderBuffer();
+		// Present the rendered frame, use `Backend::PresentFrame` for the built-in backends.
+		my_renderer->PresentFrame();
 	}
 
 	// Shutting down RmlUi releases all its resources, including elements, documents, and contexts.
@@ -121,6 +121,8 @@ int main(int argc, char** argv)
 
 ```
 
-In a real application, you typically want to separate the render and update loops. Regardless, you may consider updating the RmlUi context at the rendering updates, as this provides the lowest input lag which is important to make the user interface feel good.
+If you are using the built-in backends directly, a good reference is the [`load_document` sample](https://github.com/mikke89/RmlUi/blob/master/Samples/basic/load_document/src/main.cpp).
+
+In a real application, you typically want to separate the render and update loops. Regardless, you may consider updating the RmlUi context at the rendering updates as this provides the lowest input latency, which is important to make the user interface feel good.
 
 The shown update loop will run as fast as possible. However, it might be desirable to reduce CPU usage and power consumption when the application is idle. This is possible using [on-demand rendering, or power saving mode](contexts.html#on-demand-rendering).
