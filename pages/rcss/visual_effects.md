@@ -40,11 +40,13 @@ The values have the following meanings:
 `scroll`{:.value}
 : A scrollbar is always visible along the axis, allowing hidden content to be scrolled into view. This will eliminate 'popping' if content suddenly overflows and a scrollbar appears.
 
-Note that, unlike CSS, if either of `overflow-x`{:.prop} or `overflow-y`{:.prop} is set to a value other that 'visible', clipping will occur on both axes.
+If either `overflow-x`{:.prop} or `overflow-y`{:.prop} is set to a value other than 'visible', clipping will occur on both axes.
+
+Note that, unlike CSS, [positioned elements](visual_formatting_model.html#position) and [transformed elements](animations_transitions_transforms.html#transform) do not affect when clipping is applied to the element. Thus, such elements may not be clipped or cause scrollbars to appear even when they overflow.
 
 `overflow`{:.prop}
 
-Shorthand for `overflow-x overflow-y`{:.prop}. If two values are specified, the first will be used to specify `overflow-x`{:.prop} and the second `overflow-y`{:.prop}. If one value is specified, if will be used to specify both.
+Shorthand for `overflow-x overflow-y`{:.prop}. If two values are specified, the first will be used to specify `overflow-x`{:.prop} and the second `overflow-y`{:.prop}. If one value is specified, it will be used to specify both.
 
 ```css
 /* Hide horizontal overflowing content and generate a scrollbar (if required) along the vertical axis. */
@@ -57,9 +59,9 @@ div#content
 #### Clipping: the 'clip' property
 {:#clip}
 
-This property is completely different from the CSS `clip`{:.prop} property. Instead of defining the clipping region of an element, this property defines how the element interacts with the clipping regions of its ancestors.
+This property defines how the element interacts with the clipping regions of its ancestors.
 
-In RCSS, the clipping region is always the 'client area', which is either the content or padded area (depending on the element).
+The property differs completely from the CSS `clip`{:.prop} property which instead defines the clipping region of an element. In RCSS, the clipping region is always the 'client area'. The client area is normally the padding area of an element, but for certain elements it may be the content area.
 
 `clip`{:.prop}
 
@@ -78,7 +80,7 @@ The values have the following meanings:
 : The element is never clipped (except by the context).
 
 `always`{:.value}
-: The element always clips, forcing all descendant elements to clip to this element's client area. This can be useful in some cases where elements are not automatically clipped even when set to eg. `overflow: hidden`{:.prop}, such as with absolutely positioned or transformed child elements.
+: The element always clips, forcing all descendant elements to clip to this element's client area. This can be useful in some cases where elements are not automatically clipped even when set to e.g. `overflow: hidden`{:.prop}, such as with absolutely positioned or transformed child elements.
 
 `<number>`{:.value}
 : The element is subjected to the clipping regions of its ancestors, except it skips the closest `<number>`{:.value} ancestors that could have put in place a clipping region (ie, those ancestors with an `overflow-x`{:.prop} or `overflow-y`{:.prop} other than `visible`{:.value}). The number must be in the range `[1, 127]`{:.value}.
