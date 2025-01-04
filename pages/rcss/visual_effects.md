@@ -42,7 +42,7 @@ The values have the following meanings:
 
 If either `overflow-x`{:.prop} or `overflow-y`{:.prop} is set to a value other than 'visible', clipping will occur on both axes.
 
-Note that, unlike CSS, [positioned elements](visual_formatting_model.html#position) and [transformed elements](animations_transitions_transforms.html#transform) do not affect when clipping is applied to the element. Thus, such elements may not be clipped or cause scrollbars to appear even when they overflow.
+Note that, unlike CSS, [positioned elements](visual_formatting_model.html#position) and [transformed elements](animations_transitions_transforms.html#transform) do not affect when clipping is applied to the element. Thus, such elements may not be clipped or cause scrollbars to appear even when they overflow. Instead, one can use the [`clip: always`{:.value} property](#clip) together with hidden overflow to force clipping to occur.
 
 `overflow`{:.prop}
 
