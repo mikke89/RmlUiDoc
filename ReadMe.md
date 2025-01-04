@@ -8,4 +8,4 @@ You can read the online version [here](https://mikke89.github.io/RmlUiDoc).
 
 ### License
 
-RmlUiDoc is released under the [MIT license](License.md).
+RmlUiDoc is released under the [MIT license](license.txt).
