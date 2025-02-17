@@ -34,5 +34,6 @@ RmlUi does not provide a default style sheet, thus, tags which only represent a 
 
 The following elements are additionally enabled when including their respective plugins:
 
+- [`<script>`{:.tag}](documents.html#script)
 - [`<lottie>`{:.tag}](../cpp_manual/lottie.html)
 - [`<svg>`{:.tag}](../cpp_manual/svg.html)

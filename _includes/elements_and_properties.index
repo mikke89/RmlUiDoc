@@ -890,6 +890,13 @@
 },
 {
 	"type": "element",
+	"title": "script",
+	"url": '<a href="/pages/rml/documents.html#script">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "element",
 	"title": "lottie",
 	"url": '<a href="/pages/rml/../cpp_manual/lottie.html">',
 	"parent_title": "",

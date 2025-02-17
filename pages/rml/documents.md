@@ -40,11 +40,21 @@ _Attributes_
 : Type of link, which should be one of:
 * text/rcss - [RmlUi Style Sheet Specification](../rcss.html)
 * text/template - [RmlUi Template](templates.html)
-* text/script - RmlUi script
 
 `href`{:.attr} = cdata (CS)
 : Specifies the source URI, relative to the document being parsed.
 
+### \<script\>
+
+The `<script>`{:.tag} element can be used to integrate scripting capabilities. A plugin is required to handle the script, such as the [Lua plugin](../lua_manual.html).
+
+_Attributes_
+
+`src`{:.attr} = cdata (CS)
+: Specifies the source URI, relative to the document being parsed.
+
+If the `src`{:.attr} attribute is not present, the element is an inline script whose content represents the script to run.
+
 ### \<body\>
 
-The body of a document contains the document's content. All elements within the `<body>`{:.tag} tag is laid out and rendered by RmlUi based on the active style sheets. 
+The `<body>`{:.tag} element contains the document's content. All elements within the `<body>`{:.tag} tag become part of the document tree and are processed during layout, as determined by the active style sheets.
