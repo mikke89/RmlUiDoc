@@ -170,12 +170,16 @@ scrollbarvertical sliderarrowinc:active
 
 ### Sliders
 
-Range sliders can be instanced through the RML tag `<input type="range" ... />`{:.tag}. Internally these are very similar to scrollbars, and contain identical child elements, i.e.:
+Range sliders can be instanced through the RML tag <input type="range" ... />{:.tag}. Internally, they share most of the same child elements as scrollbars, specifically:
 
 * `sliderarrowdec`{:.tag}
 * `sliderarrowinc`{:.tag}
 * `slidertrack`{:.tag}
 * `sliderbar`{:.tag}
+
+In addition, range sliders feature:
+
+* `sliderprogress`{:.tag} A sub-element of slidertrack which shows how much of the track has been traversed by the slider bar.
 
 These are styled in the same way you style scrollbars. Note that for input types, the `type`{:.attr} attribute of an `<input>`{:.tag} element is automatically set as a class to ease their specification in a style sheet. So the following rule will apply properties to an input's slider track:
 
