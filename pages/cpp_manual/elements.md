@@ -93,6 +93,7 @@ Applications can make use of any pseudo-classes they wish for their own styling 
 * `disabled`{:.cls}: Set on a disabled [form control](element_packages/form.html).
 
 ### DOM interface
+{:#dom-interface}
 
 RmlUi elements support the majority of [Gecko's HTML DOM element interface](https://developer.mozilla.org/en-US/docs/Web/API/element), so web developers should be familiar with most of an element's functionality.
 
