@@ -56,7 +56,7 @@ Then, add `#include <RmlUi/Core.h>` in a source or header file in your applicati
     - See `Project → Properties → Linker → Input → Additional Dependencies`{:.path}.
 - If you have RmlUi built as a static library, add the following preprocessor definition: `RMLUI_STATIC_LIB`.
     - See `Project → Properties → C/C++ → Preprocessor → Preprocessor Definitions`{:.path}.
-- If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs into the directory your executable will run from..
+- If you have RmlUi built as a shared/dynamic library, copy the appropriate DLLs into the directory your executable will run from.
     - That is, `Debug/rmlui.dll`{:.path} for debug builds and `Release/rmlui.dll`{:.path} for release builds from the `RmlUi/Build`{:.path} folder, or from the `Bin-Dynamic`{:.path} folder in the release package.
 - If you have FreeType built as a shared/dynamic library, copy the `freetype.dll` file into the directory your executable will run from.
 - Add `#include <RmlUi/Core.h>` in a source or header file to start using RmlUi.
@@ -103,12 +103,45 @@ A backend usually consists of three source files in addition to their respective
 
 If you find a backend that matches your setup, it is recommended to use the underlying renderer and platform directly and compile it within your application. They are also made to be extensible, such as to add the ability to load additional texture formats. The backend itself serves as a sample on how to open a window, handle events, and interact with RmlUi for that combination of platform and renderer.
 
-For example, if you use SDL2 together with OpenGL3, you can add the following source files directly as dependencies in your project:
+The following table lists platform- or renderer-specific compile definitions:
+
+| Platform or renderer                           | Define                    | Allowed values | Default value | Explanation  |
+|------------------------------------------------|---------------------------|----------------|---------------|------------- |
+| SDL&nbsp;platform&nbsp;&amp; SDL&nbsp;renderer | `RMLUI_SDL_VERSION_MAJOR` | `2` or `3`     | *not defined* | Specify the SDL major version to be used. If not defined, a compile error will occur. |
+| OpenGL 3                                       | `RMLUI_NUM_MSAA_SAMPLES`  | Integer        | `2`           | Number of MSAA samples to use for framebuffers constructed by RmlUi for anti-aliasing. Set to `0` to disable MSAA. |
+| OpenGL 3                                       | `RMLUI_GL3_CUSTOM_LOADER` | Include path   | *not defined* | Specify the include path to the header of a custom OpenGL loader. When not defined, the built-in [glad-based loader](https://github.com/premake-libs/glad) will be used. Users are themselves responsible for initializing and shutting down any custom loader, on the other hand, the built-in loader will automatically be initialized and shutdown during the calls to `RmlGL3::Initialize` and `RmlGL3::Shutdown`, respectively. |
+
+##### Example
+
+If you use SDL together with OpenGL 3, you can add the following source files directly as dependencies in your project:
 
 - [`/Backends/RmlUi_Platform_SDL.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Platform_SDL.cpp).
 - [`/Backends/RmlUi_Renderer_GL3.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Renderer_GL3.cpp).
 
 Then, you can use the `SDL_GL3` backend ([`/Backends/RmlUi_Backend_SDL_GL3.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Backend_SDL_GL3.cpp)) as a starting point or sample reference. This backend in particular also demonstrates how to extend the renderer to load additional texture formats.
+
+The following demonstrates how you can include the `SDL_GL3` backend in your application when using a CMake build script. Here, SDL 3 is being used together with a custom OpenGL loader, and with increased MSAA quality. Remember to additionally copy the contents of [`/Backends/RmlUi_Backend_SDL_GL3.cpp`{:.path}](https://github.com/mikke89/RmlUi/blob/master/Backends/RmlUi_Backend_SDL_GL3.cpp) into your project and modify it as needed.
+
+```cmake
+set(RMLUI_BACKEND_PATH ${RmlUi_SOURCE_DIR}/Backends)
+add_library(rmlui_backend_SDL_GL3 INTERFACE)
+target_sources(rmlui_backend_SDL_GL3 INTERFACE
+	${RMLUI_BACKEND_PATH}/RmlUi_Platform_SDL.cpp
+	${RMLUI_BACKEND_PATH}/RmlUi_Renderer_GL3.cpp
+)
+target_include_directories(rmlui_backend_SDL_GL3 INTERFACE ${RMLUI_BACKEND_PATH})
+target_compile_definitions(rmlui_backend_SDL_GL3 INTERFACE
+	RMLUI_SDL_VERSION_MAJOR=3
+	RMLUI_NUM_MSAA_SAMPLES=4
+	RMLUI_GL3_CUSTOM_LOADER=<glad/gl.h>
+)
+target_link_libraries(my_application PRIVATE
+	RmlUi::RmlUi
+	SDL3::SDL3
+	SDL3_image::SDL3_image
+	rmlui_backend_SDL_GL3
+)
+```
 
 #### Initialising the library
 

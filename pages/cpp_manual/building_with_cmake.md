@@ -62,6 +62,7 @@ The vcpkg port supports certain features derived from the [CMake options](#cmake
 |---------------|-----------------|----------------------|-------------------------------------------------------|
 | freetype      | Yes             | `RMLUI_FONT_ENGINE`  | Include the integrated font engine based on FreeType. |
 | lua           | No              | `RMLUI_LUA_BINDINGS` | Include the Lua bindings.                             |
+| svg           | No              | `RMLUI_SVG_PLUGIN`   | Include the [SVG plugin](SVG.html).                   |
 
 Note that vcpkg will not install the samples which we recommend to check out before integrating the library into your own project. For this, we need to download and build RmlUi manually, but luckily vcpkg can help ease this process by handling the dependencies.
 
@@ -260,9 +261,9 @@ The following also lists any exported macros, which must be defined in the consu
 : Build the required bindings for Lua support. You'll need Lua installed. Enables the following option:
     - `RMLUI_LUA_BINDINGS_LIBRARY` `lua`{:.value}<br>
     Select the Lua library to use for the Lua bindings, one of the options:
-    - `lua`. Link to Lua.
-    - `lua_as_cxx`. Link to Lua compiled as C++, disables the `extern C` header wrappers. *Exports macro:* `RMLUI_LUA_AS_CXX`.
-    - `luajit`. Link to LuaJIT.
+        - `lua`. Link to Lua.
+        - `lua_as_cxx`. Link to Lua compiled as C++, disables the `extern C` header wrappers. *Exports macro:* `RMLUI_LUA_AS_CXX`.
+        - `luajit`. Link to LuaJIT.
 
 `RMLUI_SVG_PLUGIN` `OFF`{:.value}
 : Enables the [SVG plugin](svg.html) and sample, requires the [LunaSVG](https://github.com/sammycage/lunasvg) dependency.
