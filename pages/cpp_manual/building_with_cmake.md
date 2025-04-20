@@ -62,7 +62,7 @@ The vcpkg port supports certain features derived from the [CMake options](#cmake
 |---------------|-----------------|----------------------|-------------------------------------------------------|
 | freetype      | Yes             | `RMLUI_FONT_ENGINE`  | Include the integrated font engine based on FreeType. |
 | lua           | No              | `RMLUI_LUA_BINDINGS` | Include the Lua bindings.                             |
-| svg           | No              | `RMLUI_SVG_PLUGIN`   | Include the [SVG plugin](SVG.html).                   |
+| svg           | No              | `RMLUI_SVG_PLUGIN`   | Include the [SVG plugin](svg.html).                   |
 
 Note that vcpkg will not install the samples which we recommend to check out before integrating the library into your own project. For this, we need to download and build RmlUi manually, but luckily vcpkg can help ease this process by handling the dependencies.
 
