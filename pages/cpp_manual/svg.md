@@ -39,14 +39,14 @@ First, we demonstrate how to download and build the required [LunaSVG](https://g
 Open up a terminal and navigate to `RmlUi/Dependencies`{:.path}. Then execute the following commands.
 
 ```cmd
-git clone --branch v2.4.1 https://github.com/sammycage/lunasvg
+git clone --recurse-submodules --branch v3.2.1 https://github.com/sammycage/lunasvg
 cd lunasvg
 cmake -B build -S . -DBUILD_SHARED_LIBS=OFF -DLUNASVG_BUILD_EXAMPLES=OFF
 cmake --build build --target lunasvg --config Debug
 cmake --build build --target lunasvg --config Release
 ```
 
-You may need to adjust the CMake arguments to your generator and environment. The plugin is tested at the given version of LunaSVG, but newer versions may work.
+You may need to adjust the CMake arguments to your generator and environment. The plugin is tested at the given version of LunaSVG, but other versions may work.
 
 #### Configuring RmlUi
 
@@ -56,7 +56,7 @@ Next, during [CMake configuration](building_with_cmake.html) of RmlUi, set the o
 cmake -B Build -S . --preset samples -DBUILD_SHARED_LIBS=OFF -DRMLUI_SVG_PLUGIN=ON
 ```
 
-If you built LunaSVG using the above procedure, you may need to additionally add `-Dlunasvg_ROOT="Dependencies/lunasvg/build"` to the CMake configure command. Further, for LunaSVG 3.0 and later, you may also need: `-Dplutovg_ROOT="Dependencies/lunasvg/build/_deps/plutovg-build"`.
+If you built LunaSVG using the above procedure, you may need to additionally add `-Dlunasvg_ROOT="Dependencies/lunasvg/build"` to the CMake configure command. In some cases, you may need to provide the path to the PlutoVG dependency of LunaSVG as well, e.g.: `-Dplutovg_ROOT="Dependencies/lunasvg/build/plutovg"`.
 
 Once it has been successfully configured, you can now try out the sample for the plugin. Build and run the included `rmlui_sample_svg` target the same way you would with any other sample.
 
