@@ -22,7 +22,7 @@ Value: | \<string\>
 Initial: | N/A
 Percentages: | N/A
 
-This property defines the text to be rendered. This decorator supports only a single line of text. Any [RML character entities](../../rml/syntax.md) will be decoded, so it is possible to refer to Unicode characters e.g. by `&#x1F30E;`.
+This property defines the text to be rendered. This decorator supports only a single line of text. Any [RML character entities](../../rml/syntax.html) will be decoded, so it is possible to refer to Unicode characters e.g. by `&#x1F30E;`.
 
 `color`{:.prop}
 
