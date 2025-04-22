@@ -61,6 +61,7 @@ The vcpkg port supports certain features derived from the [CMake options](#cmake
 | vcpkg feature | Default feature | Related CMake option | Explanation                                           |
 |---------------|-----------------|----------------------|-------------------------------------------------------|
 | freetype      | Yes             | `RMLUI_FONT_ENGINE`  | Include the integrated font engine based on FreeType. |
+| lottie        | No              | `RMLUI_LOTTIE_PLUGIN`| Include the [Lottie plugin](lottie.html).             |
 | lua           | No              | `RMLUI_LUA_BINDINGS` | Include the Lua bindings.                             |
 | svg           | No              | `RMLUI_SVG_PLUGIN`   | Include the [SVG plugin](svg.html).                   |
 
