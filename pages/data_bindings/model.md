@@ -62,7 +62,7 @@ Registers `T` as a Struct. The function returns an object which can be used to r
 ```cpp
 struct Vec2 {
 	float x, y;
-	
+
 	float GetLength() {
 		return std::sqrt(x*x + y*y);
 	}
@@ -211,5 +211,27 @@ bool Context::RemoveDataModel(const String& name);
 ```
 
 Otherwise the data model is removed automatically when the context is destroyed.
+
+### Appendix
+
+#### Registering types across library boundaries
+
+Some considerations are necessary if you want to register types in one shared library (e.g. `.dll` or `.so`), and bind a variable with those same types in another shared library. In such cases, one might see an error like "*data type T not registered with the type register*" when trying to bind a data variable. This is because RmlUi assigns a unique ID to each type, however, the ID is not automatically visible across library boundaries. This results in mismatched IDs between the registered type and the data variable type.
+
+One solution is to export the ID from one of the libraries, and make sure the other libraries can see the export. Example:
+
+`my_data_types.hpp`{:.path}:
+```cpp
+extern template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Variant>;
+extern template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Vector3>;
+```
+
+`my_data_types.cpp`{:.path}:
+```cpp
+template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Variant>;
+template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Vector3>;
+```
+
+Here, `MY_DATATYPES_LIBRARY_API` should follow the common idiom for [export macros](https://cmake.org/cmake/help/latest/module/GenerateExportHeader.html). Now make sure to include `my_data_types.hpp`{:.path} in all libraries that use any of these types for their data bindings.
 
 {% endraw %}
