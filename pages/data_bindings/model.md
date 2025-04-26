@@ -228,8 +228,8 @@ extern template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Vector3>;
 
 `my_data_types.cpp`{:.path}:
 ```cpp
-template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Variant>;
-template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Vector3>;
+template class Rml::Family<MyTypes::Variant>;
+template class Rml::Family<MyTypes::Vector3>;
 ```
 
 Here, `MY_DATATYPES_LIBRARY_API` should follow the common idiom for [export macros](https://cmake.org/cmake/help/latest/module/GenerateExportHeader.html). Now make sure to include `my_data_types.hpp`{:.path} in all libraries that use any of these types for their data bindings.
