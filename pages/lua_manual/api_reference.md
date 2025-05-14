@@ -1145,7 +1145,7 @@ Inherits: `nil`{: .lua-type }
 | Name | Return Type |
 | ------------ | ---- |
 | [CreateContext](#LuaRmlUi-CreateContext){: .lua-function }(`string`{: .lua-type } name, `Vector2i`{: .lua-type } dimensions) | `nil`{: .lua-type }<br>`Context`{: .lua-type }<br> |
-| [LoadFontFace](#LuaRmlUi-LoadFontFace){: .lua-function }(`string`{: .lua-type } path) | `boolean`{: .lua-type }<br> |
+| [LoadFontFace](#LuaRmlUi-LoadFontFace){: .lua-function }(`string`{: .lua-type } path, `boolean`{: .lua-type } fallback, `integer`{: .lua-type } face_index) | `boolean`{: .lua-type }<br> |
 | [RegisterTag](#LuaRmlUi-RegisterTag){: .lua-function }(`string`{: .lua-type } tag) | `nil`{: .lua-type } |
 
 
@@ -1165,8 +1165,8 @@ Inherits: `nil`{: .lua-type }
 <a href='#LuaRmlUi-CreateContext' name='LuaRmlUi-CreateContext'>CreateContext</a>{: .lua-function }(`string`{: .lua-type } name, `Vector2i`{: .lua-type } dimensions)  &rarr; `Context`{: .lua-type }, `Context`{: .lua-type }
 : Create RmlUi context with specified `dimensions`.
 
-<a href='#LuaRmlUi-LoadFontFace' name='LuaRmlUi-LoadFontFace'>LoadFontFace</a>{: .lua-function }(`string`{: .lua-type } path)  &rarr; `boolean`{: .lua-type }
-: Load font face at `path`
+<a href='#LuaRmlUi-LoadFontFace' name='LuaRmlUi-LoadFontFace'>LoadFontFace</a>{: .lua-function }(`string`{: .lua-type } path, `boolean`{: .lua-type } fallback, `integer`{: .lua-type } face_index)  &rarr; `boolean`{: .lua-type }
+: Load font face at `path`. Use the `fallback` option to make the given font face used for any unknown characters in other fonts. The `face_index` optional parameter allows selection of font faces within font collections.
 
 <a href='#LuaRmlUi-RegisterTag' name='LuaRmlUi-RegisterTag'>RegisterTag</a>{: .lua-function }(`string`{: .lua-type } tag)  &rarr; `nil`{: .lua-type}
 : Register tag to element instancer.
