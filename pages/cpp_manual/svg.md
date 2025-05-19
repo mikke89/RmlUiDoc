@@ -6,8 +6,9 @@ parent: cpp_manual
 
 RmlUi comes integrated with the SVG plugin for rendering SVG vector images. The plugin uses the [LunaSVG](https://github.com/sammycage/lunasvg) library to render the SVG document.
 
-When RmlUi is built with the SVG plugin, the `<svg>`{:.tag} element is available as a normal RML tag.
+When RmlUi is built with the SVG plugin, the `<svg>`{:.tag} element is available as a normal RML tag, in addition to the `svg`{:.prop} decorator.
 
+The plugin implements a cache for the SVG documents and generated bitmaps. Each SVG document will be stored in the cache as long as it is in use, otherwise the document will be released. For each SVG document, we also cache textures based on their resolution and color. Textures will be reused if all properties that determine their generated bitmap match.
 
 ### \<svg\>
 
@@ -24,9 +25,72 @@ _Attributes_
 `height`{:.attr} = number (CN)
 : The height to force the element to, in pixels.
 
+`crop-to-content`{:.attr} (CI)
+: When set, the SVG view-box will be cropped to the content of the SVG, i.e. the content will be scaled up to remove any whitespace from its edges.
 
 ![SVG sample](../../assets/gallery/svg_plugin.png)
 
+### Decorator `svg`
+{:#decorator}
+
+The `svg`{:.prop} decorator can be used to include an SVG image in the background of an element.
+
+```css
+decorator: ninepatch( <svg-src> <crop>? ) <paint-area>?;
+```
+
+#### Properties
+
+`svg-src`{:.prop}
+
+Value: | \<string\>
+Initial: | N/A
+Percentages: | N/A
+
+The path to the SVG file to display.
+
+`crop`{:.prop}
+
+Value: | crop-none \| crop-to-content
+Initial: | crop-none
+Percentages: | N/A
+
+Determines how the SVG image is cropped.
+
+`crop-none`{:.value}
+: The SVG image will not be cropped.
+
+`crop-to-content`{:.value}
+: The SVG view-box will be cropped to the content of the SVG, i.e. the content will be scaled up to remove any whitespace from its edges.
+
+`paint-area`{:.prop}
+
+Value: | border-box \| padding-box \| content-box
+Initial: | padding-box
+Percentages: | N/A
+
+Declares the box area to render the decorator onto.
+
+Note that the SVG decorator will always fill the size of the paint area. To preserve the aspect ratio, ensure that the element is appropriately sized.
+
+#### Example
+
+The `svg`{:.prop} decorator can be applied as follows:
+
+```css
+.tiger {
+	decorator: svg("tiger.svg");
+}
+```
+
+In the following, we set the paint area to the element's content box to control the padding manually, while skipping any existing padding in the SVG file:
+
+```css
+.tiger {
+	decorator: svg("tiger.svg" crop-to-content) content-box;
+	padding: 10px 20px;
+}
+```
 
 ### Building with the SVG plugin
 

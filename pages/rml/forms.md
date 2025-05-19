@@ -99,7 +99,7 @@ _Attributes_
 
 _Attributes_
 
-`selected`{:.attr} = cdata (CI)
+`selected`{:.attr} (CI)
 : If set, then the option is selected when the `<select>`{:.tag} element is first loaded.
 
 **Note**: It is possible to use the `disabled`{:.attr} attribute to make the option not selectable by the user. Useful for labeling groups of options.
