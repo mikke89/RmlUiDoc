@@ -9,7 +9,7 @@ next: tiled_box
 The `tiled-vertical`{:.prop} decorator can render three sprites or images, vertically across an element. One image is placed on the top edge, another on the bottom edge, and the last is stretched across the middle.
 
 ```css
-decorator: tiled-horizontal(
+decorator: tiled-vertical(
 	<top-image-src> <top-image-orientation>?,
 	<center-image-src> <center-image-orientation>?,
 	<bottom-image-src> <bottom-image-orientation>?
