@@ -9,7 +9,7 @@ next: ninepatch
 The `tiled-box`{:.prop} decorator can render nine sprites or images across an element. One image is placed at a fixed size in each of the element's corners, one image is stretched along each edge, and a final image is stretched in both directions to cover the center region of the image.
 
 ```css
-decorator: tiled-horizontal(
+decorator: tiled-box(
 	<top-left-image-src> <top-left-image-orientation>?,
 	<top-image-src> <top-image-orientation>?,
 	<top-right-image-src> <top-right-image-orientation>?,
