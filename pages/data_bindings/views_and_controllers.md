@@ -166,9 +166,10 @@ with three entries in `subjects` is turned into
 <p data-class-selected="i == selected_subject">{{i + ': ' + subject}}</p>
 <p style="display: none;"/>
 ```
-where `i` and `subject` become aliases to the array index and entry, respectively. Additionally, an element is added after all the entries so that the location of the for loop within the document tree is well defined even when there are no entries. This will become hidden by the `display: none` inline style added by the data view.
+where `i` and `subject` become aliases to the array index and entry, respectively. Additionally, an element is added after all the entries so that the location of the for loop within the document tree is well-defined even when there are no entries. This will become hidden by the `display: none` inline style added by the data view.
 
-*Note.* For performance reasons the names of global data variables shadow iterator names. Thus, do not use an iterator name which is used for a data binding.\
+*Note 1.* For performance reasons the names of global data variables shadow iterator names. Thus, do not use an iterator name which is used for a data binding.\
+*Note 2.* The elements of the `data-for` loop may be re-used rather than destroyed and reconstructed, even after changing the entries of the data array.\
 *Implementation note.* Internally, the XML parser uses a special parsing rule whenever the `data-for` attribute is encountered, providing all the children of the current element as raw RML text to the data view, which is later used for creation of each item in the data array.
 
 
