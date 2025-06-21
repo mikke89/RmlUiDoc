@@ -38,7 +38,7 @@ The following table lists various rendering features, together with the properti
 | Feature | Description | Required by properties |
 | -- | -- | -- |
 | [Basic rendering](#basic-rendering) | Rendering box geometry, images, text, and basic decorators. | Always required |
-| [Clip mask](#clip-mask) | Proper clipping of transformed elements and elements with rounded borders. | `transform`{:.prop} and `perspective`{:.prop}, `border-radius`{:.prop} combined with `overflow: none`{:.value} |
+| [Clip mask](#clip-mask) | Proper clipping of transformed elements and elements with rounded borders. | `transform`{:.prop} and `perspective`{:.prop}, `border-radius`{:.prop} combined with `overflow: none`{:.value}, `box-shadow`{:.prop} |
 | [Transforms](#transforms) | Apply arbitrary matrix transformations to rotate, scale, skew, or translate elements. | `transform`{:.prop} and `perspective`{:.prop} |
 | [Layers](#layers) | Rendering to layers, and compositing, so that render effects can be applied in isolation. | `filter`{:.prop}, `backdrop-filter`{:.prop}, `mask-image`{:.prop}, `box-shadow`{:.prop} |
 | [Render textures](#render-textures) | Allow a layer to be stored as a texture for later rendering. | `box-shadow`{:.prop} |
