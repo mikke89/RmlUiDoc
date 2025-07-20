@@ -42,7 +42,6 @@ See the following detailed sections:
 
 ##### Element compatibility
 
-- Putting the `data-model` attribute on the `<body>`{:.tag} tag may cause issues when combined with templates.
 - Some special elements internally change the structure of the document. For such elements, data bindings may not work as intended. This includes in particular the `<tabset>`{:.tag}, `<panel>`{:.tag} and `<tab>`{:.tag} elements, notably when combined with the `data-for` view.
 - The `<select>`{:.tag} element may not always properly reflect changes in the underlying `selected`{:.attr} or `value`{:.attr} attributes of its `<option>`{:.tag}s, or the content of the options. For dynamically changing the selected option, use the `data-value` view on the `<select>`{:.tag} element. Note that, initially populating the options using `data-for` should now work.
 
