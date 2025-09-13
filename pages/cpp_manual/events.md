@@ -229,10 +229,11 @@ virtual Rml::EventListener* InstanceEventListener(const Rml::String& value, Rml:
 
 `InstanceEventListener()` will be called during RML parsing whenever the factory needs to find an event listener for an inline event. The parameter value will be the raw event response string as specified in the RML, eg. `game.start()`.
 
-Once the event listener instancer is created, it can be passed to the factory.
+Once the event listener instancer is created, it can be passed to the factory, this must be done before loading a document.
 
 ```cpp
 // Register the instancer to be used for all event listeners, or nullptr to clear an existing instancer.
+// This must be done before loading a Document, otherwise, no event handlers that are specified will be instatiated from it.
 // @lifetime The instancer must be kept alive until after the call to Rml::Shutdown, or until a new instancer is set.
 void Rml::Factory::RegisterEventListenerInstancer(Rml::EventListenerInstancer* instancer);
 ```
