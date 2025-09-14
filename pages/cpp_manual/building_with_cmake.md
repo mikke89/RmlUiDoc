@@ -278,6 +278,11 @@ The following also lists any exported macros, which must be defined in the consu
 
     *Exports macro:* `RMLUI_TRACY_PROFILING` for enabled configurations when `ON`{:.value}.
 
+#### Backend options
+
+`RMLUI_BACKEND_SIMULATE_TOUCH` `OFF`{:.value}
+: Simulate touch events from mouse events in the backend. This is useful for testing touch input on platforms without touch support. Only implemented in selected backends, a CMake warning will be emitted if it's not supported in the current configuration.
+
 #### Build and install options
 
 `RMLUI_COMPILER_OPTIONS` `ON`{:.value}

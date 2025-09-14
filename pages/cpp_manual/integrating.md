@@ -193,7 +193,7 @@ document->Close();
 
 ### Injecting input
 
-Once you've got a document loading and rendering, the next step is to get your input into RmlUi. The context object has a range of functions for sending mouse, keyboard and text input into the system:
+Once you've got a document loading and rendering, the next step is to get your input into RmlUi. The context object has a range of functions for sending mouse, keyboard, text, and touch input to the system:
 
 ```cpp
 // Sends a key down event into this context.
@@ -214,6 +214,15 @@ bool ProcessMouseButtonDown(int button_index, int key_modifier_state);
 bool ProcessMouseButtonUp(int button_index, int key_modifier_state);
 // Sends a mouse-wheel movement event into this context.
 bool ProcessMouseWheel(float wheel_delta, int key_modifier_state);
+
+// Process touch movements for this context.
+bool ProcessTouchMove(const TouchList& touches, int key_modifier_state);
+// Process touch start (press) for this context.
+bool ProcessTouchStart(const TouchList& touches, int key_modifier_state);
+// Process touch end (release) for this context.
+bool ProcessTouchEnd(const TouchList& touches, int key_modifier_state);
+// Process touch cancel for this context.
+bool ProcessTouchCancel(const TouchList& touches);
 ```
 
 Call the appropriate input functions to inject all relevant user input into your RmlUi context each frame, before you call `Update()`. Note that RmlUi does not translate key presses into text; this is up to the application. Make sure to take a look at the included backends, as they provide key conversion to RmlUi and event handling for different platforms. For more information on each function, see the [user input manual](input.html).
