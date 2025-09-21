@@ -178,6 +178,8 @@ Values have the following meanings:
 
 Only <span class="prop-def-symbol" title="elements with 'tab-index: auto'">tabbable elements</span> are considered as navigation sources and targets. Further, automatic navigation is restricted to the same <span class="prop-def-symbol" title="elements whose 'overflow' property is set to anything other than 'visible' establish a new scroll container">scroll container</span>. Navigation can also be set on the body element, in which case `auto`{:.value} means navigating in tabbing-order when the body has focus.
 
+> *Recommended practice*: Always set `nav: auto`{:.value} on the `body`{:.tag} element when using spatial navigation features in the same document. This ensures that users are always able to navigate within the document, even when the focus is lost from the otherwise navigable region, e.g. due to mouse focus or manual calls to blur.
+
 When a navigation action is performed, the newly focused element has its `:focus-visible`{:.cls} [pseudo class](selectors.html#pseudo-selectors) set. This can be used to style the currently focused element.
 
 There is also a shorthand property to set all of the above properties simultaneously.
