@@ -19,6 +19,8 @@ Event listeners can be bound to an element declared in RML by specifying an attr
 
 Note that this is the only time you prefix the event name with `on`{:.attr}; all other times an event is referenced, it is done so simply with its name.
 
+By default, the above binds the listener to the bubble phase. In some rare cases, one might instead want to bind the listener to the capture phase. In RmlUi, this can be done by appending `capture`{:.attr} to the attribute, as in `<button onclickcapture="load game">`.
+
 ### Events
 
 Below is a list of events and their associated event attributes.

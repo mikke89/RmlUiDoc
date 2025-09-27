@@ -208,7 +208,7 @@ Event responses can be specified as element attributes inside RML, similarly to 
 ...
 ```
 
-Notice the `on`{:.attr} prefix before the event name of `click`{:.evt}. All event bindings from RML are prefixed this way.
+Notice the `on`{:.attr} prefix before the event name of `click`{:.evt}. All event bindings from RML are prefixed this way. Further, the suffix `capture`{:.attr} can be used to bind the event to the capture phase, instead of the default bubble phase.
 
 RmlUi sends inline events to event listener proxy objects that are created by the application. An application must therefore register a custom event listener instancer to have an opportunity to interpret the events.
 
