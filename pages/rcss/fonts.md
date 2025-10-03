@@ -84,3 +84,28 @@ Inherited: | yes
 Percentages: | N/A
 
 A shorthand property for setting all the font properties at once.
+
+
+#### Font kerning: the 'font-kerning' property
+{:#font-kerning}
+
+`font-kerning`{:.prop}
+
+Value: | auto \| normal \| none
+Initial: | auto
+Applies to: | all elements
+Inherited: | yes
+Percentages: | N/A
+
+Values have the following meanings:
+
+`auto`{:.value}
+: Font kerning is enabled if available by default, but is disabled for small font sizes to improve the readability of text.
+
+`normal`{:.value}
+: Font kerning is always enabled if available.
+
+`none`{:.value}
+: Font kerning is disabled.
+
+Font kerning affects how characters are spaced next to each other. Most fonts have kerning information that improves readability by making the optical spacing between characters more uniform.
