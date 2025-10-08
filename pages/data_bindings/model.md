@@ -234,4 +234,6 @@ template class MY_DATATYPES_LIBRARY_API Rml::Family<MyTypes::Vector3>;
 
 Here, `MY_DATATYPES_LIBRARY_API` should follow the common idiom for [export macros](https://cmake.org/cmake/help/latest/module/GenerateExportHeader.html). Now make sure to include `my_data_types.hpp`{:.path} in all libraries that use any of these types for their data bindings.
 
+*Note:* Some compilers need the export macro on the declaration, and others need it on the definition. You may need to adjust the code accordingly, see [RmlUi#759](https://github.com/mikke89/RmlUi/pull/759#issuecomment-2832679164) and [fmt#2229](https://github.com/fmtlib/fmt/issues/2228) for more details.
+
 {% endraw %}
