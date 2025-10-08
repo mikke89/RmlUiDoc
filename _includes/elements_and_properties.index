@@ -372,6 +372,13 @@
 },
 {
 	"type": "property",
+	"title": "font-kerning",
+	"url": '<a href="/pages/rcss/fonts.html#font-kerning">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
 	"title": "font-size",
 	"url": '<a href="/pages/rcss/fonts.html#font-size">',
 	"parent_title": "",
