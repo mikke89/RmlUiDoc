@@ -57,6 +57,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`gap`{:.prop}][gap] | `row-gap`{:.prop} `column-gap`{:.prop} | | flex containers and table elements | | | Also supports tables, replacing the CSS `border-spacing`{:.prop} property.
 [`height`{:.prop}][height] | \<length\> \| \<percentage\> \| auto | auto | block and replaced inline elements | no | height of containing block |
 [`image-color`{:.prop}][image-color] | \<color\> | white | \<img\> elements and decorators | no | | Introduced for RCSS.
+[`inset`{:.prop}][top_right_bottom_left] | `top`{:.prop} `right`{:.prop} `bottom`{:.prop} `left`{:.prop} | | | | |
 [`justify-content`{:.prop}][justify-content] | flex-start \| flex-end \| center \| space-between \| space-around \| space-evenly | flex-start | flex containers | no | |
 [`left`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | width of containing block |
 [`letter-spacing`{:.prop}][letter-spacing] | normal \| \<length\> | normal | all elements | yes | |

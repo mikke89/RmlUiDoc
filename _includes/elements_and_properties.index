@@ -421,6 +421,13 @@
 },
 {
 	"type": "property",
+	"title": "inset",
+	"url": '<a href="/pages/rcss/visual_formatting_model.html#top_right_bottom_left">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
 	"title": "justify-content",
 	"url": '<a href="/pages/rcss/flexboxes.html#justify-content">',
 	"parent_title": "",
@@ -1031,6 +1038,13 @@
 {
 	"type": "pseudo",
 	"title": "empty",
+	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "pseudo",
+	"title": "scope",
 	"url": '<a href="/pages/rcss/selectors.html#pseudo-selectors">',
 	"parent_title": "",
 	"content": ""

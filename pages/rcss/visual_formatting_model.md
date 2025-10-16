@@ -159,6 +159,18 @@ The values have the following meanings:
 `<percentage>`{:.value}
 : The edge is offset from the reference edge a distance relative to the dimensions of the containing block.
 
+`inset`{:.prop}
+
+A shorthand property for setting the four inset properties (`top`{:.prop}, `right`{:.prop}, `bottom`{:.prop}, `left`{:.prop}) all at once. If there is only one value, it applies to all sides. If there are two values, the first applies to the top and bottom, the second to left and right. If there are three values, the first applies to the top, the second to left and right, the third to the bottom. If there are four values, they are applied to top, right, bottom, left respectively.
+
+```css
+/* Positions the element 20px away from its container's top and bottom edges, and 40px from its container's right and left edges. */
+div.inset {
+    position: absolute;
+    inset: 20px 40px;
+}
+```
+
 ### Normal flow
 
 #### Block formatting
