@@ -103,3 +103,5 @@ Values have the following meanings:
 
 `hidden`{:.value}
 : The generated box, and all of its descendants, is hidden. Note that the box still has an impact on layout, it is just not rendered.
+
+*Animation behavior*: When interpolating between `visible`{:.value} and `hidden`{:.value}, the `visible`{:.value} keyword is applied during the entire interpolation period. This is helpful in animations and transition where one wants to apply fade-in or fade-out effects when showing or hiding an element. This behavior ensures that the element is visible during the entire fading procedure.

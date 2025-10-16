@@ -94,6 +94,8 @@ The values have the following meanings:
 
 These values all correspond to the ones available for the [CSS display property](https://developer.mozilla.org/en-US/docs/Web/CSS/display).
 
+*Animation behavior*: When interpolating between a `none`{:.value} keyword and any other keyword, the other keyword is applied during the entire interpolation period. This is helpful in animations and transition where one wants to apply fade-in or fade-out effects when showing or hiding an element. This behavior ensures that the element is visible during the entire fading procedure.
+
 ### Positioning schemes
 
 RCSS can position elements according to three schemes:
