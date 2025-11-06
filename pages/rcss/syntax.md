@@ -92,18 +92,56 @@ min-height: 50%;
 
 #### Colours
 
-Specified as `<colour>`{:.value} in the property's Values list. Colours represent a RGBA value, and can be declared in numerous ways:
+Specified as `<colour>`{:.value} in the property's Values list. Colours can be declared in numerous ways, as follows.
 
-* As the name of one of the 16 colours defined in the HTML 4.0 specification (aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow), plus grey (alias for gray), orange and transparent.
-* Prefixed with the '#' character, followed by 3, 4, 6 or 8 hexadecimal digits. 3 or 6 digits represent an RGB triplet, and will have 255 attached as the opacity. If only 3 are specified, each digit will be replicated before being read; for example, #FE0 is equivalent to #FFEE00. 4 or 8 digits allow the specification of a translucent colour.
-* In colour function format, with parameters representing a colour in a defined colour space.
-  * In [sRGB](https://en.wikipedia.org/wiki/SRGB) colour space: `rgb(r, g, b)`{:.value} or `rgba(r, g, b, a)`{:.value}, where each of red, green, blue (and optionally alpha) is specified as a value from 0 to 255 (or a percentage from 0% to 100%). An `rgb` value has an alpha of 255 attached.  
+\<colour name\> --- Named colours
+: One of the 16 colours defined in the HTML 4.0 specification: aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white, and yellow. Plus grey (alias for gray), orange, and transparent.
+
+`#RGB`{:.value}, `#RGBA`{:.value}, `#RRGGBB`{:.value}, `#RRGGBBAA`{:.value} --- Hexadecimal
+: Prefixed with `#` followed by 3, 4, 6, or 8 hexadecimal digits. 3- and 6-digit forms are RGB and opaque. 4- and 8-digit forms include an alpha channel for translucency. The 3- and 4- digit forms expand each component, e.g. `#FE0` → `#FFEE00`.
+
+`rgb(r, g, b)`{:.value}, `rgba(r, g, b, a)`{:.value} --- [sRGB](https://en.wikipedia.org/wiki/SRGB)
+: - `r`, `g`, `b`: Red, green, and blue channel respectively. 0 to 255 (0% to 100%).
+  - `a`: Alpha channel. 0 to 255 (0% to 100%).\
   **Important**: Note that the declaration of the alpha channel when using the `rgba` keyword differs from the HTML5 specification.
-  * In cylindrical [sRGB](https://en.wikipedia.org/wiki/SRGB) colour space: `hsl(h, s%, l%)`{:.value} or `hsla(h, s%, l%, a)`{:.value}, where `h` is the hue in degrees (typed without units), `s` and `l` are the saturation and lightness as percentage values from 0 to 100, and `a` is the alpha value from 0.0 to 1.0.
-  * In [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space) colour space: `lab(L a b)`{:.value} or `lab(L a b / A)`{:.value}, where `L` represents the overall lightness as a value between 0 and 100 (or a percentage between 0% and 100%), and `a` and `b` represent distances along colour axes (`a` for green-to-red and `b` for blue-to-yellow) as a value typically between -125 and +125 (or a percentage between -100% and +100%). The axis values can go beyond ±125, but in practice do not exceed ±160. The optional `A` value (preceded by a slash `/`) represents the alpha value between 0 and 1 (or between 0% and 100%). All parameters in this function can take the value `none`, which is equivalent to 0.
-  * In cylindrical [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space) colour space: `lch(L C H)`{:.value} or `lch(L C H / A)`{:.value}, where `L` represents the overall lightness as a value between 0 and 100 (or a percentage between 0% and 100%), `C` represents the colour's chroma (in other words, ‘amount of colour’) as a value typically between 0 and 150 (or a percentage between 0% and 100%), and `H` represents the hue angle in degrees (typed without units). The chroma value can go beyond 150, but in practice does not exceed 230. The optional `A` value (preceded by a slash `/`) represents the alpha value between 0 and 1 (or between 0% and 100%). All parameters in this function can take the value `none`, which is equivalent to 0.
-  * In [Oklab](https://en.wikipedia.org/wiki/Oklab_color_space) colour space: `oklab(L a b)`{:.value} or `oklab(L a b / A)`{:.value}, where `L` represents the overall lightness as a value between 0 and 1 (or a percentage between 0% and 100%), and `a` and `b` represent distances along colour axes (`a` for green-to-red and `b` for blue-to-yellow) as a value typically between -0.4 and +0.4 (or a percentage between -100% and +100%). The axis values can go beyond ±0.4, but in practice do not exceed ±0.5. The optional `A` value (preceded by a slash `/`) represents the alpha value between 0 and 1 (or between 0% and 100%). All parameters in this function can take the value `none`, which is equivalent to 0.
-  * In cylindrical [Oklab](https://en.wikipedia.org/wiki/Oklab_color_space) colour space: `oklch(L C H)`{:.value} or `oklch(L C H / A)`{:.value}, where `L` represents the overall lightness as a value between 0 and 1 (or a percentage between 0% and 100%), `C` represents the colour's chroma (in other words, ‘amount of colour’) as a value typically between 0 and 0.4 (or a percentage between 0% and 100%), and `H` represents the hue angle in degrees (typed without units). The chroma value can go beyond 0.4, but in practice does not exceed 0.5. The optional `A` value (preceded by a slash `/`) represents the alpha value between 0 and 1 (or between 0% and 100%). All parameters in this function can take the value `none`, which is equivalent to 0.
+
+`hsl(h, s, l)`{:.value}, `hsla(h, s, l, a)`{:.value} --- Cylindrical [sRGB](https://en.wikipedia.org/wiki/SRGB)
+: - `h`: Hue in degrees (typed without units).
+  - `s`: Saturation. Percentage value from 0% to 100%.
+  - `l`: Lightness. Percentage value from 0% to 100%.
+  - `a`: Alpha value. 0 to 1.
+
+`lab(L a b)`{:.value}, `lab(L a b / A)`{:.value} --- [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space)
+: - `L`: Overall lightness. 0 to 100 (0% to 100%).
+  - `a`: Distance along green-to-red axis. Typically -125 to +125 (-100% to +100%), but can be exceeded.
+  - `b`: Distance along blue-to-yellow axis. Typically -125 to +125 (-100% to +100%), but can be exceeded.
+  - `A`: Optional alpha value. 0 to 1 (0% to 100%).
+
+  All parameters can take the value `none`, which is equivalent to 0.
+
+`lch(L C H)`{:.value}, `lch(L C H / A)`{:.value} --- Cylindrical [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space)
+: - `L`: Overall lightness. 0 to 100 (0% to 100%).
+  - `C`: Chroma (amount of colour). Typically 0 to 150 (0% to 100%), but can be exceeded.
+  - `H`: Hue angle in degrees (typed without units).
+  - `A`: Optional alpha value. 0 to 1 (0% to 100%).
+
+  All parameters can take the value `none`, which is equivalent to 0.
+
+`oklab(L a b)`{:.value}, `oklab(L a b / A)`{:.value} --- [Oklab](https://en.wikipedia.org/wiki/Oklab_color_space)
+: - `L`: Overall lightness. 0 to 1 (0% to 100%).
+  - `a`: Distance along green-to-red axis. Typically -0.4 to +0.4 (-100% to +100%), but can be exceeded.
+  - `b`: Distance along blue-to-yellow axis. Typically -0.4 to +0.4 (-100% to +100%), but can be exceeded.
+  - `A`: Optional alpha value. 0 to 1 (0% to 100%).
+
+  All parameters can take the value `none`, which is equivalent to 0.
+
+`oklch(L C H)`{:.value}, `oklch(L C H / A)`{:.value} --- Cylindrical [Oklab](https://en.wikipedia.org/wiki/Oklab_color_space)
+: - `L`: Overall lightness. 0 to 1 (0% to 100%).
+  - `C`: Chroma (amount of colour). Typically 0 to 0.4 (0% to 100%), but can be exceeded.
+  - `H`: Hue angle in degrees (typed without units).
+  - `A`: Optional alpha value. 0 to 1 (0% to 100%).
+
+  All parameters can take the value `none`, which is equivalent to 0.
 
 So, for example, the following colour declarations are identical:
 
