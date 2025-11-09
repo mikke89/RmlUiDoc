@@ -17,7 +17,7 @@ The `<svg>`{:.tag} element is used to include SVG vector images in the document.
 _Attributes_
 
 `src`{:.attr} = uri (CT)
-: The source location of the SVG image.
+: The source location of the SVG image. If this is not specified, then the inline contents of the `<svg>`{:.tag} element will be used as its SVG source.
 
 `width`{:.attr} = number (CN)
 : The width to force the element to, in pixels.
@@ -30,13 +30,31 @@ _Attributes_
 
 ![SVG sample](../../assets/gallery/svg_plugin.png)
 
+#### Example
+
+The `<svg>`{:.tag} element can be used as follows:
+
+```html
+<svg src="tiger.svg"></svg>
+```
+
+The following demonstrates the use of an inline SVG document:
+
+```html
+<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="25" r="20" stroke="black" stroke-width="3" fill="red" />
+</svg>
+```
+
+Note that the inner parts of the `<svg>`{:tag} element is not part of the DOM, i.e. one can not manipulate its sub-elements with the `Rml::Element` API. However, the SVG source can be updated using `Rml::Element::SetInnerRML`, or even updated automatically using [data bindings](../data_bindings.html) and in particular the `data-rml` view. See the `svg` sample for details.
+
 ### Decorator `svg`
 {:#decorator}
 
 The `svg`{:.prop} decorator can be used to include an SVG image in the background of an element.
 
 ```css
-decorator: ninepatch( <svg-src> <crop>? ) <paint-area>?;
+decorator: svg( <svg-src> <crop>? ) <paint-area>?;
 ```
 
 #### Properties
