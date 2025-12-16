@@ -193,7 +193,10 @@ The following events are only sent if the dragged element has a drag property of
 
 `change`{:.evt}
 : Sent to a form control when its value is changed.
-* `value`: The new value.
+  * `value`: The new value.
+
+  Additionally, for checkboxes and radio buttons only:
+  * `checked`: The new boolean checked state of the element.
 
 #### Document Events
 

@@ -265,7 +265,10 @@ For checkboxes, the underlying data type should be a `bool`, where `true` means 
 
 A new value is assigned to the specified data variable whenever a `change`{:.evt} event occurs on the current element. The element's `checked`{:.attr} attribute is added or removed whenever the data variable changes on the client side.
 
-*Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attrif-checked` view and `data-event-change` controller for more flexibility.
+*Note.* Data expressions and assignment expressions are not supported for this attribute. Instead, use the `data-attrif-checked` view and `data-event-change` controller for more flexibility. Example:
+```html
+<input type="checkbox" data-attrif-checked="pasta" data-event-change="pasta = ev.checked || force_pasta"/>
+```
 
 
 #### Event
