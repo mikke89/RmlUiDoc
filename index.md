@@ -36,3 +36,4 @@ include_in_search_results: false
 
 1. [Frequently Asked Questions](pages/faq.html)
 2. [Changelog](https://github.com/mikke89/RmlUi/blob/master/changelog.md) (main repository)
+3. [Gallery](https://github.com/mikke89/RmlUi#gallery) (main repository readme)
