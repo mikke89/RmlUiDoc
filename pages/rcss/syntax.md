@@ -43,16 +43,16 @@ z-index: 16;
 Specified as <length> in a property's Values list. A length is a horizontal or vertical measurement consisting of a number and a unit. RCSS recognises the following units:
 
 - `px`{:.value}: One px is equivalent to one pixel on the output medium.
+- `dp`{:.value}: One dp is equivalent to one pixel scaled by a globally defined ratio, [see below](#dp-unit).
 - `em`{:.value}: When specified in the `font-size`{:.prop} property, one em is equivalent to the font size of the parent element. For other properties, it is the font size of the element itself.
 - `rem`{:.value}: One rem is equivalent to the font size of the root (body) element.
 - `ex`{:.value}: One ex is equivalent to the height of the current font's lower-case x.
-- `dp`{:.value}: One dp is equivalent to one pixel scaled by a globally defined ratio, [see below](#dp-unit).
 - `vw`{:.value}: One vw is equivalent to 1% of the width of the context.
 - `vh`{:.value}: One vh is equivalent to 1% of the height of the context.
 
 In addition, units based on pixels-per-inch (PPI) are supported. The PPI units are defined as follows:
 
-- `in`{:.value}: One inch is `96px`{:.value}.
+- `in`{:.value}: One inch is `96dp`{:.value}.
 - `cm`{:.value}: One centimeter is `1/2.54 inch`{:.value}.
 - `mm`{:.value}: One millimeter is `1/25.4 inch`{:.value}.
 - `pt`{:.value}: One point is `1/72 inch`{:.value}.
