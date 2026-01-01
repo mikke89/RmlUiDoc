@@ -12,6 +12,7 @@ The following will guide you through the process of building RmlUi. This is nece
 - [Prerequisites](#prerequisites)
 - [Building using vcpkg](#vcpkg)
 - [Building using Conan](#conan)
+- [Building using Devbox](#devbox)
 - [Building on Windows](#windows)
 - [Building on macOS and Linux](#macos-and-linux)
 - [Building using Emscripten](#emscripten)
@@ -34,6 +35,10 @@ The following will guide you through the process of building RmlUi. This is nece
 *or*
 
 - [Conan package manager](#conan)
+
+*or* 
+
+- [Devbox package manager](#devbox)
 
 For new users, the recommended approach is to use a package manager such as vcpkg or Conan to handle building and integration of the library. These take care of dependencies and all the integration details, getting you set-up with a breeze.
 
@@ -111,6 +116,29 @@ The CMake options that are not supported along with a bit of reasoning are as fo
 The `RMLUI_CUSTOM_CONFIGURATION` CMake option and others related to it (`RMLUI_CUSTOM_CONFIGURATION_FILE`, `RMLUI_CUSTOM_INCLUDE_DIRS` and `RMLUI_CUSTOM_LINK_LIBRARIES`) make it possible for the embedded [robin-hood-hashing](https://conan.io/center/recipes/robin-hood-hashing) library to be upgradable.
 
 If the recipe is out of date or somehow does not meet certain needs, then contributions would be welcome at [conan-center-index](https://github.com/conan-io/conan-center-index).
+
+
+### Building using Devbox
+{:#devbox}
+
+[Devbox](https://www.jetify.com/docs/devbox) is a package manager based on Nix which offers over 120,000 packages in many different programming languages, not just C/C++. Its design goals are to make consuming Nix packages simple, and not require users to know the Nix language. You can search for packages on [nixos.org](https://search.nixos.org/packages) or [nixhub.io](https://www.nixhub.io/). Here's how to build RmlUi with Devbox:
+
+1. Install the [Devbox package manager](https://www.jetify.com/docs/devbox/installing-devbox)
+2. `git clone https://github.com/mikke89/RmlUi.git`
+3. `cd RmlUi`
+4. `devbox init`
+5. Optionally, add the CMake package globally: `devbox global add cmake`
+6. `devbox add freetype freetype.dev glfw3`
+7. `devbox shell`
+8. Build the project: 
+```
+cmake -B Build -S . --preset samples \
+      -DRMLUI_BACKEND=GLFW_GL3 \
+      -DCMAKE_C_COMPILER=clang \
+      -DCMAKE_CXX_COMPILER=clang++ \
+      -DCMAKE_PREFIX_PATH="$DEVBOX_PACKAGES_DIR"
+cmake --build Build
+```
 
 
 ### Building on Windows
