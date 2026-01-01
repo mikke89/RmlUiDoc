@@ -35,10 +35,10 @@ Details and combinations of the listed selectors are described below.
 The following table lists the built-in pseudo class selectors, in addition to the negation selector and all of the tree-structural selectors from CSS3.
 
 **Pseudo-class**                               |
-`:hover`{:.cls pseudo-def}                     | Matches an element that is currently under the mouse cursor.
-`:active`{:.cls pseudo-def}                    | Matches an element that has been clicked on, only until the button is released.
-`:focus`{:.cls pseudo-def}                     | Matches an element that has input focus. Unlike CSS, this pseudo-class propagates backwards through its parents, making it closer in functionality to [focus-within](https://www.w3.org/TR/selectors-4/#the-focus-within-pseudo).
-`:focus-visible`{:.cls pseudo-def}             | Matches an element that has input focus, and whose focus should be visibly indicated. This can be particularly useful to style the focused element when using keyboard or spatial navigation.
+`:hover`{:.cls pseudo-def}                     | Matches an element that is currently under the mouse cursor.<br/>Unlike CSS, this pseudo-class propagates backward through its parents.
+`:active`{:.cls pseudo-def}                    | Matches an element that has been clicked on, only until the button is released.<br/>Unlike CSS, this pseudo-class propagates backward through its parents.
+`:focus`{:.cls pseudo-def}                     | Matches an element that has input focus.<br/>Unlike CSS, this pseudo-class propagates backward through its parents.
+`:focus-visible`{:.cls pseudo-def}             | Matches an element that has input focus, and whose focus should be visibly indicated. This can be particularly useful to style the focused element when using keyboard or spatial navigation.<br/>Unlike CSS, this pseudo-class propagates backward through its parents.
 `:checked`{:.cls pseudo-def}                   | Matches a checked checkbox and radio button. Matches a [select element]({{"pages/cpp_manual/element_packages/form.html#drop-down-select-box"|relative_url}}) when it is open, as well as the selected option in its drop-down list.
 **Logical**                                    |
 `:not(s1, s2, …)`{:.cls pseudo-def}            | Matches an element that does not match any of its selectors s1, s2, ….
