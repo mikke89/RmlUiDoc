@@ -88,6 +88,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`tab-index`{:.prop}][tab-index] | none \| auto | none | all | no | | Introduced for RCSS. Controls order of focus switching when the tab key is pressed.
 [`text-align`{:.prop}][text-align] | left \| right \| center | left | block-level elements | yes | | 'justify' not supported.
 [`text-decoration`{:.prop}][text-decoration] | none \| underline \| overline \| line-through | none | all | yes | |
+[`text-overflow`{:.prop}][text-overflow] | clip \| ellipsis \| \<string\> | clip | all | no | |
 [`text-transform`{:.prop}][text-transform] | none \| capitalize \| uppercase \| lowercase | none | all | yes | |
 [`top`{:.prop}][top_right_bottom_left] | auto \| \<length\> \| \<percentage\> | auto | positioned elements | no | height of containing block |
 [`transition`{:.prop}][transition] | See [transitions](animations_transitions_transforms.html#transition) | none | all | no | |
@@ -165,6 +166,7 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [tab-index]: user_interface.html#tab-index
 [text-align]: text.html#text-align
 [text-decoration]: text.html#text-decoration
+[text-overflow]: text.html#text-overflow
 [text-transform]: text.html#text-transform
 [top_right_bottom_left]: visual_formatting_model.html#top_right_bottom_left
 [transition]: animations_transitions_transforms.html#transition

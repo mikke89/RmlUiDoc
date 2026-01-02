@@ -701,6 +701,13 @@
 },
 {
 	"type": "property",
+	"title": "text-overflow",
+	"url": '<a href="/pages/rcss/text.html#text-overflow">',
+	"parent_title": "",
+	"content": ""
+},
+{
+	"type": "property",
 	"title": "text-transform",
 	"url": '<a href="/pages/rcss/text.html#text-transform">',
 	"parent_title": "",
