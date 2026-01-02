@@ -49,6 +49,12 @@ The following image shows the debugger in action. An element is selected, its de
 
 ![Debugger screenshot](../../assets/images/debugger.png)
 
+#### Data models
+
+When clicking the `Data Models` button, the data models window opens up. This window allows inspecting the values of all data variables in the data models of the context being debugged. The data variables are sectioned by each data model.
+
+![Debugger data models screenshot](../../assets/images/debugger-data-models.png)
+
 ### Initialisation
 
 To integrate the debugger into your application, link with `rmlui_debugger`{:.incl} or the imported CMake target `RmlUi::Debugger`{:.incl}. Then, include `<RmlUi/Debugger.h>`{:.incl} in a source file.
