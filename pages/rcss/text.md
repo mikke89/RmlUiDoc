@@ -180,7 +180,7 @@ Applies to: | all elements
 Inherited: | no
 Percentages: | N/A
 
-Enables rendering an ellipsis or other strings when the text overflows its line. This property does not affect layouting, only text rendering. It only takes effect in combination with non-visible values of the `overflow`{:.prop} property.
+Enables rendering an ellipsis or other strings when the text overflows its line. This property does not affect layouting, only text rendering. It only takes effect in combination with non-visible values of the `overflow`{:.prop} property. Currently only applies directly to text, not to inline-level atomic boxes.
 
 Values have the following meanings:
 
