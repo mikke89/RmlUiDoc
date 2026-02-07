@@ -12,11 +12,9 @@ If you haven't already done so, take a look at the sample applications in [`/Sam
 
 ### Setting up the build environment
 
-RmlUi is developed following the C++14 standard and can be used on the following platforms:
+RmlUi is developed following the C++17 standard and a cross-platform architecture.
 
-- Windows 32/64bit, compiling with Microsoft Visual Studio 2017+.
-- MacOS 32/64bit, compiling with GCC 5+.
-- Linux, compiling with GCC 5+.
+Most C++17-capable compilers should be supported. Our test suite covers multiple versions of Visual Studio, GCC, Clang, across several platforms. See the [latest continous integration checks](https://github.com/mikke89/RmlUi/commits/master/) for details.
 
 #### Conan and vcpkg
 
