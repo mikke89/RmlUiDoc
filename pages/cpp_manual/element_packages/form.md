@@ -84,6 +84,8 @@ The size of a text field refers of the average number of characters visible acro
 
 The maximum number of characters allowed in a text field is set with the `maxlength`{:.attr} attribute.
 
+Placeholder text can be set with the `placeholder`{:.attr} attribute.
+
 #### Text selection
 {:#text-selection}
 
@@ -166,6 +168,8 @@ void SetWordWrap(bool word_wrap);
 // @return True if the text area is word-wrapping, false otherwise.
 bool GetWordWrap();
 ```
+
+Placeholder text can be set with the `placeholder`{:.attr} attribute.
 
 In addition, the methods from the [text selection interface](#text-selection) are also duplicated for the text area interface.
 

@@ -55,8 +55,10 @@ The following table lists the built-in pseudo class selectors, in addition to th
 `:only-of-type`{:.cls pseudo-def}              | Matches an element that has no sibling elements of its type.
 `:empty`{:.cls pseudo-def}                     | Matches an element that has no child nodes.
 `:scope`{:.cls pseudo-def}                     | Matches the current element when used with the selector functions in the [element DOM interface](../cpp_manual/elements.html#dom-interface), such as `QuerySelector()`. Otherwise matches nothing.
+**Pseudo-element**                             |
+`::placeholder`{:.cls pseudo-def}              | Matches an input element that is currently displaying [placeholder text](../rml/forms.html).
 
-See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for more thorough documentation and examples on the use of selectors. Please note that pseudo-elements such as `::first-letter`{:.cls} and `::before`{:.cls} are not yet supported in RCSS.
+See the [CSS selectors specifications](https://www.w3.org/TR/selectors-4/) for more thorough documentation and examples on the use of selectors. Please note that many pseudo-elements such as `::first-letter`{:.cls} and `::before`{:.cls} are not yet supported in RCSS.
 
 
 #### Compound selectors

@@ -56,6 +56,9 @@ _Attributes_
 `maxlength`{:.attr} = number (CN)
 : For types of text and password, defines the maximum length (in characters) that the element will accept.
 
+`placeholder`{:.attr} = cdata (CN)
+: For types of text and password, defines placeholder text that is displayed when the element's value is empty. Can be styled using the `::placeholder`{:.cls} [pseudo-element](../rcss/selectors.html#pseudo-selectors).
+
 ##### Radio and Checkbox types
 
 `checked`{:.attr} (CI)
@@ -90,6 +93,9 @@ _Attributes_
 
 `maxlength`{:.attr} = number (CN)
 : The maximum length (in characters) that the element will accept.
+
+`placeholder`{:.attr} = cdata (CN)
+: Defines placeholder text that is displayed when the textarea's value is empty. Can be styled using the `::placeholder`{:.cls} [pseudo-element](../rcss/selectors.html#pseudo-selectors).
 
 #### \<select\>
 
