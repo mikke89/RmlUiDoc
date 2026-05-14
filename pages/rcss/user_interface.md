@@ -159,7 +159,7 @@ The navigation properties are used to determine how the focus is moved when pres
 
 `nav-up`{:.prop}, `nav-right`{:.prop}, `nav-down`{:.prop}, `nav-left`{:.prop}
 
-Value: | none \| auto \| \<id\>
+Value: | none \| auto \| tree-order \| \<id\>
 Initial: | none
 Applies to: | all tabbable elements
 Inherited: | no
@@ -173,12 +173,17 @@ Values have the following meanings:
 `auto`{:.value}
 : The focus is moved to the nearest tabbable element is the direction of the pressed navigation button.
 
+`tree-order`{:.value}
+: The focus is moved to the nearest tabbable element in document tree-order, in either forward or backward direction according to the pressed navigation button.
+
 `<id>`{:.value}
 : The focus is moved to the element with the given id. The element is written with `#`{:.value} prefix, e.g. `#my_element`{:.value}.
 
 Only <span class="prop-def-symbol" title="elements with 'tab-index: auto'">tabbable elements</span> are considered as navigation sources and targets. Further, automatic navigation is restricted to the same <span class="prop-def-symbol" title="elements whose 'overflow' property is set to anything other than 'visible' establish a new scroll container">scroll container</span>. Navigation can also be set on the body element, in which case `auto`{:.value} means navigating in tabbing-order when the body has focus.
 
 > *Recommended practice*: Always set `nav: auto`{:.value} on the `body`{:.tag} element when using spatial navigation features in the same document. This ensures that users are always able to navigate within the document, even when the focus is lost from the otherwise navigable region, e.g. due to mouse focus or manual calls to blur.
+
+Navigating in `tree-order`{:.value} is akin to tabbing through the document. This mode can navigate into and out of scroll containers, just like tabbing but unlike auto navigation. However, it does not wrap around to the document root.
 
 When a navigation action is performed, the newly focused element has its `:focus-visible`{:.cls} [pseudo class](selectors.html#pseudo-selectors) set. This can be used to style the currently focused element.
 

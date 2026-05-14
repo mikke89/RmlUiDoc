@@ -69,8 +69,8 @@ Name | Values | Initial value | Applies to | Inherited | Percentages | Notes
 [`min-height`{:.prop}][min-height] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | height of containing block |
 [`max-width`{:.prop}][max-width] | \<length\> \| \<percentage\> \| none | none | block and replaced inline elements | no | width of containing block |
 [`min-width`{:.prop}][min-width] | \<length\> \| \<percentage\> | 0px | block and replaced inline elements | no | width of containing block |
-[`nav`{:.prop}][nav] | none \| auto \| horizontal \| vertical | none | tabbable elements | no | | Shorthand for navigation properties.
-[`nav-up`{:.prop}][nav] [`nav-right`{:.prop}][nav] [`nav-down`{:.prop}][nav] [`nav-left`{:.prop}][nav] | none \| auto \| \<id\> | none | tabbable elements | no | | Controls spatial navigation.
+[`nav`{:.prop}][nav] | none \| auto \| horizontal \| vertical \| tree-order | none | tabbable elements | no | | Shorthand for navigation properties.
+[`nav-up`{:.prop}][nav] [`nav-right`{:.prop}][nav] [`nav-down`{:.prop}][nav] [`nav-left`{:.prop}][nav] | none \| auto \| tree-order \| \<id\> | none | tabbable elements | no | | Controls spatial navigation.
 [`opacity`{:.prop}][opacity] | \<number\> | 1 | all | yes | |
 [`overflow`{:.prop}][overflow] | `overflow-x`{:.prop} `overflow-y`{:.prop} | | | | |
 [`overflow-x`{:.prop}][overflow] | visible \| hidden \| scroll \| auto | visible | block elements | no | | Content clipped if either axis is not 'visible'.
