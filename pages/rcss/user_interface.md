@@ -191,7 +191,7 @@ There is also a shorthand property to set all of the above properties simultaneo
 
 `nav`{:.prop}
 
-Value: | none \| auto \| horizontal \| vertical
+Value: | none \| auto \| horizontal \| vertical \| tree-order
 Initial: | none
 Applies to: | all tabbable elements
 Inherited: | no
@@ -211,6 +211,10 @@ Values have the following meanings:
 `vertical`{:.value}
 : Enable automatic navigation in the vertical directions. Equivalent to setting `none`{:.value} to the horizontal navigation properties, and `auto`{:.value} to the vertical navigation properties.
 
+`tree-order`{:.value}
+: Enable navigation by document tree-order. Equivalent to setting `tree-order`{:.value} to all the navigation properties.
+
+The shorthand can also set multiple properties in box order: up, right, down, left. Example: `nav: tree-order none`{:.value} sets `tree-order`{:.value} to the up and down directions, and `none`{:.value} to the horizontal directions.
 
 ### Focus: the 'focus' property
 {:#focus}
