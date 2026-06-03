@@ -5,7 +5,7 @@ parent: cpp_manual
 next: troubleshooting
 ---
 
-RmlUi has a simple, straightforward system for writing plugins. Plugins receive notification when contexts and elements are created and destroyed.
+RmlUi has a simple, straightforward system for writing plugins. Plugins receive notification when contexts, documents, elements, and data models are created and destroyed.
 
 ### Creating a plugin
 
@@ -19,7 +19,7 @@ virtual void OnShutdown();
 
 // Called when a document load request occurs, before the document's file is opened.
 virtual void OnDocumentOpen(Context* context, const Rml::String& document_path);
-// Called when a document is successfully loaded from file or instanced, initialised and added to its context. This is called before the document's 'load' event.
+// Called when a document is successfully loaded, initialised, and added to its context. Called before the document's 'load' event.
 virtual void OnDocumentLoad(ElementDocument* document);
 // Called when a document is unloaded from its context. This is called after the document's 'unload' event.
 virtual void OnDocumentUnload(ElementDocument* document);
@@ -33,6 +33,11 @@ virtual void OnContextDestroy(Rml::Context* context);
 virtual void OnElementCreate(Rml::Element* element);
 // Called when an element is destroyed.
 virtual void OnElementDestroy(Rml::Element* element);
+
+// Called when a new data model is created on a context.
+virtual void OnDataModelCreate(Rml::Context* context, const Rml::String& name);
+// Called when a data model is about to be destroyed.
+virtual void OnDataModelDestroy(Rml::Context* context, const Rml::String& name);
 ```
 
 #### RmlUi engine events
@@ -52,6 +57,32 @@ The `OnInitialise()` function will be called on all registered plugins when RmlU
 #### Element events
 
 `OnElementCreate()` and `OnElementDestroy()` are called on every registered plugin when an element is successfully created or destroyed.
+
+#### Data model events
+
+`OnDataModelCreate()` is called whenever a new [data model](../data_bindings.html) is successfully created on a context through `Context::CreateDataModel()`. Attempting to create a data model with a name that already exists does not fire the callback.
+
+`OnDataModelDestroy()` is called when a data model is about to be destroyed, either explicitly through `Context::RemoveDataModel()`, or implicitly when the owning context is destroyed. The data model can still be resolved through `Context::GetDataModel()` during this callback, but it becomes unusable as soon as the callback returns.
+
+### Filtering event classes
+
+By default, a plugin receives all of the events listed above. A plugin can override `GetEventClasses()` to receive only a subset of them, by returning a combination of the `Rml::Plugin::EventClasses`{:.cls} flags:
+
+Flag | Events
+------------------------- | ------
+`EVT_BASIC`{:.value}      | `OnInitialise`, `OnShutdown`, `OnContextCreate`, `OnContextDestroy`
+`EVT_DOCUMENT`{:.value}   | `OnDocumentOpen`, `OnDocumentLoad`, `OnDocumentUnload`
+`EVT_ELEMENT`{:.value}    | `OnElementCreate`, `OnElementDestroy`
+`EVT_DATA_MODEL`{:.value} | `OnDataModelCreate`, `OnDataModelDestroy`
+`EVT_ALL`{:.value}        | All of the above (the default).
+
+For example, a plugin interested only in document events:
+
+```cpp
+int GetEventClasses() override {
+	return Rml::Plugin::EVT_DOCUMENT;
+}
+```
 
 ### Registering a plugin
 
