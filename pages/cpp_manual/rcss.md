@@ -130,7 +130,7 @@ if (test)
 Properties changed in this manner will automatically propagate to child elements if inherited and force a layout if necessary.
 
 
-#### Defining custom properties
+#### User-defined properties
 
 User-defined properties can be added to the global style sheet specification, so you can attach any values you'd like to your elements. This is done through the `Rml::StyleSheetSpecification` class (included through `RmlUi/Core.h`{:.incl} or `RmlUi/Core/StyleSheetSpecification.h`{:.incl}).
 
@@ -147,7 +147,7 @@ static Rml::PropertyDefinition& RegisterProperty(const Rml::String& property_nam
                                                           bool forces_layout = false);
 ```
 
-The `RegisterProperty()` function takes the name of the new property, the default value of the property (the value of the property on an element if it has not been set on that element), and a boolean value indicating whether the property is `inherited`. If this is set to `true`, if an element does not have the property set on it then it will inherit it's parent value for the property instead of using the default value. If the last variable, `forces_layout`, is set to `true`, then any change in the property will force the element to be re-laid out. For custom properties this should generally be left as `false`, as only the built-in properties will affect layout.
+The `RegisterProperty()` function takes the name of the new property, the default value of the property (the value of the property on an element if it has not been set on that element), and a boolean value indicating whether the property is `inherited`. If this is set to `true`, the property is inherited from its parent element instead of using the default value, if it is not set on the element directly. If `forces_layout` is set to `true`, any change in the property will force the element to be re-laid out. For user-defined properties this should generally be left as `false`, as only the built-in properties will affect layout.
 
 So, for example, if we wanted to define a new property for storing the sound an element makes when it is clicked, we'd call this soon after the RmlUi was initialised:
 
@@ -157,7 +157,7 @@ Rml::StyleSheetSpecification::RegisterProperty("click-sound", "none", false);
 
 This wouldn't be much use to us though, as we haven't said what values the new property can take. For this, we need to add a property parser to the new property. A property parser attempts to parse the value of a property from a raw string into a format where it can be used by the application.
 
-Each property can have multiple parsers attached to it. There are several default property parsers in RmlUi, in addition custom parsers [can be added](#defining-custom-value-parsers). Some of these include:
+Each property can have multiple parsers attached to it. There are several default property parsers in RmlUi, in addition custom parsers [can be added](#user-defined-value-parsers). Some of these include:
 
 - `number` for numerical values without units ('15').
 - `length` for numerical values with units representing a length ('0px', '0.5em').
@@ -179,7 +179,7 @@ Rml::PropertyId click_sound_id = Rml::StyleSheetSpecification::RegisterProperty(
 	.GetId();
 ```
 
-The `GetId()` function will return the property id generated for the custom property. This can be used to efficiently retrieve and set values for this property.
+The `GetId()` function will return the property id generated for the user-defined property. This can be used to efficiently retrieve and set values for this property.
 
 Now if the property is set to 'none', 'beep', 'boop' or 'bang', the property's value will be set to the appropriate keyword, otherwise it will be set as a string. So, the following RCSS:
 
@@ -205,7 +205,7 @@ Each of the parsers stores their values as a particular unit and type in the pro
 * _string_ stores values as `STRING`. Use `Get< Rml::String >()` to request the value.
 * _colour_ stores values as `COLOUR`. Use `Get< Rml::Colourb >` to request the value.
 
-#### Defining custom shorthands
+#### User-defined shorthands
 
 You can define custom shorthands as well as properties. Use the `RegisterShorthand()` function to do this.
 
@@ -248,9 +248,9 @@ will assign the 'auto' keyword to both `overflow-x`{:.prop} and `overflow-y`{:.p
 
 `Box` shorthands are for shorthands such as `margin`{:.prop}, `padding`{:.prop}, etc, that define four values for the top, right, bottom and left sides (in that order) of a box. If a `Box` shorthand is invoked with fewer than four values, the standard CSS rules apply; that is, one value will be replicated across all four sides. Two values will be set to the vertical and horizontal sides. Three values will be set to the top, horizontal sides, and bottom.
 
-#### Defining custom value parsers
+#### User-defined value parsers
 
-If you want to define more complicated parsers for your property values, you can do so by registering a custom property parser before you register you custom properties. The base class for all property parsers is `Rml::PropertyParser`; start by inheriting from this and implementing the single pure virtual function:
+If you want to define more complicated parsers for your property values, you can do so by registering a new property parser before you register any user-defined properties. The base class for all property parsers is `Rml::PropertyParser`; start by inheriting from this and implementing the single pure virtual function:
 
 ```cpp
 // Called to parse a RCSS declaration.

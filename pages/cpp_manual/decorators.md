@@ -144,7 +144,7 @@ Once the decorator has been constructed, return it as a shared pointer. If the d
 
 #### Defining the decorator's properties
 
-Each decorator instancer holds a complete property specification for the decorators it creates. In its constructor, the custom instancer has the opportunity to add properties and shorthands to its specification by using the protected functions `RegisterProperty()` and `RegisterShorthand()`. For detailed documentation on defining properties, see the documentation on [registering custom properties](rcss.html#defining-custom-properties). Note that [custom property parsers](rcss.html#defining-custom-value-parsers) registered with `Rml::StyleSheetSpecification` can be used in decorator property specifications.
+Each decorator instancer holds a complete property specification for the decorators it creates. In its constructor, the custom instancer has the opportunity to add properties and shorthands to its specification by using the protected functions `RegisterProperty()` and `RegisterShorthand()`. For detailed documentation on defining properties, see the documentation on [registering user-defined properties](rcss.html#user-defined-properties). Note that [user-defined property parsers](rcss.html#user-defined-value-parsers) registered with `Rml::StyleSheetSpecification` can be used in decorator property specifications.
 
 The following is an example decorator defining a simple property specification:
 

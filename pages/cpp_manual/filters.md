@@ -87,7 +87,7 @@ Once the filter has been constructed, return it as a shared pointer. If the filt
 
 #### Defining the filter's properties
 
-Each filter instancer holds a complete property specification for the filters it creates. In its constructor, the custom instancer has the opportunity to add properties and shorthands to its specification by using the protected functions `RegisterProperty()` and `RegisterShorthand()`. For detailed documentation on defining properties, see the documentation on [registering custom properties](rcss.html#defining-custom-properties).
+Each filter instancer holds a complete property specification for the filters it creates. In its constructor, the custom instancer has the opportunity to add properties and shorthands to its specification by using the protected functions `RegisterProperty()` and `RegisterShorthand()`. For detailed documentation on defining properties, see the documentation on [registering user-defined properties](rcss.html#user-defined-properties).
 
 The following is an example filter defining a simple property specification:
 

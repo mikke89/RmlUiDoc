@@ -2,7 +2,7 @@
 layout: page
 title: Animations, transitions, and transforms
 parent: rcss
-next: media_queries
+next: custom_properties
 ---
 
 RmlUi provides comprehensive support for animations, transitions, and transforms. Together, they can be used to build very rich user experiences. These features are generally modeled after the CSS3 specifications, with some differences.

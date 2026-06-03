@@ -189,6 +189,14 @@ Specified as `<ratio>`{:.value} in the property's Values list. A ratio is specif
 @media (min-aspect-ratio: 16 / 9) { /* ... */ }
 ```
 
+#### Variables
+
+The value of a [custom property](custom_properties.html) can be substituted into a declaration using the `var()` function, optionally with a fallback value.
+
+```css
+color: var(--brand, black);
+```
+
 ### Referencing RCSS from RML
 
 A style sheet can be either stored in an external file (usually with the extension .rcss) and referenced from an RML file, or declared inline inside an RML file. Referencing an external RCSS file is done using the `<link>`{:.tag} tag in the following manner:

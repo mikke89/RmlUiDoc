@@ -9,5 +9,6 @@ This functionality of RCSS is identical to that defined in [CSS2](http://www.w3.
 
 * RmlUi has no built-in UA style sheet.
 * The `!important`{:.tag} tag is not yet supported.
-* The `inherit`{:.value} rule is not yet supported. 
+* The `inherit`{:.value} rule is not yet supported.
 
+RCSS also supports [custom properties and variables](custom_properties.html), which take part in the cascade and inheritance.
