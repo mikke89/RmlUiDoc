@@ -148,7 +148,7 @@ Call the global function `Rml::Initialise()` once you have installed the system 
 
 ### Creating a context
 
-All elements within RmlUi are part of a context. You must have at least one context in order to load, manipulate and render and interface elements. To create a context, use the `Rml::CreateContext()` function, passing in the name of the new context and its initial dimensions like so:
+All elements within RmlUi are part of a context. You must have at least one context in order to load, manipulate and render interface elements. To create a context, use the `Rml::CreateContext()` function, passing in the name of the new context and its initial dimensions like so:
 
 ```cpp
 Rml::Context* context = Rml::CreateContext("default", Rml::Vector2i(myScreenWidth, myScreenHeight));
