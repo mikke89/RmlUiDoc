@@ -111,13 +111,13 @@ The `OnUpdate()` function is called at the very beginning of the base element's 
 virtual void OnUpdate();
 ```
 
-Note that this function is called during a particular phase of the context update, where the document tree is in a partially updated state. The library expects the update to progress in a particular order, which places certain limitations on what the user is allowed to do during this function call.
+Note that this function is called during a particular phase of the context update, where the document tree is in a partially updated state. The library expects the update to progress in a particular order, which places certain limitations on what the client is allowed to do during this function call.
 
 In particular, the following behavior is supported during this function call:
 
+- Querying and modifying the attributes of this element and its children.
+- Querying and modifying the inner document structure (RML) of this element and its children, with the below limitations.
 - Modifying the properties of this element and its children.
-- Modifying or updating attributes of this element and its children.
-- Modifying the inner document structure (RML) of this element and its children, with the below limitations.
 
 The following in particular is not supported:
 
