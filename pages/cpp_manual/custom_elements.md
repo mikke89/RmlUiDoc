@@ -100,9 +100,9 @@ Note that the element may receive events targeted at one of its children. Be sur
 virtual void ProcessDefaultAction(Rml::Event& event);
 ```
 
-#### Hooks into update and render loops
+#### Update hook
 
-A custom element can override the `OnUpdate()` or `OnRender()` functions to hook functionality into the update or render loops.
+A custom element can override the `OnUpdate()` function to hook functionality into the update loop.
 
 The `OnUpdate()` function is called at the very beginning of the base element's update function. There is no need to call the base element's `OnUpdate()` function if you do not wish to.
 
@@ -110,7 +110,41 @@ The `OnUpdate()` function is called at the very beginning of the base element's 
 // Called during the update loop after children are updated.
 virtual void OnUpdate();
 ```
-Note that the element's property definition and computed values will be calculated after the call to `OnUpdate()`. Thus, it is safe to set new properties and expect them to be properly set during the current update loop. However, querying any of the element's computed values will return the ones calculated during the previous update loop.
+
+Note that this function is called during a particular phase of the context update, where the document tree is in a partially updated state. The library expects the update to progress in a particular order, which places certain limitations on what the user is allowed to do during this function call.
+
+In particular, the following behavior is supported during this function call:
+
+- Modifying the properties of this element and its children.
+- Modifying or updating attributes of this element and its children.
+- Modifying the inner document structure (RML) of this element and its children, with the below limitations.
+
+The following in particular is not supported:
+
+- Querying properties or computed values of any element.
+- Querying any layout-dependent properties (e.g. element sizes or positions).
+- Modifying the properties of elements outside of this element's subtree.
+- Modifying the attributes of elements outside of this element's subtree.
+- Modifying the document tree (RML) outside of this element's subtree.
+- Modifying data bindings, or setting data binding-dependent RML.
+- Updating the context or document.
+
+These rules ensure the state updates in the expected order, and that queries are not out-of-date, i.e. typically one frame old or not yet calculated.
+
+Some key aspects of the library internals lead to the above rules, to name some:
+
+- The element's property definition and computed values will be calculated after the call to `OnUpdate()`.
+- Data bindings are always updated before any documents are updated.
+- Layouting is performed after the update calls.
+
+#### Render hook
+
+A custom element can also override the `OnRender()` function to hook into the render loop.
+
+```cpp
+// Called during render after backgrounds, borders, decorators, but before children, are rendered.
+virtual void OnRender();
+```
 
 The `OnRender()` function is called from the base element's render loop after the following has occurred:
 
@@ -120,10 +154,6 @@ The `OnRender()` function is called from the base element's render loop after th
 
 There is no need to call the base element's `OnRender()` function if you do not wish to. Note that most custom rendering can be accomplished through the use of custom decorators; this is recommended rather than overriding `OnRender()` for reusability.
 
-```cpp
-// Called during render after backgrounds, borders, decorators, but before children, are rendered.
-virtual void OnRender();
-```
 
 #### Changes to properties or attributes
 
