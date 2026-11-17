@@ -465,6 +465,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [AppendChild](#Element-AppendChild){: .lua-function }(`ElementPtr`{: .lua-type } element) | `nil, Element`{: .lua-type } |
 | [Blur](#Element-Blur){: .lua-function }() | `nil`{: .lua-type } |
 | [Click](#Element-Click){: .lua-function }() | `nil`{: .lua-type } |
+| [Clone](#Element-Clone){: .lua-function }() | `ElementPtr`{: .lua-type }<br> |
 | [DispatchEvent](#Element-DispatchEvent){: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters) | `nil`{: .lua-type }<br> |
 | [new](#Element-new){: .lua-function }(`string`{: .lua-type } tag) | `Element`{: .lua-type} |
 | [Focus](#Element-Focus){: .lua-function }() | `nil`{: .lua-type } |
@@ -475,6 +476,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [HasChildNodes](#Element-HasChildNodes){: .lua-function }() | `boolean`{: .lua-type }<br> |
 | [InsertBefore](#Element-InsertBefore){: .lua-function }(`ElementPtr`{: .lua-type } element, `Element`{: .lua-type } adjacent_element) | `nil, Element`{: .lua-type } |
 | [IsClassSet](#Element-IsClassSet){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
+| [IsPseudoClassSet](#Element-IsPseudoClassSet){: .lua-function }(`string`{: .lua-type } name) | `boolean`{: .lua-type }<br> |
 | [QuerySelector](#Element-QuerySelector){: .lua-function }(`string`{: .lua-type } selectors) | `Element`{: .lua-type }<br> |
 | [QuerySelectorAll](#Element-QuerySelectorAll){: .lua-function }(`string`{: .lua-type } selectors) | `table`{: .lua-type }<br> |
 | [Matches](#Element-Matches){: .lua-function }(`string`{: .lua-type } selectors) | `boolean`{: .lua-type }<br> |
@@ -484,6 +486,7 @@ The Element class has no constructor; it must be instantiated through a [Documen
 | [ScrollIntoView](#Element-ScrollIntoView){: .lua-function }(`boolean`{: .lua-type } align_with_top) | `nil`{: .lua-type } |
 | [SetAttribute](#Element-SetAttribute){: .lua-function }(`string`{: .lua-type } name, `string`{: .lua-type } value) | `nil`{: .lua-type } |
 | [SetClass](#Element-SetClass){: .lua-function }(`string`{: .lua-type } name, `boolean`{: .lua-type } value) | `nil`{: .lua-type } |
+| [SetPseudoClass](#Element-SetPseudoClass){: .lua-function }(`string`{: .lua-type } name, `boolean`{: .lua-type } value) | `nil`{: .lua-type } |
 
 
 #### Property Descriptions
@@ -582,6 +585,9 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-Click' name='Element-Click'>Click</a>{: .lua-function }()  &rarr; `nil`{: .lua-type}
 : Fakes a click on this element.
 
+<a href='#Element-Clone' name='Element-Clone'>Clone</a>{: .lua-function }()  &rarr; `ElementPtr`{: .lua-type }
+: Returns a deep copy of this element, including its children. The copy is not part of any document until it is attached with [AppendChild()](#Element-AppendChild), [InsertBefore()](#Element-InsertBefore) or [ReplaceChild()](#Element-ReplaceChild).
+
 <a href='#Element-DispatchEvent' name='Element-DispatchEvent'>DispatchEvent</a>{: .lua-function }(`string`{: .lua-type } event, `table`{: .lua-type } parameters)  &rarr; `nil`{: .lua-type }
 : Dispatches an event to this element. The event is a string value of the event type, *without* the 'on' prefix. Parameters to the event are given in the dictionary parameters; the dictionary must only contain string keys, and numeric, string or boolean values.
 
@@ -612,6 +618,9 @@ The Element class has no constructor; it must be instantiated through a [Documen
 <a href='#Element-IsClassSet' name='Element-IsClassSet'>IsClassSet</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `boolean`{: .lua-type }
 : Returns true if the class name is set on the element, false if not.
 
+<a href='#Element-IsPseudoClassSet' name='Element-IsPseudoClassSet'>IsPseudoClassSet</a>{: .lua-function }(`string`{: .lua-type } name)  &rarr; `boolean`{: .lua-type }
+: Returns true if the pseudo-class name is set on the element, false if not.
+
 <a href='#Element-QuerySelector' name='Element-QuerySelector'>QuerySelector</a>{: .lua-function }(`string`{: .lua-type } selectors)  &rarr; `Element`{: .lua-type }
 : Returns the first descendant element matching the provided RCSS selector(s).
 
@@ -638,6 +647,9 @@ The Element class has no constructor; it must be instantiated through a [Documen
 
 <a href='#Element-SetClass' name='Element-SetClass'>SetClass</a>{: .lua-function }(`string`{: .lua-type } name, `boolean`{: .lua-type } value)  &rarr; `nil`{: .lua-type}
 : Sets (if value is true) or clears (if value is false) the class name on the element.
+
+<a href='#Element-SetPseudoClass' name='Element-SetPseudoClass'>SetPseudoClass</a>{: .lua-function }(`string`{: .lua-type } name, `boolean`{: .lua-type } value)  &rarr; `nil`{: .lua-type}
+: Sets (if value is true) or clears (if value is false) the pseudo-class name on the element.
 
 
 
